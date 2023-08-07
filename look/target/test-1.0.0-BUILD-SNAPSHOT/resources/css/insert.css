@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+.guestbook {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 600px;
+  height: 400px;
+  margin: auto; /* Add this line */
+  position: absolute; /* Add this line */
+  margin-top: 100px;
+  left: 0; /* Add this line */
+  
+  right: 0; /* Add this line */
+}
+
+.guestbook h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.guestbook form label {
+  display: block;
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+.guestbook form input[type="text"],
+.guestbook form textarea {
+  border: 3px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1.2rem;
+}
+.guestbook form button[type="button"] {
+	font-size: 1.2rem;
+		width:100%;
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+			font-size: 16px;
+			margin-top: 15px;
+		}
+
+.guestbook form button[type="button"]:hover {
+			background-color: #555;
+		}
+
+
+.guestbook .entries {
+  margin-top: 20px;
+}
+
+.guestbook .entry {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.guestbook .entry p {
+  font-size: 1em;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+
+.guestbook .entry small {
+  font-size: 0.8em;
+  color: #999;
+}

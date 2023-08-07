@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+        
+<mapper namespace="MemberDAO">
+ 
+    <resultMap id="memberResult" type="member">
+		<id property="member_id" column="MEMBER_ID" />
+		<result property="member_name" column="MEMBER_NAME" />
+		<result property="member_password" column="MEMBER_PASSWORD" />
+		<result property="member_email" column="MEMBER_EMAIL" />	
+	</resultMap>
+
+    
+    
+    <!-- 회원 가입 -->
+	<insert id="insertMember">
+		<![CDATA[
+		INSERT INTO MEMBER (
+			MEMBER_ID, 
+			MEMBER_PASSWORD, 
+			MEMBER_NAME,
+			MEMBER_EMAIL
+		) VALUES(
+			#{member_id}, 
+			#{member_password}, 
+			#{member_name},
+			#{member_email}
+		)
+		]]>
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="login" resultMap="memberResult">
+		<![CDATA[
+			SELECT * FROM MEMBER
+			WHERE MEMBER_ID=#{member_id} AND MEMBER_PASSWORD=#{member_password}
+		]]>
+	</select>
+	
+	<!--회원가입 아이디 중복 체크 -->
+	<select id="checkID" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_ID=#{member_id}
+	</select>
+	
+	<!--회원 중복 체크 -->
+	<select id="checkMember" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_ID=#{member_id} AND MEMBER_PASSWORD=#{member_password}
+	</select>
+	
+	
+    
+    
+    
+    
+    
+    
+</mapper>

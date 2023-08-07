@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="BoardDAO">
+ 
+    <resultMap id="boardResult" type="board"> 
+        <id property="seq" column="SEQ" />
+        <result property="title" column="TITLE"></result>
+        <result property="writer" column="WRITER"></result>
+        <result property="content" column="CONTENT"></result>
+       <!--  <result property="regDate" column="regdate" /> -->
+    </resultMap>
+ 
+    <!-- 입력 -->
+    <insert id="insertBoard">
+       INSERT  INTO board  (seq, title, writer, content)
+        VALUES (BOARD_SEQ.NEXTVAL,#{title},#{writer},#{content})
+    </insert>
+    
+    <!-- 수정 -->
+    <update id="updateBoard">
+		update board
+		set
+		title = #{title},
+		content = #{content}
+		where
+		seq = #{seq}
+	</update>
+    
+    <!-- 리스트 -->
+     <select id="Boardlist" resultMap="boardResult" resultType="board"> 
+        <![CDATA[ select * from board order by seq ]]>
+    </select> 
+    
+    
+    <!-- 리스트 페이징-->
+     <select id="getListPaging" resultType="board">
+     <![CDATA[
+        select seq, title, writer, content, regdate
+        from (
+            select rownum as bno, seq, title, writer, content ,regdate
+            from board 
+            where rownum <= #{pageNum} * #{amount}
+     ]]> 
+     
+     <if test="keyword != null">
+         and title like '%'||#{keyword}||'%' 
+     </if>
+     
+     <![CDATA[
+        ) 
+        where bno > (#{pageNum} -1) * #{amount} 
+        
+    ]]>    
+   </select>
+    
+     
+    <!-- 페이지 갯수 -->
+    <select id="getTotal" resultType="java.lang.Integer">
+    	select count(*) from board
+    	
+    	 <if test="keyword != null">
+            
+            where title like '%'||#{keyword}||'%'
+        </if>
+    	
+    </select>
+    
+     
+   <!-- 상세보기 -->
+    <select id="getBoardList" resultMap="boardResult" resultType="board">
+     select * from board where seq = #{seq}
+    </select>
+ 	
+ 	<!-- 삭제 -->
+    <delete id="deleteBoard">
+        delete board where seq = #{seq}
+    </delete>
+ 
+ 
+</mapper>
