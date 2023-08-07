@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PaymentDAO">
+	<resultMap id="payment" type="payment">
+		<result property="payment_id" column="PAYMENT_ID" />
+		<result property="member_id" column="MEMBER_ID" />
+		<result property="prd_id" column="PRD_ID" />
+		<result property="buy_quantity" column="BUY_QUANTITY" />
+		<result property="member_zipcode" column="MEMBER_ZIPCODE" />
+		<result property="member_faddr" column="MEMBER_FADDR" />
+		<result property="member_laddr" column="MEMBER_LADDR" />
+		<result property="member_phone" column="MEMBER_PHONE" />
+		<result property="credit_number" column="CREDIT_NUMBER" />
+		<result property="prd_img" column="PRD_IMG" />
+		<result property="prd_name" column="PRD_NAME" />
+		<result property="prd_opt" column="PRD_OPT" />
+		<result property="prd_price" column="PRD_PRICE" />
+		<result property="prd_delivery" column="PRD_DELIVERY" />
+		<result property="prd_discount" column="PRD_DISCOUNT" />
+		<result property="delivery" column="DELIVERY" />
+		<result property="prd_sum" column="PRD_SUM" />
+	</resultMap>
+	
+	<!-- 결제 정보 등록 -->
+	<insert id="insertPayment">
+		<![CDATA[
+			INSERT INTO PRODUCT_PAYMENT
+			(PAYMENT_ID, MEMBER_ID, PRD_ID, BUY_QUANTITY, MEMBER_ZIPCODE, MEMBER_FADDR, MEMBER_LADDR, MEMBER_PHONE, CREDIT_NUMBER, PRD_OPT, PRD_SUM)
+			VALUES
+			(PAYMENT_SEQ.NEXTVAL, #{member_id}, #{prd_id}, #{buy_quantity}, #{member_zipcode}, #{member_faddr}, #{member_laddr}, #{member_phone}, #{credit_number}, #{prd_opt}, #{prd_sum})
+		]]>
+	</insert>
+	
+	<!-- 결제 창 불러오기 -->	
+	<select id="paymentProduct" resultMap="payment">
+		<![CDATA[
+			SELECT *
+			FROM PRODUCT_INFO NATURAL JOIN MEMBER
+			WHERE PRD_ID=#{payment.prd_id} AND MEMBER_ID=#{payment.member_id}
+		]]>
+	</select>
+	
+	<!-- 주문  정보 삭제 -->
+	<delete id="deletePayment">
+		<![CDATA[
+			DELETE FROM PRODUCT_PAYMENT WHERE PAYMENT_ID=#{payment_id}
+		]]>
+	</delete>
+
+</mapper>

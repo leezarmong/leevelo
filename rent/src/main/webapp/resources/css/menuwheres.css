@@ -1,0 +1,138 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+/* body {width: 700px;margin: 20px auto;} */
+li {
+	list-style: none;
+}
+
+/* lnb */
+#area-list_rent-select {
+	position: relative;
+	width: 100%;
+	height: 50px;
+}
+
+#area-list_rent-select>ul>li {
+	
+	border-bottom: 1px solid #dcdcdc;
+}
+
+#area-list_rent-select>ul>li>a {
+	
+	height: 80px;
+	text-decoration: none;
+	display: block;
+	padding: 25px 35px 14px 15px;
+	color: black;
+	font-size: 25px;
+	font-weight: bold;
+	background: #ffffff
+		url(https://t1.daumcdn.net/cfile/tistory/2417E04D570C5C0225) no-repeat
+		95% 30px;
+}
+
+#area-list_rent-select>ul>li a:hover {
+	color: rgb(31, 169, 255);
+	background-color: #ffffff;
+}
+
+#area-list_rent-select>ul>li.on>a {
+	color: rgb(31, 169, 255);
+	background: #e3f6ff
+		url('https://t1.daumcdn.net/cfile/tistory/257B794F570C5C0D1A')
+		no-repeat 95% 30px;
+}
+
+#area-list_rent-select>ul>li ul {
+	display: none;
+}
+
+#area-list_rent-select>ul>li>ul>li>a {
+	text-decoration: none;
+	display: block;
+	padding: 0 25px 14px 14px;
+	color: white;
+	font-size: 16px;
+	background: #f5f2ec
+		url('https://t1.daumcdn.net/cfile/tistory/2417E04D570C5C0225')
+		no-repeat 95% 1px;
+}
+
+#area-list_rent-select>ul>li>ul>li>a {
+	color: rgb(31, 169, 255);;
+	background-color: #f5f2ec;
+}
+
+#area-list_rent-select>ul>li>ul>li.on a {
+	color: rgb(31, 169, 255);;
+	background: #f5f2ec
+		url('https://t1.daumcdn.net/cfile/tistory/257B794F570C5C0D1A')
+		no-repeat 95% 3px;
+}
+
+#area-list_rent-select>ul>li>ul li ul {
+	display: none;
+	padding-bottom: 8px;
+	background-color: #f5f2ec;
+}
+
+#area-list_rent-select>ul>li>ul li li a {
+	display: block;
+	padding: 0 25px 10px 22px;
+	color: rgb(255, 255, 245);
+	font-size: 12px;
+	background-color: #f5f2ec;
+}
+
+#area-list_rent-select>ul>li>ul>li li a:hover {
+	color: rgb(31, 169, 255);;
+}
+
+#area-list_rent-select>ul li.noDepth a {
+	background-image: none !important;
+}
+
+/* 위치 라디오버튼 */
+div#radio {
+	background-color: rgb(223, 223, 223);
+}
+
+#radio {
+	padding: 15px 10px;
+}
+
+#radio input[type=radio] {
+	display: none;
+}
+
+#radio input[type=radio]+label {
+	border-radius: 4px;
+	display: inline-block;
+	cursor: pointer;
+	height: 24px;
+	width: 120px;
+	margin-top: 10px;
+	margin-left: 25px;
+	line-height: 24px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 13px;
+	/* 그라데이션 */
+	transition: 0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	-ms-transition: 0.3s;
+}
+
+#radio input[type=radio]+label {
+	background-color: #fff;
+	color: #333;
+}
+
+#radio input[type=radio]:checked+label {
+	background-color: rgb(31, 169, 255);
+	color: rgb(255, 255, 255)
+}

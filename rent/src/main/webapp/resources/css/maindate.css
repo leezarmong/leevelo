@@ -1,0 +1,145 @@
+section{
+    width: auto;
+    height: 600px;
+    
+}
+
+ /* 슬라이더 */
+div.left{
+    width: 605px;
+    height: 100%;
+    float: left;
+   
+}
+
+article{
+    width: 355px;
+    height: 100%;
+
+    float: left;
+    background-color: rgb(77, 77, 77);
+}
+
+
+article.cen{
+    width: 355px;
+    height: 100%;
+   
+    float: left;
+    background-color: rgb(43, 43, 43);
+}
+
+article.right{
+    width: 305px;
+    height: 100%;
+ 
+    float: left;
+    background-color: rgb(77, 77, 77);
+}
+
+
+
+
+p.title_rent-select{
+    margin: 7px;
+    margin-top: -5px;
+    padding: 20px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+p.rent-select{
+    margin: 10px;
+    margin-top: 40px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;   
+}
+
+
+div.rent-select{
+    
+    margin: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+/* 버튼 */
+div.btn_reserve{
+    margin: 10px;
+    margin-left: 17px;
+}
+
+input.btn_reserve{
+    cursor: pointer;
+    width: 270px;
+    height: 30px;
+    background-color: #F9FAFC;
+    border: 0px;
+    color:  #666;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+input.btn_reserve:hover{
+    background-color: rgb(31, 169, 255);
+    color: white;
+    transition:0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition:0.3s;
+
+}
+
+
+
+
+input.rent-select{
+    margin: 10px;
+    margin-left: 20px;
+    width: 320px;
+    height: 40px;
+    font-size: 15px;
+}
+
+
+
+/* --버튼 */
+.form_radio_btn {
+     width: 47%;
+     height : 30px;
+      /* border: 1px solid #EAE7E7; */
+      border-radius: 4px;
+  }
+  .form_radio_btn input[type=radio] {
+     display: none;
+  }
+  .form_radio_btn label {
+     display: block;
+      border-radius:4px;
+        margin: 0 auto;
+      text-align: center;
+      /* height: -webkit-fill-available; */
+      line-height: 30px;
+  }
+   
+  /* Checked */
+  .form_radio_btn input[type=radio]:checked + label {
+     background: #ff6c6c;
+     color: #fff;
+  }
+   
+  /* Hover */
+  .form_radio_btn label:hover {
+     color: #666;
+  }
+   
+  /* Disabled */
+  .form_radio_btn input[type=radio] + label {
+     background: #F9FAFC;
+     color: #666;
+  }

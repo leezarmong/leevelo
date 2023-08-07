@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberDAO">
+	<resultMap id="member" type="member">
+		<id property="member_id" column="MEMBER_ID" />
+		<result property="member_name" column="MEMBER_NAME" />
+		<result property="member_password" column="MEMBER_PASSWORD" />
+		<result property="member_license" column="MEMBER_LICENSE" />
+		<result property="member_year" column="MEMBER_YEAR" />
+		<result property="member_date" column="MEMBER_DATE" />
+		<result property="member_email" column="MEMBER_EMAIL" />
+		<result property="member_phone" column="MEMBER_PHONE" />
+		<result property="member_zipcode" column="MEMBER_ZIPCODE" />
+		<result property="member_faddr" column="MEMBER_FADDR" />
+		<result property="member_laddr" column="MEMBER_LADDR" />
+	</resultMap>
+
+	<!-- 아이디 중복 체크 -->
+	<select id="checkID" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_ID=#{member_id}
+	</select>
+
+	<!-- 회원 체크 -->
+	<select id="checkMember" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_ID=#{member_id} AND MEMBER_PASSWORD=#{member_password}
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="login" resultMap="member">
+		<![CDATA[
+			SELECT * FROM MEMBER
+			WHERE MEMBER_ID=#{member_id} AND MEMBER_PASSWORD=#{member_password}
+		]]>
+	</select>
+
+	<!-- 회원 가입 -->
+	<insert id="insertMember">
+		<![CDATA[
+		INSERT INTO MEMBER (
+			MEMBER_ID, 
+			MEMBER_PASSWORD, 
+			MEMBER_NAME,
+			MEMBER_EMAIL,
+			MEMBER_LICENSE,
+			MEMBER_YEAR, 
+			MEMBER_PHONE, 
+			MEMBER_ZIPCODE,
+			MEMBER_FADDR,
+			MEMBER_LADDR
+		) VALUES(
+			#{member_id}, 
+			#{member_password}, 
+			#{member_name},
+			#{member_email},
+			#{member_license},
+			TO_DATE(#{member_year}, 'yyyy-mm-dd'), 
+			#{member_phone},
+			#{member_zipcode},
+			#{member_faddr},
+			#{member_laddr}
+		)
+		]]>
+	</insert>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="updateMember">
+		UPDATE MEMBER
+		SET
+		MEMBER_PASSWORD = #{member_password},
+		MEMBER_LICENSE = #{member_license},
+		MEMBER_EMAIL = #{member_email},
+		MEMBER_PHONE = #{member_phone},
+		MEMBER_FADDR = #{member_faddr},
+		MEMBER_LADDR = #{member_laddr},
+		MEMBER_ZIPCODE = #{member_zipcode}
+		WHERE
+		MEMBER_ID = #{member_id}
+	</update>
+	
+	<!-- 회원 주문 정보 -->
+	<select id="orderMember" resultType="payment">
+		SELECT * FROM(
+			SELECT ROWNUM AS RN, A.* FROM (
+				SELECT * FROM (
+					SELECT PRD_ID, PAYMENT_ID, PAYMENT_DATE, PRD_NAME, DELIVERY, PRD_SUM 
+					FROM PRODUCT_PAYMENT NATURAL JOIN PRODUCT_INFO WHERE MEMBER_ID = #{member_id}
+					<include refid="myp"></include>
+				) ORDER BY PAYMENT_DATE DESC
+			) A
+		) WHERE RN BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 회원 주문 수 체크 -->
+	<select id="orderCount" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM PRODUCT_PAYMENT WHERE MEMBER_ID = #{member_id}
+	</select>
+	
+	<sql id="myp">
+		AND PAYMENT_DATE BETWEEN ADD_MONTHS(SYSDATE, -3) AND SYSDATE
+	</sql>
+	
+	<!-- 아이디 찾기 체크 -->
+	<select id="findId" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_NAME=#{member_name} AND MEMBER_PHONE=#{member_phone}
+	</select>
+	
+	<!-- 아이디 찾기 불러오기 -->
+	<select id="findId2" resultMap="member">
+		<![CDATA[
+			SELECT MEMBER_ID, MEMBER_NAME FROM MEMBER
+			WHERE MEMBER_NAME=#{member_name} AND MEMBER_PHONE=#{member_phone}
+		]]>
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="findPw" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_ID=#{member_id} AND MEMBER_NAME=#{member_name} AND MEMBER_PHONE=#{member_phone}
+	</select>
+	
+	<!-- 비밀번호 찾기 > 불러오기 > 변경 -->
+	<select id="findPw2" resultMap="member">
+		<![CDATA[
+			SELECT MEMBER_ID, MEMBER_NAME FROM MEMBER
+			WHERE MEMBER_ID=#{member_id} AND MEMBER_NAME=#{member_name} AND MEMBER_PHONE=#{member_phone}
+		]]>
+	</select>
+	
+	<!-- 비밀번호 변경   -->
+	<update id="cpwMember">
+		UPDATE MEMBER SET
+		MEMBER_PASSWORD = #{member_password}
+		WHERE MEMBER_ID=#{member_id} AND MEMBER_NAME=#{member_name}
+	</update>
+	
+	<resultMap id="memberinfo" type="memberinfo">
+		<result property="member_id" column="MEMBER_ID" />
+		<result property="member_name" column="MEMBER_NAME" />
+		<result property="member_phone" column="MEMBER_PHONE" />
+	</resultMap>
+	
+	<!-- 관리자 회원 목록 -->
+	<select id="getAdminMemberList" resultMap="memberinfo">
+		<![CDATA[
+			SELECT 
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE
+			FROM (SELECT ROWNUM AS RN, A.* FROM (SELECT * FROM MEMBER ORDER BY MEMBER_ID DESC)A) 
+			WHERE RN BETWEEN #{start} AND #{end}
+		]]>
+	</select>	
+	
+	<!-- 관리자 회원 수 체크 -->
+	<select id="getAdminCountMember" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT COUNT(*) FROM MEMBER
+		]]>
+	</select>
+	
+	<!-- 관리자 회원 정보 수정 -->
+	<update id="modifyMember">
+		UPDATE MEMBER
+		SET
+		MEMBER_ID = #{member_id}, 
+		MEMBER_NAME = #{member_name},
+		MEMBER_LICENSE = #{member_license},
+		MEMBER_PHONE = #{member_phone},
+		MEMBER_ZIPCODE = #{member_zipcode},
+		MEMBER_FADDR = #{member_faddr},
+		MEMBER_LADDR = #{member_laddr}		
+		WHERE
+		MEMBER_ID=#{member_id}
+	</update>
+	
+	<!-- 회원 탈퇴, 삭제 -->
+	<delete id="deleteMember">
+		<![CDATA[
+			DELETE FROM MEMBER WHERE MEMBER_ID=#{member_id}
+		]]>
+	</delete>
+
+	<!-- 관리자 회원 정보 수정 -->
+	<select id="memberDetail" resultMap="member">
+		<![CDATA[
+			SELECT * FROM MEMBER WHERE MEMBER_ID=#{member_id}
+		]]>
+	</select>
+	
+	<!-- 관리자 회원 검색 -->	
+	<select id="listSearchMem" resultMap="memberinfo">
+		SELECT * FROM (
+			SELECT ROWNUM AS RN, A.* FROM (
+				SELECT * FROM MEMBER
+				WHERE UPPER(MEMBER_NAME) LIKE UPPER('%'||#{sPrd}||'%') OR LOWER(MEMBER_NAME) LIKE LOWER('%'||#{sPrd}||'%')
+			) A
+		) WHERE RN BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 회원 수 불러오기 -->
+	<select id="countSearchMem" resultType="java.lang.Integer">
+		SELECT COUNT(*) 
+		FROM MEMBER
+		WHERE UPPER(MEMBER_NAME) LIKE UPPER('%'||#{sPrd}||'%') 
+		OR LOWER(MEMBER_NAME) LIKE LOWER('%'||#{sPrd}||'%')
+	</select>
+	
+</mapper>

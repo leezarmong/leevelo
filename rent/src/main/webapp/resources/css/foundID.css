@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+body {
+	padding: 0px;
+	margin: 0;
+	text-align: center;
+	
+}
+#foundID {
+	
+	item-align: center;
+	padding-top: 70px;
+}
+
+#changeid {
+margin-top: 20px;
+ width: 120px;
+    height: 30px;
+    outline-color: rgb(31, 169, 255);
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-top: 50px;
+    -webkit-transition: 0.3s;
+    font-size: 14px;
+    border: 1px solid rgb(240, 240, 240);
+    background-color: rgb(240, 240, 240);
+    color: #000000;	
+}
+#changeid:hover {	
+	font-size: 15px;
+	color: #fff;
+    background-color: rgba(31, 169, 255, 0.6);   
+}

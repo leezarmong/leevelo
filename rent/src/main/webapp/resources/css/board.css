@@ -1,0 +1,141 @@
+a {
+  color : #000000;
+}
+.name {
+	margin:10px;
+	letter-spacing: 10px;
+	padding-top: 60px; 
+	color: rgb(31, 169, 255); 
+}
+.list1 {
+	color: #fff;
+	background: #1FA9FF;
+	border-top: 1px solid;
+	border-bottom:1px solid;
+	
+}
+.list2 {
+	background: #fff;
+	border-bottom:1px solid;
+	border-color: #E1DCDC;
+}
+.check2 {
+	font-family: 돋움;
+	background-color: rgba(131, 131, 131, 0.6);
+	color: white;
+	width: 100px; 
+    height: 40px; 
+    font-size: 15px; 
+    font-weight: bold;
+    cursor: pointer;  
+    border: 0px;
+    border-radius: 4px; 
+}
+.check2:hover{
+    background-color: rgb(31, 169, 255);
+	color: white;
+	transition:0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	-ms-transition:0.3s;
+}
+#searchOption {
+	height: 40px;
+	width: 125px;
+	margin: 10px;
+	border: 1px solid #7FB3FA;
+	background: #ffffff;
+}
+#keyword {
+	border: 1px solid #7fb3fa;
+	background: #ffffff;
+	height: 36px;
+}
+input[type=button]{
+                width: 100px; 
+                height: 40px; 
+                font-size: 15px; 
+                font-weight: bold;
+                cursor: pointer;  
+                border: 0px;
+                border-radius: 4px;      
+            }
+            input[type=button]:hover{
+                background-color: rgb(31, 169, 255);
+                color: white;
+                transition:0.3s;
+                -webkit-transition: 0.3s;
+                -moz-transition: 0.3s;
+                -o-transition: 0.3s;
+                -ms-transition:0.3s;
+            }
+button.text {
+	background-color: rgb(131, 131, 131, 0.6);
+	width: 100px; 
+	height: 40px; 
+	font-size: 15px; 
+	font-weight: bold;
+	cursor: pointer;  
+	border: 0px;
+	border-radius: 4px;      
+            }
+button.text:hover{
+    background-color: rgb(31, 169, 255);
+                color: white;
+                transition:0.3s;
+                -webkit-transition: 0.3s;
+                -moz-transition: 0.3s;
+                -o-transition: 0.3s;
+                -ms-transition:0.3s;
+}
+.text {
+	background-color:#7FB3FA;
+	width: 70px;
+	height: 25px;
+	border: 0px;
+	outline: none;
+	color: white;
+}
+.textb {
+	border: 1px solid #8D8D8C;
+	}
+.write {
+	font-family: 돋움;
+	background-color: rgba(131, 131, 131, 0.6);
+	width: 90px;
+	height: 35px;
+	border: 0px;
+	outline: none;
+	color: white;
+}
+.listp {
+	font-family: 돋움;
+	background-color: rgba(131, 131, 131, 0.6);
+	color: white;
+	width: 100px; 
+	height: 40px; 
+	font-size: 15px; 
+	font-weight: bold;
+	cursor: pointer;  
+	border: 0px;
+	border-radius: 4px; 
+}
+.listp:hover{
+    background-color: rgb(31, 169, 255);
+	color: white;
+	transition:0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	-ms-transition:0.3s;
+}
+.write:hover, .listp:hover{
+	background-color: rgb(31,169,255);
+	color: white;
+}
+.asd{
+	position: relative;
+	top:10px;
+	left: 10px;
+}

@@ -1,0 +1,114 @@
+
+#carousel {
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.carousel-item {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 370px;
+  height: 23em;
+  margin: 1em;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 0.5em;
+  transition: all 0.2s;
+  /* border: 1px solid black; */
+}
+
+.carousel-item:hover {
+  width: 390px;
+  margin-left: 0em;
+  margin-right: 0em;
+}
+
+.details {
+  padding: 1em;
+  border-radius: 0.5em;
+  background-image: linear-gradient(
+    var(--transparent),
+    var(--semi-transparent),
+    var(--semi-transparent)
+  );
+  opacity: 0;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.carousel-item-link {
+  margin: 0.2em;
+  padding: 0.2em;
+  border: 0.1em solid var(--transparent);
+  box-shadow: 0.15em 0.15em #26b79f;
+  text-decoration: none;
+  color: white;
+}
+@media (hover: hover) {
+  .carousel-item:hover > .details {
+    opacity: 1;
+  }
+
+  .carousel-item-link:hover {
+    border: 0.1em solid #26b79f;
+    background-color: #26b79f;
+    color: black;
+    box-shadow: 0.15em 0.15em var(--transparent);
+  }
+}
+
+@media (hover: none) {
+  .details {
+    opacity: 1;
+  }
+
+  .carousel-item-link {
+    border: 0.1em solid #26b79f;
+    background-color: #26b79f;
+    color: black;
+    box-shadow: 0.15em 0.15em var(--transparent);
+  }
+}
+
+#k3 {
+  background-image: url("../car/k322.png");
+}
+
+#mo {
+  background-image: url("../car/모닝.png");
+}
+
+#ca20 {
+  background-image: url("../car/카니발20.png");
+}
+
+#ca22 {
+  background-image: url("../car/카니발22.png");
+}
+
+
+
+
+/* 2번째 줄 */
+
+#av {
+  background-image: url("../car/아반떼22.png");
+}
+
+#so {
+  background-image: url("../car/쏘나타22.png");
+}
+
+#ly {
+  background-image: url("../car/레이21.png");
+}
+
+#k5 {
+  background-image: url("../car/k522.png");
+}
+
+

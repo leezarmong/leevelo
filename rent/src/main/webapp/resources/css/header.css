@@ -1,0 +1,98 @@
+header{
+  margin-top: 100px;
+}
+
+  ul{
+      list-style: none;
+  }
+  a{
+    text-decoration: none;
+  }
+
+  .gnb {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin: 30px auto;
+    position: relative;
+  }
+  .gnb .depth1 {
+    width: 200px;
+    float: left;
+    text-align: center;
+  }
+  .gnb .depth1 > a {
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+    height: 50px;
+    color: rgb(0, 0, 0);
+    
+  }
+
+  .gnb .depth1:hover{
+ border-bottom: 5px solid rgb(31, 169, 255);
+  }   
+
+
+  .gnb .depth1:hover > a {
+    color: rgb(221, 221, 221);
+  }
+  .gnb .depth1:hover > .depth2 {
+    display: block;
+  }
+  .gnb .depth2 {
+    margin-left: -100px;
+    /* display: flex;
+    justify-content: center; */
+    top: 50px;
+    width: 1400px;
+    display: none;
+  }
+  .gnb .depth2 > li {
+    float: left;
+  }
+  .gnb .depth2 > li > a {
+    display: block;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 17px;
+    color: black;
+    font-weight: bold;
+  }
+
+  .gnb .depth2 > li > a:hover {
+    color: rgb(203, 203, 203);
+     transition:0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition:0.3s;
+  font-size: 1.1em;
+  }
+
+  .depth1,.depth1:hover > a{
+  transition:0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition:0.3s;
+  
+}
+
+/* 아이콘 위치 */
+    div#icon{
+    position:absolute; 
+    right:6%; 
+    top:50px;  
+    }
+    div#icon>a{
+    color: black;
+    }
+    
+	div#user{
+	position:absolute; 
+    right:4%; 
+    top:105px; 
+	}

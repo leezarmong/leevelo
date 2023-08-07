@@ -1,0 +1,109 @@
+@CHARSET "UTF-8";
+
+view {
+	table-layout: fixed;
+	#E1DCDC
+}
+.simpleView { 
+    border-collapse: collapse; 
+    border-spacing: 0px;
+}
+
+.a {
+	border-top: 2px solid #000;
+	border-bottom: 1px dashed black;
+}
+.b {
+	border-bottom: 2px solid #000;
+	border-top: 1px dashed black;
+}
+.tdS {
+	width: 100px;
+}
+.previous {
+	font-family: 돋움;
+	background-color: rgba(131, 131, 131, 0.6);
+	color: white;
+	width: 100px; 
+    height: 40px; 
+    font-size: 15px; 
+    font-weight: bold;
+    cursor: pointer;  
+    border: 0px;
+    border-radius: 4px;  
+}
+.previous:hover {
+	background-color: rgb(31, 169, 255);
+	color: white;
+	transition:0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	-ms-transition:0.3s;
+}
+.next {
+	font-family: 돋움;
+	background-color: rgba(131, 131, 131, 0.6);
+	color: white;
+	width: 100px; 
+    height: 40px; 
+    font-size: 15px; 
+    font-weight: bold;
+    cursor: pointer;  
+    border: 0px;
+    border-radius: 4px;  
+}
+.next:hover {
+	background-color: rgb(31, 169, 255);
+	color: white;
+	transition:0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	-ms-transition:0.3s;
+}
+#list_btn {	
+	font-family: 돋움;
+	background-color: rgba(131, 131, 131, 0.6);
+	color: white;
+	width: 100px; 
+    height: 40px; 
+    font-size: 15px; 
+    font-weight: bold;
+    cursor: pointer;  
+    border: 0px;
+    border-radius: 4px;       
+}
+#list_btn:hover{
+	background-color: rgb(31, 169, 255);
+	color: white;
+	transition:0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	-ms-transition:0.3s;
+}
+.adjust {
+	border: 1px solid #B0C4DE;
+}
+#update {
+	font-family: 돋움;
+	background-color: rgba(131, 131, 131, 0.6);
+	color: white;
+	width: 100px; 
+    height: 40px; 
+    font-size: 15px; 
+    font-weight: bold;
+    cursor: pointer;  
+    border: 0px;
+    border-radius: 4px; 
+}
+#update:hover {
+	background-color: rgb(31, 169, 255);
+	color: white;
+	transition:0.3s;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	-ms-transition:0.3s;
+}

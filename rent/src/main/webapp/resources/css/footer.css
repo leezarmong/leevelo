@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+}
+
+#footer-infos-wrap {
+  background-color: #515151;
+  color: white;
+
+  margin: 0;
+  margin-top: 0px;
+  padding-left: 350px;
+  padding-right: 250px;
+  border-top: 2px solid;
+  min-height: 150px;
+  /* items-align: center; */
+  /*       display: flex;
+  justify-content: space-between; */
+}
+
+#footer-inner {
+  align-items: center;
+}
+
+div.right {
+  float: right;
+}
+
+#footer-logo {
+  float: left;
+   padding-right: 50px;
+   padding-top: 20px;
+}
