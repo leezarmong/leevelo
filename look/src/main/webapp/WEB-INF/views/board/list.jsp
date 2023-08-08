@@ -47,6 +47,17 @@
 		
 	<div class="search_wrap">
         <div class="search_area">
+            
+            <select name="type">
+                <option value="" <c:out value="${pagemaker.cri.type == null?'selected':'' }"/>>--</option>
+                <option value="T" <c:out value="${pagemaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+                <option value="C" <c:out value="${pagemaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
+                <option value="W" <c:out value="${pagemaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
+                <option value="TC" <c:out value="${pagemaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
+                <option value="TW" <c:out value="${pagemaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
+                <option value="TCW" <c:out value="${pagemaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+            </select> 
+            
             <input type="text" name="keyword" value="${pagemaker.cri.keyword }">
             <button>검색</button>
         </div>
@@ -83,7 +94,7 @@
 		<input type="hidden" name="pageNum" value="${pagemaker.cri.pageNum }">
 		<input type="hidden" name="amount" value="${pagemaker.cri.amount }">
 		<input type="hidden" name="keyword" value="${pagemaker.cri.keyword }">	
-		<%-- <input type="hidden" name="type" value="${pagemaker.cri.type }"> --%>	
+		<input type="hidden" name="type" value="${pagemaker.cri.type }"> 	
 	</form>
 	
 	
@@ -133,16 +144,17 @@
 	});	
 	
 	
-	$(".search_area button").on("click", function(e){
+	/* $(".search_area button").on("click", function(e){
         e.preventDefault();
         let val = $("input[name='keyword']").val();
         moveForm.find("input[name='keyword']").val(val);
         moveForm.find("input[name='pageNum']").val(1);
         moveForm.submit();
-    });
+    }); */
 	
-	/* 
-	
+
+    $(".search_area button").on("click", function(e){
+        e.preventDefault();
 		
 		let type = $(".search_area select").val();
 		let keyword = $(".search_area input[name='keyword']").val();
@@ -161,7 +173,7 @@
 		moveForm.find("input[name='keyword']").val(keyword);
 		moveForm.find("input[name='pageNum']").val(1);
 		moveForm.submit();
-	}); */
+	}); 
 	
 </script>
 		

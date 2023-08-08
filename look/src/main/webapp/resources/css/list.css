@@ -97,5 +97,10 @@
     background-color: #333;
     color: white;
   }
+  
+  .search_area select{
+  height: 35px;
+  margin-left: -100px;
+  }
  
 		
