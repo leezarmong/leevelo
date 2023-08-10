@@ -65,6 +65,7 @@ public class Criteria {
 	public void setType(String type) {
 		this.type = type;
 		this.typeArr = type.split("");
+		// int 형식으로 들어오는 타입을 string 으로 읽을수있게 split으로 배열 구분 
 	}
 
 	public String[] getTypeArr() {

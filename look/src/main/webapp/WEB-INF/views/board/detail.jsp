@@ -63,10 +63,11 @@
 		<input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
 		<input type="hidden" name="keyword" value="${cri.keyword }">
 		<input type="hidden" name="type" value="${cri.type }"> 
-		</form>
+	</form>
 	
 	
 	<script>
+	
 	let form = $("#infoForm");
 	
 	$("#list").on("click", function(e){
@@ -80,7 +81,8 @@
 		form.attr("action", "/test/updatepage");
 		form.submit();
 	});	
-</script>
+	
+	</script>
 	
 
 </body>

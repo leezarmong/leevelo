@@ -33,7 +33,6 @@
         <![CDATA[ select * from board order by seq ]]>
     </select> 
     
-    
      <!-- 검색 조건문 -->
     <sql id="criteria">
         <trim prefix="AND (" suffix=")" prefixOverrides="OR">
@@ -55,8 +54,7 @@
         </trim>
     
     </sql>
-    
-    
+      
     <!-- 리스트 페이징-->
      <select id="getListPaging" resultType="board">
      <![CDATA[
@@ -77,8 +75,7 @@
         
     ]]>    
    </select>
-    
-     
+       
     <!-- 페이지 갯수 -->
     <select id="getTotal" resultType="java.lang.Integer">
     	select count(*) from board
@@ -87,8 +84,7 @@
             where bno > 0 <include refid="criteria"/>
         </if>
     	
-    </select>
-    
+    </select>  
      
    <!-- 상세보기 -->
     <select id="getBoardList" resultMap="boardResult" resultType="board">

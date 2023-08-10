@@ -144,15 +144,6 @@
 	});	
 	
 	
-	/* $(".search_area button").on("click", function(e){
-        e.preventDefault();
-        let val = $("input[name='keyword']").val();
-        moveForm.find("input[name='keyword']").val(val);
-        moveForm.find("input[name='pageNum']").val(1);
-        moveForm.submit();
-    }); */
-	
-
     $(".search_area button").on("click", function(e){
         e.preventDefault();
 		
