@@ -32,6 +32,20 @@ public class ZzacHole {
         * int destPos : 위의 복사본에서 자료를 받을때 , 어느 부분부터 쓸 것인지 시작 위치를 정해준다.
         *
         * int length : 원본에서 복사본으로 데이터를 읽어서 쓸 데이터의 길이.
+        *
+        *
+        *
+        * // 일반적인 for 문을 통한 출력
+        * // Manual copying of elements from evenIndices to zb
+        for (int i = 0; i < z; i++) {
+            zb[i] = evenIndices[i];
+        }
+
+        // Manual copying of elements from oddIndices to hb
+        for (int i = 0; i < h; i++) {
+            hb[i] = oddIndices[i];
+        }
+        *
         * */
 
 
