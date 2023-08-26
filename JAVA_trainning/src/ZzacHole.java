@@ -20,6 +20,20 @@ public class ZzacHole {
 
         System.arraycopy(evenIndices, 0, zb, 0, z);
         System.arraycopy(oddIndices, 0, hb, 0, h);
+        // System.arraycopy = (src , sercPos , dest , destPos , length)
+
+        /*
+        *  Object src : 복사하고자 하는 소스
+        *
+        *  int srcPos : 위의 원본 소스에서 어느 부분부터 읽어올지 위치를 정해준다.
+        *
+        * Object dest : 복사할 소스 , 복사하려는 대상
+        *
+        * int destPos : 위의 복사본에서 자료를 받을때 , 어느 부분부터 쓸 것인지 시작 위치를 정해준다.
+        *
+        * int length : 원본에서 복사본으로 데이터를 읽어서 쓸 데이터의 길이.
+        * */
+
 
         int[][] result = new int[2][];
         result[0] = zb;
