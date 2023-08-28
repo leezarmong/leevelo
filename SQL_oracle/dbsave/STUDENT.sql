@@ -100,7 +100,9 @@ select stu_no,stu_name,stu_dept,stu_weight as target from student order by targe
 select stu_no , stu_name ,stu_height  from student where stu_height >(
 select stu_height from student where stu_name = '옥성우');
 
+select * from student;
 
+select stu_no , stu_height from student where stu_height> (select stu_height from student where stu_name ='리자몽');
 --self join
 select a.stu_no,a.stu_name,a.stu_height
 from student a, student b
