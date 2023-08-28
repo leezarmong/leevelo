@@ -115,10 +115,11 @@ public class BoardController {
 	// 글 수정
 	@PostMapping("/updatepage")
 		public String update(BoardVO vo , RedirectAttributes rttr) {
+		// RedirectAttributes 는 전에 있던 정보드를 흘리지 않기 위함.
 										
 			boardservice.updateBoard(vo);
 			rttr.addFlashAttribute("result", "modify success");
-			
+			//메서드를 사용하여 리다이렉트 속성을 추가하면 리다이렉트된 요청에서 해당 속성을 사용
 			return "redirect:list";
 		}
 		

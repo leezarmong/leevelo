@@ -127,8 +127,11 @@
 	$(".move").on("click", function(e){
 		e.preventDefault();
 		
-		/* 특정 이벤트에 대한 기본 동작을 실행하지 않도록 브라우저에 지시하는 것입니다. 
-		이를 통해 이벤트를 제어하고 필요에 따라 사용자 지정 작업 또는 유효성 검사를 수행할 수 있습니다. */
+		/* 일반적으로 브라우저가 링크의 href 속성에 지정된 URL로 이동하며, 
+		양식을 제출하면 일반적으로 처리를 위해 데이터가 서버로 전송됩니다.
+preventDefault() 메서드는 주로 이벤트가 트리거될 때 이러한 기본 동작이 발생하지 않도록 하는 데 사용 */
+
+//양식을 송하는데 일반적인 순서로 징행되지 않게 방해받지 않기 위함.
 		
 		moveForm.append("<input type='hidden' name='seq' value='"+ $(this).attr("href")+ "'>");
 		moveForm.attr("action", "/test/detail");
