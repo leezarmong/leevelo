@@ -93,6 +93,7 @@ select stu_name , stu_no from student order by stu_no desc  ;
 select stu_no,stu_name,stu_dept,stu_weight as target from student order by target;
 
 
+select * from student 
 
 
 
