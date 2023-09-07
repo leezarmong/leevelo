@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// 상위 클래스
 class TV {
 
     private int size;
@@ -13,11 +14,13 @@ class TV {
     }
 }
 
+//하위 클래스
 class ColorTV extends TV {
 private int color ;
 
     public ColorTV(int size , int color) {
         super(size);
+        //생성자에서 부모 클래스인 TV 클래스의 생성자를 호출하는 코드
         this.color = color;
     }
 
