@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+// 상속에 대한 기초 이해
 // 상위 클래스
 class TV {
 
