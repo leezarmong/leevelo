@@ -7,7 +7,7 @@ class TTV {
         this.size = size;
     }
 
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 }
@@ -17,13 +17,10 @@ class TVColor extends TTV{
     public TVColor(int size , int color) {
         super(size);
         this.color =  color;
-
     }
-
     public int getColor(){
         return color;
     }
-
     public void print(){
         System.out.print(getSize()+"size "+getColor()+"color");
     }
