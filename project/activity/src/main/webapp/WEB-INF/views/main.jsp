@@ -16,7 +16,7 @@
     <title>Document</title>
 </head>
 <body>
-
+<%@ include file="include/header.jsp" %>
 
 <main id="cbody"> <!-- main swiper -->
     <div class="swiper-container">
@@ -204,6 +204,6 @@
 
 
 </main>
-
+<%@ include file="include/footer.jsp" %>
 </body>
 </html>

@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+   table#product {
+      margin: 0 auto; /* center the table */
+      border-collapse: collapse;
+      width: 80%;
+    }
+    table#product td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    table#product img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Styles for the "No product details" message */
+    .no-product {
+      text-align: center;
+      font-style: italic;
+      margin-top: 20px;
+    }
+    
+    /* Styles for the pager links */
+    .pager {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .pager a {
+      display: inline-block;
+      margin: 0 5px;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      color: #333;
+      text-decoration: none;
+    }
+    .pager a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+    .pager span {
+      display: inline-block;
+      margin: 0 5px;
+      padding: 5px 10px;
+      border: 1px solid #333;
+      background-color: #333;
+      color: #fff;
+    }

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
 	
 	
-	
 	@RequestMapping("/")
 	public String main() {
 		return "main";
 	}
 
+	
 }
