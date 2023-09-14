@@ -131,7 +131,7 @@
 		양식을 제출하면 일반적으로 처리를 위해 데이터가 서버로 전송됩니다.
 preventDefault() 메서드는 주로 이벤트가 트리거될 때 이러한 기본 동작이 발생하지 않도록 하는 데 사용 */
 
-//양식을 송하는데 일반적인 순서로 징행되지 않게 방해받지 않기 위함.
+//양식을 전송하는데 일반적인 순서로 진행되지 않게 다음페이지로 진행할 방해받지 않기 위함.
 		
 		moveForm.append("<input type='hidden' name='seq' value='"+ $(this).attr("href")+ "'>");
 		moveForm.attr("action", "/test/detail");

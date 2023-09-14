@@ -35,5 +35,25 @@ if(!member_id || !member_password){
 }
 
 
+function findPW() {
+	
+	$.ajax ({
+		
+		type : "POST",
+		url : "findPW",
+		success : function () {
+			window.open("findPW","","width = 400, height = 300"); 
+		}
+		
+	});
+	
+	
+	
+}
+
+
+
+
+
 
 

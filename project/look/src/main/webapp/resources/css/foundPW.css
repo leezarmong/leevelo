@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+body {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 100px;
+	padding-right:100px;
+	margin: 0;
+	
+}
+#foundPW {
+ 	items-align: center;
+ 	margin: 0 auto;
+ 	
+}
+#member_password {
+	width: 191px;
+	height: 30px;
+	margin-bottom: 10px;
+}
+#member_repassword {
+	width: 191px;
+	height: 30px;
+}
+
+#changepw {
+margin-top: 20px;
+ width: 199px;
+    height: 30px;
+    outline-color: rgb(31, 169, 255);
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0px;
+    padding-left: 0px;
+    -webkit-transition: 0.3s;
+    font-size: 16px;
+    border: 1px solid rgb(240, 240, 240);
+    background-color: rgb(240, 240, 240);
+    color: #000000;	
+}
+#changepw:hover {	
+	font-size: 17px;
+	color: #fff;
+    background-color: rgba(31, 169, 255, 0.6);   
+}

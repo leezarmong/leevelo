@@ -2,6 +2,7 @@ package com.look.controller.member;
 
 import javax.servlet.http.HttpSession;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -88,4 +89,13 @@ public class MemberController {
 		
 		return chackMember;
 	}
+	
+	
+	// 비밀번호 찾기
+	@RequestMapping(value = "/findPW")
+	public String findPW () {
+		
+		return "member/findPW";
+	}
+	
 }

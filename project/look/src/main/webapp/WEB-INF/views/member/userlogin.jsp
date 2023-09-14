@@ -17,6 +17,7 @@
 
 </head>
 
+
 <body>
 
 <div id="login" style="margin-top: 200px">
@@ -31,6 +32,9 @@
 	          <input type="password" id="member_password" placeholder="비밀번호" name="password" required>
 	          
 	          <input type="button" value="로그인" onclick="login()" style="cursor: pointer;">
+
+             <input type="button" value="아이디 찾기" onclick="#" style="cursor: pointer; width: 49%;">
+             <input type="button" value="비밀번호 찾기" onclick="findPW()" style="cursor: pointer; width: 49%;">
 			</form>
 	</div>
 
