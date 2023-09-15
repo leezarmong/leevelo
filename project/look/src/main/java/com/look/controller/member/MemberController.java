@@ -120,5 +120,6 @@ public class MemberController {
 				return "find/findchackPW";
 			}
 		}
+		//@ResponseBody 로 되어있으면 메소드 안에있는 값들이 전송 된다 주의...
 	
 }
