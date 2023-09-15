@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	padding-top: 30px;
+	padding-top: 200px;
 	padding-bottom: 30px;
 	padding-left: 100px;
 	padding-right:100px;
@@ -13,19 +13,21 @@ body {
  	margin: 0 auto;
  	
 }
-#member_password {
-	width: 191px;
+#member_id {
+	width: 400px;
 	height: 30px;
 	margin-bottom: 10px;
 }
-#member_repassword {
-	width: 191px;
+#member_name {
+	width: 400px;
 	height: 30px;
+	margin-bottom: 10px;
 }
+
 
 #changepw {
 margin-top: 20px;
- width: 199px;
+ width: 400px;
     height: 30px;
     outline-color: rgb(31, 169, 255);
     border-radius: 4px;

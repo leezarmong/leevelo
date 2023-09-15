@@ -1,3 +1,10 @@
+var popupWidth = 500;
+    var popupHeight = 600;
+    var popupX = (window.screen.width / 2) - (popupWidth / 2);
+    var popupY = (window.screen.height / 2) - (popupHeight / 2);
+
+
+
 //로그인 
 function login() {
 var member_id = $("#member_id").val();
@@ -35,25 +42,50 @@ if(!member_id || !member_password){
 }
 
 
+
+//--------------------------------- 회원 정보 변경 ----------------------------
+
+// 비밀번호 변경 호출 
 function findPW() {
+
+         window.open("findPW", "", "status=no,width=500,height=600,left=" + popupX + ",top=" + popupY);
+        
+}
+
+// 비밀번호 정보 확인 
+function changePw(){
+	var member_id = $("#member_id").val();
+	var member_name = $("#member_name").val();
 	
-	$.ajax ({
-		
+	$.ajax({
 		type : "POST",
-		url : "findPW",
-		success : function () {
-			window.open("findPW","","width = 400, height = 300"); 
-		}
+		url : "findchackPWing",
+		data :{
+			"member_id" : member_id,
+			"member_name" : member_name
+		},
+		success: function (data) {
+			
+			if (data != 0) {
+				$.ajax({
+					type : "GET",
+					url : "findchackPW",						
+					data : {
+						"member_id" : member_id,
+						"member_name" : member_name
+					},
+					success: function(){
+						window.location.href ="findchackPW";
+					}
+				});
+			} else {
+				alert("회원 정보를 확인해주세요.");
+			}
+	         
+	        }
 		
 	});
 	
-	
-	
 }
-
-
-
-
-
 
 

@@ -90,12 +90,35 @@ public class MemberController {
 		return chackMember;
 	}
 	
-	
-	// 비밀번호 찾기
+
+	// 비밀번호 찾기 버튼
 	@RequestMapping(value = "/findPW")
 	public String findPW () {
 		
-		return "member/findPW";
+		return "find/findPW";
 	}
+	
+	
+	// 비밀번호 찾기 회원체크	
+		@ResponseBody
+		@RequestMapping(value = "/findchackPWing")
+		public int findchackPWing(MemberVO vo) {
+			int findchackPW = memberService.findchackPWing(vo);
+		
+			return findchackPW;
+		}
+		
+// 비밀번호 찾기 확인 후 변경
+		@RequestMapping(value = "/findchackPW", method = RequestMethod.GET)
+		public String findchackPW(MemberVO vo ,  HttpSession session) {
+			MemberVO member = memberService.findchackPW(vo);
+			if (member != null) {
+				session.setAttribute("member", member);
+				
+				return "find/findchackPW";
+			} else {
+				return "find/findchackPW";
+			}
+		}
 	
 }

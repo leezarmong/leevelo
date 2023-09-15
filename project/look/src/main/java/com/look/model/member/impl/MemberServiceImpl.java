@@ -34,4 +34,13 @@ public class MemberServiceImpl implements MemberService {
 	public int checkMember(MemberVO vo) {
 		return memberDao.checkMember(vo);
 	}
+	
+	//비밀번호 변경 체크 
+	public int findchackPWing(MemberVO vo) {
+		return memberDao.findchackPWing(vo);
+	}
+	public MemberVO findchackPW(MemberVO vo) {
+		return memberDao.findchackPW(vo);
+	}
+	
 }
