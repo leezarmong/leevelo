@@ -90,9 +90,38 @@ function changePw(){
 
 
 function changePwTwo(){
-	
-	
-}
+	var member_id = $("#member_id").val();
+	var member_name = $("#member_name").val();
+	var member_password=$("#member_password").val();
+	var member_password_two=$("#member_password_two").val();
+	if(!member_password || !member_password_two){
+		alert("비밀번호를 입력해 주세요");
+	}else if(member_password != member_password_two){
+		alert("비밀번호를 일치 시켜 주세요.");
+	}else{
+		$.ajax({
+			type : "POST",
+			url : "cpwMember",
+			data : {
+				"member_id" : member_id,
+				"member_name" : member_name,
+				"member_password" : member_password
+			},
+			success : function(data) {
+				alert("비밀번호가 변경 되었습니다.")
+				.then(function(isConfirm){
+					$.ajax({
+						type : "GET",
+						url : "emptyss",
+						success : function(data) {
+							self.close();
+							opener.top.location = "userlogin";	
+						}
+					});
+				});
+			}
+		});
+	}	
 
 
 
@@ -123,4 +152,5 @@ $(document).ready(function() {
 	   });
 	   
 	})
+}
 	

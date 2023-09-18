@@ -1,10 +1,13 @@
 package com.look.model.member.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+
 import org.springframework.stereotype.Service;
 
 import com.look.model.member.MemberService;
 import com.look.model.member.MemberVO;
+
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
@@ -42,5 +45,12 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO findchackPW(MemberVO vo) {
 		return memberDao.findchackPW(vo);
 	}
+	
+	// 비밀번호 변경
+		public void cpwMember(MemberVO vo) {
+			System.out.print("여기 진입됨?3");
+			memberDao.cpwMember(vo);
+			System.out.print("여기 진입됨?4");
+		}
 	
 }

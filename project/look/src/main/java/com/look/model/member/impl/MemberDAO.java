@@ -1,6 +1,7 @@
 package com.look.model.member.impl;
 
 import org.mybatis.spring.SqlSessionTemplate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -42,5 +43,10 @@ public class MemberDAO {
 		System.out.println("회원체크3");
 		return (MemberVO) sqlsession.selectOne("MemberDAO.findchackPW", vo);
 	}
+	
+	// 비밀번호 변경
+		public void cpwMember(MemberVO vo) {
+			sqlsession.update("MemberDAO.cpwMember", vo);
+		}
 
 }

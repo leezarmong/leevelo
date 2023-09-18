@@ -1,5 +1,8 @@
 package com.look.model.member;
 
+import com.look.model.member.MemberVO;
+
+
 public interface MemberService {
 	
 	//회원 가입
@@ -17,4 +20,7 @@ public interface MemberService {
 	//비밀번호 변경 체크 
 	public int findchackPWing(MemberVO vo);
 	public MemberVO findchackPW(MemberVO vo);
+	
+	// 비밀번호 변경
+	public void cpwMember(MemberVO vo);
 }
