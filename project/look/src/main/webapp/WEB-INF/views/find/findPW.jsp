@@ -23,7 +23,7 @@
 		
 		<!-- 아이디 는 알고있고 비밀번호를 찾아야 하는 경우 . -->
 		<!-- 본인 아이디 확인 후 이름 을 확인 하고.  -->
-		<h1>비밀번호 변경</h1><br><br>
+		<h1>본인 확인</h1><br><br>
 			
 			<input type="text" id="member_id" placeholder="아이디 입력"><br><br>
 			<input type="text" id="member_name" placeholder="이름 입력"><br><br><br>

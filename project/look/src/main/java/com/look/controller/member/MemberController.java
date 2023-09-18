@@ -116,7 +116,7 @@ public class MemberController {
 				
 				if (member != null) {
 					session.setAttribute("member", member);
-					return "member/userlogin";
+					return "find/findPW";
 					
 				} else {
 					return "find/findchackPW";
@@ -126,11 +126,12 @@ public class MemberController {
 		
 		
 	// 비밀번호 변경
-		@RequestMapping(value ="/cpwMember", method = RequestMethod.GET)
-		public void cpwMember (MemberVO vo) {
+		@RequestMapping("/cpwMember")
+		public String cpwMember (MemberVO vo) {
 			System.out.print("여기 진입 됨?1");
 			memberService.cpwMember(vo);
 			System.out.print("여기 진입 됨?2");
+			return "redirect:findchackPW";
 		
 		}
 		

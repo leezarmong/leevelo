@@ -97,25 +97,26 @@ function changePwTwo(){
 
     $.ajax({
 
-        type : "GET",
+        type : "POST",
         url :"cpwMember",
         data : {
             "member_id" : member_id,
             "member_name" : member_name,
             "member_password" : member_password
         },
-        success : function(data){
-            
-            $.ajax({
-                
-                type : "GET",
-                url : "emptyss",
-                success : function(data){
-                    self.close();
-                    opener.top.location = "userlogin"; 
+    	success : function(data) {
+			swal("","비밀번호가 변경되었습니다","success")
+			.then(function(isConfirm){
+				$.ajax({
+					type : "GET",
+					url : "emptyss",
+					success : function(data) {
+						self.close();
+						opener.top.location = "userlogin";	
                 }
 
             });
+			});
         }
 
     });

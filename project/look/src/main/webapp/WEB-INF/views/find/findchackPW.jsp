@@ -7,7 +7,7 @@
 
 <!-- jquesy -->
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- login.js -->
 <script src="resources/js/login.js" charset="UTF-8"></script>
 
