@@ -49,9 +49,9 @@ public class MemberServiceImpl implements MemberService {
 	
 	// 비밀번호 변경
 		public void cpwMember(MemberVO vo) {
-			System.out.print("여기 진입됨?3");
+			
 			memberDao.cpwMember(vo);
-			System.out.print("여기 진입됨?4");
+			
 		}
 	
 }

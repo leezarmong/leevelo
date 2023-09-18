@@ -128,17 +128,21 @@ public class MemberController {
 	// 비밀번호 변경
 		@RequestMapping("/cpwMember")
 		public String cpwMember (MemberVO vo) {
-			System.out.print("여기 진입 됨?1");
+			
 			memberService.cpwMember(vo);
-			System.out.print("여기 진입 됨?2");
+			
 			return "redirect:findchackPW";
 		
 		}
 		
 		// 세션 비우기
 		@RequestMapping(value = "/emptyss", method = RequestMethod.GET)
-		public void emptyss(HttpSession session) {
+		public String emptyss(HttpSession session) {
+			System.out.print("진입.");
 			session.invalidate();
+			System.out.print("진입.2");
+			
+			return "redirect:userlogin";
 		}
 	
 }

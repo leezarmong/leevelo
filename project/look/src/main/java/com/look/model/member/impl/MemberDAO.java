@@ -40,7 +40,7 @@ public class MemberDAO {
 		return sqlsession.selectOne("MemberDAO.findchackPWing",vo);
 	}
 	public MemberVO findchackPW(MemberVO vo) {
-		System.out.println("회원체크3");
+	
 		return (MemberVO) sqlsession.selectOne("MemberDAO.findchackPW", vo);
 	}
 	
