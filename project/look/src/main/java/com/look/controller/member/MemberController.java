@@ -113,17 +113,20 @@ public class MemberController {
 		@RequestMapping(value = "/findchackPW", method = RequestMethod.GET)
 		public String findchackPW(MemberVO vo ,  HttpSession session) {
 			MemberVO member = memberService.findchackPW(vo);
-			
-			
-				session.setAttribute("member", member);
-				return "find/findchackPW";
-			
+				
+				if (member != null) {
+					session.setAttribute("member", member);
+					return "member/userlogin";
+					
+				} else {
+					return "find/findchackPW";
+				}	
 		}
 		//@ResponseBody 로 되어있으면 메소드 안에있는 값들이 전송 된다 주의...
 		
 		
 	// 비밀번호 변경
-		@RequestMapping("/cpwMember")
+		@RequestMapping(value ="/cpwMember", method = RequestMethod.GET)
 		public void cpwMember (MemberVO vo) {
 			System.out.print("여기 진입 됨?1");
 			memberService.cpwMember(vo);
