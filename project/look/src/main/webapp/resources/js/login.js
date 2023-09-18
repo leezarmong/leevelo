@@ -100,7 +100,7 @@ function changePwTwo(){
 		alert("비밀번호를 일치 시켜 주세요.");
 	}else{
 		$.ajax({
-			type : "POST",
+			type : "GET",
 			url : "cpwMember",
 			data : {
 				"member_id" : member_id,
@@ -110,6 +110,7 @@ function changePwTwo(){
 			success : function(data) {
 				alert("비밀번호가 변경 되었습니다.")
 				.then(function(isConfirm){
+					// 문제를 알았다.... 이건 라이브러리가 없어서....ㅅㅂ;;;;;;;;;;
 					$.ajax({
 						type : "GET",
 						url : "emptyss",
