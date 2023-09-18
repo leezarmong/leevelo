@@ -108,7 +108,7 @@ public class MemberController {
 			return findchackPW;
 		}
 		
-// 비밀번호 찾기 확인 후 변경
+	// 비밀번호 찾기 확인 후 변경
 		@RequestMapping(value = "/findchackPW", method = RequestMethod.GET)
 		public String findchackPW(MemberVO vo ,  HttpSession session) {
 			MemberVO member = memberService.findchackPW(vo);

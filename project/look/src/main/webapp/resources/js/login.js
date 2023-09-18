@@ -52,7 +52,7 @@ function findPW() {
         
 }
 
-// 비밀번호 정보 확인 
+// 본인 정보 확인 
 function changePw(){
 	var member_id = $("#member_id").val();
 	var member_name = $("#member_name").val();
@@ -89,3 +89,38 @@ function changePw(){
 }
 
 
+function changePwTwo(){
+	
+	
+}
+
+
+
+
+
+//비밀번호 체크
+$(document).ready(function() {
+	   
+
+	   $("#member_password_two").keyup(function() {
+		   //.keyup(function()) = 상황(조건)이 됐을때 이벤트를 바로 발생시켜주는것.
+	      var check_password = $("#check_password");
+	      
+	      if ($("#member_password").val() == "" || $("#member_password_two").val() == "") {
+	    	  check_password.css("color", "red");
+	    	  check_password.text("필수정보입니다.");
+	    	  
+	      } else if ($("#member_password").val() != $("#member_password_two").val()) {
+	    	  
+	         check_password.text("패스워드가 동일하지 않습니다.");
+	         check_password.css("color", "red");
+	         
+	      } else {    	
+	    	  
+	         check_password.text("패스워드가 동일합니다.");
+	         check_password.css("color", "green");
+	      }
+	   });
+	   
+	})
+	

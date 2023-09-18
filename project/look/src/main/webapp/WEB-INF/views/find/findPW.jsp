@@ -28,7 +28,7 @@
 			<input type="text" id="member_id" placeholder="아이디 입력"><br><br>
 			<input type="text" id="member_name" placeholder="이름 입력"><br><br><br>
 			
-			<input type="button" id="changepw" value="비밀번호 변경" onclick="changePw()" >
+			<input type="button" id="changepw" value="본인 확인" onclick="changePw()" >
 			
 			
 			<input type="hidden" id="member_id" value="${member.member_id}">
