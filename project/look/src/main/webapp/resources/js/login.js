@@ -112,9 +112,9 @@ function chackId() {
             "member_name" : member_name
         },
         success : function(data){
-        	
+        	swal("","회원 정보를 다시 입력해 주세요.","warning");
             if(data != 0){
-
+            	alert("회원 정보가 일치 합니다.");
                 $.ajax({
 
                     type : "GET",
@@ -123,7 +123,6 @@ function chackId() {
                         "member_email" : member_email,
                         "member_name" : member_name
                     },success: function(){
-                    	swal("","정보가 일치 합니다.","success");
 						window.location.href ="findchackID";
 					}
 
