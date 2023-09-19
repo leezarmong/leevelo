@@ -40,7 +40,7 @@ if(!member_id || !member_password){
 
 //--------------------------------- 회원 정보 변경 ----------------------------
 
-// 비밀번호 변경 호출 
+// 비밀번호 변경 페이지 호출 
 function findPW() {
 	var popupWidth = 500;
     var popupHeight = 600;
@@ -49,6 +49,16 @@ function findPW() {
         window.open("findPW", "", "status=no,width=500,height=600,left=" + popupX + ",top=" + popupY);
         
 }
+
+// 아이디 변경 페이지 호출
+function findID(){
+	var popupWidth = 500;
+    var popupHeight = 600;
+    var popupX = (window.screen.width / 2) - (popupWidth / 2);
+    var popupY = (window.screen.height / 2) - (popupHeight / 2);
+    window.open("findID", "", "status=no,width=500,height=600,left=" + popupX + ",top=" + popupY);
+}
+
 
 // 본인 정보 확인 
 function changePw(){

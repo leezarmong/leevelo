@@ -33,7 +33,7 @@
 	          
 	          <input type="button" value="로그인" onclick="login()" style="cursor: pointer;">
 
-             <input type="button" value="아이디 찾기" onclick="#" style="cursor: pointer; width: 49%;">
+             <input type="button" value="아이디 찾기" onclick="findID()" style="cursor: pointer; width: 49%;">
              <input type="button" value="비밀번호 찾기" onclick="findPW()" style="cursor: pointer; width: 49%;">
 			</form>
 	</div>
@@ -41,6 +41,7 @@
 
 </div>
 
+<!-- 엔터 스크립트 -->
 <script type="text/javascript">
 $("#login").keypress(function(e){
 	if(e.keyCode == 13) {

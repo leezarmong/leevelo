@@ -59,9 +59,9 @@ public class MemberController {
 
 	// 로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(MemberVO vo, BoardVO bvo, HttpSession session) {
+	public String login(MemberVO vo, HttpSession session) {
 		MemberVO member = memberService.login(vo);
-		// board session 에 bvo 저장 
+		
 		if (member != null) {
 			session.setAttribute("member", member);
 
@@ -91,7 +91,7 @@ public class MemberController {
 		return chackMember;
 	}
 	
-
+	//----------- 비밀번호 찾기 변경하기.
 	// 비밀번호 찾기 버튼
 	@RequestMapping(value = "/findPW")
 	public String findPW () {
@@ -101,48 +101,56 @@ public class MemberController {
 	
 	
 	// 비밀번호 찾기 회원체크	
-		@ResponseBody
-		@RequestMapping(value = "/findchackPWing")
-		public int findchackPWing(MemberVO vo) {
-			int findchackPW = memberService.findchackPWing(vo);
-		
-			return findchackPW;
-		}
-		
+	@ResponseBody
+	@RequestMapping(value = "/findchackPWing")
+	public int findchackPWing(MemberVO vo) {
+		int findchackPW = memberService.findchackPWing(vo);
+	
+		return findchackPW;
+	}
+	
 	// 비밀번호 찾기 확인 후 변경
-		@RequestMapping(value = "/findchackPW", method = RequestMethod.GET)
-		public String findchackPW(MemberVO vo ,  HttpSession session) {
-			MemberVO member = memberService.findchackPW(vo);
+	@RequestMapping(value = "/findchackPW", method = RequestMethod.GET)
+	public String findchackPW(MemberVO vo ,  HttpSession session) {
+		MemberVO member = memberService.findchackPW(vo);
+			
+			if (member != null) {
+				session.setAttribute("member", member);
+				return "find/findPW";
 				
-				if (member != null) {
-					session.setAttribute("member", member);
-					return "find/findPW";
-					
-				} else {
-					return "find/findchackPW";
-				}	
-		}
-		//@ResponseBody 로 되어있으면 메소드 안에있는 값들이 전송 된다 주의...
-		
-		
+			} else {
+				return "find/findchackPW";
+			}	
+	}
+	//@ResponseBody 로 되어있으면 메소드 안에있는 값들이 전송 된다 주의...
+	
+	
 	// 비밀번호 변경
-		@RequestMapping("/cpwMember")
-		public String cpwMember (MemberVO vo) {
-			
-			memberService.cpwMember(vo);
-			
-			return "redirect:findchackPW";
+	@RequestMapping("/cpwMember")
+	public String cpwMember (MemberVO vo) {
 		
-		}
+		memberService.cpwMember(vo);
 		
-		// 세션 비우기
-		@RequestMapping(value = "/emptyss", method = RequestMethod.GET)
-		public String emptyss(HttpSession session) {
-			System.out.print("진입.");
-			session.invalidate();
-			System.out.print("진입.2");
-			
-			return "redirect:userlogin";
-		}
+		return "redirect:findchackPW";
+	
+	}
+	
+	//-----------아이디 찾기 변경하기.
+	// 아이디 찾기 버튼
+	@RequestMapping("/findID")
+	public  String findID() {
+		
+		return "find/findID";
+	}
+		
+	// 세션 비우기
+	@RequestMapping(value = "/emptyss", method = RequestMethod.GET)
+	public String emptyss(HttpSession session) {
+		System.out.print("진입.");
+		session.invalidate();
+		System.out.print("진입.2");
+		
+		return "redirect:userlogin";
+	}
 	
 }

@@ -5,7 +5,7 @@ function insert(){
 	var member_id = $("#member_id").val();
 	var member_password = $("#member_password").val();
 	var member_name = $("#member_name").val();
-	var member_email = $("#member_email").val();
+	var member_email = $("#member_email").val() + "@" + $("#member_email2").val();
 	
 	if(!$("#member_id").val() || !$("#member_password").val() || !$("#member_name").val() || !$("#member_email").val())
 	

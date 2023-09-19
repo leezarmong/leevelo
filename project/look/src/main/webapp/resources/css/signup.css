@@ -59,4 +59,18 @@ body {
 			background-color: #555;
 		}
 		
-		
+        .email-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .email-input {
+        width: 48%; /* Adjust the width as needed */
+        margin-right: 5px; /* Add some margin for spacing */
+    }
+
+    #member_email3 {
+        width: 48%; /* Adjust the width as needed */
+        height: 40px;
+        margin-left: 51%;
+    }
