@@ -52,12 +52,12 @@
 	</select>
 	
 	
-    <!-- 비밀번호 찾기 -->
+    <!-- 비밀번호 회원정보 찾기 -->
 	 <select id="findchackPWing" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM MEMBER
 		WHERE MEMBER_ID=#{member_id} AND MEMBER_NAME=#{member_name}
 	</select>
-	
+	<!-- 비밀번호 확인 -->
 	<select id="findchackPW" resultMap="memberResult">
     <![CDATA[
         SELECT MEMBER_ID, MEMBER_NAME FROM MEMBER
@@ -74,6 +74,19 @@
 	</update>
 	
     
+    
+    <!-- 아이디 회원정보 확인 -->
+	 <select id="findchackIDing" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_EMAIL=#{member_email} AND MEMBER_NAME=#{member_name}
+	</select>
+	<!-- 아이디 찾기 -->
+	<select id="findchackID" resultMap="memberResult">
+    <![CDATA[
+        SELECT MEMBER_ID FROM MEMBER
+        WHERE MEMBER_EMAIL=#{member_email, jdbcType=VARCHAR} AND MEMBER_NAME=#{member_name, jdbcType=VARCHAR}
+    ]]>
+	</select>
     
     
 </mapper>

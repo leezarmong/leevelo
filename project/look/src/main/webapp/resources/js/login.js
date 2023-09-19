@@ -60,7 +60,7 @@ function findID(){
 }
 
 
-// 본인 정보 확인 
+// 비밀번호 본인 정보 확인 
 function changePw(){
 	var member_id = $("#member_id").val();
 	var member_name = $("#member_name").val();
@@ -97,43 +97,52 @@ function changePw(){
 }
 
 
-//function changePwTwo(){
-//
-//    var member_id = $("#member_id").val();
-//    var member_name = $("#member_name").val();
-//    var member_password = $("#member_password").val();
-//
-//    $.ajax({
-//
-//        type : "POST",
-//        url :"cpwMember",
-//        data : {
-//            "member_id" : member_id,
-//            "member_name" : member_name,
-//            "member_password" : member_password
-//        },
-//    	success : function(data) {
-//			swal("4gg","비밀번호가 변경되었습니다","success")
-//			.then(function(isConfirm){
-//				
-//				$.ajax({
-//					type : "GET",
-//					url : "emptyss",
-//					success : function(data) {
-//						
-//						self.close();
-//						location.href = "userlogin";	
-//						
-//					}
-//
-//				});
-//			});
-//        }
-//
-//    });
-//	
-//}
-//
+//아이디 본인 정보 확인 
+function chackId() {
+
+    var member_email = $("#member_email").val()+"@"+$("#member_email2").val();
+    var member_name = $("#member_name").val();
+
+    $.ajax ({
+
+        type : "POST",
+        url : "findchackIDing",
+        data : {
+            "member_email" : member_email,
+            "member_name" : member_name
+        },
+        success : function(data){
+        	
+            if(data != 0){
+
+                $.ajax({
+
+                    type : "GET",
+                    url : "findchackID",
+                    data : {
+                        "member_email" : member_email,
+                        "member_name" : member_name
+                    },success: function(){
+                    	swal("","정보가 일치 합니다.","success");
+						window.location.href ="findchackID";
+					}
+
+                });
+
+            }
+
+        }
+
+    });
+
+}
+
+
+function offID(){
+	self.close();
+	 //window.close(); // 팝업 창 닫기
+	opener.top.location = "userlogin";
+}
 
 
 

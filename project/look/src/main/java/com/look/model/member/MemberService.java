@@ -19,8 +19,16 @@ public interface MemberService {
 
 	//비밀번호 변경 체크 
 	public int findchackPWing(MemberVO vo);
+	
+	//비밀번호 변경 확인
 	public MemberVO findchackPW(MemberVO vo);
 	
 	// 비밀번호 변경
 	public void cpwMember(MemberVO vo);
+	
+	//아이디 정보 체크 
+	public int findchackIDing(MemberVO vo);
+		
+	//아이디 확인
+	public MemberVO findchackID(MemberVO vo); 
 }

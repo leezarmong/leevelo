@@ -142,6 +142,29 @@ public class MemberController {
 		
 		return "find/findID";
 	}
+	
+	// 아이디 회원체크	
+	@ResponseBody
+	@RequestMapping(value = "/findchackIDing")
+	public int findchackIDing(MemberVO vo) {
+		int findchackID = memberService.findchackIDing(vo);
+	
+		return findchackID;
+	}
+		
+	// 아이디 찾은 후 로그인 페이지
+	@RequestMapping(value = "/findchackID", method = RequestMethod.GET)
+	public String findchackID(MemberVO vo ,  HttpSession session) {
+		MemberVO member = memberService.findchackID(vo);
+			
+		if (member != null) {
+			session.setAttribute("member", member);
+			return "find/findID";
+				
+		} else {
+			return "find/findchackID";
+		}	
+	}
 		
 	// 세션 비우기
 	@RequestMapping(value = "/emptyss", method = RequestMethod.GET)

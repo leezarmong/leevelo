@@ -35,23 +35,39 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	//회원 중복 체크
+	@Override
 	public int checkMember(MemberVO vo) {
 		return memberDao.checkMember(vo);
 	}
 	
-	//비밀번호 변경 체크 
+	//비밀번호 변경 체크
+	@Override
 	public int findchackPWing(MemberVO vo) {
 		return memberDao.findchackPWing(vo);
 	}
+	
+	//비밀번호 변경 확인
+	@Override
 	public MemberVO findchackPW(MemberVO vo) {
 		return memberDao.findchackPW(vo);
 	}
 	
 	// 비밀번호 변경
-		public void cpwMember(MemberVO vo) {
-			
-			memberDao.cpwMember(vo);
-			
-		}
+	@Override
+	public void cpwMember(MemberVO vo) {
+		memberDao.cpwMember(vo);
+	}
+	
+	//아이디 정보 체크 
+	@Override
+	public int findchackIDing(MemberVO vo) {
+		return memberDao.findchackIDing(vo);
+	}
+		
+	//아이디 확인
+	@Override
+	public MemberVO findchackID(MemberVO vo) {
+		return memberDao.findchackID(vo);
+	}
 	
 }

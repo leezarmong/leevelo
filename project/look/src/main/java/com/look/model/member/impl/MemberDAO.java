@@ -35,18 +35,29 @@ public class MemberDAO {
 		return sqlsession.selectOne("MemberDAO.checkMember",vo);
 	}
 	
-	//비밀번호 변경 체크 
+	//비밀번호 정보 체크 
 	public int findchackPWing(MemberVO vo) {
 		return sqlsession.selectOne("MemberDAO.findchackPWing",vo);
 	}
-	public MemberVO findchackPW(MemberVO vo) {
 	
+	//비밀번호 변경 확인
+	public MemberVO findchackPW(MemberVO vo) {
 		return (MemberVO) sqlsession.selectOne("MemberDAO.findchackPW", vo);
 	}
 	
 	// 비밀번호 변경
-		public void cpwMember(MemberVO vo) {
-			sqlsession.update("MemberDAO.cpwMember", vo);
-		}
+	public void cpwMember(MemberVO vo) {
+		sqlsession.update("MemberDAO.cpwMember", vo);
+	}
+	
+	//아이디 정보 체크 
+	public int findchackIDing(MemberVO vo) {
+		return sqlsession.selectOne("MemberDAO.findchackIDing",vo);
+	}
+		
+	//아이디 확인
+	public MemberVO findchackID(MemberVO vo) {
+		return (MemberVO) sqlsession.selectOne("MemberDAO.findchackID", vo);
+	}
 
 }

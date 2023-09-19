@@ -7,12 +7,15 @@
 
 <!-- jquesy -->
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<!-- swal -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!-- login.js -->
-<script src="resources/js/login.js" charset="UTF-8"></script>
 
 <!-- css -->
-<link rel="stylesheet" href="resources/css/foundPW2.css">
+<link rel="stylesheet" href="resources/css/foundID.css">
+
+<!-- login.js -->
+<script src="resources/js/login.js" charset="UTF-8"></script>
 
 <title>본인 확인</title>
 </head>
@@ -26,26 +29,13 @@
 	<div id=changePT>
 
 
-<div style="margin-left: 25%"><h1>아이디:  ${member.member_id}</h1></div><br><br>
-
-
-		<input type="password" id="member_password" placeholder="비밀번호"><br><br>
-		<input type="password" id="member_password_two" placeholder="비밀번호재입력"><br><br>
-		<label id="check_password"></label>
-		<input type="button" id="changepw" value="비밀번호 변경" onclick="changePwTwo()" >
-		<input type="hidden" id="member_id" value="${member.member_id}">
-		<input type="hidden" id="member_name" value="${member.member_name}">
-
+	<div style="margin-left: 25%"><h1>아이디:  ${member.member_id}  입니다.</h1></div><br><br>
+	
+		<input type="button" id="changepw" value="로그인" onclick="offID()" >
+		
 	</div>
 	
-<!-- 엔터 스크립트 -->
-<script type="text/javascript">
-$("#changePT").keypress(function(e){
-	if(e.keyCode == 13) {
-		changePwTwo();
-	}
-});
-</script>
+	
 
 
 </body>
