@@ -1,33 +1,44 @@
 package com.look.test;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import com.look.model.board.BoardVO;
-import com.look.model.board.impl.BoardDAO;
+//import org.springframework.context.annotation.Configuration;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+
+import com.look.model.book.BookVO;
+import com.look.model.book.impl.BookDAO;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+//@Configuration("file:src/main/resources/spring/root-context.xml")
+@ContextConfiguration(locations = "classpath:spring/root-context.xml")
 public class MappingTest {
 	
 	
 	@Autowired
-	BoardDAO boardDao ;
+	private BookDAO mapper;
 	
-	private static final Logger log = LoggerFactory.getLogger(MappingTest.class);
-	
+	/* 상품 등록 */
 	@Test
-	public void testDAO() {
+	public void bookEnrollTest() throws Exception{
 		
-		BoardVO board = new BoardVO();
+		BookVO book = new BookVO();
 		
-		board.setSeq(33);
-		board.setTitle("수정");
-		board.setContent("수정된 내용");
+		book.setBookName("mapper 테스트");
+		book.setAuthorId(123);
+		book.setPubleYear("2021-03-18");
+		book.setPublisher("출판사");
+		book.setCateCode("0231");
+		book.setBookPrice(20000);
+		book.setBookStock(300);
+		book.setBookDiscount(0.23);
+		book.setBookIntro("책 소개 ");
+		book.setBookContents("책 목차 ");
 		
-	
-		int result = boardDao.updateBoard(board);
-		log.info("result : " +result);
-		
+		mapper.bookEnroll(book);
 	}
+
 
 }
