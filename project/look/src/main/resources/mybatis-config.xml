@@ -11,11 +11,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias alias="board" type="com.look.model.board.BoardVO" />
 		<typeAlias alias="member" type="com.look.model.member.MemberVO" />
+		<typeAlias alias="book" type="com.look.model.book.BookVO" />
 	</typeAliases> 
 	
 	<!-- Sql Mapper 설정 -->
 	 <mappers>
 		<mapper resource="mappers/board/board-mapping.xml" />
 		<mapper resource="mappers/member/member-mapping.xml" />
+		<mapper resource="mappers/book/book-mapping.xml" />
 	</mappers> 
 </configuration>
