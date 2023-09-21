@@ -13,7 +13,7 @@ public class BookDAO {
 	SqlSessionTemplate sqlsession;
 	
 	
-	//작가 등록
+	//상품 등록
 	public void bookEnroll(BookVO vo) {
 		sqlsession.insert("BookDAO.bookEnroll",vo);
 	}

@@ -10,7 +10,7 @@ import com.look.model.member.MemberService;
 import com.look.model.member.MemberVO;
 
 
-@Service("memberService")
+@Service("MemberService")
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired

@@ -9,7 +9,7 @@ import com.look.model.board.BoardService;
 import com.look.model.board.BoardVO;
 import com.look.model.pager.Criteria;
 
-@Service("boardservice")
+@Service("BoardService")
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
