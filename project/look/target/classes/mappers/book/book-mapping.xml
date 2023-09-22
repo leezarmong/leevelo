@@ -5,14 +5,38 @@
         
 <mapper namespace="BookDAO">
  
+    <resultMap id="bookResult" type="book">
+    
+		<id property="bookId" column="BOOKID" />
+		<result property="bookName" column="BOOKNAME" />
+		<result property="authorId" column="AUTHORID" />
+		<result property="publeYear" column="PUBLEYEAR" />	
+		<result property="publisher" column="PUBLISHER" />	
+		<result property="cateCode" column="CATECODE" />	
+		<result property="bookPrice" column="BOOKPRICE" />	
+		<result property="bookStock" column="BOOKSTOCK" />	
+		<result property="bookDiscount" column="BOOKDISCOUNT" />	
+		<result property="bookIntro" column="BOOKINTRO" />	
+		<result property="bookContents" column="BOOKCONTENTS" />
+		<result property="regDate" column="REGDATE" />
+		<result property="updateDate" column="UPDATEDATE" />	
+		
+	</resultMap>
+    
     
     <!-- 상품 등록 -->
-  	<insert id="bookEnroll">
-  	
-  		insert into vam_book(bookName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents)
+  	<!-- <insert id="bookEnroll">
+  		
+  		<![CDATA[ insert into vam_book(bookName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents)
 		values(#{bookName},#{authorId}, #{publeYear},#{publisher},#{cateCode},#{bookPrice},#{bookStock},#{bookDiscount},#{bookIntro},#{bookContents})
-
-  	</insert>
+		]]>
+  	</insert>  -->
+  	
+  	 <insert id="bookEnroll">
+    insert into vam_book(bookName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents)
+    values(#{bookName, jdbcType=VARCHAR}, #{authorId, jdbcType=INTEGER}, #{publeYear, jdbcType=VARCHAR}, #{publisher, jdbcType=VARCHAR}, #{cateCode, jdbcType=VARCHAR}, #{bookPrice, jdbcType=DECIMAL}, #{bookStock, jdbcType=INTEGER}, #{bookDiscount, jdbcType=DECIMAL}, #{bookIntro, jdbcType=VARCHAR}, #{bookContents, jdbcType=VARCHAR})
+</insert> 
+  	
     
     
 </mapper>

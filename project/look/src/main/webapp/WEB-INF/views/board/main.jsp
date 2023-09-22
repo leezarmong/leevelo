@@ -44,7 +44,7 @@
         	
         	<!-- 운영자 일 경우 -->
         	<c:if test="${member.member_id eq 'admin'}">
-        	<button class="adsignup-btn" onclick="location.href='test'">admin_test</button>
+        	<button class="adsignup-btn" onclick="location.href='goodsEnroll'">admin_goodsEnroll</button>
         	</c:if>
         	
       </div>
