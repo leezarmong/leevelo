@@ -47,7 +47,7 @@
 	
 	
 	<!-- 작성자만 수정 삭제 가능하게 -->
-	<c:if test="${member.member_id == detail.writer}">
+	<c:if test="${member.member_id == detail.writer || member.member_id eq 'admin'}">
 		
 		<input type="button" id="modify" class="btn" value="수정">
         <input type="button" style="background-color: red;" id="delete" class="btn" value="삭제" onclick="location.href='delete?seq=${detail.seq}'">

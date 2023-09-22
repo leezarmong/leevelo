@@ -27,7 +27,7 @@ h1 {
   flex-direction: row;
 }
 
-.login-btn, .signup-btn {
+.login-btn, .signup-btn, .adsignup-btn {
   padding: 1rem 2rem;
   margin-right: 1rem;
   border: none;
@@ -43,5 +43,9 @@ h1 {
 
 .signup-btn {
   background-color: #3498db;
+  color: #fff;
+}
+.adsignup-btn {
+  background-color: #db1b13;
   color: #fff;
 }

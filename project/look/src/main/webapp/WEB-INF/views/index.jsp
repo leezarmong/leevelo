@@ -23,7 +23,6 @@
 </div> 
 
 
-<button class="signup-btn" onclick="location.href='test'">admin_test</button>
     
 </body>
 </html>
