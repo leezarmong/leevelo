@@ -39,7 +39,7 @@ function bookinsert() {
         bookContents: theEditorContents.getData()
     };
 
-    // Log the input field values
+  
     console.log("bookName:", params.bookName);
     console.log("authorId:", params.authorId);
     console.log("publeYear:", params.publeYear);
