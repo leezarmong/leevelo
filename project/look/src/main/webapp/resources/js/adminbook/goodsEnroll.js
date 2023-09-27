@@ -1,5 +1,32 @@
+
+    $(document).ready(function () {
+        ClassicEditor
+            .create(document.querySelector('#bookIntro'), {
+                language: 'ko' // 언어설정
+            })
+            .then(function (editor) {
+                theEditorIntro = editor; // #bookIntro에 있는 에디터를 theEditorIntro에 저장
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+
+        ClassicEditor
+            .create(document.querySelector('#bookContents'), {
+                language: 'ko' // 언어설정
+            })
+            .then(function (editor) {
+                theEditorContents = editor; // #bookContents에 있는 에디터를 theEditorContents에 저장
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+    });
+
+
 function bookinsert() {
-    var params = {
+	
+    let params = {
         bookName: $("#bookName").val(),
         authorId: $("#authorId").val(),
         publeYear: $("#publeYear").val(),
@@ -8,8 +35,8 @@ function bookinsert() {
         bookPrice: $("#bookPrice").val(),
         bookStock: $("#bookStock").val(),
         bookDiscount: $("#bookDiscount").val(),
-        bookIntro: $("#bookIntro").val(),
-        bookContents: $("#bookContents").val()
+        bookIntro: theEditorIntro.getData(),
+        bookContents: theEditorContents.getData()
     };
 
     // Log the input field values
@@ -23,7 +50,8 @@ function bookinsert() {
     console.log("bookDiscount:", params.bookDiscount);
     console.log("bookIntro:", params.bookIntro);
     console.log("bookContents:", params.bookContents);
-
+    
+    
     if (
         !params.bookName ||
         !params.authorId ||
