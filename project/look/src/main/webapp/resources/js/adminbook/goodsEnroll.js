@@ -1,15 +1,15 @@
 function bookinsert() {
     var params = {
-        bookName: $("#bookName").val().trim(),
-        authorId: $("#authorId").val().trim(),
-        publeYear: $("#publeYear").val().trim(),
-        publisher: $("#publisher").val().trim(),
-        cateCode: $("#cateCode").val().trim(),
-        bookPrice: $("#bookPrice").val().trim(),
-        bookStock: $("#bookStock").val().trim(),
-        bookDiscount: $("#bookDiscount").val().trim(),
-        bookIntro: $("#bookIntro").val().trim(),
-        bookContents: $("#bookContents").val().trim()
+        bookName: $("#bookName").val(),
+        authorId: $("#authorId").val(),
+        publeYear: $("#publeYear").val(),
+        publisher: $("#publisher").val(),
+        cateCode: $("#cateCode").val(),
+        bookPrice: $("#bookPrice").val(),
+        bookStock: $("#bookStock").val(),
+        bookDiscount: $("#bookDiscount").val(),
+        bookIntro: $("#bookIntro").val(),
+        bookContents: $("#bookContents").val()
     };
 
     // Log the input field values
