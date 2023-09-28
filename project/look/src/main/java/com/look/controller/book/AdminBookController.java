@@ -31,5 +31,12 @@ public class AdminBookController {
 		return "redirect:goodsEnroll";
 	}
 	
+	//작가 검색 팝업창 
+	@RequestMapping("/authorPop")
+	public String authorPop() throws Exception{
+		
+		return "admin/adminpop/authorPop";
+	}
+	
 	
 }

@@ -52,13 +52,15 @@
 
         <div>
             <label>작가 (코드)</label>
-            <input type="text" id="authorId" name="authorId" placeholder="1" required>
+            <input id="authorName_input" readonly="readonly">
+			<input id="authorId" name="authorId" type="hidden">
+			<button class="authorId_btn">작가 선택</button>
+           <!--  <input type="text" id="authorId" name="authorId" placeholder="1" required> -->
         </div><br><br>
 
         <div>
             <label>출판일</label>
             <input id="publeYear" name="publeYear" autocomplete="off" readonly="readonly">
-            <!-- <input type="text" id="publeYear" name="publeYear" placeholder="2021-03-18" required> -->
         </div><br><br>
 
         <div>
@@ -120,7 +122,6 @@
     
 	
     /*------ 달력 ------*/
-    
     /* 설정 */
 	const config = {
 			dateFormat: 'yy-mm-dd',
@@ -150,6 +151,25 @@
     	  $( "input[name='publeYear']" ).datepicker(config);
     	});
     
+    
+    /*------ 작가 선택 ------*/ 
+    /* 작가 선택 버튼 */
+	$('.authorId_btn').on("click",function(e){
+		
+		/* 팝업창 좌표 */
+		var popupWidth = 500;
+	    var popupHeight = 600;  
+		var popupX = (window.screen.width / 2) - (popupWidth / 2);
+	    var popupY = (window.screen.height / 2) - (popupHeight / 2);
+	    
+		e.preventDefault();
+		
+		let popUrl = "authorPop";
+		let popOption = "status=no,width = 650px, height=550px, top=300px,left=" + popupX + ",top=" + popupY+"scrollbars=yes";
+		
+		window.open(popUrl,"작가 찾기",popOption);
+		
+	});
 
 </script>
 

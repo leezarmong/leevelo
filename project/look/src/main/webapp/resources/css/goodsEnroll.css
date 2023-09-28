@@ -81,3 +81,31 @@
   width: 100%;
   font-size: 1.2rem;
 }
+
+/* 작가 선택 */
+.guestbook form input#authorName_input{
+	border: 3px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+/* 작가 선택버튼 */
+.authorId_btn {
+	font-size: 1.2rem;
+		width:100%;
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+			font-size: 16px;
+			margin-top: 15px;
+		}
+
+.authorId_btn:hover {
+			background-color: #555;
+		}
+

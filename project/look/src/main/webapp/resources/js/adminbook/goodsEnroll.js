@@ -1,4 +1,4 @@
-
+//	책 소개 목차 그림판 초기화
     $(document).ready(function () {
         ClassicEditor
             .create(document.querySelector('#bookIntro'), {
@@ -23,7 +23,7 @@
             });
     });
 
-
+//insert
 function bookinsert() {
 	
     let params = {
