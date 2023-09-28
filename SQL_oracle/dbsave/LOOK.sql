@@ -7,3 +7,5 @@ desc vam_bcate;
 
 select * from vam_book;
 
+select * from vam_book;
+
