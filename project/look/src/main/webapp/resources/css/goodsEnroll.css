@@ -71,3 +71,13 @@
   font-size: 0.8em;
   color: #999;
 }
+
+
+/* 달력 */
+.guestbook form input#publeYear {
+  border: 3px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1.2rem;
+}
