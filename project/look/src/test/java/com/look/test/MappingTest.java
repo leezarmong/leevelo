@@ -41,11 +41,14 @@ public class MappingTest {
 	    	
 	        
 	        author.setNationId("01");
-	        author.setAuthorName("테스트2");
-	        author.setAuthorIntro("테스트 소개2");
+	        author.setAuthorName("테스트3");
+	        author.setAuthorIntro("테스트 소개3");
 	        
 	        authorDAO.authorEnroll(author);
 	        
 	    } 
+	    
+	    
+	    
 
 }
