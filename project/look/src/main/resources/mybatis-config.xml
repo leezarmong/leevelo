@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="board" type="com.look.model.board.BoardVO" />
 		<typeAlias alias="member" type="com.look.model.member.MemberVO" />
 		<typeAlias alias="book" type="com.look.model.book.BookVO" />
+		<typeAlias alias="author" type="com.look.model.author.AuthorVO" />
 	</typeAliases> 
 	
 	<!-- Sql Mapper 설정 -->
@@ -19,5 +20,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mappers/board/board-mapping.xml" />
 		<mapper resource="mappers/member/member-mapping.xml" />
 		<mapper resource="mappers/book/book-mapping.xml" />
+		<mapper resource="mappers/author/author-mapping.xml" />
 	</mappers> 
 </configuration>

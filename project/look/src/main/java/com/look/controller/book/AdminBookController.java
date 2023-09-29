@@ -22,6 +22,20 @@ public class AdminBookController {
 		return "admin/goodsEnroll";
 	}
 	
+	// 작가 등록 페이지
+	@RequestMapping(value="/authorInsert")
+	public String authorInsert() {
+		
+		return "admin/authorInsert";
+	}
+	
+	// 작가 리스트 페이지
+	@RequestMapping(value="/authorList")
+	public String authorList() {
+		
+		return "admin/authorList";
+	}
+	
 	// 어드민 북 등록 페이지 insert
 	@RequestMapping(value="/insertbook")
 	public String insertbook(BookVO vo) {

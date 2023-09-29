@@ -41,6 +41,19 @@
 <body>
 <h1><b style="color: blue;">${member.member_id}</b> 님이 로그인 했습니다.</h1>
 
+
+
+<!-- 작가 등록 페이지 -->
+ <button type="button" id="auInsert" onclick="location.href='authorInsert'">authorInsert</button>
+ 
+ <!-- 작가 목록 페이지 -->
+  <button type="button" id="auList" onclick="location.href='authorList'">authorList</button>
+
+
+
+
+
+
 <div class="guestbook">
     <h2>Look Enroll</h2>
 
