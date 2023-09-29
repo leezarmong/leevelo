@@ -45,5 +45,24 @@ select * from vam_nation;
 select * from vam_author;
 
 
+ alter table vam_author add regDate date default sysdate;
+    alter table vam_author add updateDate date default sysdate;
+
+select * from vam_author;
+
+delete from vam_author;
+
 select * from vam_nation natural join vam_author;
 -- natural join 
+
+
+
+ALTER TABLE vam_author MODIFY(authorId GENERATED AS IDENTITY (START WITH 1));
+
+insert into vam_author(authorName, nationId, authorIntro) values('유홍준', '01', '작가 소개입니다' );
+    insert into vam_author(authorName, nationId, authorIntro) values('김난도', '01', '작가 소개입니다' );
+    insert into vam_author(authorName, nationId, authorIntro) values('폴크루그먼', '02', '작가 소개입니다' );
+ 
+ select * from vam_author;
+ 
+ select * from vam_author;
