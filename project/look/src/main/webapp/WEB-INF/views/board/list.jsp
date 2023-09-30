@@ -39,6 +39,13 @@
 			<td><c:out value="${board.title}" /></td>
 			<td><a class="move" href='<c:out value="${board.seq}"/>'>상세 보기</a></td>
 			<td><fmt:formatDate pattern="yyyy/MM/dd" value="${board.regDate}"/></td>
+			
+			<!-- mybatis에 따로 regDate 를 컬럼으로 설정 하지 않아도 되는경우가 있는데
+				oracle에서 insert 하게 되면 입력당시 날짜가 기록이 되는데, 정보가 oracle에 저장이 된다.
+				그렇게 때문에 regDate가 컬럼이 기입이 되지 않아도 저장된 오라클에서 addattribute 로 데이터를
+				model에서 가져올수 있다. 
+			 -->
+			 
 		  </tr>
 		  
 		  </c:forEach>
