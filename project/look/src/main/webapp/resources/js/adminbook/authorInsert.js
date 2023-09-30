@@ -1,4 +1,6 @@
 
+
+// 작가 입력 function 
 function authorInsert() {
 
 	let params = {

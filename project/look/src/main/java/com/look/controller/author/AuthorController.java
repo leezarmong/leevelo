@@ -30,6 +30,7 @@ public class AuthorController {
 	public String auInserting(AuthorVO vo) {
 		authorService.authorEnroll(vo);
 		
+		System.out.print(vo.getAuthorId());
 		return "redirect:authorInsert";
 	}
 	

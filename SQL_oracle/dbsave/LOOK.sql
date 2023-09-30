@@ -65,4 +65,3 @@ insert into vam_author(authorName, nationId, authorIntro) values('유홍준', '0
  
  select * from vam_author;
  
- select * from vam_author;
