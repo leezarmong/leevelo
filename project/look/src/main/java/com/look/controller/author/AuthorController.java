@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.look.model.author.AuthorService;
+import com.look.model.author.AuthorVO;
 
 
 
@@ -23,6 +24,15 @@ public class AuthorController {
 		
 		return "admin/authorInsert";
 	}
+	
+	//작가 등록 
+	@RequestMapping(value = "/auInserting")
+	public String auInserting(AuthorVO vo) {
+		authorService.authorEnroll(vo);
+		
+		return "redirect:authorInsert";
+	}
+	
 	
 	// 작가 리스트 페이지
 	@RequestMapping(value="/authorList")
