@@ -23,6 +23,30 @@
           insert into vam_author(authorName, nationId, authorIntro) values(#{authorName}, #{nationId}, #{authorIntro} )
  
       </insert>
+      
+      
+       <!-- 작가 목록 -->
+      <select id="authorGetList" resultType="author">
+      
+      <![CDATA[
+          select * from (
+              select /*+INDEX_DESC(vam_author 인덱스명) */ 
+                  rownum as rn, authorid, authorname, nationid, regdate, updatedate
+            from vam_author 
+            where
+             
+    ]]>         
+            <if test="keyword != null">
+                authorname like '%'||#{keyword}||'%' and
+            </if>
+            
+    <![CDATA[        
+             rownum <= #{pageNum}*#{amount}
+            )
+        where rn > (#{pageNum} - 1) * #{amount}
+      ]]>
+      
+      </select>
   	
     
     

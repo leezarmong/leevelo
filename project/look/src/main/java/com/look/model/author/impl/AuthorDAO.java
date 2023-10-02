@@ -18,5 +18,7 @@ public class AuthorDAO {
 	public void authorEnroll(AuthorVO vo) {
 		sqlsession.insert("AuthorDAO.authorEnroll",vo);
 	}
+	
+	//작가 리스트 (페에징)
 
 }
