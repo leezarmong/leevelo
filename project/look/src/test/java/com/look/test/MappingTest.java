@@ -1,5 +1,7 @@
 package com.look.test;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import com.look.model.author.AuthorVO;
 import com.look.model.author.impl.AuthorDAO;
 import com.look.model.book.BookVO;
 import com.look.model.book.impl.BookDAO;
+import com.look.model.pager.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 
@@ -34,18 +37,18 @@ public class MappingTest {
 	@Autowired
 	private AuthorDAO authorDAO;
 
-	/* 작가 등록 테스트 */
-	@Test
-	public void authorEnroll() throws Exception {
-
-		AuthorVO author = new AuthorVO();
-
-		author.setNationId("01");
-		author.setAuthorName("테스트3");
-		author.setAuthorIntro("테스트 소개3");
-
-		authorDAO.authorEnroll(author);
-
-	}
+	/* 작가 목록 테스트 */
+    @Test
+    public void authorGetListTest() throws Exception{
+        
+        Criteria cri = new Criteria(3,10);    // 3페이지 & 10개 행 표시
+        
+        List<AuthorVO> list = authorDAO.authorGetList(cri);
+        
+        for(int i = 0; i < list.size(); i++) {
+            System.out.println("list" + i + ".........." + list.get(i));
+        }
+        
+    }
 
 }

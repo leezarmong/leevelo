@@ -83,7 +83,9 @@
 				
 				<!-- 각 번호 페이지 버튼 -->
 				<c:forEach var="num" begin="${pagemaker.startPage}" end="${pagemaker.endPage}">
-					<li class="pageInfo_btn ${pagemaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
+					<li class="pageInfo_btn ${pagemaker.cri.pageNum == num ? "active":"" }">
+					<a href="${num}">${num}</a>
+					</li>
 				</c:forEach>
 				
 				<!-- 다음페이지 버튼 -->

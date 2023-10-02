@@ -23,6 +23,10 @@
 <h1>작가 리스트 페이지 입니다.  </h1>
 
 
+<!-- 등록 페이지로 되돌아 가기 -->
+ <button type="button" id="auInsert" onclick="location.href='goodsEnroll'">뒤로가기</button>
+ 
+<div class="bulletin-author">
 <table class="author_table">
                     		<thead>
                     			<tr>
@@ -79,7 +83,7 @@
 						<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
 						<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
 					</form>
-					
+					</div>
 		<script type="text/javascript">
 		
 		let moveForm = $('#moveForm');
@@ -92,7 +96,7 @@
 		    $(".pageMaker_btn a").on("click", function(e){
 				e.preventDefault();
 				moveForm.find("input[name='pageNum']").val($(this).attr("href"));
-				moveForm.attr("action", "/admin/authorList");
+				moveForm.attr("action", "/test/authorList");
 				moveForm.submit();
 				
 			});	
