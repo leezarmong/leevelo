@@ -88,23 +88,19 @@
 		
 		let moveForm = $('#moveForm');
 		 
-		/* 페이지 이동 버튼 */
-		/* $(".pageMaker_btn a").on("click", function(e){
-		    
-		    e.preventDefault(); */
-		    
+		/* 페이지 이동 버튼 */ 
 		    $(".pageMaker_btn a").on("click", function(e){
 				e.preventDefault();
+				/* 기본 클릭 동작을 막는것을 확인 할수 있다.
+				없을경우 2페이지 이동시 파라미터없이 단순 2로 이동하여 404 에러가 뜨게 된다. 
+				*/
+				
 				moveForm.find("input[name='pageNum']").val($(this).attr("href"));
 				moveForm.attr("action", "/test/authorList");
 				moveForm.submit();
 				
 			});	
-		    
-		    /* moveForm.find("input[name='pageNum']").val($(this).attr("href"));
-		    
-		    moveForm.submit(); */
-		 
+		   
 		</script>
 
 </body>

@@ -47,12 +47,10 @@ public class AuthorVO {
 
 	
 	/*쿼리 반환 결과 데이터에는 AuthorVO에 정의되어 있는 
-	 * '소속 국가 이름(nationName)'은 반환되지 않습니다. 
+	 * '소속 국가 이름(nationName)'은 반환되지 않는다. 
 	 * 반환받도록 쿼리문을 작성할 수 있지만 다른 표(vam_nation)에서 데이터를 가져와야 하기 때문에 
-	 * 자원을 좀 더 많이 소모하게 됩니다. 
-	 * 이러한 소모를 줄이기 위해서 쿼리 문의 반환받은 결과 데이터 중 
-	 * nationId를 전달받을 때 nationName의 값이 초기화될 수 있도록 
-	 * AuthorVO 클래스 코드를 수정해줄 것입니다.*/
+	 * 자원을 좀 더 많이 소모하게 되. 
+	 * 이러한 소모를 줄이기 위해서 NationId 를 받게 될때 불러오는 방식을 쓰게 되었다.  .*/
 	public void setNationId(String nationId) {
 		this.nationId = nationId;
 		
