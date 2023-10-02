@@ -1,11 +1,18 @@
 package com.look.controller.author;
 
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.look.model.author.AuthorService;
 import com.look.model.author.AuthorVO;
+import com.look.model.pager.Criteria;
+import com.look.model.pager.PageMakerVO;
 
 
 
@@ -30,14 +37,19 @@ public class AuthorController {
 	public String auInserting(AuthorVO vo) {
 		authorService.authorEnroll(vo);
 		
-		System.out.print(vo.getAuthorId());
 		return "redirect:authorInsert";
 	}
 	
 	
-	// 작가 리스트 페이지
-	@RequestMapping(value="/authorList")
-	public String authorList() {
+	// 작가 리스트 페이지 (페이징)
+	@RequestMapping(value="/authorList", method = RequestMethod.GET)
+	public String authorList(Model model , Criteria cri) {
+		       
+        model.addAttribute("list", authorService.authorGetList(cri));
+        
+        int total = authorService.authorGetTotal(cri);
+        PageMakerVO pageMaker = new PageMakerVO(cri, total);
+        model.addAttribute("pageMaker", pageMaker);
 		
 		return "admin/authorList";
 	}
