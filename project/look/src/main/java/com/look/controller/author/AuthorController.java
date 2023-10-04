@@ -3,6 +3,8 @@ package com.look.controller.author;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,7 +47,15 @@ public class AuthorController {
 	@RequestMapping(value="/authorList", method = RequestMethod.GET)
 	public String authorList(Model model , Criteria cri) {
 		       
-        model.addAttribute("list", authorService.authorGetList(cri));
+
+		List<AuthorVO> list = authorService.authorGetList(cri);
+		
+		if(!list.isEmpty()) {
+			model.addAttribute("list",list);	// 작가 존재 경우
+		} else {
+			model.addAttribute("listCheck", "empty");	// 작가 존재하지 않을 경우
+		}
+ 
         
         int total = authorService.authorGetTotal(cri);
         PageMakerVO pageMaker = new PageMakerVO(cri, total);
