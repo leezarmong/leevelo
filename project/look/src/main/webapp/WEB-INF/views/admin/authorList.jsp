@@ -31,7 +31,7 @@
  
 <div class="bulletin-author">
 <table class="author_table">
-                    		<!-- 게시물 O -->
+                    		<!-- 게시물이 존재 할 때 -->
 						<c:if test="${listCheck != 'empty' }">
 	                    	<table class="author_table">
 	                    		<thead>
@@ -59,7 +59,7 @@
 	                    	</table>						
 						</c:if>
 						
-                		<!-- 게시물 x -->
+                		<!-- 게시물 이 존재하지 않을 때 -->
                 		<c:if test="${listCheck == 'empty'}">
                 			<div class="table_empty">
                 				등록된 작가가 없습니다.
