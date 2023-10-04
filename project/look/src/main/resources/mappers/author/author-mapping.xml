@@ -62,6 +62,11 @@
           
       </select> 
   	
-    
+  	<!-- 작가 디테일 페이지 -->
+    <select id="authorGetDetail" resultMap="authorResult" resultType="author">
+    <!-- selectOne 일 경우 파라미터의 기준이 정확 명확한지 resultMap을 이용하여 확실한 기준을 설정하자 ! -->
+  		select * from vam_author where authorid = #{authorId}
+  	
+  	</select>
     
 </mapper>

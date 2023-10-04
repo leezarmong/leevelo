@@ -1,4 +1,17 @@
 	/* 작가 목록 영역 */
+	
+.admin_content_wrap{
+	
+	 width: 60%;
+    float:left;
+    min-height:700px;
+   margin-left: 20%;
+	margin-top:5%;
+	
+}
+	
+	
+	
 .author_table_wrap{
 	padding: 20px 35px
 }
@@ -60,4 +73,13 @@
 .active{							/* 현재 페이지 버튼 */
 	border : 2px solid black;
 	font-weight:400;
+}
+
+
+.btn{
+    min-width: 180px;
+    padding: 4px 30px;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 40px;
 }

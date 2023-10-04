@@ -33,5 +33,11 @@ public class AuthorServiceImpl implements AuthorService{
 	public int  authorGetTotal(Criteria cri) {
 		return authorDAO.authorGetTotal(cri);
 	}
+	
+	//작가 디테일 (상세 페이지)
+	@Override
+	public AuthorVO authorGetDetail(int authorId) {
+		return authorDAO.authorGetDetail(authorId);
+	}
 
 }

@@ -61,6 +61,19 @@ public class AuthorController {
 		return "admin/adminpop/authorPop";
 	}
 	
+	//작가 상세 페이지
+	@RequestMapping(value = "/authorDetail" , method = RequestMethod.GET)
+	public String authorDetail(int authorId , Model model , Criteria cri) {
+		
+		//작가 관리 페이지 정보
+		model.addAttribute("cri",cri);
+		
+		//작가 상세 정보
+		model.addAttribute("authorInfo",authorService.authorGetDetail(authorId));
+		
+		return "admin/authorDetail";
+	}
+	
 	
 	
 

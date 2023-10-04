@@ -35,5 +35,13 @@ public class AuthorDAO {
 	public int  authorGetTotal(Criteria cri) {
 		return sqlsession.selectOne("AuthorDAO.authorGetTotal",cri);
 	}
+	
+	//작가 디테일 (상세 페이지)
+	public AuthorVO authorGetDetail(int authorId) {
+		
+		AuthorVO result = sqlsession.selectOne("AuthorDAO.authorGetDetail",authorId);
+		return result;
+		
+	}
 
 }

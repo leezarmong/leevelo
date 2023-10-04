@@ -17,5 +17,9 @@ public interface AuthorService {
 	
 	//작가 수 (카운팅)
 	public int  authorGetTotal(Criteria cri);
+	
+	
+	//작가 디테일 (상세 페이지)
+	public AuthorVO authorGetDetail(int authorId); 
 
 }

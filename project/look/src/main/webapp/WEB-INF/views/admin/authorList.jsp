@@ -22,9 +22,12 @@
 
 <h1>작가 리스트 페이지 입니다.  </h1>
 
-
-<!-- 등록 페이지로 되돌아 가기 -->
- <button type="button" id="auInsert" onclick="location.href='goodsEnroll'">뒤로가기</button>
+ 
+ 
+ <div class="admin_content_wrap">
+ <!-- 등록 페이지로 되돌아 가기 -->
+ <button class="btn" id="auInsert" onclick="location.href='goodsEnroll'">뒤로가기</button>
+ <br><br>
  
 <div class="bulletin-author">
 <table class="author_table">
@@ -40,7 +43,13 @@
                     		<c:forEach items="${list}" var="list">
                     		<tr>
                     			<td><c:out value="${list.authorId}"></c:out> </td>
-                    			<td><c:out value="${list.authorName}"></c:out></td>
+                    			<td>
+                    			
+                    			<a class="move" href='<c:out value="${list.authorId}"/>'>
+                    			<c:out value="${list.authorName}"></c:out>
+                    			</a>
+                    			
+                    			</td>
                     			<td><c:out value="${list.nationName}"></c:out> </td>
                     			<td><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd"/></td>
                     			<td><fmt:formatDate value="${list.updateDate}" pattern="yyyy-MM-dd"/></td>
@@ -84,11 +93,16 @@
 						<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
 					</form>
 					</div>
+					
+					
+		</div>
+		
 		<script type="text/javascript">
 		
-		let moveForm = $('#moveForm');
-		 
+		
 		/* 페이지 이동 버튼 */ 
+		let moveForm = $('#moveForm');
+		
 		    $(".pageMaker_btn a").on("click", function(e){
 				e.preventDefault();
 				/* 기본 클릭 동작을 막는것을 확인 할수 있다.
@@ -100,7 +114,22 @@
 				moveForm.submit();
 				
 			});	
-		   
+		
+		
+		
+		/* 상세 페이지 */
+	    $(".move").on("click", function(e){
+	    	
+	    	e.preventDefault();
+	    	
+	    	moveForm.append("<input type='hidden' name='authorId' value='"+ $(this).attr("href") + "'>");
+	    	moveForm.attr("action", "/test/authorDetail");
+	    	moveForm.submit();
+	    	
+	    });
+		
+		
+		
 		</script>
 
 </body>
