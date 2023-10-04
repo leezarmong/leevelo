@@ -145,7 +145,7 @@
 			});	
 		    
 		    
-		    /* 작거 검색 버튼 동작 */
+		    /* 작가 검색 버튼 동작 */
 		    $("#searchForm button").on("click", function(e){
 		    	
 		    	e.preventDefault();
