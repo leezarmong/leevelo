@@ -40,8 +40,14 @@ public class AuthorDAO {
 	public AuthorVO authorGetDetail(int authorId) {
 		
 		AuthorVO result = sqlsession.selectOne("AuthorDAO.authorGetDetail",authorId);
-		return result;
-		
+		return result;	
 	}
+	
+	//작가 정보 수정
+	public int authorModify(AuthorVO vo) {
+		int result =sqlsession.update("AuthorDAO.authorModify",vo);
+		return result;
+	}
+
 
 }

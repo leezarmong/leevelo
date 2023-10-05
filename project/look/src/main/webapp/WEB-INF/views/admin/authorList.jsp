@@ -14,7 +14,7 @@
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
   
-  <!-- Include your CSS file -->
+<!-- Include your CSS file -->
 <link rel="stylesheet" href="resources/css/authorList.css">
 
 </head>
@@ -122,6 +122,25 @@
 		</div>
 		
 		<script type="text/javascript">
+		
+		$(document).ready(function(){
+			
+			let result = '<c:out value="${result}"/>';
+			
+			checkAlert(result);
+			console.log(result);
+			
+			function checkAlert(result){
+				
+				
+				if(result === "modify_result"){
+					alert("수정이 완료되었습니다.");
+				}
+					
+			}	
+			
+		});
+		
 		
 		
 		/* 페이지 이동 버튼 */ 

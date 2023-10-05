@@ -21,5 +21,9 @@ public interface AuthorService {
 	
 	//작가 디테일 (상세 페이지)
 	public AuthorVO authorGetDetail(int authorId); 
+	
+	
+	//작가 정보 수정
+	public int authorModify(AuthorVO vo);
 
 }

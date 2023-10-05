@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.look.model.author.AuthorService;
 import com.look.model.author.AuthorVO;
@@ -82,6 +83,32 @@ public class AuthorController {
 		model.addAttribute("authorInfo",authorService.authorGetDetail(authorId));
 		
 		return "admin/authorDetail";
+	}
+	
+	//작가 수정 페이지
+	@RequestMapping(value = "/authorModify" , method = RequestMethod.GET)
+	public String authorModify(int authorId , Model model , Criteria cri) {
+		
+		//작가 관리 페이지 정보
+		model.addAttribute("cri",cri);
+		
+		//작가 상세 정보
+		model.addAttribute("authorInfo",authorService.authorGetDetail(authorId));
+		
+		return "admin/authorModify";
+	}
+	
+	/* 작가 정보 수정 */
+	@RequestMapping(value = "/authorModify" , method = RequestMethod.POST)
+	public String authorModifyPOST(AuthorVO vo, RedirectAttributes rttr) throws Exception{		
+		
+	
+		authorService.authorModify(vo);
+		
+		rttr.addFlashAttribute("result", "modify_result");
+		
+		return "redirect:authorList";
+		
 	}
 	
 	

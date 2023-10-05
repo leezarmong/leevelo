@@ -6,9 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>작가 수정 페이지</title>
-<link rel="stylesheet" href="../resources/css/admin/authorModify.css">
-
+<title>Insert title here</title>
 
 <!-- Include jQuery -->
 <script
@@ -16,16 +14,20 @@
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
   
-  <!-- Include your CSS file -->
-<link rel="stylesheet" href="resources/css/authorDetail.css">
+<!-- Include your CSS file -->
+<link rel="stylesheet" href="resources/css/authorModify.css">
   
 </head>
 <body>
 				
                 <div class="admin_content_wrap">
-                    <div class="admin_content_subject"><span>작가 상세</span></div>
+                    <div class="admin_content_subject"><span>작가 수정</span></div>
                     <div class="admin_content_main">
-                    	<form id="modifyForm" action="/admin/authorModify" method="post">
+                    
+                    
+                    	<form id="modifyForm" action="/test/authorModify" method="post">
+	                
+	                
 	                   		<div class="form_section">
 	                   			<div class="form_section_title">
 	                   				<label>작가 번호</label>
@@ -81,10 +83,15 @@
 	                   			</div>
 	                   		</div>
 	                 		<div class="btn_section">
-	                   			<button id="cancelBtn" class="btn">취소</button>
+	                   			<button id="cancelBtn" class="btn">뒤로가기</button>
 		                    	<button id="modifyBtn" class="btn modify_btn">수 정</button>
+		                    	<!-- <button id="deleteBtn" class="btn delete_btn">삭 제</button> -->
 		                    </div> 
+	                   
+	                   
 	                    </form>
+                    
+                    
                     </div>                    
                 </div>
                 
@@ -96,6 +103,76 @@
                 </form>
 				
 
+<script>
+
+	let moveForm = $("#moveForm");
+	let modifyForm = $("#modifyForm");
+	
+
+	/* 작가 상세 페이지 이동 버튼 */
+	$("#cancelBtn").on("click", function(e){
+		
+		e.preventDefault();
+				
+		moveForm.attr("action", "/test/authorDetail")
+		moveForm.submit();
+		
+	});
+	
+	
+	/* 삭제 버튼 */
+	/* $("#deleteBtn").on("click", function(e){
+		e.preventDefault();
+		moveForm.find("input").remove();
+		moveForm.append('<input type="hidden" name="authorId" value="${authorInfo.authorId}">');
+		moveForm.attr("action", "/admin/authorDelete");
+		moveForm.attr("method", "post");
+		moveForm.submit();
+	});	 */
+	
+	
+	
+	/* 작가 수정 버튼 작동 및 유효성 검사 */
+	$("#modifyBtn").on("click", function(e){
+		e.preventDefault();
+		
+		modifyForm.submit();
+		
+		/* let authorName = $(".form_section_content input[name='authorName']").val();
+		let authorIntro = $(".form_section_content textarea").val();		
+
+		let	nameCk = false;
+		let introCk = false;		
+		
+		e.preventDefault();
+		
+		if(!authorName){
+			$("#warn_authorName").css("display", "block");
+		} else {
+			$("#warn_authorName").css("display", "none");
+			nameCk = true;
+		}
+		if(!authorIntro){
+			$("#warn_authorIntro").css("display", "block");
+		} else {
+			$("#warn_authorIntro").css("display", "none");
+			introCk = true;
+		}
+
+		
+		if(nameCk && introCk ){
+			modifyForm.submit();	
+		} else {
+			return false;
+		}
+		
+		 */
+	});
+	
+	
+	
+
+</script>
 
 </body>
 </html>

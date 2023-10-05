@@ -39,5 +39,11 @@ public class AuthorServiceImpl implements AuthorService{
 	public AuthorVO authorGetDetail(int authorId) {
 		return authorDAO.authorGetDetail(authorId);
 	}
+	
+	//작가 정보 수정
+	@Override
+	public int authorModify(AuthorVO vo) {
+		return authorDAO.authorModify(vo);
+	}
 
 }

@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>작가 상세 페이지</title>
 
-  <!-- Include your CSS file -->
+<!-- Include your CSS file -->
 <link rel="stylesheet" href="resources/css/authorDetail.css">
 
 <!-- Include jQuery -->
@@ -91,6 +91,25 @@
                 	<input type="hidden" name="amount" value='<c:out value="${cri.amount }"/>' >
                 	<input type="hidden" name="keyword" value='<c:out value="${cri.keyword }"/>'>
                 </form>
+                
+                
+   <script type="text/javascript">
+	
+   /* 세션 정보 */
+	let moveForm = $("#moveForm");
+	
+	
+   /* 작가 수정 페이지 이동 버튼 */
+	$("#modifyBtn").on("click", function(e){
+		
+		e.preventDefault();
+		
+		moveForm.attr("action", "/test/authorModify");
+		moveForm.submit();
+   
+	 });
+   
+   </script>
 			
 
 
