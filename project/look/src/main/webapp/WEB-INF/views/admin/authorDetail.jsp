@@ -7,12 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>작가 상세 페이지</title>
+
   <!-- Include your CSS file -->
 <link rel="stylesheet" href="resources/css/authorDetail.css">
+
+<!-- Include jQuery -->
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
+  
 </head>
 <body>
 				
