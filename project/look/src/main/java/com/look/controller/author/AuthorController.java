@@ -106,7 +106,10 @@ public class AuthorController {
 		authorService.authorModify(vo);
 		
 		rttr.addFlashAttribute("result", "modify_result");
+		//메서드를 사용하여 리다이렉트 속성을 추가하면 리다이렉트된 요청에서 해당 속성을 사용
 		
+		
+//		return "redirect:authorDetail";
 		return "redirect:authorList";
 		
 	}
