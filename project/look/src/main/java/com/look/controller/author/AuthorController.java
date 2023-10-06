@@ -68,8 +68,25 @@ public class AuthorController {
 	
 	//작가 검색 팝업창 
 	@RequestMapping(value="/authorPop" , method = RequestMethod.GET)
-	public String authorPop() throws Exception{
+	public String authorPop(Criteria cri ,Model model) throws Exception{
 		
+		
+		//기본 10개씩 뜨지만 팝업 창은 크기가 작기 때문에 5개로 셋팅.
+		cri.setAmount(5);
+		
+		
+		List<AuthorVO> list = authorService.authorGetList(cri);
+		// 작가 list 인스턴스
+		
+		if(!list.isEmpty()) {
+			model.addAttribute("list",list); // 리스트가 존재할 경우 
+		}
+		else {
+			model.addAttribute("listCheck", "empty"); // 리스트가 존재하지 않을 경우.
+		}
+		
+		/* 페이지 이동 인터페이스 데이터 */
+		model.addAttribute("pageMaker",new PageMakerVO(cri, authorService.authorGetTotal(cri)));
 		
 		
 		return "admin/adminpop/authorPop";

@@ -178,7 +178,7 @@
 		e.preventDefault();
 		
 		let popUrl = "authorPop";
-		let popOption = "status=no,width = 650px, height=550px, top=300px,left=" + popupX + ",top=" + popupY+"scrollbars=yes";
+		let popOption = "status=no,width = 650px, height=400px, top=300px,left=" + popupX + ",top=" + popupY+"scrollbars=yes";
 		
 		window.open(popUrl,"작가 찾기",popOption);
 		
