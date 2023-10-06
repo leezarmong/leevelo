@@ -68,3 +68,15 @@ insert into vam_author(authorName, nationId, authorIntro) values('유홍준', '0
  select * from vam_nation;
  
  select count(*) from vam_author; 
+ 
+ 
+ 
+ select * from vam_book;
+ 
+ delete from vam_book;
+ alter table vam_book modify(bookId generated as identity (start with 1));
+
+ALTER TABLE vam_author MODIFY(authorId GENERATED AS IDENTITY (START WITH 1));
+
+
+select * from vam_book;
