@@ -170,7 +170,7 @@
 	$('.authorId_btn').on("click",function(e){
 		
 		/* 팝업창 좌표 */
-		var popupWidth = 500;
+		var popupWidth = 630;
 	    var popupHeight = 600;  
 		var popupX = (window.screen.width / 2) - (popupWidth / 2);
 	    var popupY = (window.screen.height / 2) - (popupHeight / 2);
