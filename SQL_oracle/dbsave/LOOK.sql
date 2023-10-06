@@ -65,6 +65,7 @@ insert into vam_author(authorName, nationId, authorIntro) values('유홍준', '0
      insert into vam_author(authorName, nationId, authorIntro) values('폴크루그먼', '02', '작가 소개입니다' );
      
  select * from vam_author;
+ select * from vam_book;
  select * from vam_nation;
  
  select count(*) from vam_author; 
