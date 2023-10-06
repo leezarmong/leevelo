@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,8 +67,11 @@
 
         <div>
             <label>작가 (코드)</label>
-            <input id="authorName_input" readonly="readonly">
+            <!-- <input id="authorName_input" readonly="readonly"> -->
+            <input id="authorName" readonly="readonly">
 			<input id="authorId" name="authorId" type="hidden">
+			<!-- authorId 가 없었기 때문에 오류가 났었음.... -->
+			
 			<button class="authorId_btn">작가 선택</button>
            <!--  <input type="text" id="authorId" name="authorId" placeholder="1" required> -->
         </div><br><br>

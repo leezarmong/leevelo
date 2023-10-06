@@ -26,9 +26,11 @@
 //insert
 function bookinsert() {
 	
+	let authorId = $("#authorId").val();
+	
     let params = {
         bookName: $("#bookName").val(),
-        authorId: $("#authorId").val(),
+        authorId: authorId,
         publeYear: $("#publeYear").val(),
         publisher: $("#publisher").val(),
         cateCode: $("#cateCode").val(),

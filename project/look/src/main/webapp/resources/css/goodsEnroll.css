@@ -83,7 +83,7 @@
 }
 
 /* 작가 선택 */
-.guestbook form input#authorName_input{
+.guestbook form input#authorName{
 	border: 3px solid #ccc;
   padding: 5px;
   border-radius: 5px;

@@ -46,6 +46,7 @@
 	                    			<%-- <td><c:out value="${list.authorName}"></c:out></td> --%>
 	                    			
 	                    			<a class="move" href='<c:out value="${list.authorId}"/>' data-name='<c:out value="${list.authorName}"></c:out>'>
+                                   	<c:out value="${list.authorName}"></c:out>
                                     </a>
 	                    			
 	                    			<!-- 팝업창 선택과 동시에 창이 닫히면서 선택되는 것을 구현 하기 위함. -->
@@ -161,10 +162,12 @@
 			
 			let authorId = $(this).attr("href");
 			let authorName= $(this).data("name");
-			$(opener.document).find("#authorId_input").val(authorId);
-			$(opener.document).find("#authorName_input").val(authorName);
+			$(opener.document).find("#authorId").val(authorId);
+			$(opener.document).find("#authorName").val(authorName);
 			
-			
+			window.close();
+
+		});	
 			/* let authorId = $(this).attr("href");: 클릭된 요소(this)의 "href" 속성을 추출하여 authorId 변수에 저장. 이것은 클릭된 요소의 링크 대상을 나타낸다.
 
 			let authorName = $(this).data("name");: 클릭된 요소(this)에서 "data-name" 속성을 추출하여 authorName 변수에 저장. 이것은 클릭된 요소의 데이터 속성 중 하나로, 작가의 이름을 나타낸다.
@@ -176,10 +179,6 @@
 			window.close();: 현재 창을 닫습니다. 이 코드는 부모 창에서 작동하는 것이 아니라, 현재 열려 있는 팝업 창을 닫는 역할을 한다. */
 			
 			
-			window.close();
-
-		});	
-
 	
 	</script>
 
