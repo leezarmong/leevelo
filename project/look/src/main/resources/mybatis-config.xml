@@ -13,6 +13,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="member" type="com.look.model.member.MemberVO" />
 		<typeAlias alias="book" type="com.look.model.book.BookVO" />
 		<typeAlias alias="author" type="com.look.model.author.AuthorVO" />
+		<typeAlias alias="cate" type="com.look.model.cate.CateVO" />
+		
 	</typeAliases> 
 	
 	<!-- Sql Mapper 설정 -->
@@ -21,5 +23,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mappers/member/member-mapping.xml" />
 		<mapper resource="mappers/book/book-mapping.xml" />
 		<mapper resource="mappers/author/author-mapping.xml" />
+		<mapper resource="mappers/cate/cate-mapping.xml" />
+		
 	</mappers> 
 </configuration>
