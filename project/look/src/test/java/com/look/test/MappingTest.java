@@ -13,6 +13,8 @@ import com.look.model.author.AuthorVO;
 import com.look.model.author.impl.AuthorDAO;
 import com.look.model.book.BookVO;
 import com.look.model.book.impl.BookDAO;
+import com.look.model.cate.CateVO;
+import com.look.model.cate.impl.CateDAO;
 import com.look.model.pager.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -35,10 +37,12 @@ import com.look.model.pager.Criteria;
 public class MappingTest {
 
 	@Autowired
-	private AuthorDAO authorDAO;
+	private CateDAO cateDAO;
 
 	/* 작가 목록 테스트 */
-    @Test
+
+	
+	/*	@Test
     public void authorGetListTest() throws Exception{
         
         Criteria cri = new Criteria(3,10);    // 3페이지 & 10개 행 표시
@@ -48,7 +52,19 @@ public class MappingTest {
         for(int i = 0; i < list.size(); i++) {
             System.out.println("list" + i + ".........." + list.get(i));
         }
-        
-    }
+      */
+	
+	
+	@Test
+	public void CateGetListTest() throws Exception{
+		
+		System.out.print("cateList()    :"+cateDAO.cateList());
+		
+		
+		
+	}
+	
+	
+    
 
 }
