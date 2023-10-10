@@ -63,6 +63,8 @@
         <div>
             <label>책 제목</label>
             <input type="text" id="bookName" name="bookName" required>
+           
+            
         </div><br><br>
 
         <div>
@@ -71,6 +73,7 @@
             <input id="authorName" readonly="readonly">
 			<input id="authorId" name="authorId" type="hidden">
 			<!-- id에  authorId 가 없었기 때문에 오류가 났었음.... -->
+		
 			
 			<button class="authorId_btn">작가 선택</button>
          
@@ -79,11 +82,15 @@
         <div>
             <label>출판일</label>
             <input id="publeYear" name="publeYear" autocomplete="off" readonly="readonly">
+          
+            
         </div><br><br>
 
         <div>
             <label>출판사</label>
             <input type="text" id="publisher" name="publisher" required>
+          
+            
         </div><br><br><br>
 
         <div>
@@ -107,33 +114,42 @@
 				</select>
 			</div> 
 			
+			
            <!--  <input type="text" id="cateCode" name="cateCode" required> -->
         </div><br><br><br>
 
         <div>
             <label>상품 가격</label>
             <input type="text" id="bookPrice" name="bookPrice" placeholder="1" required>
+            
         </div><br><br>
 
         <div>
             <label>상품 재고</label>
             <input type="text" id="bookStock" name="bookStock" placeholder="1" required>
+          
+            
         </div><br><br>
 
         <div>
             <label>상품 할인율</label>
             <input type="text" id="bookDiscount" name="bookDiscount" placeholder="0.01" required>
+           
+            
         </div><br><br>
 
         <div>
             <label>책 소개</label>
             <textarea name="bookIntro" id="bookIntro"></textarea>
            
+           
         </div><br><br>
 
         <div>
             <label>책 목차</label>
             <textarea name="bookContents" id="bookContents"></textarea>
+           
+            
             
         </div>
         
@@ -161,16 +177,23 @@ let cate3Array = new Array();
 let cate1Obj = new Object();
 let cate2Obj = new Object();
 let cate3Obj = new Object();
+/* Array (비어있는 배열) 와 Object (비어있는 객체) 생성   */
+
 
 let cateSelect1 = $(".cate1");		
 let cateSelect2 = $(".cate2");
 let cateSelect3 = $(".cate3");
+/* 위 의 해당 select 설정. */
+
 
 /* 카테고리 배열 초기화 메서드 */
 function makeCateArray(obj,array,cateList, tier){
+	//mackeCateArray 생성
+	
 	for(let i = 0; i < cateList.length; i++){
 		if(cateList[i].tier === tier){
 			obj = new Object();
+			// cateList 의 tier 값이 일치하게 되면 obj 가 생성된다.
 			
 			obj.cateName = cateList[i].cateName;
 			obj.cateCode = cateList[i].cateCode;
@@ -208,6 +231,7 @@ $(cateSelect1).on("change",function(){
 	
 	cateSelect2.append("<option value='none'>선택</option>");
 	cateSelect3.append("<option value='none'>선택</option>");
+	/* select 에서 1 를 선택할경우 나머지 중분류 에서 2 또는 3 이 선택할수 없게 된다. */
 	
 	for(let i = 0; i < cate2Array.length; i++){
 		if(selectVal1 === cate2Array[i].cateParent){
