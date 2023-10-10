@@ -82,5 +82,7 @@ ALTER TABLE vam_author MODIFY(authorId GENERATED AS IDENTITY (START WITH 1));
 
 select * from vam_book;
 
+select * from vam_author;
+
 
 select * from vam_bcate;
