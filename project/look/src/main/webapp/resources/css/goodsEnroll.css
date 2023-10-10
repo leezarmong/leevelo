@@ -21,8 +21,9 @@
 
 .guestbook form label {
   display: block;
-  font-size: 1em;
+  font-size: 1.6em;
   margin-bottom: 5px;
+  
 }
 
 .guestbook form input[type="text"],
@@ -128,3 +129,22 @@ margin-top: 15px;
 #auInsert:hover, #auList:hover {
   background-color: #555;
 }
+
+
+
+/* 카테고리 css 설정 */
+.guestbook form select , .cate1 , .cate2 , .cate3 {
+  border: 3px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.cate_wrap span {
+    font-weight: 600;
+}
+.cate_wrap:not(:first-child) {
+    margin-top: 20px;
+}
+

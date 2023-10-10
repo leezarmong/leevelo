@@ -22,6 +22,9 @@
                 console.error(error);
             });
     });
+    
+    
+    
 
 //insert
 function bookinsert() {
@@ -33,7 +36,7 @@ function bookinsert() {
         authorId: authorId,
         publeYear: $("#publeYear").val(),
         publisher: $("#publisher").val(),
-        cateCode: $("#cateCode").val(),
+        cateCode: $("#cateCode1").val() + $("#cateCode2").val() + $("#cateCode3").val(),
         bookPrice: $("#bookPrice").val(),
         bookStock: $("#bookStock").val(),
         bookDiscount: $("#bookDiscount").val(),
