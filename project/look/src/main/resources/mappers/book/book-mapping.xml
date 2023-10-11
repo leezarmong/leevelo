@@ -24,7 +24,7 @@
 	</resultMap>
     
     
-    <!-- 작가 등록 -->
+    <!-- 책 등록 -->
   	<insert id="bookEnroll">
   	
   		insert into vam_book(bookName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents)

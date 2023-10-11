@@ -86,3 +86,11 @@ select * from vam_author;
 
 
 select * from vam_bcate;
+
+
+SELECT column_name, data_type, data_length, data_precision, data_scale, nullable
+FROM all_tab_columns
+WHERE table_name = 'vam_author';
+
+alter table vam_book add foreign key (authorId) references vam_author(authorId);
+alter table vam_book add foreign key (cateCode) references vam_bcate(cateCode);
