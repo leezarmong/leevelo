@@ -94,3 +94,38 @@ WHERE table_name = 'vam_author';
 
 alter table vam_book add foreign key (authorId) references vam_author(authorId);
 alter table vam_book add foreign key (cateCode) references vam_bcate(cateCode);
+
+
+
+
+
+drop table vam_book;
+
+alter table vam_book add foreign key (authorId) references vam_author(authorId);
+alter table vam_book add foreign key (cateCode) references vam_bcate(cateCode);
+
+
+
+create table vam_book(
+    bookId number generated as identity (start with 1) primary key,
+    bookName varchar2(50)   not null,
+    authorId number,
+    publeYear Date not null,
+    publisher varchar2(70) not null,
+    cateCode varchar2(30),
+    bookPrice number not null,
+    bookStock number not null,
+    bookDiscount number(2,2),
+    bookIntro clob,
+    bookContents clob,
+    regDate date default sysdate,
+    updateDate date default sysdate,
+    foreign key(authorId) references vam_author(authorId),
+    foreign key(cateCode) references vam_bcate(cateCode)
+    
+    
+);
+
+select * from vam_book;
+select * from vam_author;
+select * from vam_bcate;
