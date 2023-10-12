@@ -13,6 +13,8 @@ import com.look.model.book.BookService;
 import com.look.model.book.BookVO;
 import com.look.model.cate.CateService;
 import com.look.model.cate.CateVO;
+import com.look.model.pager.Criteria;
+import com.look.model.pager.PageMakerVO;
 
 @Controller
 public class AdminBookController {
@@ -52,6 +54,26 @@ public class AdminBookController {
 		bookservice.bookEnroll(vo);
 		System.out.print("입력되었습니다.");
 		return "redirect:goodsEnroll";
+	}
+	
+	
+	// 어드민 북 List
+	@RequestMapping(value="goodsGetList" , method = RequestMethod.GET)
+	public String goodsGetList(Criteria cri , Model model) {
+		
+		List<BookVO> list = bookservice.goodsGetList(cri);
+		
+		if(!list.isEmpty()) {
+			model.addAttribute("list", list);
+		} else {
+			model.addAttribute("listCheck", "empty");
+			
+		}
+		
+		model.addAttribute("pageMaker", new PageMakerVO(cri, bookservice.goodsGetTotal(cri)));
+		
+		
+		return "admin/goodsGetList";
 	}
 	
 	

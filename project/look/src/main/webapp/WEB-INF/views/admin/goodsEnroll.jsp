@@ -51,8 +51,8 @@
  <!-- 작가 목록 페이지 -->
   <button type="button" id="auList" onclick="location.href='authorList'">authorList</button>
 
-
-
+<!-- goodsGetList -->
+<button type="button" id="auList" onclick="location.href='goodsGetList'">goodsGetList</button>
 
 
 
