@@ -1,5 +1,25 @@
 @charset "UTF-8";
 
+/* 뒤로가기 버튼 */
+.btn1{
+    min-width: 180px;
+    padding: 4px 30px;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 40px;
+}
+
+.admin_content_wrap{
+	
+	 width: 60%;
+    float:left;
+    min-height:700px;
+   margin-left: 20%;
+	margin-top:5%;
+	
+}
+
+
 /* 상품 목록 영역 */
 .goods_table_wrap{
 	padding: 20px 35px
@@ -54,7 +74,7 @@
     text-align:center;	
 }
 .search_input input[name='keyword']{
-	padding: 4px 10px;
+	padding: 4px 80px;
     font-size: 15px;
     height: 20px;
     line-height: 20px;

@@ -14,9 +14,21 @@
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
+  
+  <!-- Include your CSS file -->
+<link rel="stylesheet" href="resources/css/goodsGetList.css">
 
 </head>
 <body>
+
+
+<h1>상품(책) 페이지 입니다.  </h1>
+
+
+ <div class="admin_content_wrap">
+ 
+<!-- 등록 페이지로 되돌아 가기 -->
+ <button class="btn1" id="auInsert" onclick="location.href='goodsEnroll'">뒤로가기</button>
 
   <div class="goods_table_wrap">
                     	<!-- 상품 리스트 O -->
@@ -25,7 +37,7 @@
 	                    		<thead>
 	                    			<tr>
 										<td class="th_column_1">상품 번호</td>
-	                    				<td class="th_column_2">상품 이름</td>
+	                    				<td class="th_column_2">상품(책) 이름</td>
 	                    				<td class="th_column_3">작가 이름</td>
 	                    				<td class="th_column_4">카테고리</td>
 	                    				<td class="th_column_5">재고</td>
@@ -47,16 +59,16 @@
 	                    <!-- 상품 리스트 X -->
                 		<c:if test="${listCheck == 'empty'}">
                 			<div class="table_empty">
-                				등록된 작가가 없습니다.
+                				등록된 상품이 없습니다.
                 			</div>
                 		</c:if> 
                 	</div>
                 	
                 	<!-- 검색 영역 -->
                 	<div class="search_wrap">
-                		<form id="searchForm" action="/admin/goodsManage" method="get">
+                		<form id="searchForm" action="/test/goodsGetList" method="get">
                 			<div class="search_input">
-                    			<input type="text" name="keyword" value='<c:out value="${pageMaker.cri.keyword}"></c:out>'>
+                    			<input type="text" name="keyword" placeholder="책 제목 검색" value='<c:out value="${pageMaker.cri.keyword}"></c:out>'>
                     			<input type="hidden" name="pageNum" value='<c:out value="${pageMaker.cri.pageNum }"></c:out>'>
                     			<input type="hidden" name="amount" value='${pageMaker.cri.amount}'>
                     			<input type="hidden" name="type" value="G">
@@ -72,12 +84,12 @@
                 			<!-- 이전 버튼 -->
                 			<c:if test="${pageMaker.prev }">
                 				<li class="pageMaker_btn prev">
-                					<a href="${pageMaker.pageStart -1}">이전</a>
+                					<a href="${pageMaker.startPage -1}">이전</a>
                 				</li>
                 			</c:if>
                 			
                 			<!-- 페이지 번호 -->
-                			<c:forEach begin="${pageMaker.pageStart }" end="${pageMaker.pageEnd }" var="num">
+                			<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="num">
                 				<li class="pageMaker_btn ${pageMaker.cri.pageNum == num ? 'active':''}">
                 					<a href="${num}">${num}</a>
                 				</li>	
@@ -86,7 +98,7 @@
 	                    	<!-- 다음 버튼 -->
 	                    	<c:if test="${pageMaker.next}">
 	                    		<li class="pageMaker_btn next">
-	                    			<a href="${pageMaker.pageEnd + 1 }">다음</a>
+	                    			<a href="${pageMaker.endPage + 1 }">다음</a>
 	                    		</li>
 	                    	</c:if>
 	                    </ul>
@@ -97,7 +109,9 @@
 						<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
 						<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
                 	</form>
-                	
+       
+       
+       </div>         	
  	<script type="text/javascript">
  	
  	let searchForm = $('#searchForm');
