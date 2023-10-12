@@ -58,20 +58,25 @@ public class AdminBookController {
 	
 	
 	// 어드민 북 List
-	@RequestMapping(value="goodsGetList" , method = RequestMethod.GET)
+	@RequestMapping(value="/goodsGetList" , method = RequestMethod.GET)
 	public String goodsGetList(Criteria cri , Model model) {
 		
 		List<BookVO> list = bookservice.goodsGetList(cri);
+		// list 인스턴스
 		
 		if(!list.isEmpty()) {
-			model.addAttribute("list", list);
-		} else {
-			model.addAttribute("listCheck", "empty");
 			
+			model.addAttribute("list", list);
+			// 비어있지 않은 경
+		}
+		else {
+			
+			model.addAttribute("listCheck", "empty");
+			// 비어있을 경우
 		}
 		
 		model.addAttribute("pageMaker", new PageMakerVO(cri, bookservice.goodsGetTotal(cri)));
-		
+		// pageMaker addAttribute.
 		
 		return "admin/goodsGetList";
 	}
