@@ -106,5 +106,7 @@ create table vam_book(
 insert into vam_book(bookName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount,bookIntro, bookContents)
 (select bookName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount,bookIntro, bookContents from vam_book);
 
+select * from vam_book;
 
-
+SELECT * FROM USER_INDEXES WHERE TABLE_NAME = 'VAM_BOOK';
+commit;

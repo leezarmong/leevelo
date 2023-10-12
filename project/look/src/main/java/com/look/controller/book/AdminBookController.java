@@ -67,7 +67,7 @@ public class AdminBookController {
 		if(!list.isEmpty()) {
 			
 			model.addAttribute("list", list);
-			// 비어있지 않은 경
+			// 비어있지 않은 경우
 		}
 		else {
 			
