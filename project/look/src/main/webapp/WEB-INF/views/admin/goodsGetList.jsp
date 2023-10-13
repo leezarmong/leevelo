@@ -48,7 +48,13 @@
 	                    		<tr>
 	                    			<td><c:out value="${list.bookId}"></c:out></td>
 	                    			<td><c:out value="${list.bookName}"></c:out></td>
-	                    			<td><c:out value="${list.authorName}"></c:out></td>
+	                    			<td>
+	                    			
+	                    			<a class="move" href='<c:out value="${list.bookId }"/>'>
+	                    			<c:out value="${list.authorName}"></c:out>
+	                    			</a>
+	                    			
+	                    			</td>
 	                    			<td><c:out value="${list.cateName}"></c:out></td>
 	                    			<td><c:out value="${list.bookStock}"></c:out></td>
 	                    			<td><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd"/></td>
@@ -116,6 +122,23 @@
  	
  	let searchForm = $('#searchForm');
  	let moveForm = $('#moveForm');
+ 	
+ 	
+ 	
+ 	/* 상품 (책) 상세 보기 */
+ 	$(".move").on("click",function(e){
+ 		e.preventDefault();
+ 		
+ 		moveForm.append("<input type='hidden' name='bookId' value='"+$(this).attr("href")+"'>");
+ 		moveForm.attr("action","/test/goodsDetail");
+ 		moveForm.submit();
+ 		
+ 	});
+ 	
+ 	
+ 	
+ 	
+ 	
 
  	/* 작거 검색 버튼 동작 */
  	$("#searchForm button").on("click", function(e){

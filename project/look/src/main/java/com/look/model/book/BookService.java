@@ -15,5 +15,8 @@ public interface BookService {
 	
 	//상품 총 개수(카운트)
 	public int goodsGetTotal(Criteria cri);
+	
+	//상품 (책)상세 조회 
+	public BookVO goodsGetDetail(int bookId);
 
 }

@@ -82,5 +82,20 @@ public class AdminBookController {
 	}
 	
 	
+	//상품 (책)조회 페이지
+	@RequestMapping(value="/goodsDetail" , method= RequestMethod.GET)
+	public String goodsDetail(int bookId , Criteria cri , Model model) {
+		
+		
+		model.addAttribute("cri",cri);
+		// 목록 페이지 조건 정보 
+		
+		model.addAttribute("goodsInfo",bookservice.goodsGetDetail(bookId));
+		// 조회 페이지 정보.
+		
+		return "admin/goodsDetail";
+	}
+	
+	
 	
 }

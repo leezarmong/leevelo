@@ -33,6 +33,12 @@ public class BookServiceImpl implements BookService {
 	public int goodsGetTotal(Criteria cri) {
 		return bookDao.goodsGetTotal(cri);
 	}
+	
+	//상품 (책)상세 조회 
+	@Override
+	public BookVO goodsGetDetail(int bookId) {
+		return bookDao.goodsGetDetail(bookId);
+	}
 		
 
 }

@@ -74,7 +74,8 @@
   	
   	<!-- 상품 조회 페이지 -->
 	<select id="goodsGetDetail" resultType="book">
-	
+			<!-- 위에서 작성한 메서드가 실행할 태그 및 쿼리문을 작성.
+			 조회 페이지에 사용자가 보기 편하도록 작가ID가 아닌 작가 이름이 나오도록 서브쿼리를 삽입. -->
 		select bookId, bookName, (select authorName from vam_author where authorId =vam_book.authorId) authorName, 
 			authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents, regDate, updateDate 
 		from vam_book where bookId = #{bookId}

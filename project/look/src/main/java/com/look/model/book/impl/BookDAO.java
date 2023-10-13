@@ -32,4 +32,10 @@ public class BookDAO {
 		return sqlsession.selectOne("BookDAO.goodsGetTotal",cri);
 	}
 	
+	//상품 (책)상세 조회 
+	public BookVO goodsGetDetail(int bookId) {
+		BookVO result = sqlsession.selectOne("BookDAO.goodsGetDetail",bookId);
+		return result;
+	}
+	
 }
