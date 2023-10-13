@@ -17,6 +17,9 @@
   <!-- Include your CSS file -->
 <link rel="stylesheet" href="resources/css/goodsDetail.css">
 
+<!-- Include CKEditor5 -->
+<script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
+
 </head>
 <body>
 
@@ -156,7 +159,60 @@
                 	</form>
                 	
                 </div>
+                
+                
+	<script type="text/javascript">
+	
+	
+	/* 출판일 값 가공 */
+	// Oracle 같은 경우 출력되는 형태가 yyyy-MM-dd 뒤에 시간이 붙기 때문에 없애기 위함.
+	let publeYear = '${goodsInfo.publeYear}';
+	let length = publeYear.indexOf(" ");
+	// 첫 번째 공백 문자의 위치를 계산 
+	
+	publeYear = publeYear.substring(0, length);
+	
+	$("input[name='publeYear']").attr("value", publeYear);
+	
+	
+	
+	/* 할인율 값 삽입 */
+	$(document).ready(function(){
+		
+		let bookDiscount = '<c:out value="${goodsInfo.bookDiscount}"/>'*100;
+		$("#discount_interface").attr("value", bookDiscount);
+		
+	});
+	
+	
+	
+	/* 책 소개 */
+	ClassicEditor
+		.create(document.querySelector('#bookIntro_textarea'))
+		.then(editor => {
+			console.log(editor);
+			editor.isReadOnly = true;
+		})
+		.catch(error=>{
+			console.error(error);
+		});
+		
+	/* 책 목차 */	
+	ClassicEditor
+	.create(document.querySelector('#bookContents_textarea'))
+	.then(editor => {
+		console.log(editor);
+		editor.isReadOnly = true;
+	})
+	.catch(error=>{
+		console.error(error);
+	});	
+	
+	
+	
+	
+	</script>
 
-
+			
 </body>
 </html>
