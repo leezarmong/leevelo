@@ -110,3 +110,15 @@ select * from vam_book;
 
 SELECT * FROM USER_INDEXES WHERE TABLE_NAME = 'VAM_BOOK';
 commit;
+
+
+
+
+------------- 10 / 16
+
+--test
+
+select * from vam_book;
+
+select * from vam_bcate;
+
