@@ -7,21 +7,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../resources/css/admin/goodsModify.css">
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
- 
+  
  <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
  
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
+ 
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
-<!-- Include your CSS file -->
 <link rel="stylesheet" href="resources/css/goodsModify.css">
+
 
 </head>
 <body>
@@ -143,7 +143,7 @@
                     				<span class="ck_warn bookContents_warn">책 목차를 입력해주세요.</span>
                     			</div>
                     		</div>
-                    		<div class="form_section">
+                    		<!-- <div class="form_section">
                     			<div class="form_section_title">
                     				<label>상품 이미지</label>
                     			</div>
@@ -153,18 +153,13 @@
 																		
 									</div>									
                     			</div>
-                    		</div>                    		
+                    		</div> -->                    		
                     		<input type="hidden" name='bookId' value="${goodsInfo.bookId}">
                    		</form>
                    			<div class="btn_section">
-                   			<!-- 	<button id="cancelBtn" class="btn">취 소</button> -->
-                   				
-                   				
-                   				<!-- goodsGetList -->
-<button id="cancelBtn" class="btn" onclick="location.href='goodsGetList'">취 소</button>
-                   				
+                   				<button id="cancelBtn" class="btn">취 소</button>
 	                    		<button id="modifyBtn" class="btn modify_btn">수 정</button>
-	                    		
+	                    		<!-- <button id="deleteBtn" class="btn delete_btn">삭 제</button> -->
 	                    	</div> 
                     </div>           
                 	<form id="moveForm" action="/test/goodsGetList" method="get" >
@@ -175,7 +170,7 @@
                 	</form>                                
                 </div>
  
- 			
+ 		
  				
 	<script>
 	
@@ -486,20 +481,151 @@
 		
 	});	
 	
-	let moveForm = $("#moveForm");
-	let modifyForm = $("#modifyForm");
+	/* 취소 버튼 */
+	$("#cancelBtn").on("click", function(e){
+		e.preventDefault();
+		$("#moveForm").submit();
+	});
+	
+	/* 삭제 버튼 */
+	$("#deleteBtn").on("click", function(e){
+		e.preventDefault();
+		let moveForm = $("#moveForm");
+		moveForm.find("input").remove();
+		moveForm.append('<input type="hidden" name="bookId" value="${goodsInfo.bookId}">');
+		moveForm.attr("action", "/admin/goodsDelete");
+		moveForm.attr("method", "post");
+		moveForm.submit();
+	});	
 	
 	/* 수정 버튼 */
 	$("#modifyBtn").on("click",function(e){
 		
 		e.preventDefault();
-		
-		modifyForm.submit();
-		
+				
+			$("#modifyForm").submit();
+	
 	});	
 	
+	/* 이미지 삭제 버튼 동작 */
+	$("#uploadResult").on("click", ".imgDeleteBtn", function(e){
+		
+		deleteFile();
+		
+	});
+	
+	/* 파일 삭제 메서드 */
+	function deleteFile(){
 
+		$("#result_card").remove();
 
+	}	
+	
+	/* 이미지 업로드 */
+	$("input[type='file']").on("change", function(e){
+		
+		/* 이미지 존재시 삭제 */
+		if($("#result_card").length > 0){
+			deleteFile();
+		}
+				
+		let formData = new FormData();
+		let fileInput = $('input[name="uploadFile"]');
+		let fileList = fileInput[0].files;
+		let fileObj = fileList[0];
+		
+		if(!fileCheck(fileObj.name, fileObj.size)){
+			return false;
+		}
+		
+		formData.append("uploadFile", fileObj);
+		
+		$.ajax({
+			url: '/admin/uploadAjaxAction',
+	    	processData : false,
+	    	contentType : false,
+	    	data : formData,
+	    	type : 'POST',
+	    	dataType : 'json',
+	    	success : function(result){
+	    		console.log(result);
+	    		showUploadImage(result);
+	    	},
+	    	error : function(result){
+	    		alert("이미지 파일이 아닙니다.");
+	    	}
+		});		
+
+		
+	});
+		
+	/* var, method related with attachFile */
+	let regex = new RegExp("(.*?)\.(jpg|png)$");
+	let maxSize = 1048576; //1MB	
+	
+	function fileCheck(fileName, fileSize){
+
+		if(fileSize >= maxSize){
+			alert("파일 사이즈 초과");
+			return false;
+		}
+			  
+		if(!regex.test(fileName)){
+			alert("해당 종류의 파일은 업로드할 수 없습니다.");
+			return false;
+		}
+		
+		return true;		
+		
+	}
+	
+	/* 이미지 출력 */
+	function showUploadImage(uploadResultArr){
+		
+		/* 전달받은 데이터 검증 */
+		if(!uploadResultArr || uploadResultArr.length == 0){return}
+		
+		let uploadResult = $("#uploadResult");
+		
+		let obj = uploadResultArr[0];
+		
+		let str = "";
+		
+		let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
+		//replace 적용 하지 않아도 가능
+		//let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+		
+		str += "<div id='result_card'>";
+		str += "<img src='/display?fileName=" + fileCallPath +"'>";
+		str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>x</div>";
+		str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
+		str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
+		str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";		
+		str += "</div>";		
+		
+   		uploadResult.append(str);     
+        
+	}		
+	
+	/*------ 작가 선택 ------*/ 
+    /* 작가 선택 버튼 */
+	$('.authorId_btn').on("click",function(e){
+		
+		/* 팝업창 좌표 */
+		var popupWidth = 630;
+	    var popupHeight = 600;  
+		var popupX = (window.screen.width / 2) - (popupWidth / 2);
+	    var popupY = (window.screen.height / 2) - (popupHeight / 2);
+	    
+		e.preventDefault();
+		
+		let popUrl = "authorPop";
+		let popOption = "status=no,width = 650px, height=400px, top=300px,left=" + popupX + ",top=" + popupY+"scrollbars=yes";
+		
+		window.open(popUrl,"작가 찾기",popOption);
+		
+	});
+	
 	
 	
 	</script>	

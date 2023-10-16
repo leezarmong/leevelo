@@ -106,7 +106,18 @@ public class AdminBookController {
 	
 	//상품 수정 페이지
 	@RequestMapping(value = "/goodsModify" , method = RequestMethod.GET)
-	public String goodsModify() {
+	public String goodsModify(int bookId , Criteria cri , Model model)throws JsonProcessingException {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		model.addAttribute("cateList",mapper.writeValueAsString(cateservice.cateList()));
+		// 카테고리 JSON 변환
+		
+		model.addAttribute("cri",cri);
+		// 목록 페이지 조건 정보 
+		
+		model.addAttribute("goodsInfo",bookservice.goodsGetDetail(bookId));
+		// 조회 페이지 정보.
 		
 		
 		return "admin/goodsModify";
@@ -114,16 +125,16 @@ public class AdminBookController {
 	
 	
 	//상품 수정 하기
-		@RequestMapping(value = "/goodsModify" , method = RequestMethod.POST)
-		public String goodsModifyPOST(BookVO vo , RedirectAttributes rttr ) {
-			
-			
-			bookservice.goodsModify(vo);
-			
-			rttr.addFlashAttribute("result", "modify_result");
-			
-			return "redirect:goodsEnroll";
-		}
+	@RequestMapping(value = "/goodsModify" , method = RequestMethod.POST)
+	public String goodsModifyPOST(BookVO vo , RedirectAttributes rttr ) {
+		
+		
+		bookservice.goodsModify(vo);
+		
+		rttr.addFlashAttribute("result", "modify_result");
+		
+		return "redirect:goodsEnroll";
+	}
 	
 	
 	
