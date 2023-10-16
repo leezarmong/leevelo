@@ -97,6 +97,18 @@ create table vam_book(
 );
 
 
+-- Oracle
+-- 카테고리 테이블
+create table vam_bcate(
+    tier number(1) not null,
+    cateName varchar2(30) not null,
+    cateCode varchar2(30) not null,
+    cateParent varchar2(30) ,
+    primary key(cateCode),
+    foreign key(cateParent) references vam_bcate(cateCode) 
+);
+
+
 
 
 ------------- 10 / 12 
@@ -121,4 +133,5 @@ commit;
 select * from vam_book;
 
 select * from vam_bcate;
+
 
