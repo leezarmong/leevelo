@@ -84,8 +84,12 @@ public class AdminBookController {
 	
 	//상품 (책)조회 페이지
 	@RequestMapping(value="/goodsDetail" , method= RequestMethod.GET)
-	public String goodsDetail(int bookId , Criteria cri , Model model) {
+	public String goodsDetail(int bookId , Criteria cri , Model model)throws Exception {
 		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		model.addAttribute("cateList",mapper.writeValueAsString(cateservice.cateList()));
+		// 카테고리 JSON 변환
 		
 		model.addAttribute("cri",cri);
 		// 목록 페이지 조건 정보 
