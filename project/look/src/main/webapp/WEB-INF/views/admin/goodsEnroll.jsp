@@ -258,6 +258,7 @@ $(document).ready(function(){
 	console.log(cate3Array);
 	
 	
+	
 });
 
 /* 대분류 */
@@ -361,6 +362,27 @@ $(cateSelect2).on("change",function(){
 		let popOption = "status=no,width = 650px, height=400px, top=300px,left=" + popupX + ",top=" + popupY+"scrollbars=yes";
 		
 		window.open(popUrl,"작가 찾기",popOption);
+		
+	});
+    
+    
+
+    // 수정완료
+	$(document).ready(function(){
+		
+		let result = '<c:out value="${result}"/>';
+		
+		checkAlert(result);
+		console.log(result);
+		
+		function checkAlert(result){
+			
+			
+			if(result === "modify_result"){
+				alert("수정이 완료되었습니다.");
+			}
+				
+		}	
 		
 	});
 

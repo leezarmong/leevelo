@@ -38,4 +38,11 @@ public class BookDAO {
 		return result;
 	}
 	
+	//상품 수정 
+	public int goodsModify(BookVO vo) {	
+		int result = sqlsession.update("BookDAO.goodsModify",vo);
+		return result;
+		
+	}
+	
 }

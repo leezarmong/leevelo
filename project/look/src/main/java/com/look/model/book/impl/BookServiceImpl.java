@@ -39,6 +39,12 @@ public class BookServiceImpl implements BookService {
 	public BookVO goodsGetDetail(int bookId) {
 		return bookDao.goodsGetDetail(bookId);
 	}
+	
+	//상품 수정 
+	@Override
+	public int goodsModify(BookVO vo) {
+		return bookDao.goodsModify(vo);
+	}
 		
 
 }

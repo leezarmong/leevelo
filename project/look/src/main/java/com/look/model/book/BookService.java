@@ -18,5 +18,8 @@ public interface BookService {
 	
 	//상품 (책)상세 조회 
 	public BookVO goodsGetDetail(int bookId);
+	
+	//상품 수정 
+	public int goodsModify(BookVO vo);
 
 }

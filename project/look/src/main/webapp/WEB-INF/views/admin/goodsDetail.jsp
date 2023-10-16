@@ -147,7 +147,7 @@
                    				<!-- <button id="cancelBtn" class="btn">상품 목록</button> -->
                    				<button id="cancelBtn" class="btn" onclick="location.href='goodsGetList'">상품 목록</button>
                    				
-	                    		<button id="enrollBtn" class="btn enroll_btn">수정 </button>
+	                    		<button id="modifyBtn" class="btn enroll_btn">수정 </button>
 	                    	</div> 
                     </div>      
 
@@ -162,6 +162,18 @@
                 
                 
 	<script type="text/javascript">
+	
+	/* 수정 페이지 이동 */
+	$("#modifyBtn").on("click", function(e){
+		e.preventDefault();
+		let addInput = '<input type="hidden" name="bookId" value="${goodsInfo.bookId}">';
+		$("#moveForm").append(addInput);
+		$("#moveForm").attr("action", "/test/goodsModify");
+		$("#moveForm").submit();
+	});	
+	
+	
+	
 	
 	/* 카테고리 */
 	let cateList = JSON.parse('${cateList}');
