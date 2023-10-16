@@ -256,6 +256,8 @@ $(document).ready(function(){
 	console.log(cate1Array);
 	console.log(cate2Array);
 	console.log(cate3Array);
+	
+	
 });
 
 /* 대분류 */

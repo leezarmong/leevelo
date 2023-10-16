@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.look.model.book.BookService;
 import com.look.model.book.BookVO;
@@ -84,7 +85,7 @@ public class AdminBookController {
 	
 	//상품 (책)조회 페이지
 	@RequestMapping(value="/goodsDetail" , method= RequestMethod.GET)
-	public String goodsDetail(int bookId , Criteria cri , Model model)throws Exception {
+	public String goodsDetail(int bookId , Criteria cri , Model model) throws JsonProcessingException {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		

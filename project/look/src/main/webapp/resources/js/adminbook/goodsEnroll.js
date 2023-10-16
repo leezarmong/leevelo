@@ -36,7 +36,7 @@ function bookinsert() {
         authorId: authorId,
         publeYear: $("#publeYear").val(),
         publisher: $("#publisher").val(),
-        cateCode: $("#cateCode1").val(),
+        cateCode: $("#cateCode3").val(),
         // 아직 대분류 값만 들어가도록 되어있음.
 //        cateCode: $("#cateCode1").val() + $("#cateCode2").val() + $("#cateCode3").val(),
         bookPrice: $("#bookPrice").val(),
