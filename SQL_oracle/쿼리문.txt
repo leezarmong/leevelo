@@ -817,11 +817,6 @@ where stu_dept='컴퓨터정보');
 --any연산자 사용:최소값 기준
 select deptno,avg(sal)from emp group by deptno;
 
-select*from emp
-where sal> any
-(select avg(sal)
-from emp
-group by deptno);
 
 select*from emp
 where sal>
