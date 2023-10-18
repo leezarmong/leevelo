@@ -1,20 +1,43 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 public class trainning {
-    public static void main(String[] args) {
 
 
-    for(int i = 0 ;i<5; i++){
+    public void number(int nums) {
+        DecimalFormat df = new DecimalFormat("###,###");
+        Scanner scan = new Scanner(System.in);
+        while (true) {
 
-        for(int j=5; j>i; j--){
-            System.out.print(" ");
+            String format = df.format(nums);
+
+            System.out.print(format);
+
+            System.out.println();
+            System.out.print("exit >> stop  :");
+            String k = scan.next();
+
+            if (k.equals("stop")) {
+                break;
+            } else {
+                try {
+                    nums = Integer.parseInt(k);
+                } catch (NumberFormatException e) {
+                    System.out.print("번호 입력해주세요.");
+                }
+            }
         }
-        for(int k=0; k<=(i*2); k++){
-            System.out.print("*");
-        }
-        System.out.println();
 
     }
 
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
 
+        System.out.print("번호를 입력해 주세요.");
+        int k = scan.nextInt();
+
+        trainning tr = new trainning();
+        tr.number(k);
 
 
     }
