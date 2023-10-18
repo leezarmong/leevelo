@@ -481,3 +481,54 @@ select * from student where stu_class in (select stu_class from student where st
 
 
 select * from student where stu_height > any(select stu_height from student where stu_name='이태연')and stu_height between 170 and 180;
+
+
+
+select * from tb1 left outer join tb2 on tb1.name = tb2.name where tb2.name is not null;
+
+alter table tb1 add ans varchar(10);
+alter table tb2 add ans varchar(10);
+
+select * from tb2;
+
+select * from tb1 left outer join tb2 on tb1.name = tb2.name where tb1.ans='N';
+
+
+
+--select a.empno"사원번호",a.ename"사원이름",b.empno"상급자사원번호",b.ename"상급자이름"
+--select a.empno,a.ename,b.empno,b.ename
+select a.empno"사원번호",a.ename"사원이름",b.empno"상급자사원번호",b.ename"상급자이름"from emp a left outer join emp b on a.mgr=b.empno;
+select a.empno,a.ename,b.empno,b.ename from emp a left outer join emp b on a.mgr=b.empno;
+select * from emp;
+
+select a.empno ,a.ename , b.empno , b.ename from emp a left outer join emp b on a.mgr=b.empno;
+
+select a.empno , a.ename , b.empno , b.ename 
+from emp a left outer join emp b on a.mgr = b.empno 
+where a.empno between 7600 and 7800;
+
+
+select * from emp;
+
+
+
+select empno , ename ,job , sal ,
+case job
+when 'MANAGER' then sal *1.1
+when 'CLERK' then sal * 1.15
+else sal
+end as 인상
+from emp;
+
+select empno , ename , sal,
+case 
+when sal >= 5000 then 1
+when sal >= 3000 then 2
+when sal >= 1000 then 3
+else 0
+end as 등급
+from emp;
+
+
+
+
