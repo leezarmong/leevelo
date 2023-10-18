@@ -435,3 +435,49 @@ select * from student;
 
 
 select * from student where stu_height > any(select stu_height from student where stu_name='유가인') and (stu_height between 170 and 180);
+
+
+
+
+-- fianl lastdance 
+
+
+
+create table rever(
+userid number generated as identity(start with 1)primary key,
+userName varchar2(20),
+userAdd varchar2(20),
+userSex varchar2(20)
+);
+
+alter table rever modify userSex number;
+alter table rever modify userSex varchar2(20);
+
+alter table rever drop column userSex;
+alter table rever add userSex varchar2(20);
+
+ 
+
+select * from tb1;
+select * from tb2;
+
+
+select * from tb1 left outer join tb2 on tb1.name = tb2.name where (tb1.age between 30 and 50) and(tb1.name <>'김철수');
+
+
+select * from emp;
+
+select * from emp where sal > any(select avg(sal) from emp group by deptno);
+
+select * from student;
+
+update student set stu_name='옥한빛'
+where stu_name ='옥한비';
+
+
+select * from student where stu_class in (select stu_class from student where stu_dept='컴퓨터정보')and stu_dept<>'컴퓨터정보';
+
+
+
+
+select * from student where stu_height > any(select stu_height from student where stu_name='이태연')and stu_height between 170 and 180;
