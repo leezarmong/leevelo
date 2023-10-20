@@ -530,5 +530,11 @@ end as 등급
 from emp;
 
 
+select sum(sal) from emp
+where name = 'leemong'
+and EXTRACT(month from datecolumn) between 1 and 6
+and extract(year from datecomumn) '2023';
+
+
 
 
