@@ -1,64 +1,51 @@
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class trainning {
 
-    public int[][] array (int[]nums){
 
+    public static boolean exception(String str) {
 
-        int zcount = 0 ;
-        int hcount = 0 ;
+        for (char c : str.toCharArray()) {
+            if (c < '0' && c > '9') {
 
-        for(int i = 0 ;i<nums.length; i++){
-            if(nums[i]%2==0){
-                zcount++;
-            }
-            else{
-                hcount++;
+                return false;
             }
         }
+        return true;
+    }
 
-        int zzac[] = new int[zcount];
-        int hol[] = new int[hcount];
-        int zindex = 0 ;
-        int hindex = 0 ;
+    public static String comainsert(String str) {
+        int len = str.length();
+        int count = 0;
 
-        for(int i = 0 ;i<nums.length; i++){
+        StringBuffer result = new StringBuffer();
 
-            if(nums[i]%2==0){
-                zzac[zindex++]= nums[i];
-            }
-            else{
-                hol[hindex++]=nums[i];
+        for (int i = len - 1; i >= 0; i--) {
+
+            result.insert(0, str.charAt(i));
+            count++;
+
+            if (count % 3 == 0 && i > 0) {
+                result.insert(0, ",");
             }
         }
-
-        int[][] result = new int[2][];
-
-        result[0]=zzac;
-        result[1]=hol;
-
-        return result;
+        return result.toString();
     }
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
 
-        int[] b = {1,2,3,4,5,6};
+        System.out.print("입력하고싶은 숫자 :");
+        String insert = scan.nextLine();
 
-        trainning tr = new trainning();
+        if (!exception(insert)) {
+            System.out.print("숫자만 입력하세요.");
 
-        int[][] result = tr.array(b);
-
-        System.out.print("짝수 :");
-        for(int n : result[0]){
-            System.out.print(n+" ");
+            return;
         }
-        System.out.println();
 
-        System.out.print("홀수 :");
-        for(int n : result[1]){
-            System.out.print(n+" ");
-        }
+        String number = comainsert(insert);
+        System.out.print(number);
 
     }
 }
