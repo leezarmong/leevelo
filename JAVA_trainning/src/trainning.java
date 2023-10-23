@@ -1,51 +1,39 @@
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class trainning {
 
 
-    public static boolean exception(String str) {
+    public int[] arra(int[] num){
+        int[] result= num;
 
-        for (char c : str.toCharArray()) {
-            if (c < '0' && c > '9') {
+        HashSet<Integer> insertnum = new HashSet<>();
 
-                return false;
-            }
+        for(int n : result){
+            insertnum.add(n);
         }
-        return true;
-    }
 
-    public static String comainsert(String str) {
-        int len = str.length();
-        int count = 0;
+        int index = 0 ;
 
-        StringBuffer result = new StringBuffer();
+        int[]ans = new int[insertnum.size()];
 
-        for (int i = len - 1; i >= 0; i--) {
 
-            result.insert(0, str.charAt(i));
-            count++;
+      for(int n : insertnum){
+          ans[index++]= n;
+      }
 
-            if (count % 3 == 0 && i > 0) {
-                result.insert(0, ",");
-            }
-        }
-        return result.toString();
+
+        return ans;
     }
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        trainning tr = new trainning();
 
-        System.out.print("입력하고싶은 숫자 :");
-        String insert = scan.nextLine();
+        int[] b={1,2,2,2,3,4,5,5,6};
+        int[] resul = tr.arra(b);
 
-        if (!exception(insert)) {
-            System.out.print("숫자만 입력하세요.");
-
-            return;
+        for(int n : resul){
+            System.out.print(n+" ");
         }
-
-        String number = comainsert(insert);
-        System.out.print(number);
-
     }
 }

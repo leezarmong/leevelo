@@ -1,20 +1,21 @@
 import java.util.Scanner;
 
 public class Solution {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String str = sc.next();
-        String rs = "";
 
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
+    public int[] solution(int[] arr, int k) {
+        int[] answer = new int[arr.length];
 
-            if (Character.isUpperCase(c)) {
-                rs += Character.toLowerCase(c);
-            } else {
-                rs += Character.toUpperCase(c);
+        for(int i = 0 ; i< arr.length; i++){
+
+            if(k%2==1){
+                answer[i] = arr[i] * k;
             }
+            else{
+                answer[i] = arr[i] +k ;
+            }
+
         }
-        System.out.println(rs);
+
+        return answer;
     }
 }
