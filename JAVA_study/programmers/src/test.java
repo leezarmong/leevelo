@@ -1,29 +1,27 @@
 import java.util.Scanner;
 
 public class test {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        // scanner class
 
-    public int[] arr (int num){
-        String k = String.valueOf(num);
+        String index ="";
 
-        int[] result = new int[k.length()];
+        System.out.print("upper lower :");
+        String k = scan.nextLine();
 
-        for(int i = 0 ;i<result.length; i++){
+        for (int i = 0; i < k.length(); i++) {
 
-            result[i] = Integer.parseInt(k.substring(result.length-1-i,result.length-i));
+            char c = k.charAt(i);
+            // k 의 원소  char 로 변환
+            if(Character.isUpperCase(c)){
+                index +=Character.toLowerCase(c);
+            }
+            else
+                index +=Character.toUpperCase(c);
 
         }
 
-
-        return result;
-    }
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("unmeer");
-        int k = scan.nextInt();
-
-        test ts = new test();
-
-        System.out.print(ts.arr(k));
+        System.out.print(index);
     }
 }

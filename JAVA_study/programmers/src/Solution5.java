@@ -1,4 +1,5 @@
 public class Solution5 {
+// 약수 의 합 을 구하자.
 
     public int solution(int n) {
         int sum = 0;
