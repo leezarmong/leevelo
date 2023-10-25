@@ -9,7 +9,8 @@ public class Colution8 {
      * 예를들어 n이 118372면 873211을 리턴하면 됩니다.
      * */
     public long solution(long n) {
-        String[] k = Long.toString(n).split("");
+       String[] k = Long.toString(n).split("");
+   //     String[] k = String.valueOf(n).split("");
         //long 의 인자값을 String으로 바꿔주면서 String 의 배열이다보니 문자열을 구분할수 있는 split을 사용하여 공백없음을 표기 해준다.
 
         String index = "";
