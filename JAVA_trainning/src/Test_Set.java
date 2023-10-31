@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class Test_Set {
@@ -31,6 +32,7 @@ public class Test_Set {
         Test_Set ts = new Test_Set();
         int[] result = ts.array(b);
 
+        System.out.print(Arrays.toString(result));
 
         for (int i : result) {
             System.out.print(i + " ");

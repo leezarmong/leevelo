@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class Test_SetString {
@@ -31,6 +32,8 @@ public class Test_SetString {
 
         String k = "a a s d f e f";
         String[] result = tss.teset(k);
+
+        System.out.print(Arrays.toString(result));
 
         for(String str : result){
             System.out.print(str+" ");
