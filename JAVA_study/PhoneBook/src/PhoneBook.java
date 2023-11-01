@@ -2,71 +2,75 @@ import java.util.Scanner;
 
 class Phone {
     private String name;
-    private String tel;
+    private String num;
 
-    public Phone(String name, String tel) {
+    //생성자
+    public Phone(String name , String num){
         this.name = name;
-        this.tel = tel;
+        this.num = num;
     }
 
-    public String getName() {
+    public String getName(){
         return name;
     }
-
-    public String getTel() {
-        return tel;
+    public String getNum(){
+        return num;
     }
-}
 
+}
 public class PhoneBook {
-    Scanner sc = new Scanner(System.in);
-    int num; // 인원수
+    Scanner scan = new Scanner(System.in);
+
+    int len;
     Phone phone[];
     String name;
-    String tel;
+    String num;
 
-    public void getNum() {
-        System.out.print("인원수>>");
-        num = sc.nextInt();
-        phone = new Phone[num];
+    public void insert(){
+
+
+        System.out.print("몇명 저장 시킬 건가요?");
+        len = scan.nextInt();
+
+        phone = new Phone[len];
     }
 
-    public void getInfo() {
-        for(int i=0; i<num; i++) {
-            System.out.print("이름과 전화번호(이름과 번호는 빈 칸없이 입력)>>");
-            name = sc.next();
-            tel = sc.next();
-            phone[i] = new Phone(name, tel);
+    public void user(){
+        for(int i=0; i<len; i++) {
+            System.out.print("이름 과 전화번호 등록 해주세요.");
+            name = scan.next();
+            num = scan.next();
+
+            phone[i] = new Phone(name ,num);
+            System.out.print("입력이 완료 되었습니다.");
         }
-        System.out.println("저장되었습니다...");
     }
+    public void getUser(){
+        boolean stat = false;
 
-    public void Search() {
-        boolean state = false;
-        while(true) {
-            System.out.print("검색할 이름>>");
-            name = sc.next();
+        while(true){
+            System.out.print("찾으실 번호의 이름을 입력:");
+            name = scan.next();
 
-            if(name.equals("그만")) {
+            if(name.equals("그만")){
                 break;
             }
 
-            for(int i=0; i<num; i++) {
-                if(name.equals(phone[i].getName())) {
-                    System.out.println(name+"의 번호는 "+phone[i].getTel()+" 입니다.");
-                    state = true;
+            for(int i=0; i<len; i++){
+                if(name.equals(phone[i].getName())){
+                    System.out.print("찾으시는 번호는 "+phone[i].getNum()+"입니다.");
+                    stat = true;
                 }
             }
-
-            if(state == false)
-                System.out.println(name+" 이 없습니다.");
+            if(stat == false)
+                System.out.print("찾으시는 번호가 없습ㄴ다.");
         }
     }
+    public static void main(String[] args) {
 
-    public static void main(String args[]) {
-        PhoneBook phonebook = new PhoneBook();
-        phonebook.getNum();
-        phonebook.getInfo();
-        phonebook.Search();
+        PhoneBook pb = new PhoneBook();
+        pb.insert();
+        pb.user();
+        pb.getUser();
     }
 }
