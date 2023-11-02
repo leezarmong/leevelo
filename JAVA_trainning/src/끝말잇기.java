@@ -82,11 +82,12 @@ public class 끝말잇기 {
                 System.out.print(mem[i].name+"이 졌습니다.");
                 break;
             }
-
             lastWord = mem[i].word;
-
+            // 새로 입력한 단어를 초기 화..
             i++;
+
             if(num ==i){
+                // 입력한 인원수와 while 이 같은 횟수가 되면 0 으로 초기화 해준다.
                 i=0;
             }
         }
