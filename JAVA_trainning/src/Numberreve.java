@@ -9,13 +9,15 @@ public class Numberreve {
 
         String[] rev = Long.toString(n).split("");
 
-        Arrays.sort(rev, Collections.reverseOrder());
+        Arrays.sort(rev,Collections.reverseOrder());
         //내림차순
 
         String index = "";
         for(String list : rev){
             index += list;
         }
+
+
 
         result = Long.parseLong(index);
         return  result ;

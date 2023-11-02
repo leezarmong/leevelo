@@ -9,11 +9,17 @@ public class Trainning {
         int[] te = new int[k.length()];
 
 
+//        for(int i=0; i<te.length; i++){
+//
+//            te[i]=Integer.parseInt(k.substring(te.length-1-i,te.length-i));
+//
+//        }
         for(int i=0; i<te.length; i++){
-
-            te[i]=Integer.parseInt(k.substring(te.length-1-i,te.length-i));
-
+            te[i] = Integer.parseInt(k.substring(te.length-1-i,te.length-i));
         }
+
+
+
         return te;
     }
     public static void main(String[] args) {
