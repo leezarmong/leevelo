@@ -32,10 +32,12 @@ public class Twoarray {
         for (int row = 0; row < arr.length-1 ; row++) {
             System.out.print(row + " ");
             for (int col = 0; col < arr[col].length-1 ; col++) {
-                if (arr[row][col] == arr[rowNum][colNum])
+                if (arr[row][col] == arr[rowNum][colNum]) {
                     arr[row][col] = "X";
-                else
+
+            } else {
                     arr[row][col] = " ";
+                }
                 System.out.print(arr[row][col] + " ");
             }
 
