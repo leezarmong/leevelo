@@ -29,9 +29,9 @@ public class Twoarray {
         }
         arr[rowNum][colNum] = "X";
         System.out.println("  0 1 2 3 4");
-        for (int row = 0; row < arr.length - 1; row++) {
+        for (int row = 0; row < arr.length-1 ; row++) {
             System.out.print(row + " ");
-            for (int col = 0; col < arr[col].length - 1; col++) {
+            for (int col = 0; col < arr[col].length-1 ; col++) {
                 if (arr[row][col] == arr[rowNum][colNum])
                     arr[row][col] = "X";
                 else
