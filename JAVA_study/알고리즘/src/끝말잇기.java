@@ -60,8 +60,8 @@ public class 끝말잇기 {
             player[i].getWordFromUser();
 
             if(!player[i].checkSuccess(lastWord)){
-                System.out.print(player[i].getName()+"가 졌습니다.");
-                break;
+                    System.out.print(player[i].getName()+"가 졌습니다.");
+                    break;
             }
 
             lastWord = player[i].word;
