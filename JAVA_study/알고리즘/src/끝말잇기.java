@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -37,7 +38,7 @@ class Player{
 }
 public class 끝말잇기 {
     static Scanner scan = new Scanner(System.in);
-
+    static HashSet<String> miss = new HashSet<>();
 
     public static void run(){
 
@@ -59,11 +60,17 @@ public class 끝말잇기 {
         while (true){
             player[i].getWordFromUser();
 
+            if(miss.contains(player[i].word)){
+                System.out.print("중복된 단어를 사용 하여 "+player[i].getName()+" 가 졌습니다.");
+                break;
+            }
+
             if(!player[i].checkSuccess(lastWord)){
                     System.out.print(player[i].getName()+"가 졌습니다.");
                     break;
             }
 
+            miss.add(player[i].word);
             lastWord = player[i].word;
             //마지막 글과 같으면 입력한 글자로 변경.
 
