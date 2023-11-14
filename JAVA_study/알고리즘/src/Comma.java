@@ -16,7 +16,6 @@ public class Comma {
     public static String comma(String str){
 
         StringBuffer result = new StringBuffer();
-        int len = str.length();
         int count =0 ;
 
         for(int i = str.length()-1; i>=0; i--) {
