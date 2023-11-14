@@ -1,8 +1,12 @@
 import java.util.Scanner;
 
-class Seat { // 좌석 관리
+// 좌석 관리 클래스
+class Seat {
     private String seat[];
 
+    /*
+    * 처음에 Seat 객체가 생성될 때 seat 배열은 "10개의 좌석"으로 초기화되고, 모든 좌석은 "---"로 설정
+    * */
     public Seat() { // 좌석 생성자
         seat = new String[10]; //10개의 좌석
         for(int i=0; i<seat.length; i++) {
@@ -17,10 +21,16 @@ class Seat { // 좌석 관리
         System.out.println();
     }
 
+    /*
+    *  예약이 발생하면 해당 좌석 번호에 해당하는 배열 요소에 예약된 이름으로 값을 설정
+    * */
     public void Set(String name, int num) { // 예매된 좌석 정보 처리
         seat[num-1] = name;
     }
 
+    /*
+    * 취소가 발생하면 해당 이름과 일치하는 좌석이 있다면 그 좌석을 "---"로 다시 설정
+    * */
     public boolean reSet(String name) { // 좌석 취소 정보 확인 후, 처리
         for(int i=0; i<seat.length; i++) {
             if(name.equals(seat[i])) {
@@ -32,6 +42,7 @@ class Seat { // 좌석 관리
     }
 }
 
+//예약 클래스
 class Reservation {
     Scanner sc = new Scanner(System.in);
     private Seat s[]; // 세개의 등급 당 좌석 생성
