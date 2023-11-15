@@ -96,7 +96,7 @@ class application {
     public void run() {
 
         while (true) {
-            System.out.print("예약1 , 현황2 , 예약취소3");
+            System.out.print("예약1 , 현황2 , 예약취소3 ,종료4");
             int result = scan.nextInt();
             switch (result) {
                 case 1:
