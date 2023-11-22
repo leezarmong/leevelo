@@ -4,6 +4,7 @@ class Phone{
     private String name;
     private String num;
 
+    //생성자 
     public Phone(String name , String num){
         this.name = name;
         this.num = num;
