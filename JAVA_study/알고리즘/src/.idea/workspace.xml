@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="020b557d-eb5a-4236-b09f-5858c4fc7eaf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Exercise.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/번호찾기.java" beforeDir="false" afterPath="$PROJECT_DIR$/번호찾기.java" afterDir="false" />
-    </list>
+    <list default="true" id="020b557d-eb5a-4236-b09f-5858c4fc7eaf" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,6 +37,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700643663138</updated>
       <workItem from="1700643664982" duration="14000" />
+      <workItem from="1700650683082" duration="15000" />
     </task>
     <servers />
   </component>

@@ -7,7 +7,7 @@ class Member{
 
 
      //입력 받은 이름
-     // 입력 받은 생성자
+     // 입력 받은 set
      public void userName(){
          Scanner scan = new Scanner(System.in);
 
@@ -16,7 +16,7 @@ class Member{
          this.name = name;
      }
 
-    // 입력 받은 생성자
+    // 입력 받은 set
     public void userWord(){
         Scanner scan = new Scanner(System.in);
 
