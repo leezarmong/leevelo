@@ -9,9 +9,26 @@ public class 배열에서수로뒤집기 {
         for (int i = arra.length - 1; i >= 0; i--) {
             str += arra[i];
         }
+        result =Integer.parseInt(str);
 
         return result;
 
+    }
+
+    //String 형 변환 뒤집지 않고 바로.
+    public int numt (int[] numt){
+        int result =0;
+
+        String str ="";
+
+        for(int i=0; i<numt.length; i++){
+            str +=  numt[i];
+        }
+
+        result = Integer.parseInt(str);
+
+
+        return result;
     }
 
     //stringbuffer 사용.
@@ -33,5 +50,7 @@ public class 배열에서수로뒤집기 {
         return answer;
 
     }
+
+
 
 }
