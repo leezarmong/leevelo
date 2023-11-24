@@ -15,6 +15,20 @@ public class 배열에서수로뒤집기 {
 
     }
 
+    public int numstt(String[] arratt) {
+        int result = 0;
+
+        String str = "";
+
+        for (int i = arratt.length - 1; i >= 0; i--) {
+            str += arratt[i];
+        }
+        result =Integer.parseInt(str);
+
+        return result;
+
+    }
+
     //String 형 변환 뒤집지 않고 바로.
     public int numt (int[] numt){
         int result =0;
