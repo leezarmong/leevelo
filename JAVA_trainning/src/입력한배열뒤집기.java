@@ -10,4 +10,16 @@ public class 입력한배열뒤집기 {
 
         return result;
     }
+
+    //re
+
+    public int[] revers2 (int[] arra){
+        int[] result =new int[arra.length];
+
+        for(int i=0; i<arra.length; i++){
+            result[i]=arra[arra.length-1-i];
+        }
+
+        return result;
+    }
 }

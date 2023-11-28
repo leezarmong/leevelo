@@ -4,8 +4,16 @@ public class Commada {
         int len = nums.length();
         int count = 0;
 
+//        StringBuilder sb = new StringBuilder(); // Using the input string directly
+//
+//        for (int i = len - 1; i >= 0; i--) { // Fixing the loop boundaries
+//            sb.insert(0,nums.charAt(i));
+//            count++;
+//            if (count % 3 == 0 && i > 0) {
+//                sb.insert(0, ",");
+//            }
+//        }
         StringBuilder sb = new StringBuilder(nums); // Using the input string directly
-
         for (int i = len - 1; i >= 0; i--) { // Fixing the loop boundaries
 
             count++;
