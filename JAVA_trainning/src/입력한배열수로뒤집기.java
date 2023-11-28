@@ -34,4 +34,18 @@ public class 입력한배열수로뒤집기 {
 
        return result;
     }
+
+    //배열에서 수 로 변환
+    public int nums3 (int[] arra3){
+       int result =0;
+       String str = "";
+
+        for(int i=0; i<arra3.length; i++){
+            str += arra3[i];
+        }
+
+        result = Integer.parseInt(str);
+
+       return result;
+    }
 }
