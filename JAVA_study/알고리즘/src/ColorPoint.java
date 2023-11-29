@@ -46,13 +46,57 @@ public class ColorPoint extends Point { // Point class 상속.
         return color + "색의 (" + getX() +","+ getY() + ") 의 점입니다.";
     }
 }
+
+class Point3D extends Point{
+    private int z;
+
+    public Point3D(int x ,int y , int z){
+        super(x,y);
+        this.z = z;
+    }
+    public void move(int x ,int y ,int z){
+        move(x,y);
+        this.z=z;
+    }
+
+    public void moveUp(){
+        this.z +=1;
+    }
+    public void moveDown(){
+        this.z -=1;
+
+    }
+
+    public int getZ(){
+        return  z;
+    }
+
+    public String toString(){
+        return "("+getX()+","+getY()+","+getZ()+")의 점";
+    }
+
+}
+
 class main{
     public static void main(String[] args) {
-        ColorPoint zerpPoint = new ColorPoint();
-        System.out.println(zerpPoint.toString());
+//        ColorPoint zerpPoint = new ColorPoint();
+//        System.out.println(zerpPoint.toString());
+//
+//        ColorPoint cp = new ColorPoint(5,5);
+//        cp.setColor("YELLOW");
+//        System.out.print(cp.toString());
 
-        ColorPoint cp = new ColorPoint(5,5);
-        cp.setColor("YELLOW");
-        System.out.print(cp.toString());
+        Point3D p = new Point3D(1,2,3);
+        System.out.println(p.toString()+"입니다.");
+
+        p.moveUp();
+        System.out.println(p.toString()+"입니다.");
+
+        p.moveDown();// 이전값이 moveUp 메소드로 인해 이미 4 로 되어있기 때문에 Down 메소드를 사용하여 3이 완성된것..
+        p.move(10,10);
+        System.out.println(p.toString()+"입니다.");
+
+        p.move(100,200,300);
+        System.out.println(p.toString()+"입니다.");
     }
 }
