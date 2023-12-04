@@ -50,16 +50,13 @@ public class QuizHashMap {
                 break;
             }
 
-            boolean result = false; // 아닐 경우 boolean.
 
-            for(int i=0; i<v.size();i++){
-                if(v.get(i).equals(deletecountry)){
-                    v.remove(i);
-                    result = true;
-                }
+
+            if(v.containsKey(deletecountry)){
+             v.remove(deletecountry);
+                System.out.println("삭제했습니다.");
             }
-
-            if(!result){
+            else{
                 System.out.println("그런 나라 없습니다. ");
             }
         }
