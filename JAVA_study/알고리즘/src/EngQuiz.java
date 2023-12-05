@@ -82,9 +82,10 @@ class EngQuiz{
                     //틀린 문제 생성 해주는 랜덤.
                     int tempRand = (int)(Math.random() * ve.size());
                     for(int j = 0; j < i; j++){
-                        if(tempRand == arr[j]){
+                        if(tempRand == arr[j] ||arr[i]==arr[j]){
                             j = 0;
-                            tempRand = (int)(Math.random() * ve.size());
+                            tempRand = (int)(Math.random() * ve.size());    // 또 다시 랜덤한 결과 출력 하기위 함.
+                            i--;    // 중복된 질문 제거 ex )) (1)사랑 (2)사랑 X
                         }
                     }
                     arr[i] = tempRand;
