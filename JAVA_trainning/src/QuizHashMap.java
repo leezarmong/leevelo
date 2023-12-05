@@ -72,6 +72,7 @@ public class QuizHashMap {
             String question = (String)array[index];     // 랜덤값의 배열
             String answer = v.get(question);    // 그리고 비교할 답을 아까 질문한 해당 index의 값으로 설정.
 
+
             // 문제를 출력한다.
             System.out.print(question + "의 수도는? ");
 
