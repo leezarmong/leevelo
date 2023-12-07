@@ -68,12 +68,16 @@ public class EngQuiz{
 
     void play(){
         System.out.println("현재 " + ve.size() + "개의 단어가 들어 있습니다. -1을 입력하면 종료합니다.");
+
         while(true){
             int[] arr = {-1, -1, -1, -1};
             int arrRandInt = (int)(Math.random() * 4);  // 0~3 의 값이 나오고 arr 에 -1 -1 -1 -1 중 랜덤 의 해당 값에 추가된다.
             int randInt = (int)(Math.random()*ve.size());
             arr[arrRandInt] = randInt; // 정답이 배치될 위치와 ve 의 랜덤된 값이 배정 된다.
             System.out.println(ve.get(randInt).getEng() + "?");
+
+            System.out.println(Arrays.toString(arr));//삽입 되는 경우 보기 .
+
             for(int i = 0; i < arr.length; i++){
                 if(arr[i] != -1 || arr[i] == arrRandInt){
                     continue;
@@ -82,13 +86,15 @@ public class EngQuiz{
                     //틀린 문제 생성 해주는 랜덤.
                     int tempRand = (int)(Math.random() * ve.size());
                     for(int j = 0; j < i; j++){
-                        if(tempRand == arr[j] ||arr[i]==arr[j]){
+                        if(tempRand == arr[j] ||arr[i]==arr[j]){    // 정답이 오답으로 출제가 되면 안되니까 걸러내기 위함.
                             j = 0;
                             tempRand = (int)(Math.random() * ve.size());    // 또 다시 랜덤한 결과 출력 하기위 함.
                             i--;    // 중복된 질문 제거 ex )) (1)사랑 (2)사랑 X
                         }
                     }
                     arr[i] = tempRand;
+
+                    System.out.println(Arrays.toString(arr));
                 }
             }
             for(int j = 0; j < arr.length; j++){
