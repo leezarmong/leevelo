@@ -66,35 +66,52 @@ public class EngQuiz {
         }
     }
 
-    public void delete(){
+    public void delete() {
 
         System.out.println("삭제하고싶은 단어를 입력해주세요 exit>> '그만'");
-        while(true){
+        while (true) {
             System.out.println("단어 입력 :");
             String delstr = scan.next();
 
-            if(delstr.equals("그만")){
+            if (delstr.equals("그만")) {
                 break;
             }
 
             boolean found = false;
 
-            for(Word word : ve){
-                if(word.getEng().equals(delstr)){
+            for (Word word : ve) {
+                if (word.getEng().equals(delstr)) {
 
                     ve.remove(word);
                     found = true;
                 }
             }
 
-            if(found){
-                System.out.println(delstr+"삭제 했습니다..");
+            if (found) {
+                System.out.println(delstr + "삭제 했습니다..");
+            } else {
+                System.out.println(delstr + " 라는 단어는 없습니다.");
             }
-            else{
-                System.out.println(delstr+" 라는 단어는 없습니다.");
-            }
-
         }
     }
 
+    public void play (){
+
+        System.out.println("현재"+ve.size()+"개의 단어가 들어있습니다. -1 를 입력 하면 종료 합니다.");
+
+        while(true){
+
+
+        }
+
+
+    }
+
+    public void run(){
+
+    }
+
+    public static void main(String[] args) {
+
+    }
 }
