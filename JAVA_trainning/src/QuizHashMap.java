@@ -62,6 +62,8 @@ public class QuizHashMap {
         }
     }
 
+
+
     public void play() {
         while(true) {
             Set<String> keys = v.keySet();  // set 에 hashmap 의 key 의 집단을 입력 시켜준다.

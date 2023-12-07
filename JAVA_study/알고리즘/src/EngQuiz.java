@@ -15,7 +15,7 @@ class Word {
     }
 }
 
-class EngQuiz{
+public class EngQuiz{
     private Vector<Word> ve;
     private Scanner sc;
     public EngQuiz() {
