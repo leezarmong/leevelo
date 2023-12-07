@@ -22,7 +22,7 @@ public class EngQuiz {
     Scanner scan = new Scanner(System.in);
     Vector<Word> ve = new Vector<>();
 
-    public EngQuiz(){   // vector 에 인스턴스 시에 기본 생성자.
+    public EngQuiz() {   // vector 에 인스턴스 시에 기본 생성자.
         ve.add(new Word("love", "사랑"));
         ve.add(new Word("animal", "동물"));
         ve.add(new Word("emotion", "감정"));
@@ -42,29 +42,59 @@ public class EngQuiz {
         ve.add(new Word("statue", "조각상"));
     }
 
-    public void insert(){
+    public void insert() {
 
         System.out.println("영단 어와 뜻 을 입력해 주세요. exit >> '그만'");
 
-        while(true){
+        while (true) {
             System.out.println("영단어 와 뜻 ex) 'man 남자'");
             String eng = scan.next();
 
-            if(eng.equals("그만")){
+            if (eng.equals("그만")) {
                 break;
             }
 
             String kor = scan.next();
 
-            for(Word word : ve){     //중복된 단어 필터.
-                if(word.getEng().equals(eng)){
+            for (Word word : ve) {     //중복된 단어 필터.
+                if (word.getEng().equals(eng)) {
                     System.out.println("이미 등록된 단어 입니다.");
                 }
             }
-            ve.add(new Word(eng,kor));
+
+            ve.add(new Word(eng, kor));
+        }
+    }
+
+    public void delete(){
+
+        System.out.println("삭제하고싶은 단어를 입력해주세요 exit>> '그만'");
+        while(true){
+            System.out.println("단어 입력 :");
+            String delstr = scan.next();
+
+            if(delstr.equals("그만")){
+                break;
+            }
+
+            boolean found = false;
+
+            for(Word word : ve){
+                if(word.getEng().equals(delstr)){
+
+                    ve.remove(word);
+                    found = true;
+                }
+            }
+
+            if(found){
+                System.out.println(delstr+"삭제 했습니다..");
+            }
+            else{
+                System.out.println(delstr+" 라는 단어는 없습니다.");
+            }
 
         }
-
     }
 
 }
