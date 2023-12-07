@@ -77,6 +77,7 @@ public class EngQuiz{
             System.out.println(ve.get(randInt).getEng() + "?");
 
             for(int i = 0; i < arr.length; i++){
+
                 if(arr[i] != -1 || arr[i] == arrRandInt){
                     continue;
                 }
