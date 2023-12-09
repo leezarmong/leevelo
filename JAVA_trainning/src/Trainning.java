@@ -1,61 +1,90 @@
-import java.util.Arrays;
-import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.Vector;
+
+class EngWord { // engword class
+    private String eng, kor;
+
+    public EngWord(String eng, String kor) {
+        this.eng = eng;
+        this.kor = kor;
+    }
+
+    public String getEng() {
+        return eng;
+    }
+
+    public String getKor() {
+        return kor;
+    }
+}
 
 public class Trainning {
+    Scanner scan = new Scanner(System.in); // Scanner instance.
+    Vector<EngWord> ve = new Vector<>(); // vector instance.
 
+    //-----------------------------
 
-    public void practice9() {
-        Scanner sc = new Scanner(System.in);
-
-        String[][] arr = new String[6][6];
-        int rowNum;
-        int colNum;
-
-
-        while (true) {
-            System.out.println("1~4 의 범위 안으로 정해주세요.");
-
-            try {
-
-                System.out.print("행 인덱스 :");
-                rowNum = sc.nextInt();
-
-                System.out.print("열 인덱스 :");
-                colNum = sc.nextInt();
-
-                if (rowNum < 0 || rowNum > 4 || colNum < 0 || colNum > 4) {
-                    System.out.println("1~4 의 번호 입력해주세요.");
-                } else {
-                    break;
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("정수 입력해주세요.");
-                sc.nextInt();
-            }
-        }
-        arr[rowNum][colNum] = "X";
-
-        System.out.println("  0 1 2 3 4");
-        for (int row = 0; row < arr.length - 1; row++) {
-            System.out.print(row + " ");
-
-            for (int col = 0; col < arr[col].length - 1; col++) {
-                if (arr[row][col] == arr[rowNum][colNum]) {
-                    arr[row][col] = "X";
-
-                } else {
-                    arr[row][col] = " ";
-                }
-                System.out.print(arr[row][col]+" ");
-            }
-            System.out.println();
-        }
+    public Trainning(){
+        ve.add(new EngWord("love", "사랑"));
+        ve.add(new EngWord("animal", "동물"));
+        ve.add(new EngWord("emotion", "감정"));
+        ve.add(new EngWord("human", "인간"));
+        ve.add(new EngWord("stock", "주식"));
+        ve.add(new EngWord("trade", "거래"));
+        ve.add(new EngWord("society", "사회"));
+        ve.add(new EngWord("baby", "아기"));
+        ve.add(new EngWord("honey", "꿀"));
+        ve.add(new EngWord("dall", "인형"));
+        ve.add(new EngWord("bear", "곰"));
+        ve.add(new EngWord("picture", "사진"));
+        ve.add(new EngWord("painting", "그림"));
+        ve.add(new EngWord("fault", "오류"));
+        ve.add(new EngWord("example", "보기"));
+        ve.add(new EngWord("eye", "눈"));
+        ve.add(new EngWord("statue", "조각상"));
 
     }
 
-    public static void main(String[] args) {
-        Trainning tr = new Trainning();
-        tr.practice9();
+    public void insert () { // 새로운 단어 추가 작업.
+
+        System.out.println(ve.size()+" 개 의 단어가 저장되어있습니다.");
+
+        while(true){
+
+            System.out.println("영 단어와 뜻을 같이 입력해주세요. ex) korea 대한민국 종료 > '그만'");
+            String insertEng = scan.next();
+
+            if(insertEng.equals("그만")){ //while stop
+                break;
+            }
+
+            String insertKor = scan.next();
+
+            for(EngWord engword : ve){  // 중복된 단어를 걸러내기 위한 for each
+                if(engword.getEng().equals(insertEng)){
+
+                    System.out.println("중복된 단어 입니다.");
+                }
+            }
+            ve.add(new EngWord(insertEng,insertKor)); //  이상 없으면 add.
+
+        }
     }
+
+    public void delete() {  //단어 삭제.
+
+        System.out.println(ve.size()+" 개의 단어가 저장되어있습니다.");
+
+        while(true){
+
+            System.out.println("종료 하고싶으면 '그만' 입력 해 주세요.");
+            String deleteStr = scan.next();
+
+            if(deleteStr.equals("그만")){ // while stop
+                break;
+            }
+
+        }
+    }
+
 }
