@@ -1,3 +1,6 @@
+
+
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -101,13 +104,51 @@ public class Trainning {
         }
     }
 
-    public void play(){
+    public void play() {
 
-        int[] arra = {-1,-1,-1,-1}; // 배열의 랜덤 값 -1 로 초기화
-        int arraRan = (int)(Math.random()*4);
-        int vectorRan = (int)(Math.random()*ve.size());
+        while(true) {
+            int[] arra = {-1, -1, -1, -1}; // 배열의 랜덤 값 -1 로 초기화
+            int arraRan = (int) (Math.random() * 4);   // 배열의 인덱스 위치 랜덤 값. 0~3
+            int vectorRan = (int) (Math.random() * ve.size()); // vector 의 랜덤 값.
 
+            arra[arraRan] = vectorRan; // arra 배열의 랜덤 인덱스에 삽입될 vector의 사이즈.
 
+            System.out.println(ve.get(vectorRan).getEng() + "?");
+
+            for (int i = 0; i < arra.length; i++) {
+
+                if (arra[i] != -1 || arra[i] == arraRan) {
+                    continue;
+                } else {
+                    int tempRan = (int) (Math.random() * ve.size());
+                    for (int j = 0; j < i; j++) {
+
+                        if (tempRan == arra[j] || arra[i] == arra[j]) {
+                            j--;
+                            tempRan = (int) (Math.random() * ve.size());
+                            i--;
+                        }
+                    }
+                    arra[i] = tempRan;
+                    System.out.println(Arrays.toString(arra));
+                }
+            }
+            for (int j = 0; j < arra.length; j++) {
+                System.out.print("(" + (j + 1) + ")" + ve.get(arra[j]).getKor());
+            }
+
+            System.out.println(":>");
+            int insertNum = scan.nextInt();
+
+            if (insertNum == arraRan + 1) {
+                System.out.println("정답힙니다.");
+            } else if (insertNum == -1) {
+                break;
+            }
+            else{
+                System.out.println("틀렸습니다.");
+            }
+        }
     }
 
     public void run() {
@@ -132,5 +173,11 @@ public class Trainning {
                     return;
             }
         }
+    }
+
+    public static void main (String[] args){
+        Trainning tr = new Trainning();
+
+        tr.run();
     }
 }
