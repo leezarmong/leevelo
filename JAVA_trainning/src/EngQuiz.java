@@ -87,7 +87,8 @@ public class EngQuiz {
                 }
             }
 
-            if (found) {
+            if (found) { // 여기서 true 인 이유 조건이 충족된 이상 true 로 유지 되기 때문에
+                        // false 로 선언했지만 루프가 충족된 이상 true 로 이어진다.
                 System.out.println(delstr + "삭제 했습니다..");
             } else {
                 System.out.println(delstr + " 라는 단어는 없습니다.");
