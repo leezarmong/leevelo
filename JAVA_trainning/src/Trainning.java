@@ -118,7 +118,8 @@ public class Trainning {
             for (int i = 0; i < arra.length; i++) {
 
                 if (arra[i] != -1 || arra[i] == arraRan) {
-                    continue;
+                    continue;   //이미 정답은 지정 되어있음, 그러니 -1 이 아닐테고. for문을 돌렸을때 정답이 정해진 인덱스와 같을경우 continue 를 하여
+                                // 이 두개중 한개가 참일경우 나머지 인덱스에 오답을 insert하게 된다.
                 } else {
                     int tempRan = (int) (Math.random() * ve.size());
                     for (int j = 0; j < i; j++) {
