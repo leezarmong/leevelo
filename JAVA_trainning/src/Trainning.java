@@ -124,10 +124,10 @@ public class Trainning {
                     int tempRan = (int) (Math.random() * ve.size());
                     for (int j = 0; j < i; j++) {
 
-                        if (tempRan == arra[j] || arra[i] == arra[j]) {
+                        if (tempRan == arra[j] ) {
                             j--;
                             tempRan = (int) (Math.random() * ve.size());
-                            i--;
+
                         }
                     }
                     arra[i] = tempRan;
@@ -141,7 +141,7 @@ public class Trainning {
             System.out.println(":>");
             int insertNum = scan.nextInt();
 
-            if (insertNum == arraRan + 1) {
+            if (insertNum == (arraRan + 1)) {
                 System.out.println("정답힙니다.");
             } else if (insertNum == -1) {
                 break;

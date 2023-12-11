@@ -85,14 +85,14 @@ public class EngQuiz{
                     //틀린 문제 생성 해주는 랜덤.
                     int tempRand = (int)(Math.random() * ve.size());
                     for(int j = 0; j < i; j++){
-                        if(tempRand == arr[j] ||arr[i]==arr[j]){    // 정답이 오답으로 출제가 되면 안되니까 걸러내기 위함.
+                        if(tempRand == arr[j] ){    // 정답이 오답으로 출제가 되면 안되니까 걸러내기 위함.
                             j--;
                             tempRand = (int)(Math.random() * ve.size());    // 또 다시 랜덤한 결과 출력 하기위 함.
-                            i--;    // 중복된 질문 제거 ex )) (1)사랑 (2)사랑 X
+
                         }
                     }
                     arr[i] = tempRand;
-
+                    System.out.println(Arrays.toString(arr));
 
                 }
             }
