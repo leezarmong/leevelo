@@ -40,7 +40,7 @@ public class PhoneNumber {
                     return false;
                 }
             }
-            numbers.add(number);
+
             return true;
         }
 
