@@ -33,10 +33,8 @@ public class ZackHol {
         result[0] = zzacArra;
         result[1] = holArra;
 
-
         return result;
     }
-
 
     public int[][] arrs(int num) {
         String len = Integer.toString(num);
@@ -63,13 +61,11 @@ public class ZackHol {
                 za[zi++] = arrra[i];
             } else
                 ha[hi++] = arrra[i];
-
         }
 
         int[][] result = new int[2][];
         result[0] = za;
         result[1] = ha;
-
 
         return result;
     }
@@ -84,7 +80,6 @@ public class ZackHol {
         }
 
         System.out.println(Arrays.toString(b));
-
-
+         
     }
 }
