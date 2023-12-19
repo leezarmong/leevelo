@@ -1,7 +1,9 @@
+import java.util.Scanner;
+
 public class 삼각달팽이 {
 
     public static void main(String[] args) {
-
+            Scanner scan = new Scanner(System.in);
         int[][] b= new int[5][];
 
         b[0]= new int[0];
@@ -28,6 +30,7 @@ public class 삼각달팽이 {
             }
             System.out.println();
         }
+
 
     }
 }
