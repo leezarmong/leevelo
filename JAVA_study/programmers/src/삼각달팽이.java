@@ -4,7 +4,7 @@ public class 삼각달팽이 {
 
     public int[] solution(int n){
         int[][] triangle = new int[n][n];
-        int v = 1;
+        int v = 1;  // count
         int x = 0;
         int y = 0;
 
