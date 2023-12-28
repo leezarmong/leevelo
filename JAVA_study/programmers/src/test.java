@@ -2,31 +2,19 @@ import java.util.Scanner;
 
 public class test {
 
-    public String updown(String str) {
-
-        String st = "";
-
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-
-            if (Character.isUpperCase(c)) {
-                st += Character.toLowerCase(c);
-            } else {
-                st += Character.toUpperCase(c);
-            }
-        }
-        return st;
-    }
-
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        String sst = "";
+        StringBuffer st = new StringBuffer();
 
-        System.out.println("영 단어 입력. :");
-        String str = scan.nextLine();
+        for (char c = 'a'; c <= 'z'; c++) {
+            sst += c;
+            if (st.length() != 0) {
+                st.append(", "); // 콤마와 공백을 추가합니다. st가 비어있지 않은 경우
+            }
+            st.append(c); // 문자를 StringBuffer에 추가합니다.
 
-        test ts = new test();
-
-        System.out.println(ts.updown(str));
+        }
+        System.out.println("st: " + st.toString());
     }
-
 }
+
