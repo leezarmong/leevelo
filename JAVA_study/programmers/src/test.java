@@ -1,18 +1,32 @@
+import java.util.Scanner;
+
 public class test {
-    public static void main(String[] args) {
-        int[][] arr = new int[9][9];
 
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                arr[i][j] = (i + 2) * (j + 1);
+    public String updown(String str) {
+
+        String st = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+
+            if (Character.isUpperCase(c)) {
+                st += Character.toLowerCase(c);
+            } else {
+                st += Character.toUpperCase(c);
             }
         }
-
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                System.out.print((i + 2) + "x" + (j + 1) + " = " + arr[i][j] + "  ");
-            }
-            System.out.println();
-        }
+        return st;
     }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("영 단어 입력. :");
+        String str = scan.nextLine();
+
+        test ts = new test();
+
+        System.out.println(ts.updown(str));
+    }
+
 }
