@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class 시저암호 {
 
     public String solution(String s, int n) {
-        String answer = "";
+
         StringBuffer sb = new StringBuffer(); // 구분된 문자열을 담을 StringBuffer
 
         for (int i = 0; i < s.length(); i++) {
@@ -14,7 +14,7 @@ public class 시저암호 {
             } else if (Character.isUpperCase(c)) {
                 c = (char) ((c - 'A' + n) % 26 + 'A');
             }
-            answer += c;
+
 
             // 문자열을 쉼표로 구분하여 sb에 추가
             if (sb.length() != 0) {
