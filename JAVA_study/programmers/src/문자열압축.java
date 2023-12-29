@@ -11,6 +11,10 @@ public class 문자열압축 {
 
         for (int length = 1; length <= s.length(); length++) { // 문자열은 최소 1부터 시작.
             // 문자열 압축 후 가장 짧은 길이 선택 .
+            int compressed = compress(s,length);
+            if(compressed < min){
+                min = compressed;
+            }
         }
 
         return min;
@@ -18,8 +22,25 @@ public class 문자열압축 {
 
     //압축한 문자열의 길이 변환
     private int compress(String source, int length) {
+        StringBuilder sb = new StringBuilder();
 
+        String last = "";
+        int count =0;
 
+        for(String token : split(source,length)) {
+            // 압축된 문자열 구성.
+
+            if(token.equals(last)){
+                count ++;
+            }else{
+                if(count > 1) sb.append(count);
+                sb.append(last);
+                last = token;
+                count = 1;
+            }
+            if(count > 1) sb .append(count);
+            sb.append(last);
+        }
         return 0;
     }
 
@@ -35,7 +56,7 @@ public class 문자열압축 {
 
             if (endIndex > source.length())
                 endIndex = source.length();
-                // 문자열 범위 밖이라면 문자열 끝 까지 정상적으로 잘릴 수 있도록 초기
+                // 문자열 위 밖이라면 문자열 끝 까지 정상적으로 잘릴 수 있도록 초기
             tokens.add(source.substring(startIndex,endIndex));
             // list추가
         }
