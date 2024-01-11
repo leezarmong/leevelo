@@ -60,9 +60,7 @@ public class Reverce {
 
         for (int i = 0; i < result.length; i++) {
             result[i] = Integer.parseInt(answer.substring(result.length - 1 - i, result.length - i));
-
         }
-
         return result;
     }
 

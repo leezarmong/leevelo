@@ -17,11 +17,8 @@ public class holzzac {
         int zzac[] = new int[z];
         int hol[] = new int[h];
 
-
         int zindex = 0 ;
         int hindex = 0 ;
-
-
 
         for (int i = 0; i < result.length; i++) {
             if (result[i] % 2 == 0) {
@@ -41,8 +38,6 @@ public class holzzac {
         for(int n : hol){
             System.out.print(n+" ");
         }
-
-
     }
 
     public static void main(String[] args) {

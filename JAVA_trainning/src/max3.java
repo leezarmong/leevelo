@@ -6,7 +6,7 @@ public class max3 {
     public int b(int[] nums){
 
 
-        Arrays.sort(nums);
+        //Arrays.sort(nums);
         int len =nums.length;
 
         int max1 , max2, max3;
@@ -29,7 +29,6 @@ public class max3 {
             }else if(n > max3){
                 max3 = n ;
             }
-
         }
 
         return max1*max2*max3;
@@ -39,7 +38,6 @@ public class max3 {
         int b[] = {1,2,3,4,5};
 
         max3 mx = new max3();
-
 
         System.out.print(mx.b(b));
     }

@@ -33,6 +33,7 @@ public class 문자열압축 {
             } else {
                 if (count > 1) builder.append(count);
                 builder.append(last);
+
                 last = token;
                 count = 1;
             }
@@ -66,7 +67,7 @@ public class 문자열압축 {
     public static void main(String[] args) {
         문자열압축 sb = new 문자열압축();
 
-        String tt = "aabbaccc";
+        String tt = "ababcdcdababcdcd";
         System.out.print(sb.solution(tt));
     }
 }
