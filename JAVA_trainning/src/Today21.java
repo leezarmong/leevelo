@@ -46,7 +46,8 @@ public class Today21 {
         int[] result = new int[nums.length()];
 
         for(int i=0; i<result.length; i++){
-            result[i] = Character.getNumericValue(nums.charAt(i));
+            //result[i] = Character.getNumericValue(nums.charAt(i));
+            result[i] = Integer.parseInt(String.valueOf(nums.charAt(i)));
         }
 
         return result;
@@ -59,8 +60,10 @@ public class Today21 {
         int[] result = new int[k.length()];
 
         for(int i=0; i<result.length; i++){
-            char c = k.charAt(i);
-            result[i] = Integer.parseInt(String.valueOf(c));
+            //char c = k.charAt(i);
+            //result[i] = Integer.parseInt(String.valueOf(c));
+            result[i] =Character.getNumericValue(k.charAt(i));
+
         }
 
         return result;
