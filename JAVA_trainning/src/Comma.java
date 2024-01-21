@@ -19,6 +19,7 @@ public class Comma {
 
         StringBuffer answer = new StringBuffer();
 
+
         for (int i = len - 1; i >= 0; i--) {
             answer.insert(0, nums.charAt(i));
             count++;
@@ -28,7 +29,9 @@ public class Comma {
             }
         }
         answer.append(" 원");
-        return answer.toString();
+
+        String result = answer.toString();
+        return result;
     }
 
     public static void main(String[] args) {
