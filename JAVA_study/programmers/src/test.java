@@ -3,18 +3,31 @@ import java.util.Scanner;
 public class test {
 
     public static void main(String[] args) {
-        String sst = "";
-        StringBuffer st = new StringBuffer();
+      Scanner scan = new Scanner(System.in);
 
-        for (char c = 'a'; c <= 'z'; c++) {
-            sst += c;
-            if (st.length() != 0) {
-                st.append(", "); // 콤마와 공백을 추가합니다. st가 비어있지 않은 경우
-            }
-            st.append(c); // 문자를 StringBuffer에 추가합니다.
+      System.out.print("문자 입력");
+      String k = scan.next();
 
-        }
-        System.out.println("st: " + st.toString());
+      System.out.print("찾을 단어");
+      char ss = scan.next().charAt(0);
+
+
+        int count =0;
+        int ks =0;
+      for(int i=0; i<k.length(); i++){
+
+          char c = k.charAt(i);
+          count++;
+
+          if(c == ss){
+              ks++;
+          }
+
+
+      }
+        System.out.println("찾는 단어의 개수>"+ks);
+      System.out.print("단어 개수"+count);
+
     }
 }
 
