@@ -45,7 +45,21 @@ public class Today22 {
     public static void main(String[] args) {
         Today22 td2 = new Today22();
 
-        td2.text();
+
+
+        System.out.print("문자 갯수 1 , 찾는문자 카운트 2 , 종료 3");
+        int n = scan.nextInt();
+
+        switch (n){
+            case 1 :
+                td2.text();
+                break;
+            case 2:
+                td2.tes2();
+                break;
+            case 3:
+                System.exit(0);
+        }
     }
 
 }
