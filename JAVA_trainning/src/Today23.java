@@ -19,22 +19,23 @@ public class Today23 {
                 strArray[i] = str[i];
             }
 
-            System.out.print("혹시 찾으시는 단어의 위치 알고싶으신가요?");
+
+            System.out.print("찾고 있는 단어의 위치를 알고 싶으세요? 단어를 입력하세요: ");
             String search = scan.next();
 
-            int position = -1; // Default position if the word is not found
+            int position = -1; // 단어가 찾아지지 않은 경우의 기본 위치
 
             for (int i = 0; i < strArray.length; i++) {
                 if (strArray[i].equals(search)) {
-                    position = i + 1; // Positions are usually 1-indexed
-                    break; // Stop searching once the word is found
+                    position = i + 1; // 위치는 일반적으로 1부터 시작합니다
+                    break; // 단어를 찾으면 검색 중지
                 }
             }
 
             if (position != -1) {
-                System.out.println("The word '" + search + "' is at position: " + position);
+                System.out.println("단어 '" + search + "'의 위치는: " + position);
             } else {
-                System.out.println("The word '" + search + "' was not found.");
+                System.out.println("단어 '" + search + "'을(를) 찾을 수 없습니다.");
             }
 
             System.out.println(Arrays.toString(strArray));
