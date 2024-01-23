@@ -9,18 +9,22 @@ public class Today22 {
         System.out.print("문자 입력하세요");
         String k = scan.next();
 
-        char[] c = new char[k.length()];
+
         int count = 0 ;
-        for (int i = 0; i < c.length; i++) {
-            c[i] = k.charAt(i);
+
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = k.length()-1; i >=0; i--) {
+
+            sb.insert(0,k.charAt(i));
             count++;
 
-            if (!(i == c.length - 1)) {
-                System.out.print(c[i] + ",");
+            if(i%1==0 && i >0){
+                sb.insert(0,",");
             }
-            else System.out.print(c[i]+"\n");
-
         }
+        String result = sb.toString();
+        System.out.print(result);
         System.out.print("문자 개수"+ count);
     }
 

@@ -23,7 +23,7 @@ public class Today23 {
             System.out.print("찾고 있는 단어의 위치를 알고 싶으세요? 단어를 입력하세요: ");
             String search = scan.next();
 
-            int position = -1; // 단어가 찾아지지 않은 경우의 기본 위치
+            int position = 0; // 단어가 찾아지지 않은 경우의 기본 위치
 
             for (int i = 0; i < strArray.length; i++) {
                 if (strArray[i].equals(search)) {
@@ -82,7 +82,7 @@ public class Today23 {
 
 
         System.out.println("문자를 입력해주세요.");
-        String k = scan.nextLine().trim();
+        String k = scan.nextLine();
         // 문자열 좌우 의 공백을 제거한다.
 
         td23.text(k);
