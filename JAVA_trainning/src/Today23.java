@@ -5,12 +5,11 @@ public class Today23 {
 
     public void text(String k) {
 
-        if(k.isEmpty()){
+        if (k.isEmpty()) {
             System.out.println('0');
-        }
-        else System.out.println(k.split(" ").length);
-
-
+            // 비어있을경우 0 을 출력
+        } else System.out.println(k.split(" ").length);
+        // 띄어쓰기를 기준한 길이를 출력해준다.
 
     }
 
@@ -19,6 +18,7 @@ public class Today23 {
 
         System.out.println("문자를 입력해주세요.");
         String k = scan.nextLine().trim();
+        // 문자열 좌우 의 공백을 제거한다.
 
         td23.text(k);
     }
