@@ -50,11 +50,24 @@ public class Today23_2 {
 
         String[] strArray = new String[len.length];
 
+        StringBuilder sb = new StringBuilder();
         for(int i=0; i<len.length; i++){
             strArray[i] = len[i];
+
+            if(len[i].length() == 3){
+                sb.append(" test hi ");
+            }
+            else{
+                sb.append(len[i]).append(" ");
+            }
+
         }
 
+
+
         System.out.println("배열에 추가 되었습니다. "+Arrays.toString(strArray));
+        System.out.println("Modified String: " + sb.toString().trim());
+
         System.out.print("찾고싶은 단어의 위치 는? :");
         String search = scan.next();
 
@@ -72,6 +85,16 @@ public class Today23_2 {
         else {
             System.out.print(search+" 는 없습니다.");
         }
+
+    }
+
+    public void text4(){
+
+        StringBuilder sb = new StringBuilder();
+        String k = "test";
+        sb.insert(0,k);
+        sb.append(" test");
+        System.out.print(sb+" gg");
 
     }
 
@@ -98,6 +121,11 @@ public class Today23_2 {
             case 4:
                 System.exit(0);
                 break;
+            case 5:
+                td.text4();
+                break;
+
+
         }
 
 
