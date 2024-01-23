@@ -48,13 +48,47 @@ public class Today23 {
 
     }
 
+    public void text2(String[] k){
+
+        String[] arra = new String[k.length];
+
+        for(int i=0; i<k.length; i++){
+            arra[i] = k[i];
+        }
+
+        System.out.print("찾고싶은 단어");
+        String src = scan.next();
+
+        int isnert = -1;
+
+        for(int i=0; i<arra.length; i++){
+            if(arra[i].equals(src)){
+                isnert = i+1;
+                break;
+            }
+        }
+
+        if(isnert != -1){
+            System.out.print(src+"위치는"+isnert);
+        }
+        else
+            System.out.print(src+"는(은) 없습니다.");
+
+    }
+
     public static void main(String[] args) {
         Today23 td23 = new Today23();
+
+
 
         System.out.println("문자를 입력해주세요.");
         String k = scan.nextLine().trim();
         // 문자열 좌우 의 공백을 제거한다.
 
         td23.text(k);
+
+
+        String[] kk = {"show","me"};
+        td23.text2(kk);
     }
 }
