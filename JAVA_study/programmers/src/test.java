@@ -28,6 +28,7 @@ public class test {
         System.out.println("찾는 단어의 개수>"+ks);
       System.out.print("단어 개수"+count);
 
+
     }
 }
 
