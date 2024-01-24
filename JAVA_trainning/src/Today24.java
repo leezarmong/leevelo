@@ -10,11 +10,18 @@ public class Today24 {
 
         StringBuilder sb = new StringBuilder();
 
+        System.out.print("찾고싶어하는 스펠링의 개수");
+        char c = scan.next().charAt(0);
+
         for(int i=k.length()-1; i>=0; i--){
             sb.insert(0, k.charAt(i));
             count++;
             if(count%1==0 && i>0){
                 sb.insert(0,",");
+            }
+
+            if(k.charAt(i)==c){
+                count++;
             }
         }
 
@@ -25,18 +32,26 @@ public class Today24 {
 
     }
 
-    public void text2(String k ){
+    public void text11(String[] kar){
 
-        String[] arra = k.split(" ");
-        System.out.print("문장의 개수 는 "+arra.length+" 개 입니다.");
-        String[] insertArra = new String[arra.length];
+        System.out.print(kar.length);
 
-        for(int i=0; i<arra.length; i++){
-            insertArra[i] = arra[i];
+        String k ="";
+
+        int count=0;
+        for(String insertk : kar){
+            k+=insertk;
         }
-        System.out.print(Arrays.toString(insertArra));
 
+        for(int i=0; i<k.length(); i++){
+            char c = k.charAt(i);
+            count++;
+        }
+
+        System.out.print("알파벳 개수 "+count);
     }
+
+
 
     public void text3(String k ){
         String[] arra = k .split(" ");
@@ -94,6 +109,23 @@ public class Today24 {
         String k = scan. nextLine();
         Today24 td = new Today24();
 
-        td.text4(k);
+
+
+        System.out.print("배열의 크기");
+        int n = scan.nextInt();
+        scan.nextLine();
+
+        String[] ka = new String[n];
+
+        System.out.println("배열에 들어갈 단어");
+        for(int i=0; i<n; i++){
+
+            System.out.print((i+1)+"번째 :");
+            ka[i]=scan.nextLine();
+        }
+
+        System.out.print(Arrays.toString(ka));
+
+        td.text11(ka);
     }
 }
