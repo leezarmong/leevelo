@@ -80,34 +80,45 @@ public class Today25 {
 
     }
 
-    public void text6(String[] ll){
+    public void text6(String[] ll) {
         String[] arra = new String[ll.length];
-        int count = 0 ;
+        int count = 0;
 
 
-
-        for(int i=0; i<ll.length; i++){
+        for (int i = 0; i < ll.length; i++) {
             arra[i] = ll[i];
             count++;
         }
-        System.out.println("지금 입력된 문자 배열 길이"+count);
+        System.out.println("지금 입력된 문자 배열 길이" + count);
 
         String k = "";
 
-        for(String insert : arra){
+        for (String insert : arra) {
             k += insert;
         }
-        System.out.println(k+"문자로 합쳐졌습니다.");
+        System.out.println(k + "문자로 합쳐졌습니다.");
         System.out.print("찾고싶은 알파뱃 개수 :");
         char c = scan.next().charAt(0);
-        int count2 = 0 ;
-        for(int i=0; i<k.length(); i++){
+        int count2 = 0;
+        for (int i = 0; i < k.length(); i++) {
 
-            if(k.charAt(i)==c){
+            if (k.charAt(i) == c) {
                 count2++;
             }
 
         }
+        int count3 = 0;
+        StringBuilder sb = new StringBuilder();
+        for (int i = k.length() - 1; i >= 0; i--) {
+
+            sb.insert(0, k.charAt(i));
+            count3++;
+
+            if(count3%1==0 && i>0){
+                sb.insert(0,",");
+            }
+        }
+        System.out.println(sb.toString());
         System.out.print("찾는 알파뱃 개수");
         System.out.print(count2);
     }
@@ -118,7 +129,7 @@ public class Today25 {
 
         Today25 td = new Today25();
 
-        String[] ll = {"as","as","bb"};
+        String[] ll = {"as", "as", "bb"};
         td.text6(ll);
 
     }
