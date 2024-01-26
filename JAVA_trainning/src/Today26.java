@@ -72,6 +72,33 @@ public class Today26 {
         System.out.println("찾는 알파뱃의 개수 " + count1);
     }
 
+    public int[] arra (int[]b){
+
+        int min = b[0];
+        int max = b[0];
+
+        for(int i=0; i<b.length;i++){
+            max = Math.max(max , b[i]);
+            min = Math.min(min , b[i]);
+        }
+        return new int[0];
+    }
+
+    public int[] arra2(String k){
+        String[] insert = k.split(" ");
+
+        int max =0;
+        int min = 0 ;
+        max = min = Integer.parseInt(insert[0]);
+
+        for(int i=0; i<insert.length; i++){
+
+            max = Math.max(max, Integer.parseInt(insert[i]));
+        }
+
+
+        return new int[0];
+    }
 
     public static void main(String[] args) {
 
