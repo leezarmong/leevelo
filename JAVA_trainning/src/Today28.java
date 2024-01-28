@@ -25,15 +25,19 @@ public class Today28 {
 
         return result;
     }
-    public static void main(String[] args){
+
+    // main
+    public static void main(String[] args) {
         Today28 td = new Today28(); // 인스턴스
         Scanner scan = new Scanner(System.in);  // scan 인스턴스
 
         System.out.println("숫자 입력해주세요 띄어 쓰기로 구분 해주세요.");
         String k = scan.nextLine();
 
-        td.arra(k);
+        int[] result = td.arra(k);
 
+            System.out.println("최대 값 은 :" + result[0]);
+            System.out.println("최소 값 은 :" + result[1]);
 
     }
 }
