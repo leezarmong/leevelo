@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardDAO">
+    <resultMap type="board" id="boardResult">
+        <id property="board_num" column="BOARD_NUM"></id>
+        <result property="board_title" column="BOARD_TITLE"></result>
+        <result property="board_content" column="BOARD_CONTENT"></result>
+        <result property="member_id" column="MEMBER_ID"></result>
+        <result property="board_viewcnt" column="BOARD_VIEWCNT"></result>
+        <result property="board_commentcnt" column="BOARD_COMMENTCNT"></result>
+        <result property="board_regdate" column="BOARD_REGDATE"></result>
+    </resultMap>
+    
+    <!-- 글 등록 -->
+    <insert id="insertBoard" parameterType="board">
+      INSERT INTO BOARD(board_num,board_title,board_content,member_id)
+    VALUES (board_num_seq.nextval,#{board_title},#{board_content},#{member_id})
+    </insert>
+<!--    수정-->
+    <update id="updateBoard" parameterType="board">
+        UPDATE BOARD SET BOARD_TITLE=#{board_title} ,BOARD_CONTENT=#{board_content} where BOARD_NUM=#{board_num}
+
+      </update>
+
+<!--    삭제-->
+    <delete id="deleteBoard" parameterType="map"><![CDATA[
+        DELETE BOARD WHERE BOARD_NUM=#{board_num}
+    ]]></delete>
+
+<!--    모두 삭제 (테스트용)-->
+    <delete id="deleteAll">
+        DELETE from BOARD
+        </delete>
+
+<!--    자주사용하는 쿼리문-->
+    <sql id="selectFromBoard">
+        SELECT board_num, board_title, board_content, member_id, board_viewcnt, board_commentcnt, board_regdate
+        FROM board
+    </sql>
+    <!--    글 읽기-->
+
+    <select id="getBoard" resultType="board">
+        <include refid="selectFromBoard"/>
+        where board_num=#{board_num}
+    </select>
+
+<!--    글 목록(페이징전에 사용하던것)-->
+    <select id="getBoardList" resultMap="boardResult">
+        SELECT * FROM BOARD
+        where 1=1
+        ORDER BY BOARD_NUM DESC
+    </select>
+<!--페이징(검색 페이징 이전에 사용 하던것-->
+    <select id="getBoardPage" parameterType="map" resultType="board">
+        SELECT * FROM(
+                    SELECT ROWNUM AS RN, A.*  FROM
+                (SELECT *  FROM board ORDER BY board_regdate DESC,board_num desc) A )
+        WHERE RN BETWEEN ${offset} AND ${pageSize}
+    </select>
+
+<!--    카운트-->
+    <select id="count" resultType="int">
+        select count(*) from board
+    </select>
+
+<!--    조회수 증가-->
+    <update id="increaseViewCnt" parameterType="int">
+        update board
+            set board_viewcnt=board_viewcnt +1
+            where board_num=#{board_num}
+    </update>
+
+<!--    검색-->
+    <sql id="searchCondition">
+        <choose>
+            <when test='option=="T"'>
+                and board_title like '%'||#{keyword}||'%'
+            </when>
+            <when test='option=="W"'>
+                and member_id like '%'||#{keyword}||'%'
+            </when>
+            <otherwise>
+                and board_title like '%'||#{keyword}||'%'
+                or member_id like '%'||#{keyword}||'%'
+            </otherwise>
+        </choose>
+    </sql>
+<!--    검색 페이징-->
+    <select id="searchSelectPage" parameterType="SearchCondition" resultType="board">
+        select board_num,board_title,member_id,board_regdate,board_viewcnt,board_commentcnt
+        from (
+                 select rownum as rn, A.*
+                 from (
+                          select board_num,board_title,member_id,board_regdate,board_viewcnt,board_commentcnt
+                          from board
+                          where 1=1
+                        <include refid="searchCondition"/>
+                          ORDER BY BOARD_NUM desc
+                      ) A
+             ) where rn between ${offset} and ${pageSize}*#{page}
+    </select>
+
+    <select id="searchResultCnt" parameterType="SearchCondition" resultType="int">
+        select count(*)
+         from board
+        where 1=1
+        <include refid="searchCondition"/>
+    </select>
+
+<!--    이전글-->
+    <select id="prevPage" resultType="board">
+
+        select * from board
+        WHERE board_num
+
+                  IN (
+        (
+        SELECT	MAX(BOARD_NUM)
+        FROM	board
+        <![CDATA[ WHERE	BOARD_NUM  < #{board_num} )
+        )
+
+    ]]></select>
+
+    <!--    다음글-->
+    <select id="nextPage" resultType="board">
+
+        select * from board
+        WHERE board_num
+
+                  IN (
+        (
+        SELECT	MIN(BOARD_NUM)
+        FROM	board
+        <![CDATA[WHERE	BOARD_NUM  > #{board_num} )
+        )
+    ]]></select>
+</mapper>

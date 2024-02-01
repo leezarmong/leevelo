@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/*footer -----------------------------------------------------------------------------------------------------*/
+footer {
+	position:fixed;
+	display: flex;
+	width : 100%;
+	height: 65px;
+	align-items: center;
+	background: #eee;
+	bottom:0;
+}
+
+footer .footerLogo {
+    display: inline;
+	width: 40px;
+	height: 40px;
+	font-size: 0px;
+	color: transparent;
+}
+
+footer p {
+	width: 70%;
+	text-align: center;
+	font-size: 11px;
+}
+
+footer .sns a img {
+	display: inline-block;
+	width: 20px;
+	margin-left: 20px;
+}
