@@ -25,33 +25,63 @@ $(document).ready(function(){
     }
   });
 
-  //아이디 체크
-  $("#checkID").click(function(){
-    let member_id = $('#member_id').val();
-    if(!member_id){
-     alert("아이디를 입력해주세요");
-    } else if(member_id){
-      $.ajax({
-        type: "POST",
-        url: "checkID",
-        data :{"member_id" : member_id},
-        success : function(data){
-          console.log(data);
-          if(data != 0){
-            alert("중복된 아이디 입니다.");
-            idCheck = false;
-          } else{
-            alert("사용 가능한 아이디 입니다.");
-            idCheck = true;
-          }
-        },
-        error : function(error) {
-         alert(member_id);
-        }
-      });
-    }
-  });
+  //회원 가입 아이디 중복 체크
   
+  function checkId(){
+	  var member_id = $("#member_id").val();
+	  
+	  if(!member_id){
+		  alert("아이디 입력 해주세요.")
+	  }else if(member_id){
+		  $.ajax({
+			  type:"POST",
+			  url:"checkID",
+			  data:{"member_id":member_id},
+			  success : function(data){
+		          console.log(data);
+		          if(data != 0){
+		            alert("중복된 아이디 입니다.");
+		            idCheck = false;
+		          } else{
+		            alert("사용 가능한 아이디 입니다.");
+		            idCheck = true;
+		          }
+		        },
+		        error : function(error) {
+		            alert(member_id);
+		           }
+		  });
+	  }
+	  
+  }
+  
+//  $("#checkID").click(function(){
+//    let member_id = $('#member_id').val();
+//    if(!member_id){
+//     alert("아이디를 입력해주세요");
+//    } else if(member_id){
+//      $.ajax({
+//        type: "POST",
+//        url: "checkID",
+//        data :{"member_id" : member_id},
+//        success : function(data){
+//          console.log(data);
+//          if(data != 0){
+//            alert("중복된 아이디 입니다.");
+//            idCheck = false;
+//          } else{
+//            alert("사용 가능한 아이디 입니다.");
+//            idCheck = true;
+//          }
+//        },
+//        error : function(error) {
+//         alert(member_id);
+//        }
+//      });
+//    }
+//  });
+//  
+  //form 로그인 버튼
   $("#loginBtn").click(function(){
 	 $.ajax({
 		 type : 'post',
@@ -102,8 +132,7 @@ function doSignup() {
 	var member_phone = $("#NUMst").val() + "-" + $("#NUMnd").val() + "-" + $("#NUMrd").val();
 	var member_age = $("#member_age").val();
 	var member_email = $("#str_email01").val() + "@" + $("#str_email02").val();
-	var member_faddr = $("#member_faddr").val();
-	var member_laddr = $("#member_laddr").val();
+	var member_addr = $("#member_addr").val()+$("#member_faddr").val()+$("#member_laddr").val();
 	var member_key = $("#member_key").val();
 	
 	if(!$("#member_id").val() || !$("#member_password").val() || !$("#member_name").val()
@@ -114,7 +143,7 @@ function doSignup() {
 	}else{
 		$.ajax({
 			type : "POST",
-			url : "join",
+			url : "sign",
 			data : {
 				"member_id" : member_id,
 				"member_pwd" : member_pwd,
@@ -122,8 +151,7 @@ function doSignup() {
 				"member_phone" : member_phone,
 				"member_age" : member_age,
 				"member_email" : member_email,
-				"member_faddr" : member_faddr,
-				"member_laddr" : member_laddr,
+				"member_addr" : member_addr,
 				"member_key" : member_key
 				
 			},
@@ -165,7 +193,7 @@ function searchPost() {
 				}
 				fullAddr += (extraAddr !== '' ? '(' + extraAddr + ')' : '');
 			}
-			document.getElementById('member_zipcode').value = data.zonecode;
+			document.getElementById('member_addr').value = data.zonecode;
 			document.getElementById('member_faddr').value = fullAddr;
 			document.getElementById('member_laddr').focus();
 		}

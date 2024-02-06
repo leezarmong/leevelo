@@ -24,7 +24,7 @@
 <body>
 <%@ include file="../include/header.jsp" %>
 
-		<!-- 1page -->
+		
 	 <div class="login-wrap">
     <div class="login-html">
       <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">로그인</label>
@@ -32,7 +32,7 @@
       <div class="login-form">
         <div class="sign-in-htm">
         
-        
+        <!-- 1page -->
         <form id="loginForm" method="post">
           <div class="group">
             <label for="user" class="label">아이디</label>
@@ -50,16 +50,17 @@
           <div class="foot-lnk">
           </div>
           </form>
+       
         </div>
         <div class="sign-up-htm">
         
         <!-- 2page 회원가입-->
+        <form action="#" method="post">
         
           <div class="group">
-            <label for="user" class="label">아이디</label>
+            <label for="member_id" class="label">아이디</label>
             <input id="member_id" type="text" class="input" name="member_id"><br>
-            
-            <button type="button"class="button" id="checkID" onClick="idCheck">중복검사</button>
+            <input type="button" class="button" value="중복검사" onclick="checkId()">
           </div>
           <div class="group">
             <label for="pass" class="label">비밀번호</label>
@@ -78,7 +79,15 @@
           </div>
           <div class="group">
             <label for="phone" class="label">휴대폰 번호</label>
-            <input id="member_phone" type="text" class="input" name="member_phone">
+            
+            <select id="NUMst" name="member_phone" style="width: 140px; height: 35px;" required>
+							<option value="" size="50" selected>선택</option>
+							<option value="010">010</option>
+							<option value="011">011</option>
+						</select> - 
+						<input type="text" style="width: 140px; height: 35px;" id="NUMnd" name="member_phone" maxlength="4" size="15" onkeypress="onlyNumber()" /> - 
+						<input type="text" style="width: 140px; height: 35px;" id="NUMrd" name="member_phone" maxlength="4" size="15" onkeypress="onlyNumber()" />
+            
           </div>
           
           <div class="group">
@@ -89,9 +98,9 @@
             <label for="email" class="label">Email 주소</label>
            <!--  <input id="email" type="email" class="input" name="member_email"> -->
             
-            <input type="text" name="str_email01" id="str_email01" style="width: 110px;" required> @
-			<input type="text" name="str_email02" id="str_email02" style="width: 110px;"  disabled value="naver.com" required>
-						<select  name="selectEmail" id="selectEmail" style="width: 120px; height: 38px;">
+            <input type="text" style="width: 140px; height: 35px;" name="str_email01" id="str_email01" style="width: 110px;" required> @
+			<input type="text" style="width: 140px; height: 35px;" name="str_email02" id="str_email02" style="width: 110px;"  disabled value="naver.com" required>
+						<select  name="selectEmail" id="selectEmail" style="width: 140px; height: 35px;">
 							<option value="" selected>::선택하세요::</option>
 							<option value="naver.com">naver.com</option>
 							<option value="gmail.com">gmail.com</option>
@@ -116,7 +125,12 @@
           </div>
           <div class="group">
             <label for="address" class="label">주소</label>
-            <input id="member_addr" type="text" class="input" name="member_addr">
+            <input type="text" name="member_addr" id="member_addr" class="input" readonly size="10">
+            <br>
+			<input type="button" class="button" onclick="searchPost()" style="cursor: pointer" value="우편번호 찾기"><br>
+			<input type="text" name="member_faddr" id="member_faddr" class="input" size="50" readonly><br>
+			<input type="text" name="member_laddr" id="member_laddr" class="input" size="50" placeholder="상세 주소를 입력하세요.">
+         
           </div>
           <div class="group">
             <label for="key" class="label">주민등록번호</label>
@@ -131,9 +145,10 @@
           
          
           
-          
+          </form>
           
         </div>
+        
       </div>
     </div>
   </div>
