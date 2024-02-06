@@ -123,8 +123,11 @@ table#product img {
 
 </head>
 <body>
+
+
+
 <div class="goodsmall-form">
-	
+	<%@ include file="./include/header.jsp"%>
 	<div class="goodsmall-section">
 		<h1>굿즈몰</h1>
 		<p>귀엽고, 깜찍한 버츄얼 랜드의 굿즈몰!</p>
@@ -134,6 +137,8 @@ table#product img {
 		<c:if test="${(fn:length(map.list)) eq 0}">
 					상품내역이 없습니다.
 					</c:if>
+					
+					<a href="test">test</a>
 		<!-- 상품의 갯수, -1은 배열은 0부터 시작하기때문 -->
 		<!-- 이중 for문 x축 -->
 		<c:forEach begin="0" end="${(fn:length(map.list) + 3) / 4 - 1}" var="row">
@@ -194,7 +199,7 @@ table#product img {
 			</tr>
 		</c:if>
 	</table>
-	
+	 <%@ include file="./include/footer.jsp"%>
 	</div>
 </body>
 </html>
