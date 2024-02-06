@@ -89,10 +89,11 @@ table#product img {
 .goodsmall-section h1 {
 	font-size: 2em;
 	margin: 1em 0;
-	color: #FF6F61;
+	color: #6cced5;
 	text-shadow: 1px 1px 2px #999;
 	text-align: center;
 }
+
 
 .goodsmall-section p {
 	font-size: 1.2em;
@@ -119,6 +120,7 @@ table#product img {
   margin-top: 250px;
 }
 
+
 </style>
 
 </head>
@@ -129,16 +131,17 @@ table#product img {
 <div class="goodsmall-form">
 	<%@ include file="./include/header.jsp"%>
 	<div class="goodsmall-section">
-		<h1>굿즈몰</h1>
-		<p>귀엽고, 깜찍한 버츄얼 랜드의 굿즈몰!</p>
+		<h1>굿즈</h1>
+		<p>show me the goods!</p>
 	</div>
 	<table id="product">
 		<!-- fn 태그, map에 list가 0이면 상품없음,컨트롤러 참고, if문 0이면 -->
+		
 		<c:if test="${(fn:length(map.list)) eq 0}">
-					상품내역이 없습니다.
+					<br><h2 style="text-align: center; color: red;">상품내역이 없습니다.</h2>
 					</c:if>
 					
-					<a href="test">test</a>
+					
 		<!-- 상품의 갯수, -1은 배열은 0부터 시작하기때문 -->
 		<!-- 이중 for문 x축 -->
 		<c:forEach begin="0" end="${(fn:length(map.list) + 3) / 4 - 1}" var="row">

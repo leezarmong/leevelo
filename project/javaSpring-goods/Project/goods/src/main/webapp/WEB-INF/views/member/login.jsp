@@ -35,10 +35,7 @@
             <label for="pass" class="label">비밀번호</label>
             <input id="pass" type="password" class="input" name="member_pwd">
           </div>
-          <div class="group">
-            <input id="check" type="checkbox" class="check" checked>
-            <label for="check"><span class="icon"></span>아이디 저장</label>
-          </div>
+         
           <div class="group">
             <input type="submit" class="button" id="loginBtn" value="Sign In">
           </div>
@@ -51,8 +48,8 @@
         <form action="join" method="post" id="joinForm">
           <div class="group">
             <label for="user" class="label">아이디</label>
-            <input id="user_id" type="text" class="input" name="member_id">
-            <button type="button" id="checkID" onClick="idCheck">중복검사</button>
+            <input id="user_id" type="text" class="input" name="member_id"><br>
+            <button type="button"class="button" id="checkID" onClick="idCheck">중복검사</button>
           </div>
           <div class="group">
             <label for="pass" class="label">비밀번호</label>
