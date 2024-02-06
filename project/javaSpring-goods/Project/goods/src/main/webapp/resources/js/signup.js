@@ -4,17 +4,17 @@ var pwCheck = false;
 
 $(document).ready(function(){
   // 패스워드 확인
-  $("#user_pass").keyup(function() {
+  $("#member_pwd").keyup(function() {
     $("#checkPasswd").text("");
   });
 
-  $("#passCheck").keyup(function() {
+  $("#member_pwdTwo").keyup(function() {
     var checkText = $("#checkPasswd");
-    if ($("#user_pass").val() == "" || $("#passCheck").val() == "") {
+    if ($("#member_pwd").val() == "" || $("#member_pwdTwo").val() == "") {
       checkText.css("color", "red");
       checkText.text("필수 입력사항");
       pwCheck = false;
-    } else if ($("#user_pass").val() != $("#passCheck").val()) {
+    } else if ($("#member_pwd").val() != $("#member_pwdTwo").val()) {
       pwCheck = false;
       checkText.text("비밀번호가 다릅니다.");
       checkText.css("color", "red");
@@ -27,7 +27,7 @@ $(document).ready(function(){
 
   //아이디 체크
   $("#checkID").click(function(){
-    let member_id = $('#user_id').val();
+    let member_id = $('#member_id').val();
     if(!member_id){
      alert("아이디를 입력해주세요");
     } else if(member_id){
@@ -93,3 +93,81 @@ $(document).ready(function(){
 	    }
 	 });
 });
+
+//회원 가입
+function doSignup() {
+	var member_id = $("#member_id").val();
+	var member_pwd = $("#member_pwd").val();
+	var member_name = $("#member_name").val();
+	var member_phone = $("#NUMst").val() + "-" + $("#NUMnd").val() + "-" + $("#NUMrd").val();
+	var member_age = $("#member_age").val();
+	var member_email = $("#str_email01").val() + "@" + $("#str_email02").val();
+	var member_faddr = $("#member_faddr").val();
+	var member_laddr = $("#member_laddr").val();
+	var member_key = $("#member_key").val();
+	
+	if(!$("#member_id").val() || !$("#member_password").val() || !$("#member_name").val()
+			|| !$("#member_license").val())
+	
+	{
+		swal("", "필수항목이 비어있습니다. 입력해주세요.", "warning");		
+	}else{
+		$.ajax({
+			type : "POST",
+			url : "join",
+			data : {
+				"member_id" : member_id,
+				"member_pwd" : member_pwd,
+				"member_name" : member_name,
+				"member_phone" : member_phone,
+				"member_age" : member_age,
+				"member_email" : member_email,
+				"member_faddr" : member_faddr,
+				"member_laddr" : member_laddr,
+				"member_key" : member_key
+				
+			},
+			success : function(data) {
+				window.location.href="main";
+			}
+		});
+	}
+}
+
+//숫자입력
+function onlyNumber(){
+	if((event.keyCode<48)||(event.keyCode>57)) {
+		event.returnValue=false;
+	}
+}
+
+
+
+//주소 검색
+function searchPost() {
+	new daum.Postcode({
+		oncomplete : function(data) {
+			var fullAddr = '';
+			var extraAddr = '';
+
+			if (data.userSelectedType == 'R') {
+				fullAddr = data.roadAddress;
+			} else {
+				fullAddr = data.jibunAddress;
+			}
+			if (data.userSelectedType == 'R') {
+				if (data.bname !== '') {
+					extraAddr += data.bname;
+				}
+				if (data.buildingName !== '') {
+					extraAddr += (extraAddr !== '' ? ', ' + data.buildingName
+							: data.buildingName);
+				}
+				fullAddr += (extraAddr !== '' ? '(' + extraAddr + ')' : '');
+			}
+			document.getElementById('member_zipcode').value = data.zonecode;
+			document.getElementById('member_faddr').value = fullAddr;
+			document.getElementById('member_laddr').focus();
+		}
+	}).open();
+}
