@@ -1,6 +1,41 @@
 
-var idCheck = false;
-var pwCheck = false;
+//var idCheck = false;
+//var pwCheck = false;
+
+
+//회원 가입 아이디 중복 체크
+function checkID() {
+	var member_id = $("#member_id").val();
+	var idCheck = $("#idCheck");
+	console.log(member_id);
+	if (!member_id) {
+		alert("아이디를 입력해주세요.");
+	} else {
+		$.ajax({
+			type : "POST",
+			url : "checkID",
+			data : {
+				"member_id" : member_id
+			},
+			success : function(data) {
+				if (data == 0) {
+					//$("#member_id").attr("disabled", true);
+					//.attr("disabled", true); = true 일 경우 사용 못하게 막아주는 역할
+					idCheck.css("color", "green");
+					idCheck.text("사용 가능한 아이디입니다.");
+					
+				} else {
+					idCheck.css("color", "red");
+					idCheck.text("이미 존재하는 아이디입니다.");
+					
+				} 
+			}
+		});
+	}
+}
+
+
+
 
 $(document).ready(function(){
   // 패스워드 확인
@@ -44,7 +79,7 @@ $(document).ready(function(){
 						url : 'login',
 						data : $('#loginForm').serialize(),
 						success : function(){
-							location.href = 'main';
+							location.href = 'goodsmall';
 						}
 					});
 			 }
@@ -54,21 +89,21 @@ $(document).ready(function(){
   
   
   //회원가입 전 체크
-  $('#signBtn').click(function(event) {
-	    if (idCheck === false) {
-	     alert("중복검사를 해주세요");
-	    	event.preventDefault(); // prevent form submission
-	    }else if(pwCheck === false){
-	    	alert("비밀번호가 다릅니다.");
-	    	event.preventDefault();
-	    }else if($("#email").val().indexOf("@") == -1){
-	    	alert("이메일을 바르게 써주세요");
-	    	event.preventDefault();
-	    } else{
-	    	alert("회원가입 완료");
-	    	location.href="login";
-	    }
-	 });
+//  $('#signBtn').click(function(event) {
+//	    if (idCheck === false) {
+//	     alert("중복검사를 해주세요");
+//	    	event.preventDefault(); // prevent form submission
+//	    }else if(pwCheck === false){
+//	    	alert("비밀번호가 다릅니다.");
+//	    	event.preventDefault();
+//	    }else if($("#email").val().indexOf("@") == -1){
+//	    	alert("이메일을 바르게 써주세요");
+//	    	event.preventDefault();
+//	    } else{
+//	    	alert("회원가입 완료");
+//	    	location.href="login";
+//	    }
+//	 });
 });
 
 
@@ -83,11 +118,11 @@ function doSignup() {
 	var member_addr = $("#member_addr").val()+$("#member_faddr").val()+$("#member_laddr").val();
 	var member_key = $("#member_key").val();
 	
-	if(!$("#member_id").val() || !$("#member_password").val() || !$("#member_name").val()
-			|| !$("#member_license").val())
+	if(!$("#member_id").val() || !$("#member_pwd").val() || !$("#member_name").val()
+			|| !$("#member_addr").val())
 	
 	{
-		swal("", "필수항목이 비어있습니다. 입력해주세요.", "warning");		
+		alert("필수항목이 비어있습니다. 입력해주세요.");		
 	}else{
 		$.ajax({
 			type : "POST",
@@ -148,35 +183,3 @@ function searchPost() {
 	}).open();
 }
 
-
-
-//회원 가입 아이디 중복 체크
-function checkID() {
-	var member_id = $("#member_id").val();
-	var idCheck = $("#idCheck");
-	console.log(member_id);
-	if (!member_id) {
-		alert("아이디를 입력해주세요.");
-	} else {
-		$.ajax({
-			type : "POST",
-			url : "checkID",
-			data : {
-				"member_id" : member_id
-			},
-			success : function(data) {
-				if (data == 0) {
-					//$("#member_id").attr("disabled", true);
-					//.attr("disabled", true); = true 일 경우 사용 못하게 막아주는 역할
-					idCheck.css("color", "green");
-					idCheck.text("사용 가능한 아이디입니다.");
-					
-				} else {
-					idCheck.css("color", "red");
-					idCheck.text("이미 존재하는 아이디입니다.");
-					
-				} 
-			}
-		});
-	}
-}

@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<!-- jquery -->
 
 <script src="resources/js/signup.js" charset="UTF-8"></script>
 <!-- signup js --> 
@@ -20,7 +20,7 @@
 <title>Login</title>
 </head>
 <body>
-<%@ include file="../include/header.jsp" %>
+<%-- <%@ include file="../include/header.jsp" %> --%>
 
 		
 	 <div class="login-wrap">
@@ -62,6 +62,8 @@
 			<input type="text" id="member_id" class="input" placeholder="id" required="required">
 			<label id="idCheck"></label><br><br>
 			<input type="button" class="button" value="중복검사" onclick="checkID()">
+			
+			
 			
           </div>
           

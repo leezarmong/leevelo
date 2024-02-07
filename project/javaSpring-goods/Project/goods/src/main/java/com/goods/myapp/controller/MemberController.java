@@ -25,7 +25,7 @@ public class MemberController {
 	}
 	
 	//회원가입
-	@RequestMapping(value="/sign", method = RequestMethod.GET)
+	@RequestMapping(value="/sign", method = RequestMethod.POST)
 	public String sign(MemberVO vo) {
 		
 		memberservice.insertMember(vo);
