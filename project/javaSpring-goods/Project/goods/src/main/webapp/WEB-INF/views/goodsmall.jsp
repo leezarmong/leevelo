@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>굿즈몰</title>
 
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<!-- jquery -->
+
 <style>
 /* Styles for the product table */
 body {
@@ -134,12 +134,13 @@ table#product img {
 		<h1>굿즈</h1>
 		<p>show me the goods!</p>
 	</div>
+	
 	<table id="product">
 		<!-- fn 태그, map에 list가 0이면 상품없음,컨트롤러 참고, if문 0이면 -->
 		
 		<c:if test="${(fn:length(map.list)) eq 0}">
-					<br><h2 style="text-align: center; color: red;">상품내역이 없습니다.</h2>
-					</c:if>
+			<br><h2 style="text-align: center; color: red;">상품내역이 없습니다.</h2>
+		</c:if>
 					
 					
 		<!-- 상품의 갯수, -1은 배열은 0부터 시작하기때문 -->
