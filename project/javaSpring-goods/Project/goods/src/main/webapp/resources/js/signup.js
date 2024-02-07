@@ -25,62 +25,8 @@ $(document).ready(function(){
     }
   });
 
-  //회원 가입 아이디 중복 체크
-  
-  function checkId(){
-	  var member_id = $("#member_id").val();
-	  
-	  if(!member_id){
-		  alert("아이디 입력 해주세요.")
-	  }else if(member_id){
-		  $.ajax({
-			  type:"POST",
-			  url:"checkID",
-			  data:{"member_id":member_id},
-			  success : function(data){
-		          console.log(data);
-		          if(data != 0){
-		            alert("중복된 아이디 입니다.");
-		            idCheck = false;
-		          } else{
-		            alert("사용 가능한 아이디 입니다.");
-		            idCheck = true;
-		          }
-		        },
-		        error : function(error) {
-		            alert(member_id);
-		           }
-		  });
-	  }
-	  
-  }
-  
-//  $("#checkID").click(function(){
-//    let member_id = $('#member_id').val();
-//    if(!member_id){
-//     alert("아이디를 입력해주세요");
-//    } else if(member_id){
-//      $.ajax({
-//        type: "POST",
-//        url: "checkID",
-//        data :{"member_id" : member_id},
-//        success : function(data){
-//          console.log(data);
-//          if(data != 0){
-//            alert("중복된 아이디 입니다.");
-//            idCheck = false;
-//          } else{
-//            alert("사용 가능한 아이디 입니다.");
-//            idCheck = true;
-//          }
-//        },
-//        error : function(error) {
-//         alert(member_id);
-//        }
-//      });
-//    }
-//  });
-//  
+
+ 
   //form 로그인 버튼
   $("#loginBtn").click(function(){
 	 $.ajax({
@@ -106,6 +52,7 @@ $(document).ready(function(){
 	 }); 
   });
   
+  
   //회원가입 전 체크
   $('#signBtn').click(function(event) {
 	    if (idCheck === false) {
@@ -123,6 +70,7 @@ $(document).ready(function(){
 	    }
 	 });
 });
+
 
 //회원 가입
 function doSignup() {
@@ -198,4 +146,37 @@ function searchPost() {
 			document.getElementById('member_laddr').focus();
 		}
 	}).open();
+}
+
+
+
+//회원 가입 아이디 중복 체크
+function checkID() {
+	var member_id = $("#member_id").val();
+	var idCheck = $("#idCheck");
+	console.log(member_id);
+	if (!member_id) {
+		alert("아이디를 입력해주세요.");
+	} else {
+		$.ajax({
+			type : "POST",
+			url : "checkID",
+			data : {
+				"member_id" : member_id
+			},
+			success : function(data) {
+				if (data == 0) {
+					//$("#member_id").attr("disabled", true);
+					//.attr("disabled", true); = true 일 경우 사용 못하게 막아주는 역할
+					idCheck.css("color", "green");
+					idCheck.text("사용 가능한 아이디입니다.");
+					
+				} else {
+					idCheck.css("color", "red");
+					idCheck.text("이미 존재하는 아이디입니다.");
+					
+				} 
+			}
+		});
+	}
 }

@@ -12,7 +12,7 @@
 <script src="https://kit.fontawesome.com/f84cdf215e.js" crossorigin="anonymous"></script>
 <!-- 이모티콘 -->
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <!-- jquery -->
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">

@@ -33,10 +33,11 @@ public class MemberController {
 	}
 	
 	//회원 가입 아이디 중복 체크
-	@PostMapping(value = "/checkID")
 	@ResponseBody
+	@RequestMapping(value = "/checkID")
 	public int checkID(String member_id) {
-		
-		return memberservice.checkID(member_id);
+		System.out.print(member_id);
+		int result = memberservice.checkID(member_id);
+		return result;
 	}
 }

@@ -4,6 +4,6 @@
 <html>
 <link rel="stylesheet" href="resources/css/footer.css" />
 <footer>        
-        <p>COPYRIGHT 2018 VIRTUALLAND. ALL RIGHTS RESERVED<br>
+        <p>What did you say?<br>
     </footer>
 </html>

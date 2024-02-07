@@ -1,21 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<meta charset="UTF-8">
+
 <!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script src="resources/js/signup.js" charset="UTF-8"></script>
+<!-- signup js --> 
 
 <link rel="stylesheet" href="resources/css/login.css">
-<!-- css -->
+<!-- css --> 
 
-<script type="text/javascript" src="resources/js/signup.js"></script>
-<!-- signup js -->  
-
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
- <!-- 이모티콘 -->
- 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <!-- 카카오 지도 라이브러리 -->
  
@@ -55,16 +53,22 @@
         <div class="sign-up-htm">
         
         <!-- 2page 회원가입-->
-        <form action="#" method="post">
         
-          <div class="group">
-            <label for="member_id" class="label">아이디</label>
-            <input id="member_id" type="text" class="input" name="member_id"><br>
-            <input type="button" class="button" value="중복검사" onclick="checkId()">
+        
+          <div class="group">  
+		
+			
+			<label for="name">아이디</label>
+			<input type="text" id="member_id" class="input" placeholder="id" required="required">
+			<label id="idCheck"></label><br><br>
+			<input type="button" class="button" value="중복검사" onclick="checkID()">
+			
           </div>
+          
+          
           <div class="group">
             <label for="pass" class="label">비밀번호</label>
-            <input id="member_pwd" type="password" class="input" name="member_pwd">
+            <input id="member_pwd" type="password" class="input">
           </div>
           <div class="group">
             <label for="passCheck" class="label">비밀번호 확인</label>
@@ -145,13 +149,14 @@
           
          
           
-          </form>
-          
         </div>
         
       </div>
+      
     </div>
+    
   </div>
+  
   
 </body>
 </html>
