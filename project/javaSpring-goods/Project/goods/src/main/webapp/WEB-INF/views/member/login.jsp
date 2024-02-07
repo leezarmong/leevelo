@@ -74,8 +74,7 @@
           <div class="group">
             <label for="passCheck" class="label">비밀번호 확인</label>
             <input id="member_pwdTwo" type="password" class="input">
-            
-            <span id="checkPasswd"></span>
+            <label id="checkPasswd"></label><br><br>
           </div>
           <div class="group">
             <label for="name" class="label">이름</label>
@@ -86,13 +85,13 @@
             <label for="phone" class="label">휴대폰 번호</label>
             
             <select id="NUMst" name="member_phone" style="width: 140px; height: 35px;" required>
-							<option value="" size="50" selected>선택</option>
-							<option value="010">010</option>
-							<option value="011">011</option>
-						</select> - 
-						<input type="text" style="width: 140px; height: 35px;" id="NUMnd" name="member_phone" maxlength="4" size="15" onkeypress="onlyNumber()" /> - 
-						<input type="text" style="width: 140px; height: 35px;" id="NUMrd" name="member_phone" maxlength="4" size="15" onkeypress="onlyNumber()" />
-            
+				<option value="" size="50" selected>선택</option>
+				<option value="010">010</option>
+				<option value="011">011</option>
+			</select> - 
+			<input type="text" style="width: 140px; height: 35px;" id="NUMnd" name="member_phone" maxlength="4" size="15" onkeypress="onlyNumber()" /> - 
+			<input type="text" style="width: 140px; height: 35px;" id="NUMrd" name="member_phone" maxlength="4" size="15" onkeypress="onlyNumber()" />
+         
           </div>
           
           <div class="group">
@@ -105,27 +104,27 @@
             
             <input type="text" style="width: 140px; height: 35px;" name="str_email01" id="str_email01" style="width: 110px;" required> @
 			<input type="text" style="width: 140px; height: 35px;" name="str_email02" id="str_email02" style="width: 110px;"  disabled value="naver.com" required>
-						<select  name="selectEmail" id="selectEmail" style="width: 140px; height: 35px;">
-							<option value="" selected>::선택하세요::</option>
-							<option value="naver.com">naver.com</option>
-							<option value="gmail.com">gmail.com</option>
-							<option value="hanmail.net">hanmail.net</option>
-							<option value="nate.com">nate.com</option>
-							<option value="1">직접입력</option>
-						</select>
-<script type="text/javascript">  
-	$('#selectEmail').change(function(){
-		$("#selectEmail option:selected").each(function () {
-			if($(this).val()== '1'){						//직접입력일 경우
-				$("#str_email02").val('');					//값 초기화
-				$("#str_email02").attr("disabled",false);	//활성화
-			}else{											//직접입력이 아닐경우
-				$("#str_email02").val($(this).text());		//선택값 입력
-				$("#str_email02").attr("disabled",true);	//비활성화
-			}
-		});
-	});
-</script>
+					<select  name="selectEmail" id="selectEmail" style="width: 140px; height: 35px;">
+						<option value="" selected>::선택하세요::</option>
+						<option value="naver.com">naver.com</option>
+						<option value="gmail.com">gmail.com</option>
+						<option value="hanmail.net">hanmail.net</option>
+						<option value="nate.com">nate.com</option>
+						<option value="1">직접입력</option>
+					</select>
+			<script type="text/javascript">  
+				$('#selectEmail').change(function(){
+					$("#selectEmail option:selected").each(function () {
+						if($(this).val()== '1'){						//직접입력일 경우
+							$("#str_email02").val('');					//값 초기화
+							$("#str_email02").attr("disabled",false);	//활성화
+						}else{											//직접입력이 아닐경우
+							$("#str_email02").val($(this).text());		//선택값 입력
+							$("#str_email02").attr("disabled",true);	//비활성화
+						}
+					});
+				});
+			</script>
             
           </div>
           <div class="group">

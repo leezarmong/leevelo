@@ -1,7 +1,4 @@
 
-//var idCheck = false;
-//var pwCheck = false;
-
 
 //회원 가입 아이디 중복 체크
 function checkID() {
@@ -39,25 +36,24 @@ function checkID() {
 
 $(document).ready(function(){
   // 패스워드 확인
-  $("#member_pwd").keyup(function() {
-    $("#checkPasswd").text("");
-  });
-
   $("#member_pwdTwo").keyup(function() {
-    var checkText = $("#checkPasswd");
-    if ($("#member_pwd").val() == "" || $("#member_pwdTwo").val() == "") {
-      checkText.css("color", "red");
-      checkText.text("필수 입력사항");
-      pwCheck = false;
-    } else if ($("#member_pwd").val() != $("#member_pwdTwo").val()) {
-      pwCheck = false;
-      checkText.text("비밀번호가 다릅니다.");
-      checkText.css("color", "red");
-    } else {
-      pwCheck = true;
-      checkText.text("동일한 비밀번호 입니다.");
-      checkText.css("color", "green");
-    }
+	   //.keyup(function()) = 상황(조건)이 됐을때 이벤트를 바로 발생시켜주는것.
+     var checkPasswd = $("#checkPasswd");
+     
+     if ($("#member_pwd").val() == "" || $("#member_pwdTwo").val() == "") {
+    	 checkPasswd.css("color", "red");
+    	 checkPasswd.text("필수정보입니다.");
+   	  
+     } else if ($("#member_pwd").val() != $("#member_pwdTwo").val()) {
+   	  
+    	 checkPasswd.text("패스워드가 동일하지 않습니다.");
+    	 checkPasswd.css("color", "red");
+        
+     } else {    	
+   	  
+    	 checkPasswd.text("패스워드가 동일합니다.");
+    	 checkPasswd.css("color", "green");
+     }
   });
 
 
@@ -87,23 +83,6 @@ $(document).ready(function(){
 	 }); 
   });
   
-  
-  //회원가입 전 체크
-//  $('#signBtn').click(function(event) {
-//	    if (idCheck === false) {
-//	     alert("중복검사를 해주세요");
-//	    	event.preventDefault(); // prevent form submission
-//	    }else if(pwCheck === false){
-//	    	alert("비밀번호가 다릅니다.");
-//	    	event.preventDefault();
-//	    }else if($("#email").val().indexOf("@") == -1){
-//	    	alert("이메일을 바르게 써주세요");
-//	    	event.preventDefault();
-//	    } else{
-//	    	alert("회원가입 완료");
-//	    	location.href="login";
-//	    }
-//	 });
 });
 
 
@@ -139,6 +118,7 @@ function doSignup() {
 				
 			},
 			success : function(data) {
+				alert("가입 완료.");
 				window.location.href="main";
 			}
 		});
