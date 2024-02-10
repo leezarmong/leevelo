@@ -17,15 +17,17 @@
 		<result property="member_date" column="MEMBER_DATE" />
 	</resultMap>
 
+	<!-- 회원 가입 아이디 중복 체크 -->
 	<select id="checkID" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM MEMBER
 		WHERE MEMBER_ID=#{member_id}
 	</select>
 
-	<!-- <select id="checkMember" resultType="java.lang.Integer">
+	<!-- 로그인 시 오타 확인 맴버체크 -->
+	 <select id="checkMember" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM MEMBER
 		WHERE MEMBER_ID=#{member_id} AND MEMBER_PWD=#{member_pwd}
-	</select> -->
+	</select> 
 
 	<!-- 회원가입 -->
 	<insert id="insertMember" parameterType="member">

@@ -66,15 +66,14 @@
 			
           </div>
           
-          
           <div class="group">
             <label for="pass" class="label">비밀번호</label>
-            <input id="member_pwd" type="password" class="input">
+            <input type="password" class="input" id="member_pwd" placeholder="password" required="required">
           </div>
           <div class="group">
             <label for="passCheck" class="label">비밀번호 확인</label>
-            <input id="member_pwdTwo" type="password" class="input">
-            <label id="checkPasswd"></label><br><br>
+            <input type="password" class="input" id="member_pwdTwo" placeholder="passwordCheck" required="required">
+            <label id="check_password"></label><br><br><br>
           </div>
           <div class="group">
             <label for="name" class="label">이름</label>

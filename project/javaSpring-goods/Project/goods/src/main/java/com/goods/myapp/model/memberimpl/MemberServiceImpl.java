@@ -24,5 +24,12 @@ public class MemberServiceImpl implements MemberService{
 	public int checkID(String member_id) {
 		return memberDAO.checkID(member_id);
 	}
+	
+	//로그인 시 오타 확인 맴버체크
+	@Override
+	public int checkMember(MemberVO vo) {
+		return memberDAO.checkMember(vo);
+	}
+	
 
 }

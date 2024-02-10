@@ -17,7 +17,7 @@ public class MemberController {
 	@Autowired
 	MemberService memberservice;
 	
-	//로그인
+	//로그인 페이지
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
 		
@@ -40,4 +40,13 @@ public class MemberController {
 		int result = memberservice.checkID(member_id);
 		return result;
 	}
+	
+	//로그인 시 오타 확인 맴버체크
+	@ResponseBody
+	@RequestMapping(value="/checkMember", method = RequestMethod.POST)
+	public int checkMember(MemberVO vo) {
+		
+		return memberservice.checkMember(vo);
+	}
+	
 }

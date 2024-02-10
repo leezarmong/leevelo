@@ -35,29 +35,7 @@ function checkID() {
 
 
 $(document).ready(function(){
-  // 패스워드 확인
-  $("#member_pwdTwo").keyup(function() {
-	   //.keyup(function()) = 상황(조건)이 됐을때 이벤트를 바로 발생시켜주는것.
-     var checkPasswd = $("#checkPasswd");
-     
-     if ($("#member_pwd").val() == "" || $("#member_pwdTwo").val() == "") {
-    	 checkPasswd.css("color", "red");
-    	 checkPasswd.text("필수정보입니다.");
-   	  
-     } else if ($("#member_pwd").val() != $("#member_pwdTwo").val()) {
-   	  
-    	 checkPasswd.text("패스워드가 동일하지 않습니다.");
-    	 checkPasswd.css("color", "red");
-        
-     } else {    	
-   	  
-    	 checkPasswd.text("패스워드가 동일합니다.");
-    	 checkPasswd.css("color", "green");
-     }
-  });
-
-
- 
+  
   //form 로그인 버튼
   $("#loginBtn").click(function(){
 	 $.ajax({
@@ -84,6 +62,35 @@ $(document).ready(function(){
   });
   
 });
+
+
+
+
+//비밀번호 체크
+$(document).ready(function() {
+	   
+
+	   $("#member_pwdTwo").keyup(function() {
+		   //.keyup(function()) = 상황(조건)이 됐을때 이벤트를 바로 발생시켜주는것.
+	      var check_password = $("#check_password");
+	      
+	      if ($("#member_pwd").val() == "" || $("#member_pwdTwo").val() == "") {
+	    	  check_password.css("color", "red");
+	    	  check_password.text("필수정보입니다.");
+	    	  
+	      } else if ($("#member_pwd").val() != $("#member_pwdTwo").val()) {
+	    	  
+	         check_password.text("패스워드가 동일하지 않습니다.");
+	         check_password.css("color", "red");
+	         
+	      } else {    	
+	    	  
+	         check_password.text("패스워드가 동일합니다.");
+	         check_password.css("color", "green");
+	      }
+	   });
+	   
+	});
 
 
 //회원 가입

@@ -21,5 +21,10 @@ public class MemberDAO {
 	public int checkID(String member_id) {
 		return sqlsession.selectOne("MemberDAO.checkID",member_id);
 	}
+	
+	//로그인 시 오타 확인 맴버체크
+	public int checkMember(MemberVO vo) {
+		return sqlsession.selectOne("MemberDAO.checkMember",vo);
+	}
 
 }
