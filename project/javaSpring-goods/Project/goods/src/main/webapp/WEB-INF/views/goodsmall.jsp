@@ -12,6 +12,8 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <!-- jquery -->
 
+<link rel="stylesheet" href="./resources/css/introduction.css">
+<!-- css -->
 <style>
 /* Styles for the product table */
 body {
@@ -130,21 +132,29 @@ table#product img {
 
 <div class="goodsmall-form">
 	<%@ include file="./include/header.jsp"%>
-	<div class="goodsmall-section">
-		<h1>굿즈</h1>
-		<p>show me the goods!</p>
-	</div>
 	
+	
+	
+	
+	<div class="goodsmall-section">
+		<h1>굿즈몰</h1>
+		<p>귀엽고, 깜찍한 버츄얼 랜드의 굿즈몰!</p>
+	</div>
 	<table id="product">
 		<!-- fn 태그, map에 list가 0이면 상품없음,컨트롤러 참고, if문 0이면 -->
-		
 		<c:if test="${(fn:length(map.list)) eq 0}">
-			<br><h2 style="text-align: center; color: red;">상품내역이 없습니다.</h2>
-		</c:if>
-					
-					
+					상품내역이 없습니다.
+					</c:if>
 		<!-- 상품의 갯수, -1은 배열은 0부터 시작하기때문 -->
 		<!-- 이중 for문 x축 -->
+		<ul>
+					<li onclick="location.href='category?cate_id=IN20220926'" class="list" data-filter="category1">인기차량</li>
+					<li onclick="location.href='category?cate_id=SO20220926'" class="list" data-filter="category2">소/준중형</li>
+					<li onclick="location.href='category?cate_id=JO20220926'" class="list" data-filter="category3">중형</li>
+					<li onclick="location.href='category?cate_id=DA20220926'" class="list" data-filter="category4">대형</li>
+					<li onclick="location.href='category?cate_id=SU20220629'" class="list" data-filter="category5">SUV/RV</li>
+				</ul>
+		
 		<c:forEach begin="0" end="${(fn:length(map.list) + 3) / 4 - 1}" var="row">
 			<tr>
 				<!-- 이중 for문 y축 -->
@@ -154,15 +164,15 @@ table#product img {
 						<td width="300">
 							<!-- 온클릭하면 지정해준 해당 상품번호의 상품 상세 페이지로 이동 -->
 							<div
-								onclick="location.href='goodsInfo?goods_num=${item.goods_num}'"
+								onclick="location.href='goodsInfo?prd_id=${item.prd_id}'"
 								style="cursor: pointer">
 								<!-- 이미지 -->
 								<div>
-									<img src="${item.goods_image}" width="200" height="200">
+									<img src="${item.prd_img}" width="200" height="200">
 								</div>
-								<div>${item.goods_name}</div>
+								<div>${item.prd_name}</div>
 								<div>
-									<fmt:formatNumber value="${item.goods_price}"
+									<fmt:formatNumber value="${item.prd_price}"
 										pattern="#,###,###" />
 									원
 								</div>
@@ -171,38 +181,12 @@ table#product img {
 					</c:if>
 				</c:forEach>
 		</c:forEach>
-		<!-- 컨트롤러참고, pager참고, map length가 0이 아니면  -->
-		<c:if test="${(fn:length(map)) ne 0}">
-			<tr>
-				<td colspan="4" align="center">
-					<!-- 컨트롤러에 리퀘스트파람 디폴트값을 1로 지정해줫음, --> <c:if
-						test="${map.pager.curBlock > 1}">
-						<a href="goodsmall">[처음]</a>
-					</c:if> <!-- 우리는 js로 list function(카테고리)을 안쓰기 때문에 온클릭 삭제, href에  get 방식으로 
-					[이전]일떄,굿즈몰의 현재페이지에서 이전 페이지를 링크걸어준다--> <c:if
-						test="${map.pager.curBlock > 1}">
-						<a href="goodsmall?curPage=${map.pager.prevPage}">[이전]</a>
-					</c:if> <!-- 여기는 pager의 블록 변수 주석 참고 --> <c:forEach var="num"
-						begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
-						<c:choose>
-							<c:when test="${num == map.pager.curPage}">
-								<span style="color: red;">${num}</span>
-							</c:when>
-							<c:otherwise>
-								<a href="goodsmall?curPage=${num}">${num}</a>
-							</c:otherwise>
-						</c:choose>
-						<!-- pager참고, 블록의  if문에 따라 다음페이지로 링크 걸어줌 -->
-					</c:forEach> <c:if test="${map.pager.curBlock < map.pager.totBlock}">
-						<a href="goodsmall?curPage=${map.pager.nextPage}">>[다음]</a>
-					</c:if> <!-- pager참고, 블록의  if문에 따라 끝페이지로 링크 걸어줌 --> <c:if
-						test="${map.pager.curBlock < map.pager.totPage}">
-						<a href="goodsmall?curPage=${map.pager.totPage}">[끝]</a>
-					</c:if>
-				</td>
-			</tr>
-		</c:if>
+		
 	</table>
+	
+	
+	
+	
 	 <%@ include file="./include/footer.jsp"%>
 	</div>
 </body>
