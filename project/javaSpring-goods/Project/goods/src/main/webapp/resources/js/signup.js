@@ -47,12 +47,12 @@ $(document).ready(function(){
 				alert("아이디 비밀번호를 확인해 주세요.");
 					location.href="login";
 			 }else{
-				 alert("로그인 완료");
 					$.ajax({
 						type : 'post',
 						url : 'login',
 						data : $('#loginForm').serialize(),
 						success : function(){
+							alert("로그인 완료");
 							location.href = 'goodsmall';
 						}
 					});

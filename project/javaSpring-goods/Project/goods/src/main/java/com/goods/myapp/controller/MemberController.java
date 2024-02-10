@@ -1,5 +1,7 @@
 package com.goods.myapp.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +24,27 @@ public class MemberController {
 	public String login() {
 		
 		return "member/login";
+	}
+	
+	//로그인 member session 저장
+	@RequestMapping(value="/login" ,method = RequestMethod.POST)
+	public String login(MemberVO vo, HttpSession session) {
+		MemberVO member = memberservice.login(vo);
+		
+		if (member != null) {
+			session.setAttribute("member", member);
+			return "goodsmall";
+		} else {
+			return "member/login";
+		}
+	}
+	
+	// 로그아웃
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		
+		return "goodsmall";
 	}
 	
 	//회원가입

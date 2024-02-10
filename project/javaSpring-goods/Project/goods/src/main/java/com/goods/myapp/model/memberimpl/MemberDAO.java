@@ -26,5 +26,10 @@ public class MemberDAO {
 	public int checkMember(MemberVO vo) {
 		return sqlsession.selectOne("MemberDAO.checkMember",vo);
 	}
+	
+	// 로그인
+	public MemberVO login(MemberVO vo) {
+		return (MemberVO) sqlsession.selectOne("MemberDAO.login", vo);
+	}
 
 }

@@ -11,5 +11,8 @@ public interface MemberService {
 	
 	//로그인 시 오타 확인 맴버체크
 	public int checkMember(MemberVO vo);
+	
+	// 로그인
+	public MemberVO login(MemberVO vo);
 
 }

@@ -13,11 +13,10 @@
 
 </head>
 
-<header class="header">
+<!-- 로그인 확인 (임시용) -->
+<h3><b style="color: blue;">${member.member_id}</b> is logged in. </h3>
 
-<div class="mobile">
-	<i class="fa fa-bars"></i>
-</div>
+<header class="header">
 
 <div id="login">
 
@@ -28,20 +27,23 @@
 	
 	<!-- 멤버일경우뜨는페이지 -->
 	<c:if test="${not empty member }">
+	
 		<!-- 멤버가 관리자가 아닐경우 -->
 		<c:if test="${member.member_id ne 'admin' }"> 
 			<a href="basketlist" title="장바구니"><i class="fa-solid fa-cart-shopping" ></i></a>
 			<a href="mypage" title="개인정보"><i class="fa-solid fa-user"></i></a>
-			<a href="#" class="logout" title="로그아웃"><i class="fa-solid fa-right-from-bracket"></i></a>
+			<a href="logout" class="logout" title="로그아웃"><i class="fa-solid fa-right-from-bracket"></i></a>
+			<br><br><div class="loginbox">
+    	</div>
 		</c:if>
 		
 		<!-- 멤버가 관리자일 경우 -->
 		<c:if test="${member.member_id eq 'admin' }">
 			<a href="basketlist" title="장바구니"><i class="fa-solid fa-cart-shopping"></i></a>
-			<a href="mypage" title="개인정보">개인정보</a>
-			<a href="insert">굿즈관리</a>	
-			<a href="memberpage"><i class="fa-solid fa-users"></i></a>
-			<a href="#" class="logout" title="로그아웃"><i class="fa-solid fa-right-from-bracket"></i></a>
+			<a href="mypage" title="개인정보"><i class="fa-solid fa-user"></i></a>
+			<a href="memberpage" title="회원관리 페이지"><i class="fa-solid fa-users"></i></a>
+			<a href="insert" title="굿즈관리"><i class="fa-brands fa-goodreads"></i></a>	
+			<a href="logout" class="logout" title="로그아웃"><i class="fa-solid fa-right-from-bracket"></i></a>
 		</c:if>
 	</c:if>
 </div>
