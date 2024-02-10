@@ -6,7 +6,7 @@ function checkID() {
 	var idCheck = $("#idCheck");
 	console.log(member_id);
 	if (!member_id) {
-		alert("아이디를 입력해주세요.");
+		swal("","회원 정보를 다시 입력해 주세요.","warning");
 	} else {
 		$.ajax({
 			type : "POST",
@@ -44,7 +44,7 @@ $(document).ready(function(){
 		 data : $("#loginForm").serialize(),
 		 success : function(data){
 			 if(data == 0){
-				alert("아이디 비밀번호를 확인해 주세요.");
+				 swal("","회원 정보를 다시 입력해 주세요.","warning");
 					location.href="login";
 			 }else{
 					$.ajax({
@@ -52,7 +52,7 @@ $(document).ready(function(){
 						url : 'login',
 						data : $('#loginForm').serialize(),
 						success : function(){
-							alert("로그인 완료");
+							swal("","로그인 완료!","success");
 							location.href = 'goodsmall';
 						}
 					});

@@ -11,10 +11,11 @@
 <link rel="stylesheet" href="resources/css/header.css" />
 <!-- css -->
 
+
 </head>
 
 <!-- 로그인 확인 (임시용) -->
-<h3><b style="color: blue;">${member.member_id}</b> is logged in. </h3>
+<h3><b style="color: blue;">${member.member_id}</b> is logged in. (임시 input) </h3>
 
 <header class="header">
 

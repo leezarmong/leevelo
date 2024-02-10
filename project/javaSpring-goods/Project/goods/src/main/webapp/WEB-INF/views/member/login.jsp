@@ -13,6 +13,9 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <!-- 카카오 지도 라이브러리 -->
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- swal -->
+
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <!-- jquery -->
  
