@@ -177,6 +177,7 @@ $('#buy').click(
 						data : {
 							"member_id" : '${member.member_id}', /* 이건 EL로 바로 보냅니다. */
 							"goods_num" : '${goods.gvo.prd_id}',
+							"order_name" : '${goods.gvo.prd_name}',
 							"member_addr" : member_addr, /* js의 var 변수명입니다. */
 							"member_phone" : member_phone,
 							"order_sum" : amount,

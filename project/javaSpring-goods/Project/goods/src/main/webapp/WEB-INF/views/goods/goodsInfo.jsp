@@ -109,7 +109,7 @@ function buyGoods(){
 		if(check){
 		$.ajax({
 			type : "post",
-			url : 'goodsPayment',
+			url : 'goodsPayment',	/* goodsPayment 로 데터 전송.session에서 데이터 출력 가능. */
 			data : {
 			"prd_name" : '${goods.prd_name}',
 			"order_amount" : basket_amount,

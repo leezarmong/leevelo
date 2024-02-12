@@ -11,11 +11,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		 <typeAlias alias="member" type="com.goods.myapp.model.member.MemberVO" />
 		 <typeAlias alias="productinfo" type="com.goods.myapp.model.product.ProductInfoVO" />
+		 <typeAlias alias="goodspayment" type="com.goods.myapp.model.payment.GoodsPaymentVO" />
 	</typeAliases> 
 	
 	<!-- Sql Mapper 설정 -->
 	 <mappers>
 		<mapper resource="mappers/member/member-mapping.xml" />
 		<mapper resource="mappers/goods/productinfo-mapping.xml" />
+		<mapper resource="mappers/payment/payment-mapping.xml" />
 	</mappers> 
 </configuration>

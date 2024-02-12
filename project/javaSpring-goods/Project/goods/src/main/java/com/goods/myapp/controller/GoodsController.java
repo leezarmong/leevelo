@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -23,9 +24,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.goods.myapp.Pager;
+import com.goods.myapp.model.payment.GoodsPaymentService;
 import com.goods.myapp.model.payment.GoodsPaymentVO;
 import com.goods.myapp.model.product.ProductInfoVO;
 import com.goods.myapp.model.product.ProductService;
+
 
 
 
@@ -37,6 +40,9 @@ public class GoodsController {
 	
 	@Autowired
 	ProductService productService;
+	
+	@Autowired
+	GoodsPaymentService goodspaymentservice;
 	
 	// 카테고리 품목 출력
 	@RequestMapping("/category")
@@ -80,6 +86,21 @@ public class GoodsController {
 		public String paymentGoods(GoodsPaymentVO vo) {
 			return "/goods/goodsPayment";
 		}
+		
+		// 주문 내역 등록
+	    @PostMapping(value = "/payment")
+	    public String insertGoodsPayment(GoodsPaymentVO vo,String basket) {
+	    	if(basket.equals("basket")) {
+	    		System.out.println(basket);
+	    		
+	    	//basketService.deleteCartPayment(bvo);
+    		goodspaymentservice.insertGoodsPayment(vo);
+	        return "basket/basketlist";
+	    	}else {
+    		goodspaymentservice.insertGoodsPayment(vo);
+	    	return "main";
+	    	}
+	    }
 		
 	
 }

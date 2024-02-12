@@ -8,6 +8,7 @@ public class GoodsPaymentVO {
 	private Date order_date;
 	private String member_addr;
 	private String member_phone;
+	private String order_name;
 	private String order_process;
 	private String order_payment;
 	private int order_sum;
@@ -73,9 +74,20 @@ public class GoodsPaymentVO {
 	@Override
 	public String toString() {
 		return "GoodsPaymentVO [member_id=" + member_id + ", goods_num=" + goods_num + ", order_date=" + order_date
-				+ ", member_addr=" + member_addr + ", member_phone=" + member_phone + ", order_process=" + order_process
-				+ ", order_order_payment=" + order_payment + ", order_sum=" + order_sum + ", order_amount="
-				+ order_amount + "]";
+				+ ", member_addr=" + member_addr + ", member_phone=" + member_phone + ", order_name=" + order_name
+				+ ", order_process=" + order_process + ", order_payment=" + order_payment + ", order_sum=" + order_sum
+				+ ", order_amount=" + order_amount + ", getMember_id()=" + getMember_id() + ", getGoods_num()="
+				+ getGoods_num() + ", getOrder_date()=" + getOrder_date() + ", getMember_addr()=" + getMember_addr()
+				+ ", getMember_phone()=" + getMember_phone() + ", getOrder_process()=" + getOrder_process()
+				+ ", getOrder_payment()=" + getOrder_payment() + ", getOrder_sum()=" + getOrder_sum()
+				+ ", getOrder_amount()=" + getOrder_amount() + ", getOrder_name()=" + getOrder_name() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+	public String getOrder_name() {
+		return order_name;
+	}
+	public void setOrder_name(String order_name) {
+		this.order_name = order_name;
 	}
 	
 	
