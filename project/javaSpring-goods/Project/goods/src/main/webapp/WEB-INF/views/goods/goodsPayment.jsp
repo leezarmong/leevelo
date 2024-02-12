@@ -102,10 +102,10 @@ hr {
 <div id="goods-payment">
 <form>
     <!-- 상품 이미지를 불러옵니다. -->
-    <img class="producttop" src="${goods.gvo.goods_image }">
+    <img class="producttop" src="${goods.gvo.prd_img}">
     <div class="productbottom">
         <!-- 상품명을 불러옵니다. -->
-        <p align="left" class="p1" id="goods_name">상품명: ${goods.gvo.goods_name}</p>
+        <p align="left" class="p1" id="goods_name">상품명: ${goods.gvo.prd_name}</p>
         <p align="left">수량: <input type="number" id="order_amount" min="0" maxlength="2"
                                    max="99" value="${ goods.vo.order_amount}" readonly/> 개</p>
         <!-- map에 저장해서 session에 저장한 뒤 불러옵니다. -->
@@ -122,7 +122,7 @@ hr {
 
         <!-- ajax에서 넘겨준다면 hidden은 필요 없습니다. -->
         <input type="hidden" name="member_id" id="member_id" value="${member.member_id}"/>
-        <input type="hidden" name="goods_num" id="goods_num" value="${goods.gvo.goods_num}"/>
+        <input type="hidden" name="goods_num" id="goods_num" value="${goods.gvo.prd_id}"/>
         <p align="left">
             <input type="button" name="buy" id="buy" value="결제하기"/>
         </p>
@@ -151,7 +151,7 @@ $('#buy').click(
 				pg : "kakaopay", //pg사
 				pay_method : 'card', //결제방법
 				merchant_uid : 'merchant_' + new Date().getTime(), //결제날짜
-				name : '${goods.gvo.goods_name}', //품목이름
+				name : '${goods.gvo.prd_name}', //품목이름
 				amount : amount, //가격
 				buyer_email : '${member.member_email}', //이메일
 				buyer_name : '${member.member_name}', //이름
@@ -176,7 +176,7 @@ $('#buy').click(
 						url : "payment",
 						data : {
 							"member_id" : '${member.member_id}', /* 이건 EL로 바로 보냅니다. */
-							"goods_num" : '${goods.gvo.goods_num}',
+							"goods_num" : '${goods.gvo.prd_id}',
 							"member_addr" : member_addr, /* js의 var 변수명입니다. */
 							"member_phone" : member_phone,
 							"order_sum" : amount,

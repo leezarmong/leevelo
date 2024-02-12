@@ -168,7 +168,7 @@ table#product img {
 								style="cursor: pointer">
 								<!-- 이미지 -->
 								<div>
-									<img src="${item.prd_img}" width="200" height="200">
+									<img src="${item.prd_img}" width="430" height="200">
 								</div>
 								<div>${item.prd_name}</div>
 								<div>

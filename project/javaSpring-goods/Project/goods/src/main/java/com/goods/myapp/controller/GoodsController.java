@@ -1,6 +1,8 @@
 package com.goods.myapp.controller;
 
-import java.util.HashMap;
+import java.util.HashMap; 
+
+
 
 
 
@@ -9,16 +11,22 @@ import java.util.HashMap;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.goods.myapp.Pager;
+import com.goods.myapp.model.payment.GoodsPaymentVO;
 import com.goods.myapp.model.product.ProductInfoVO;
 import com.goods.myapp.model.product.ProductService;
+
 
 
 
@@ -54,6 +62,23 @@ public class GoodsController {
 		public String productPage(ProductInfoVO vo, Model model) {
 			model.addAttribute("goods", productService.productDetail(vo));
 			return "/goods/goodsInfo";
+		}
+		
+		//주문 이동
+		@PostMapping(value="/goodsPayment")
+		public String orderGoods(GoodsPaymentVO vo, HttpSession session, ProductInfoVO gvo, String basket) {
+			HashMap<String, Object> map = new HashMap<String,Object>();
+			//getproductlist 가져오기 
+			map.put("vo", vo);
+			map.put("gvo", gvo);
+			map.put("basket", basket);
+			session.setAttribute("goods", map);
+			return "/goods/goodsPayment";
+		}
+		
+		@GetMapping(value="/goodsPayment")
+		public String paymentGoods(GoodsPaymentVO vo) {
+			return "/goods/goodsPayment";
 		}
 		
 	

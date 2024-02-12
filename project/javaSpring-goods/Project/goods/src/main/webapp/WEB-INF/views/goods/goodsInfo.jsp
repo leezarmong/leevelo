@@ -1,57 +1,90 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <!-- jquery -->
-<link rel="stylesheet" href="resources/css/goodsInfo.css" />
-<title>상품 상세 페이지</title>
+
+<link rel="stylesheet" type="text/css" href="resources/css/goodsInfo.css">
+<!-- css -->
+
+
+<style type="text/css">
+	p.logname{
+		color:  rgb(31, 169, 255);
+		font-size: 30px;
+		font-weight: bold;
+	}
+</style>
 </head>
-<body>
-<%@ include file="../include/header.jsp"%>
-		<div class="productdetail">
-			<form>
-				<img class="productLeft" src="${goods.prd_img }">
-				<div class="productRight">
-					<p align="left" class="p1" id="prd_name">상품명: ${goods.prd_name}</p>
-					<p align="left" class="p2">가격: <fmt:formatNumber value="${goods.prd_price}" pattern="#,###"/>원</p>
-					<p align="left">상품코드: ${goods.prd_id}</p>
-					<p align="left">수량: <input type="number" id="basket_amount" min="0" maxlength="2" max="99" value="1" /></p>				
-					<p align="left">총 가격:<input type="number" name="basket_sum" id="basket_sum" value="${goods.prd_price}" readonly/></p>
-					
-					<p align="left">본 상품은 서울배송만 가능합니다.</p><br><br><br>
-					<input type="hidden" name="goods_image" id="goods_image" value="${goods.prd_img}" />
-					<input type="hidden" name="member_id" id="member_id" value="${member.member_id}" />
-					<input type="hidden" name="goods_num" id="goods_num" value="${goods.prd_id}" />
-					<input type="hidden" name="goods_name" id="goods_names" value="${goods.prd_name}" />
-					
-					<p align="left">
-						<input type="button" name="buy" id="buy" onclick="buyGoods()"  value="구매하기" />&nbsp;&nbsp;&nbsp;
-						<input type="button" name="cart" id="cart" onclick="insertCart()" value="장바구니" />
-						<input type="hidden" name="hiddenbtn" id="hiddenbtn" value="prdpage" />
-					</p>
-				</div>
-			</form>
-		</div>
-		<div class="danger">
-			<table style="width: 700px; text-align: left;">
-				<tr>
-					<th>주의 사항</th>
-				</tr>
-				<tr>
-					<td>&nbsp;&nbsp;13시 이전 결제 완료시 당일 배송</td>
-				</tr>
-				<tr>
-					<td>&nbsp;&nbsp;반품 및 교환 요청은 배송비 고객 부담</td>
-				</tr>
-			</table>
-		</div>
-<script type="text/javascript" src="resources/js/cart.js" charset="UTF-8"></script>
+<body>		
+<script>
+	$("#buy_quantity").keyup(function(e){
+		var regNumber = /^([0-9]{2})$/;
+		var str = $(this).val();
+		if(!regNumber.test(str)) {
+			var res = str.substring(0, str.length-1);
+			$(this).val(res);
+		}
+	});
+	function mxNum(object) {
+		if (object.value.length > object.maxLength) {
+			object.value = object.value.slice(0, object.maxLength);
+		}
+	}
+</script>
+
+	
+	<br><br><br>
+	<p class="logname">${member.member_id} 님의 예약상품<p><br><br>
+	<div class="productdetail" style="margin-top: 30px;">
+		<form>
+			<img class="productLeft"  src="${goods.prd_img }">
+			<div class="productRight"> 
+				<table id="selected">
+					<tbody>
+						<tr>
+							<th width="150" height:"50">상품명</th>
+							<td>${goods.prd_name}</td>
+						</tr>
+						<tr>
+							<th width="150" height:"50">가격</th>
+							<td><fmt:formatNumber value="${goods.prd_price}" pattern="#,###"/>원</td>
+						</tr>
+						<tr>
+							<th width="150" height:"50">상품코드</th>
+							<td>${goods.prd_id}</td>
+						</tr>
+						<tr>
+							<th width="150" height:"50">수량</th>
+							<td><input type="number" id="basket_amount" min="0" maxlength="2" max="99" value="1" /></td>
+						</tr>
+						<tr>
+							<th width="150" height:"50">총 가격</th>
+							<td><input type="number" name="basket_sum" id="basket_sum" value="${goods.prd_price}" readonly/></td>
+						</tr>
+					</tbody>
+				</table><br><br><br>
+				<input type="hidden" name="prd_img" id="prd_img" value="${goods.prd_img}" />
+				<input type="hidden" name="member_id" id="member_id" value="${member.member_id}" />
+				<input type="hidden" name="prd_id" id="prd_id" value="${goods.prd_id}" />
+				<input type="hidden" name="prd_name" id="prd_name" value="${goods.prd_name}" />
+				<p align="left">
+				<input type="button" name="buy" id="buy" onclick="buyGoods()"  value="구매하기" />&nbsp;&nbsp;&nbsp;
+				<input type="button" name="cart" id="buy" onclick="insertCart()" value="장바구니" />
+				<input type="hidden" name="hiddenbtn" id="hiddenbtn" value="prdpage" />
+				</p>
+			</div>
+		</form>
+	</div>
+	
+	
+	<script type="text/javascript" src="resources/js/cart.js" charset="UTF-8"></script>
 
 <script>
 		//수량이 늘어날 때 마다 가격을 늘려준다.
@@ -78,12 +111,12 @@ function buyGoods(){
 			type : "post",
 			url : 'goodsPayment',
 			data : {
-			"goods_name" : '${goods.prd_name}',
+			"prd_name" : '${goods.prd_name}',
 			"order_amount" : basket_amount,
 			"order_sum" : basket_sum,
 			"member_id" : '${member.member_id}',
-			"goods_num" : '${goods.prd_id}',
-			"goods_image" : '${goods.prd_img}'
+			"prd_id" : '${goods.prd_id}',
+			"prd_img" : '${goods.prd_img}'
 			}, success : function(data){
 				window.open("goodsPayment", "", "width=600,height=800,");
 				/* location.href = "goodsPayment"; */
