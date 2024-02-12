@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import com.goods.myapp.model.product.ProductService;
 
 
 
+
 @Controller
 public class GoodsController {
 	
@@ -29,24 +31,30 @@ public class GoodsController {
 	ProductService productService;
 	
 	// 카테고리 품목 출력
-		@RequestMapping("/category")
-		public String getfbMirrorList(@RequestParam(defaultValue = "1") int curPage, ProductInfoVO vo, Model model) {
-			int count = productService.getCountProduct(vo);
-			Pager pager = new Pager(count, curPage);
-			int start = pager.getPageBegin();
-			int end = pager.getPageEnd();
+	@RequestMapping("/category")
+	public String getfbMirrorList(@RequestParam(defaultValue = "1") int curPage, ProductInfoVO vo, Model model) {
+		int count = productService.getCountProduct(vo);
+		Pager pager = new Pager(count, curPage);
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
 
-			List<ProductInfoVO> list = productService.getProductList(start, end, vo);
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("cate_id", vo.getCate_id());
-			map.put("list", list);
-			map.put("count", count);
-			map.put("pager", pager);
-			model.addAttribute("map", map);
-			return "goodsmall";
+		List<ProductInfoVO> list = productService.getProductList(start, end, vo);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("cate_id", vo.getCate_id());
+		map.put("list", list);
+		map.put("count", count);
+		map.put("pager", pager);
+		model.addAttribute("map", map);
+		return "goodsmall";
 		}
 		
 		
-
+		// 제품 상세페이지
+		@RequestMapping(value="/goodsInfo",method=RequestMethod.GET)
+		public String productPage(ProductInfoVO vo, Model model) {
+			model.addAttribute("goods", productService.productDetail(vo));
+			return "/goods/goodsInfo";
+		}
+		
 	
 }

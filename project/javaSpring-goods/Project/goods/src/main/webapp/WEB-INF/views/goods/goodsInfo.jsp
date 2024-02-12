@@ -16,19 +16,19 @@
 <%@ include file="../include/header.jsp"%>
 		<div class="productdetail">
 			<form>
-				<img class="productLeft" src="${goods.goods_image }">
+				<img class="productLeft" src="${goods.prd_img }">
 				<div class="productRight">
-					<p align="left" class="p1" id="goods_name">상품명: ${goods.goods_name}</p>
-					<p align="left" class="p2">가격: <fmt:formatNumber value="${goods.goods_price}" pattern="#,###"/>원</p>
-					<p align="left">상품코드: ${goods.goods_num}</p>
+					<p align="left" class="p1" id="prd_name">상품명: ${goods.prd_name}</p>
+					<p align="left" class="p2">가격: <fmt:formatNumber value="${goods.prd_price}" pattern="#,###"/>원</p>
+					<p align="left">상품코드: ${goods.prd_id}</p>
 					<p align="left">수량: <input type="number" id="basket_amount" min="0" maxlength="2" max="99" value="1" /></p>				
-					<p align="left">총 가격:<input type="number" name="basket_sum" id="basket_sum" value="${goods.goods_price}" readonly/></p>
+					<p align="left">총 가격:<input type="number" name="basket_sum" id="basket_sum" value="${goods.prd_price}" readonly/></p>
 					
 					<p align="left">본 상품은 서울배송만 가능합니다.</p><br><br><br>
-					<input type="hidden" name="goods_image" id="goods_image" value="${goods.goods_image}" />
+					<input type="hidden" name="goods_image" id="goods_image" value="${goods.prd_img}" />
 					<input type="hidden" name="member_id" id="member_id" value="${member.member_id}" />
-					<input type="hidden" name="goods_num" id="goods_num" value="${goods.goods_num}" />
-					<input type="hidden" name="goods_name" id="goods_names" value="${goods.goods_name}" />
+					<input type="hidden" name="goods_num" id="goods_num" value="${goods.prd_id}" />
+					<input type="hidden" name="goods_name" id="goods_names" value="${goods.prd_name}" />
 					
 					<p align="left">
 						<input type="button" name="buy" id="buy" onclick="buyGoods()"  value="구매하기" />&nbsp;&nbsp;&nbsp;
@@ -61,7 +61,7 @@ $(document).ready(function() {
 	  var basketSumInput = $('#basket_sum'); //총 가격
 
 	  basketAmountInput.on('input', function() {  
-	    var basketAmount = parseInt(basketAmountInput.val())*${goods.goods_price};
+	    var basketAmount = parseInt(basketAmountInput.val())*${goods.prd_price};
 	    basketSumInput.val(basketAmount);
 	  });
 });
@@ -78,12 +78,12 @@ function buyGoods(){
 			type : "post",
 			url : 'goodsPayment',
 			data : {
-			"goods_name" : '${goods.goods_name}',
+			"goods_name" : '${goods.prd_name}',
 			"order_amount" : basket_amount,
 			"order_sum" : basket_sum,
 			"member_id" : '${member.member_id}',
-			"goods_num" : '${goods.goods_num}',
-			"goods_image" : '${goods.goods_image}'
+			"goods_num" : '${goods.prd_id}',
+			"goods_image" : '${goods.prd_img}'
 			}, success : function(data){
 				window.open("goodsPayment", "", "width=600,height=800,");
 				/* location.href = "goodsPayment"; */

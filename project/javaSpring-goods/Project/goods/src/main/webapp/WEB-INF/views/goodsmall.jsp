@@ -137,14 +137,14 @@ table#product img {
 	
 	
 	<div class="goodsmall-section">
-		<h1>굿즈몰</h1>
-		<p>귀엽고, 깜찍한 버츄얼 랜드의 굿즈몰!</p>
+		<h1>Leeveloper</h1>
+		<p>Test 중입니다. Leeveloper;</p>
 	</div>
 	<table id="product">
 		<!-- fn 태그, map에 list가 0이면 상품없음,컨트롤러 참고, if문 0이면 -->
-		<c:if test="${(fn:length(map.list)) eq 0}">
-					상품내역이 없습니다.
-					</c:if>
+		 <c:if test="${(fn:length(map.list)) eq 0}">
+					상품내역이 없습니다. 메뉴 선택해주세요.!!
+					</c:if> 
 		<!-- 상품의 갯수, -1은 배열은 0부터 시작하기때문 -->
 		<!-- 이중 for문 x축 -->
 		<ul>

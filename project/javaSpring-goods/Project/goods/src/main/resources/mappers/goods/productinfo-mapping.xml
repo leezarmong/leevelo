@@ -34,12 +34,21 @@
 			) WHERE RN BETWEEN #{start} AND #{end}
 		]]>
 	</select>	
-		
+	
+	<!-- 상품 개수 -->	
 	<select id="getCountProduct" resultType="java.lang.Integer">
 		<![CDATA[
 			SELECT COUNT(*) FROM PRODUCT_INFO WHERE CATE_ID=#{cate_id}
 		]]>
 	</select>
+	
+	
+	<!-- 상품 상세 정보 불러오기 -->
+	 <select id="productDetail" resultMap="productinfo">
+		<![CDATA[
+			SELECT * FROM PRODUCT_INFO WHERE PRD_ID=#{prd_id}
+		]]>
+	</select> 
 	
 
 	<!-- 상품 등록 -->
@@ -94,12 +103,6 @@
 		]]>
 	</delete>
  -->
-	<!-- 상품 상세 정보 불러오기 -->
-	<!-- <select id="productDetail" resultMap="productinfo">
-		<![CDATA[
-			SELECT * FROM PRODUCT_INFO WHERE PRD_ID=#{prd_id}
-		]]>
-	</select> -->
 	
 	<!-- 관리자 상품 목록 -->
 	<!-- <select id="getAdminProductList" resultMap="productinfo">

@@ -25,8 +25,7 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductInfoVO> getProductList(int start, int end, ProductInfoVO vo) {
 		return productInfoDAO.getProductList(start, end, vo);
 	}
-		
-		
+			
 	// 상품 상세보기
 	public ProductInfoVO productDetail(ProductInfoVO vo) {
 		return productInfoDAO.productDetail(vo);
