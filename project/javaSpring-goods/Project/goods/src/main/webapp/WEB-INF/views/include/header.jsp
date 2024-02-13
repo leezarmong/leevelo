@@ -51,7 +51,7 @@
     </div>
 
     <div class="six">
-        <a href="main"><h1>Goods</h1></a>
+        <a href="goodsmall"><h1>Goods</h1></a>
 
     </div>
 

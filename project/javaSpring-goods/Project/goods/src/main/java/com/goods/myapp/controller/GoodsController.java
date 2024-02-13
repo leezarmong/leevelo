@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.goods.myapp.Pager;
+import com.goods.myapp.model.basket.BasketService;
+import com.goods.myapp.model.basket.BasketVO;
 import com.goods.myapp.model.payment.GoodsPaymentService;
 import com.goods.myapp.model.payment.GoodsPaymentVO;
 import com.goods.myapp.model.product.ProductInfoVO;
@@ -31,6 +33,9 @@ public class GoodsController {
 
     @Autowired
     GoodsPaymentService goodspaymentservice;
+    
+    @Autowired
+    BasketService basketservice;
 
     // 카테고리 품목 출력
     @RequestMapping("/category")
@@ -76,13 +81,14 @@ public class GoodsController {
     }
 
 
-    // 주문 내역 등록
+    // 주문 내역 등록(DB)
     @PostMapping(value = "/payment")
-    public String insertGoodsPayment(GoodsPaymentVO vo, String basket) {
+    public String insertGoodsPayment(GoodsPaymentVO vo, String basket, BasketVO bvo) {
         if (basket.equals("basket")) {
             System.out.println(basket);
 
-            //basketService.deleteCartPayment(bvo);
+            basketservice.deleteCartPayment(bvo);
+            //결제 후 장바구니 삭제.
             goodspaymentservice.insertGoodsPayment(vo);
             return "basket/basketlist";
         } else {

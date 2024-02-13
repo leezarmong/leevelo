@@ -16,7 +16,7 @@ public class HomeController {
 		return "goodsmall";
 	}
 	
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	@RequestMapping(value = "/goodsmall", method = RequestMethod.GET)
 	public String main() {
 		
 		return "goodsmall";

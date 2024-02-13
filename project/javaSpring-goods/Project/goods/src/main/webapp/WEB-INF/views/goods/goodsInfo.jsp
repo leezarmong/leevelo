@@ -15,6 +15,9 @@
 
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- swal -->
+    
+    <script src="resources/js/cart.js" charset="UTF-8"></script>
+    <!-- cart js -->
 
     <style type="text/css">
         p.logname {
@@ -94,8 +97,6 @@
 </form>
 </div>
 
-
-<script type="text/javascript" src="resources/js/cart.js" charset="UTF-8"></script>
 
 <script>
     //수량이 늘어날 때 마다 가격을 늘려준다.

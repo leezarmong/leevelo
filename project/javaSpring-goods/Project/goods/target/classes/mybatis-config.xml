@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		 <typeAlias alias="member" type="com.goods.myapp.model.member.MemberVO" />
 		 <typeAlias alias="productinfo" type="com.goods.myapp.model.product.ProductInfoVO" />
 		 <typeAlias alias="goodspayment" type="com.goods.myapp.model.payment.GoodsPaymentVO" />
+		 <typeAlias alias="basket" type="com.goods.myapp.model.basket.BasketVO" />
 	</typeAliases> 
 	
 	<!-- Sql Mapper 설정 -->
@@ -19,5 +20,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mappers/member/member-mapping.xml" />
 		<mapper resource="mappers/goods/productinfo-mapping.xml" />
 		<mapper resource="mappers/payment/payment-mapping.xml" />
+		<mapper resource="mappers/basket/basket-mapping.xml" />
 	</mappers> 
 </configuration>

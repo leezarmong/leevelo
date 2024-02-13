@@ -3,10 +3,13 @@
  */	 
 function insertCart() {
 	var member_id = $("#member_id").val();
-	var goods_num = $("#goods_num").val();
+	var prd_id = $("#prd_id").val();
 	var basket_amount = $("#basket_amount").val();
 	var basket_sum = $("#basket_sum").val();	
-	var goods_name = $("#goods_names").val();
+	var prd_name = $("#prd_name").val();
+	
+	
+	
 	if (member_id == "admini") {
 		alert("관리자 권한으로는 이용하실 수 없습니다.");
 					} else if (!member_id) {
@@ -15,17 +18,20 @@ function insertCart() {
 					} else if (basket_amount == 0) {
 						alert("수량을 선택해주세요");
 					} else {
+						
 						$.ajax({
 							type : "GET",
 							url : "insertBasket",
 							data : {
-								"goods_name" : goods_name,
+								"prd_name" : prd_name,
 								"member_id" : member_id,
-								"goods_num" : goods_num,
+								"prd_id" : prd_id,
 								"basket_sum": basket_sum,
 								"basket_amount" : basket_amount
 							},
-							success : function(data) {
+								/*DB로 데이터를 넘길때는 key 와 value 의 컬럼 값이 같아야 오류를 줄일수있음.*/
+							/*세션으로 파라미터를 넘길때에는 됐지만..?*/
+							success : function() {
 								alert("장바구니에 저장되었습니다.");
 								location.href="goodsmall";
 							}
