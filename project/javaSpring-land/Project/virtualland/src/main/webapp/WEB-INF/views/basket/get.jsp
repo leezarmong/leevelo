@@ -42,19 +42,21 @@ tr:nth-child(even) {
 		상세정보입니다.
 
 		<tr>
+		<th>상품</th>
 			<th>아이디</th>
 			<th>상품종류</th>
 			<th>가격</th>
 		</tr>
 
 		<tr>
+		<th><img class="productLeft" src="${goods.goods_image }"></th>
 			<th>${pageinfo.member_id}</th>
 			<th>${pageinfo.basket_sum}</th>
 			<th>${pageinfo.basket_amount}</th>
 		</tr>
 
 	</table>
-
+<button class="login-btn" onclick="location.href='basketlist'">뒤로가기</button>
 	
 
 </body>
