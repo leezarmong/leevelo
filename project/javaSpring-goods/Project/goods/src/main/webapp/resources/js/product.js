@@ -50,12 +50,12 @@ function doInsertProduct() {
 			type : "POST",
 			url : "insertProduct",
 			data : formData,
-			processData : false,
-			contentType : false,
+			contentType: false,
+		    processData: false,
 			success : function(data) {
 				swal("", "상품이 등록되었습니다.", "success")
 				.then(function(isConfirm){
-					location.href="prdinsert";
+					location.href="insertProduct";
 				});
 			}, error : function(error) {
 				swal("왜", "에러일까", "error");

@@ -18,11 +18,11 @@
 	</resultMap>
 
 	<!-- 상품 번호 중복 체크 -->
-	<!-- <select id="prdCheckID" resultType="java.lang.Integer">
+	 <select id="prdCheckID" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM
 		PRODUCT_INFO
 		WHERE PRD_ID=#{prd_id}
-	</select>	 -->
+	</select>
 
 	<!-- 카테고리 상품 출력 -->
 	<select id="getProductList" resultMap="productinfo">
@@ -52,7 +52,7 @@
 	
 
 	<!-- 상품 등록 -->
-	<!-- <insert id="insertProduct">
+	 <insert id="insertProduct">
 		<![CDATA[
 			INSERT INTO PRODUCT_INFO (
 				CATE_ID,
@@ -78,7 +78,7 @@
 				#{prd_explain}
 			)
 		]]>
-	</insert> -->
+	</insert>
 
 	<!-- 상품 수정 -->
 	<!-- <update id="modifyProduct">

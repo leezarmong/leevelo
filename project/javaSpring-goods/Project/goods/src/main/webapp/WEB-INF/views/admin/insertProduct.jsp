@@ -1,31 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
-<title>leeveloper</title>
+<title>test</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <!-- jquery -->
-    
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="resources/js/product.js" charset="UTF-8"></script>
-	<!-- js -->
-	
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<!-- swal -->
-	
-	<!-- <script src="resources/ckeditor/ckeditor.js"></script> -->
+	<script src="resources/ckeditor/ckeditor.js"></script>
 	<link rel="stylesheet" type="text/css" href="resources/css/insertproduct.css">
-	<!-- css -->
-	
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!-- bootstrap -->
 </head>
 <body>
 	<%@ include file="../include/header.jsp"%>		
 	<h2 align="center">차량 등록</h2>
 	<section>
-		<form id="fileForm" action="insertProduct" method="POST" enctype="multipart/form-data">
+		<form action="/insertProduct" method="post" enctype="multipart/form-data">
 			<table align="center">
 				<tr>
 					<th>카테고리</th>
