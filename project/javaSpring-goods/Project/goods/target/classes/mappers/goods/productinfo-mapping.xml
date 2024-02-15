@@ -5,15 +5,15 @@
 <mapper namespace="ProductInfoDAO">
 	<resultMap id="productinfo" type="productinfo">
 		<result property="cate_id" column="CATE_ID" />
-		<result property="prd_date" column="PRD_DATE" />
+		<!-- <result property="prd_date" column="PRD_DATE" /> -->
 		<result property="prd_name" column="PRD_NAME" />
 		<result property="prd_id" column="PRD_ID" />
 		<result property="prd_price" column="PRD_PRICE" />
 		<result property="prd_img" column="PRD_IMG" />
-		<result property="prd_delivery" column="PRD_DELIVERY" />
-		<result property="prd_stock" column="PRD_STOCK" />
-		<result property="prd_option" column="PRD_OPTION" />
-		<result property="prd_discount" column="PRD_DISCOUNT" />
+		<!-- <result property="prd_delivery" column="PRD_DELIVERY" /> -->
+		<!-- <result property="prd_stock" column="PRD_STOCK" /> -->
+		<!-- <result property="prd_option" column="PRD_OPTION" /> -->
+		<!-- <result property="prd_discount" column="PRD_DISCOUNT" /> -->
 		<result property="prd_explain" column="PRD_EXPLAIN" />
 	</resultMap>
 
@@ -60,10 +60,6 @@
 				PRD_ID,
 				PRD_PRICE,
 				PRD_IMG,
-				PRD_DELIVERY,
-				PRD_STOCK,
-				PRD_OPTION,
-				PRD_DISCOUNT,
 				PRD_EXPLAIN
 			) VALUES (
 				#{cate_id},
@@ -71,10 +67,6 @@
 				#{prd_id},
 				#{prd_price},
 				#{prd_img},
-				#{prd_delivery},
-				#{prd_stock},
-				#{prd_option},
-				#{prd_discount},
 				#{prd_explain}
 			)
 		]]>

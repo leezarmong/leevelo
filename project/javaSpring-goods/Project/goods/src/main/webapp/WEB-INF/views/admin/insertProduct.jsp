@@ -4,19 +4,21 @@
 <head>
 <title>test</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" /> -->
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <!-- jquery -->
 	<script src="resources/js/product.js" charset="UTF-8"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script src="resources/ckeditor/ckeditor.js"></script>
+	 <!-- <script src="resources/ckeditor/ckeditor.js"></script>  -->
+	
 	<link rel="stylesheet" type="text/css" href="resources/css/insertproduct.css">
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
 <body>
 	<%@ include file="../include/header.jsp"%>		
 	<h2 align="center">차량 등록</h2>
 	<section>
-		<form action="/insertProduct" method="post" enctype="multipart/form-data">
+		<form>
 			<table align="center">
 				<tr>
 					<th>카테고리</th>
@@ -53,31 +55,12 @@
 					</td>
 				</tr>
 				<tr>
-					<th>배송비</th>
+					<th>모델 설명</th>
 					<td>
-						<input type="text" name="prd_delivery" id="prd_delivery" onkeypress="onlyNumber()" />
+						<input type="text" name="prd_explain" id="prd_explain"/>
 					</td>
 				</tr>
 				<tr>
-					<th>재고</th>
-					<td>
-						<input type="text" name="prd_stock" id="prd_stock" onkeypress="onlyNumber()" />
-					</td>
-				</tr>
-				<tr>
-					<th>옵션</th>
-					<td>
-						<input type="text" name="prd_option" id="prd_option" />
-					</td>
-				</tr>
-				<tr>
-					<th>할인금액</th>
-					<td>
-						<input type="text" name="prd_discount" id="prd_discount" onkeypress="onlyNumber()" />			
-						</td>
-				</tr>
-				<tr>
-				
 					<th>이미지</th>
 					<td>
 						<input type="file" name="uploadFile" id="uploadFile"/>
@@ -86,7 +69,7 @@
 			</table>
 			<hr><br>
 			<div align="center">
-				<tr>
+				<!-- <tr>
 					<th style="font-size:20px;"><strong>모델 설명</strong><th><br><br>
 					<td>
 						<textarea name="prd_explain" id="prd_explain" cols="40" rows="15"></textarea>
@@ -94,7 +77,7 @@
 	CKEDITOR.replace('prd_explain', {});
 </script>
 					</td>
-				</tr><br>
+				</tr><br> -->
 				<tr>
 					<td colspan="2" align="center">
 							<input type="button" value="차량 등록" onclick="doInsertProduct()" style="margin-bottom: 40px;"/>

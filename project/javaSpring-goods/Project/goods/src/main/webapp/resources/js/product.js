@@ -38,20 +38,39 @@ function onlyNumber(){
 	}
 }
 
+
+//상품 등록
 function doInsertProduct() {
-	var cate_id=$("#cate_id").val();
+	
+	var cate_id = $("#cate_id").val();
+	var prd_name = $("#prd_name").val();
+	var prd_id = $("#prd_id").val();
+	var prd_price = $("#prd_price").val();
+	var prd_explain = $("#prd_explain").val();
+	var uploadFile = $("#uploadFile")[0].files[0]; // Get the first file selected
+	
+	// Create a FormData object
+	var formData = new FormData();
+	
+	// Append the values to the FormData object
+	formData.append('cate_id', cate_id);
+	formData.append('prd_name', prd_name);
+	formData.append('prd_id', prd_id);
+	formData.append('prd_price', prd_price);
+	formData.append('prd_explain', prd_explain);
+	formData.append('uploadFile', uploadFile);
+
+	
+	
 	if (!cate_id) {
 		swal("", "카테고리를 선택해주세요.", "error");
 	} else {
-		var formData = new FormData($("#fileForm")[0]);
-		formData.delete("prd_explain");
-		formData.append('prd_explain', CKEDITOR.instances.prd_explain.getData());
 		$.ajax({
 			type : "POST",
 			url : "insertProduct",
 			data : formData,
-			contentType: false,
-		    processData: false,
+			  processData: false, // Prevent jQuery from automatically processing the data
+		      contentType: false, // Prevent jQuery from automatically setting the content type
 			success : function(data) {
 				swal("", "상품이 등록되었습니다.", "success")
 				.then(function(isConfirm){
