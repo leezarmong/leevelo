@@ -1,0 +1,156 @@
+
+/*===== Colores =====*/
+:root {
+  --first-color: #55bbff;
+  --complementary-color: #999999;
+  --white-color: #fafaff;
+  --dark-color: #2a3b47;
+  --text-color: #697477;
+  --white-color-glass: rgba(250, 250, 255, 0.4);
+}
+
+section{
+  display: flex;
+  justify-content: center;
+}
+
+section.line{
+  border: 1px solid rgb(168, 168, 168);
+}
+
+
+article{
+  width: 500px;
+  height: 700px;
+  
+}
+
+article.right_article{
+  width: 510px;
+  height: 700px;
+  overflow: scroll;
+}
+
+
+article.right_article ul{
+  background-color: rgb(31, 169, 255);
+  cursor: pointer;
+  margin-left: -60px;
+  width: 510px;
+  display: flex;
+justify-content: center;
+}
+
+article.right_article ul li{
+  padding: 20px 20px;
+  color: white;
+}
+
+article.right_article ul li:hover{
+  font-weight: bold;
+  background-color: rgba(111, 200, 255, 0.781);
+  transition:0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition:0.3s;
+}
+
+.product {
+  overflow: auto;
+  size:20%;
+  display: flex;
+  justify-content: center; 
+   align-items: center;
+  flex-wrap: wrap;
+}
+.product .itembox {
+  position: relative;
+  width: 500px;
+  height: 150px;
+  margin: 5px;
+  cursor: pointer;
+  padding-bottom: 10px;
+}
+.product .itembox.hide {
+  display: none;
+}
+.product .itembox img {
+  position: absolute;
+  height: 100%;
+
+}
+
+
+div.desc {
+  margin-left: 150px;
+  padding: 15px;
+  text-align: center;
+}
+
+
+
+
+
+/* 위치 라디오버튼 */
+div#radio{
+  background-color: rgb(255, 255, 255);
+ 
+} 
+#radio {
+padding: 15px 10px;
+}
+#radio input[type=radio]{
+  display: none;
+}
+#radio input[type=radio]+label{
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  height: 150px;
+  width: 450px;
+  margin-top: 12px;
+  margin-left: 20px;
+  line-height: 24px;
+  text-align: center;
+  font-weight:bold;
+  font-size:13px;
+  /* 그라데이션 */
+  transition:0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition:0.3s;
+}
+
+
+#radio input[type=radio]+label{
+  border: 1px solid black;
+  background-color: #fff;
+  color: #333;
+}
+#radio input[type=radio]:checked+label{
+  border: 3px solid rgb(31, 169, 255);
+ background-color: #eaf6ff;
+  color: rgb(0, 0, 0)
+}
+
+p.name{
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 50px;
+  text-align: center;
+  color: rgb(85, 85, 85);
+
+}
+
+.itembox input[type=radio]+label{
+	margin-top: 0px;
+}
+div.desc {
+	line-height: 20px;
+	margin-top: 10px;
+	margin-left: 230px;
+	
+}
+

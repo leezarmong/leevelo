@@ -3,18 +3,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="BasketDAO">
-	<resultMap type="basket" id="basketResult"> 
-		<id property="member_id" column="MEMBER_ID"></id>
-		<result property="prd_id" column="PRD_ID"></result>
-		<result property="basket_sum" column="BASKET_SUM"></result>
-		<result property="basket_amount" column="BASKET_AMOUNT"></result>
-		<result property="prd_name" column="PRD_NAME"></result>
-	</resultMap>
+    <resultMap type="basket" id="basketResult">
+        <id property="member_id" column="MEMBER_ID"></id>
+        <result property="prd_id" column="PRD_ID"></result>
+        <result property="basket_sum" column="BASKET_SUM"></result>
+        <result property="basket_amount" column="BASKET_AMOUNT"></result>
+        <result property="prd_name" column="PRD_NAME"></result>
+    </resultMap>
 
 
-	
-	<!-- 장바구니추가 -->
-	<insert id="insertBasket">
+    <!-- 장바구니추가 -->
+    <insert id="insertBasket">
     
         MERGE INTO BASKET
         USING DUAL ON (MEMBER_ID=#{member_id, jdbcType=VARCHAR} AND PRD_ID=#{prd_id, jdbcType=NUMERIC})
@@ -25,34 +24,33 @@
             VALUES (#{member_id, jdbcType=VARCHAR}, #{prd_id, jdbcType=NUMERIC}, #{basket_sum, jdbcType=NUMERIC}, #{basket_amount, jdbcType=NUMERIC}, #{prd_name, jdbcType=VARCHAR})
     
 	</insert>
-	
 
 
-	<!-- 장바구니 삭제 -->
-	<delete id="deleteCart">
+    <!-- 장바구니 삭제 -->
+    <delete id="deleteCart">
 		DELETE FROM BASKET where PRD_ID=#{prd_id} AND MEMBER_ID=#{member_id}
-	</delete> 
-	
-	<!-- 결제 후 장바구니 비우기 -->
- 	<delete id="deleteCartPayment">
+	</delete>
+
+    <!-- 결제 후 장바구니 비우기 -->
+    <delete id="deleteCartPayment">
 		DELETE FROM BASKET WHERE MEMBER_ID = #{member_id}
 	</delete>
- 
 
-	<!-- 장바구니 리스트 -->
-	 <select id="basketList" resultMap="basketResult">
-	<![CDATA[
-		SELECT * FROM BASKET NATURAL JOIN PRODUCT_INFO WHERE MEMBER_ID = #{member_id, jdbcType=VARCHAR}
-	]]>
-	</select> 
-	
 
-	<!-- 장바구니 상세보기 -->
-	 <select id="getbasketList" resultMap="basketResult">		
+    <!-- 장바구니 리스트 -->
+    <select id="basketList" resultMap="basketResult">
 	<![CDATA[
-		SELECT * FROM BASKET where PRD_ID=#{prd_id} AND MEMBER_ID=#{member_id}
-	]]>
+                SELECT * FROM BASKET NATURAL JOIN PRODUCT_INFO WHERE MEMBER_ID = #{member_id, jdbcType=VARCHAR}
+        ]]>
 	</select>
-	
-	
+
+
+    <!-- 장바구니 상세보기 -->
+    <select id="getbasketList" resultMap="basketResult">
+	<![CDATA[
+                SELECT * FROM BASKET where PRD_ID=#{prd_id} AND MEMBER_ID=#{member_id}
+        ]]>
+	</select>
+
+
 </mapper>

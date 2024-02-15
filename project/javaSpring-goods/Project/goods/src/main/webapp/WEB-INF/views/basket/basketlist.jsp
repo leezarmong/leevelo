@@ -75,7 +75,7 @@
     <tr>
         <td><input type="button" id="payCart" onclick="payCart()" value="결제하기"/>
 			<input type="hidden" name="hiddenbtn" id="hiddenbtn" value="cartpage"/>
-			<input type="button" id="home" onclick="location.href=main" value="취소"/></td>
+			<a href="goodsmall" id="home">취소</a></td>
     </tr>
 </table>
 <c:set var="count" value="${totalCount-1}"/>

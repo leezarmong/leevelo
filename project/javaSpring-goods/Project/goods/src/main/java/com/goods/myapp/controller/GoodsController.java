@@ -33,7 +33,7 @@ public class GoodsController {
 
     @Autowired
     GoodsPaymentService goodspaymentservice;
-    
+
     @Autowired
     BasketService basketservice;
 
@@ -68,7 +68,7 @@ public class GoodsController {
     public String paymentGoods(GoodsPaymentVO vo) {
         return "/goods/goodsPayment";
     }
-    
+
     @PostMapping(value = "/goodsPayment")
     public String orderGoods(GoodsPaymentVO vo, HttpSession session, ProductInfoVO gvo, String basket) {
         HashMap<String, Object> map = new HashMap<String, Object>();
