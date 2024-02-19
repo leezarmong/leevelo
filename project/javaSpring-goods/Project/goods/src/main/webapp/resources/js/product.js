@@ -171,44 +171,39 @@ $(document).ready(function(){
 	});     	    
 });
 
+function doModifyProduct(){
+	  var data ={
+	     cate_id :$("#cate_id").val(),
+		 prd_name :$("#prd_name").val(),
+		 prd_price :$("#prd_price").val(),
+		 prd_explain:$("#prd_explain").val()
+	  }
 
-function doModifyProduct(){	
-	var cate_id=$("#cate_id").val();
-	if (!cate_id) {
-		swal("", "카테고리를 선택해주세요.", "error");
-	} else {
-		var formData = new FormData($("#fileForm")[0]);
-		formData.delete("prd_explain");
-		formData.append("prd_explain", CKEDITOR.instances.prd_explain.getData());		
-		for (var pair of formData.entries()) {
-			  console.log(pair[0]+ ', ' + pair[1]);
-		}
-		
-		swal({
-			icon : "warning",
-			text : "정말 수정 하시겠습니까?",
-			closeOnClickOutside : false,
-			closeOnEsc : false,
-			buttons : [ "돌아가기", "수정하기" ],
-		}).then(function(isConfirm) {
-			if (isConfirm) {
-				$.ajax({
-					type : "POST",
-					url : "modifyproduct2",
-					data : formData,
-					processData : false,
-					contentType : false,
-					success : function(data) {
-						swal("", "수정에 성공했습니다.", "success")
-						.then(function(isConfirm) {
-							if (isConfirm) {
-								location.href = "productList";
-							}
-						})					
-					}
-				});
-			}
-		})
+	  if(!cate_id){
+	    swal("","카테고리를 선택해 주세요.","error");
+	  }else{
+	    swal({
+	      icon : "warning",
+				text : "정말 수정 하시겠습니까?",
+				closeOnClickOutside : false,
+				closeOnEsc : false,
+				buttons : [ "돌아가기", "수정하기" ],
+	    }).then(function(isConfirm){
+	        if(isConfirm){
+	          $.ajax({
+	              type :"GET",
+	              url : "modifyproduct2",
+	              data : data,
+	              success : function(data){
+	                swal("", "수정에 성공했습니다.", "success")
+	                .then(function(isConfirm){
+	                    if(isConfirm) {
+	                      location.href = "productList";
+	                    }
+	                });
+	              }
+	          });
+	        }
+	    });
+	  }
 	}
-}
-

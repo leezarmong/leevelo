@@ -84,7 +84,7 @@
 					<td style=" text-align: center;">${product.prd_id}</td>
 					<td style=" text-align: center;">${product.prd_price}</td>
 					<td style=" text-align: center;">
-						<img src="resources/image/close.png" class="${product.prd_id}"  id="delId" name="${product.prd_img}"  onclick="delp(this)" style="width: 30px; cursor: pointer;"  title="삭제">
+						<img src="resources/img/image/close.png" class="${product.prd_id}"  id="delId" name="${product.prd_img}"  onclick="delp(this)" style="width: 30px; cursor: pointer;"  title="삭제">
 					</td>
 				</tr>
 			</c:if>

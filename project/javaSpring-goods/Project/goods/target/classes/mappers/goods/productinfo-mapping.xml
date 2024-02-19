@@ -73,20 +73,28 @@
 	</insert>
 
 	<!-- 상품 수정 -->
-	<!-- <update id="modifyProduct">
+	<!--   <update id="modifyProduct">
+		
 		UPDATE PRODUCT_INFO
 		SET
 		CATE_ID = #{cate_id},
 		PRD_NAME = #{prd_name},
 		PRD_PRICE = #{prd_price},
-		PRD_DELIVERY = #{prd_delivery},
-		PRD_STOCK = #{prd_stock},
-		PRD_OPTION = #{prd_option},
-		PRD_DISCOUNT = #{prd_discount},
 		PRD_EXPLAIN = #{prd_explain}
 		WHERE
 		PRD_ID = #{prd_id}
-	</update> -->
+		
+	</update>  -->
+	<update id="modifyProduct">
+    UPDATE PRODUCT_INFO
+    SET
+    CATE_ID = #{cate_id, jdbcType=VARCHAR},
+    PRD_NAME = #{prd_name, jdbcType=VARCHAR},
+    PRD_PRICE = #{prd_price, jdbcType=INTEGER},
+    PRD_EXPLAIN = #{prd_explain, jdbcType=VARCHAR}
+    WHERE
+    PRD_ID = #{prd_id, jdbcType=VARCHAR}
+</update>
 	
 	<!-- 상품 삭제 -->
 	<!-- <delete id="deleteProduct">
