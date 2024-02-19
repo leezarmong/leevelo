@@ -192,7 +192,7 @@
                             "basket": '${goods.basket}'
                         },
                         success: function (data) {
-                        	swal("성공", "결제가 완료 되었습니다.", "success")
+                        	swal("성공", "결제가 완료 되었습니다.", "success");
                             window.close();
                         }
                     });

@@ -36,7 +36,7 @@
                 <input type="hidden" id="member_id" value="${member.member_id}"/>
                 <input type="hidden" name="prd_name" class="prd_name" value="${basket.prd_name}"/></td>
             <td>${member.member_id}</td>
-            <td><a href='/basket/get?prd_id=${basket.prd_id}&member_id=${member.member_id}'>${basket.prd_name}</a></td>
+            <td><a href='get?prd_id=${basket.prd_id}&member_id=${member.member_id}'>${basket.prd_name}</a></td>
             <td>${basket.basket_amount}</td>
             <td>${basket.basket_sum}</td>
             <td><a href="delbasket?prd_id=${basket.prd_id}&member_id=${member.member_id}">삭제</a>
