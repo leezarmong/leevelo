@@ -6,21 +6,21 @@
 <head>
 <title>leeveloper</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <!-- jquery -->
-	<script src="resources/js/product.js" charset="UTF-8"></script>
-	<!-- js -->
+    
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<!-- swal -->
 	
 	<link rel="stylesheet" type="text/css" href="resources/css/insertproduct.css">
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- css -->
 </head>
 <body>
 	<%@ include file="../include/header.jsp"%>		
 	<h2 align="center">차량 등록</h2>
 	<section>
-		<form id="fileForm" action="insertProduct" method="POST" enctype="multipart/form-data">
+		<form method="POST" action="modifyproduct2">
 			<table align="center">
 				<tr>
 					<th>카테고리</th>
@@ -95,20 +95,20 @@
 			</table>
 			<hr><br>			
 			<div align="center">
-			<%-- 	<tr><th style="font-size:20px;"><strong>모델 설명</strong><th><br><br>
-					<td>
-						<c:set var="exp_length" value="${fn:length(product.prd_explain)}"/>
-						<input type="hidden" name="exp_length" id="exp_length" value="${exp_length}" />	
-						<textarea name="prd_explain" id="prd_explain" cols="40" rows="15" >${product.prd_explain}</textarea>
-<script>
-	CKEDITOR.replace('prd_explain', {});
-</script>
-						
-					</td>
-				</tr> --%><br>
+			<br>
 				<tr>
 					<td colspan="2" align="center">
-						<input type="button" value="차량 등록" onclick="doModifyProduct()" style="margin-bottom: 40px;"/>
+						<!-- <input type="button" value="차량 등록" onclick="doModifyProduct()" style="margin-bottom: 40px;"/> -->
+						<input type="submit" value="차량 등록" id="update"  style="margin-bottom: 40px;"/>
+						
+						<script>
+						 //form 로그인 버튼
+						  $("#update").click(function(){
+							
+							swal("","수정완료 !","success");
+							location.href = 'productList';		 
+						  });
+						</script>
 					</td>
 				</tr>
 			</div>

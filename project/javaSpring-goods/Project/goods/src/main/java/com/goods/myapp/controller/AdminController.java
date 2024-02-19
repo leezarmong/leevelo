@@ -126,11 +126,11 @@ public class AdminController {
 		}	
 		
 		// 상품 수정 처리
-		@RequestMapping(value = "/modifyproduct2", method = RequestMethod.GET)
+		@RequestMapping("/modifyproduct2")
 		public String modifyproduct2(ProductInfoVO vo) {
 			productService.modifyProduct(vo);
 			
-			return "redirect:modifyproduct";
+			return "redirect:productList";
 		}
 
 

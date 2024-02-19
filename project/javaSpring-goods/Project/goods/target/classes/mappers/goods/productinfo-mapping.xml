@@ -73,7 +73,7 @@
 	</insert>
 
 	<!-- 상품 수정 -->
-	<!--   <update id="modifyProduct">
+	  <!-- <update id="modifyProduct">
 		
 		UPDATE PRODUCT_INFO
 		SET
