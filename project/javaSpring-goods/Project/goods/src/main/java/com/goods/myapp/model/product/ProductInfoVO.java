@@ -1,6 +1,6 @@
 package com.goods.myapp.model.product;
 
-import java.util.Date; 
+ 
 
 import org.springframework.web.multipart.MultipartFile;
 

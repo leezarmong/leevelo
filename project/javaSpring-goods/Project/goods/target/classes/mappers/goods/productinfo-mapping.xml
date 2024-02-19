@@ -97,7 +97,7 @@
  -->
 	
 	<!-- 관리자 상품 목록 -->
-	<!-- <select id="getAdminProductList" resultMap="productinfo">
+	 <select id="getAdminProductList" resultMap="productinfo">
 		<![CDATA[
 			SELECT CATE_ID, nvl(prd_img, 'resource/img/product/') AS PRD_IMG, PRD_NAME, PRD_ID, PRD_PRICE FROM (
 				SELECT ROWNUM AS RN, A.* FROM (
@@ -105,31 +105,31 @@
 				) A
 			) WHERE RN BETWEEN #{start} AND #{end}
 		]]>
-	</select> -->
+	</select> 
 	
 	<!-- 관리자 상품 수 체크 -->
-	<!-- <select id="getAdminCountProduct" resultType="java.lang.Integer">
+	 <select id="getAdminCountProduct" resultType="java.lang.Integer">
 		<![CDATA[
 			SELECT COUNT(*) FROM PRODUCT_INFO
 		]]>
-	</select> -->
+	</select> 
 	
 	<!-- 관리자 검색된 상품 수 카운트 -->
-	<!-- <select id="countSearchPrd" resultType="java.lang.Integer">
+	 <select id="countSearchPrd" resultType="java.lang.Integer">
 		SELECT COUNT(*) 
 		FROM PRODUCT_INFO 
 		WHERE UPPER(PRD_NAME) LIKE UPPER('%'||#{sPrd}||'%') 
 		OR LOWER(PRD_NAME) LIKE LOWER('%'||#{sPrd}||'%')
-	</select> -->
+	</select> 
 	
 	<!-- 관리자 상품 검색 -->
-	<!-- <select id="listSearchPrd" resultMap="productinfo">
+	 <select id="listSearchPrd" resultMap="productinfo">
 		SELECT * FROM (
 			SELECT ROWNUM AS RN, A.* FROM (
 				SELECT * FROM PRODUCT_INFO
 				WHERE UPPER(PRD_NAME) LIKE UPPER('%'||#{sPrd}||'%') OR LOWER(PRD_NAME) LIKE LOWER('%'||#{sPrd}||'%')
 			) A
 		) WHERE RN BETWEEN #{start} AND #{end}
-	</select> -->
+	</select>
 	
 </mapper>
