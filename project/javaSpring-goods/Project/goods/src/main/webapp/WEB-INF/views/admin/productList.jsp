@@ -4,13 +4,13 @@
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
-<title>1team rent car</title>
+<title>leeveloper</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="resources/js/product.js" charset="UTF-8"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="resources/css/main.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/productList.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script>
 	function list(page) {
@@ -50,10 +50,10 @@
 </head>
 <body>
 	<%@ include file="../include/header.jsp" %>
-	<section><br><br><br>
-		<h2 align="center" style="color: rgb(31, 169, 255); font-size: 30px;">등록된 차량</h2><br><br>
+	<section><br><br><br><br><br>
+		<h2 align="center" style="color: rgb(31, 169, 255); font-size: 30px;">등록된 굿즈</h2><br><br>
 		<div id="search" align="center">
-			<input type="text" name="sPrd2" id="sPrd2" placeholder="차량 검색" onkeypress="if(event.keyCode == 13) {searchPrd2(); return;}">
+			<input type="text" name="sPrd2" id="sPrd2" placeholder="굿즈 검색" onkeypress="if(event.keyCode == 13) {searchPrd2(); return;}">
 			<button type="button" id="searchBtn" onclick="searchPrd2()" style="cursor: pointer;">
 				<strong>검색</strong>
 			</button>
