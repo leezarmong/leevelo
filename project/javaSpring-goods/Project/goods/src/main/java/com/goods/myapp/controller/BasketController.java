@@ -60,14 +60,11 @@ public class BasketController {
 	// 상세
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
 	public String getSelectOne(BasketVO vo, Model model, ProductInfoVO pvo) {
-		// 정수 변수 "goods_num" 및 "모델" 개체 "model"의 두 매개 변수를 사용
+		
 		BasketVO basketvo = basketservice.getSelectOne(vo);
-		// "basketservice" 개체에서 "getSelectOne" 메서드를 호출하여 바구니에서
-		// 선택한 항목을 나타내는 "BasketVO" 개체 "basketvo"를 반환
-		model.addAttribute("goods", productservice.productDetail(pvo));
 		model.addAttribute("pageinfo", basketvo);
+		model.addAttribute("goods",productservice.productDetail(pvo));
 		return "basket/get";
-		// "model" 객체의 "pageinfo" 속성은 "basketvo"로 설정 "/basket/get" 문자열 값을 리턴
 	}
 	
 	

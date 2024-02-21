@@ -6,16 +6,102 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <!-- jquery -->
 
-<link rel="stylesheet" href="resources/css/basketlist.css"/>
+ <link rel="stylesheet" href="resources/css/basketlist.css"/> 
 <!-- css -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>장바구니</title>
+
+<style type="text/css">
+body.basketlist {
+    font-family: Arial, sans-serif;
+    margin-top: 50px; /* Adjusted margin-top */
+    padding: 0;
+}
+
+.basketlist h1 {
+    font-size: 2em;
+    margin-bottom: 20px; /* Increased margin-bottom */
+    text-align: center;
+}
+
+.basketlist table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 15px;
+    margin-bottom: 20px; /* Added margin-bottom for spacing */
+}
+
+.basketlist table th, .basketlist table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.basketlist table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.basketlist table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Changed to a lighter shade */
+}
+
+.basketlist table tr:hover {
+    background-color: #f2f2f2; /* Lighter hover color */
+}
+
+.cart3 th {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#prd_sum, #amt_sum {
+    text-align: center;
+    font-size: 1.2em; /* Increased font size */
+    margin-bottom: 20px; /* Added margin-bottom for spacing */
+}
+
+#payCart, #home {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 20px; /* Increased padding */
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    margin: 0 10px; /* Added horizontal margin */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+#home:hover {
+    background-color: #45a049; /* Darker hover color */
+}
+
+#payCart:hover {
+    background-color: #45a049; /* Darker hover color */
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+</style>
 </head>
 
 <body class="basketlist">
 <%@ include file="../include/header.jsp" %>
 <h1>장바구니</h1>
+
+
 <table>
     <thead>
     <tr>
@@ -72,12 +158,14 @@
             </h2>
         </td>
     </tr>
-    <tr>
-        <td><input type="button" id="payCart" onclick="payCart()" value="결제하기"/>
-			<input type="hidden" name="hiddenbtn" id="hiddenbtn" value="cartpage"/>
-			<a href="goodsmall" id="home">취소</a></td>
-    </tr>
+   
 </table>
+<div class="button-container">
+    <input type="button" id="payCart" onclick="payCart()" value="결제하기"/>
+    <input type="hidden" name="hiddenbtn" id="hiddenbtn" value="cartpage"/>
+    <a href="goodsmall" id="home">취소</a>
+</div>
+
 <c:set var="count" value="${totalCount-1}"/>
 <c:set var="prd_name" value="${basketList[0].prd_name}외 ${count}개"/>
 <script>

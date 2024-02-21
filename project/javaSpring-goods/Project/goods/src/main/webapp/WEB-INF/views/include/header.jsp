@@ -15,7 +15,9 @@
 </head>
 
 <!-- 로그인 확인 (임시용) -->
-<h3><b style="color: blue;">${member.member_id}</b> is logged in. (임시 input) </h3>
+ <c:if test="${not empty member }">
+<h3 style="margin-left: 92%;"><b style="color: blue;">${member.member_id}</b> is logged in.</h3>
+</c:if>
 
 <header class="header">
 

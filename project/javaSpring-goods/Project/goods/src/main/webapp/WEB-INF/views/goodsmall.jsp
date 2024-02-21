@@ -12,8 +12,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <!-- jquery -->
 
-    <link rel="stylesheet" href="./resources/css/introduction.css">
-    <!-- css -->
     <style>
         /* Styles for the product table */
         body {
@@ -122,7 +120,43 @@
         .goodsmall-form {
             margin-top: 250px;
         }
+		#category {
+    display: flex; /* Use flexbox to create a horizontal layout */
+    justify-content: center; /* Center-align the items horizontally */
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
 
+/* 카테고리 메뉴 */
+#category li {
+    margin: 0 10px; /* Add spacing between menu items */
+    cursor: pointer;
+    padding: 5px 10px; /* Add padding to improve clickability */
+    border-radius: 5px; /* Add some rounding to the corners */
+    background-color: #f5f5f5; /* Add a background color */
+}
+
+#category li:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+}
+		.no-product {
+    position: fixed; /* Set position to fixed */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to center */
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+}
+.no-product {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-style: italic;
+    margin-top: 60px;
+}
 
     </style>
 
@@ -135,23 +169,29 @@
 
 
     <div class="goodsmall-section">
-        <h1>Leeveloper</h1>
-        <p>Test 중입니다. Leeveloper;</p>
+        <h1>Sombody call for an Leeveloper?</h1>
+        <MARQUEE> <h2>상품 입고중 입니다. !</h2> </MARQUEE>
+        
     </div>
     <table id="product">
         <!-- fn 태그, map에 list가 0이면 상품없음,컨트롤러 참고, if문 0이면 -->
         <c:if test="${(fn:length(map.list)) eq 0}">
-            상품내역이 없습니다. 메뉴 선택해주세요.!!
+        <br><br><br><br>
+        
+        <div class="no-product">
+         <h3> 메뉴 선택해주세요.!!</h3>
+		</div>
+      
         </c:if>
         <!-- 상품의 갯수, -1은 배열은 0부터 시작하기때문 -->
         <!-- 이중 for문 x축 -->
-        <ul>
+      <div id="category">
             <li onclick="location.href='category?cate_id=IN20220926'" class="list" data-filter="category1">인기차량</li>
             <li onclick="location.href='category?cate_id=SO20220926'" class="list" data-filter="category2">소/준중형</li>
             <li onclick="location.href='category?cate_id=JO20220926'" class="list" data-filter="category3">중형</li>
             <li onclick="location.href='category?cate_id=DA20220926'" class="list" data-filter="category4">대형</li>
             <li onclick="location.href='category?cate_id=SU20220629'" class="list" data-filter="category5">SUV/RV</li>
-        </ul>
+      </div>
         <!-- Product 의 cate_id PK 를  -->
         <!-- Product_Info 에서 cate_id FK 로 설정 하여 카테고리 경로에 따른 list 가 출력 되도록 설정. -->
 
