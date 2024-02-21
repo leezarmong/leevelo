@@ -75,10 +75,10 @@
     <h1>굿즈 상세 정보</h1>
     <table>
         <tr>
-            <th>Product</th>
-            <th>ID</th>
-            <th>Product Type</th>
-            <th>Price</th>
+            <th>제품 사진</th>
+            <th>결제 ID</th>
+            <th>가격</th>
+            <th>수량</th>
         </tr>
         <tr>
             <td><img class="product-image" src="${goods.prd_img}" alt="Product Image"></td>

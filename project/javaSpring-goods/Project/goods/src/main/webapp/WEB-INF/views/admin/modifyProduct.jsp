@@ -102,7 +102,7 @@ input[type="text"], select {
 
 input[type="submit"] {
     padding: 10px 20px; /* Add padding */
-    background-color: var(--first-color); /* Use custom color variable */
+    background-color: #15b400; /* Use custom color variable */
     color: #fff; /* White text color */
     border: none; /* Remove border */
     border-radius: 5px; /* Add rounded corners */
@@ -111,7 +111,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #4da6ff; /* Darken background color on hover */
+    background-color: #45a049; /* Darken background color on hover */
 }
 
 /* Update h2 styling */

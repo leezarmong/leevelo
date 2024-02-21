@@ -33,7 +33,7 @@
 <body>
 	<%@ include file="../include/header.jsp" %>
 	<section><br><br><br><br><br>
-		<h2 align="center" style="color: rgb(31, 169, 255); font-size: 30px;">등록된 굿즈</h2><br><br>
+		
 		<div id="search" align="center">
 			<input type="text" name="sPrd2" id="sPrd2" placeholder="굿즈 검색" onkeypress="if(event.keyCode == 13) {searchPrd2(); return;}">
 			<button type="button" id="searchBtn" onclick="searchPrd2()" style="cursor: pointer;">
@@ -44,12 +44,12 @@
 		<form name="f3rm" id="f3rm" enctype="multipart/form-data">
 			<table align="center">
 				<tr>
-					<th style="font-size: 20px;height:50px; width: 200px; color:white; background-color:rgb(31, 169, 255);">카테고리</th>
-					<th style="font-size: 20px; width: 200px; color:white; background-color:rgb(31, 169, 255);">이미지</th>
-					<th style="width: 150px; font-size: 20px; color:white; background-color:rgb(31, 169, 255);">모델</th>
-					<th style="width: 150px; font-size: 20px; color:white; background-color:rgb(31, 169, 255);">모델 번호</th>
-					<th style="font-size: 20px; width: 200px; color:white; background-color:rgb(31, 169, 255);">가격</th>
-					<th style="font-size: 20px; width: 200px; color:white; background-color:rgb(31, 169, 255);">상품 삭제</th>
+					<th style="font-size: 20px;height:50px; width: 200px; color:white; background-color:#15b400;">카테고리</th>
+					<th style="font-size: 20px; width: 200px; color:white; background-color:#15b400;">이미지</th>
+					<th style="width: 150px; font-size: 20px; color:white; background-color:#15b400;">모델</th>
+					<th style="width: 150px; font-size: 20px; color:white; background-color:#15b400;">모델 번호</th>
+					<th style="font-size: 20px; width: 200px; color:white; background-color:#15b400;">가격</th>
+					<th style="font-size: 20px; width: 200px; color:white; background-color:#15b400;">상품 삭제</th>
 				</tr>
 				<hr><br><br><br>
 		<c:forEach begin="0" end="${(fn:length(map.list))}" var="i">

@@ -176,9 +176,8 @@
     <table id="product">
         <!-- fn 태그, map에 list가 0이면 상품없음,컨트롤러 참고, if문 0이면 -->
         <c:if test="${(fn:length(map.list)) eq 0}">
-        <br><br><br><br>
         
-        <div class="no-product">
+        <div class="no-product" style="margin-top: 200px;">
          <h3> 메뉴 선택해주세요.!!</h3>
 		</div>
       

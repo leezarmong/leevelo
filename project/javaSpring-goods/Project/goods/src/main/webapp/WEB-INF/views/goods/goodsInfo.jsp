@@ -5,99 +5,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>leeveloper</title>
+    <title>leeveloper</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <!-- jquery -->
-
-    <link rel="stylesheet" type="text/css" href="resources/css/goodsInfo.css">
-    <!-- css -->
-
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- swal -->
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="resources/js/cart.js" charset="UTF-8"></script>
-    <!-- cart js -->
-
-    <style type="text/css">
-        p.logname {
-            color: rgb(31, 169, 255);
-            font-size: 30px;
-            font-weight: bold;
-        }
-    </style>
+    
+    <link rel="stylesheet" type="text/css" href="resources/css/goodsInfo.css">
+	<!-- css -->
+     
 </head>
 <body>
-<script>
-    $("#buy_quantity").keyup(function (e) {
-        var regNumber = /^([0-9]{2})$/;
-        var str = $(this).val();
-        if (!regNumber.test(str)) {
-            var res = str.substring(0, str.length - 1);
-            $(this).val(res);
-        }
-    });
 
-    function mxNum(object) {
-        if (object.value.length > object.maxLength) {
-            object.value = object.value.slice(0, object.maxLength);
-        }
-    }
-</script>
+<%@ include file="../include/header.jsp" %>
 
-
-<br><br><br>
-<p class="logname">${member.member_id} 님의 예약상품
-<p><br><br>
-    <div class="productdetail" style="margin-top: 30px;">
+<div class="container" style="margin-top: 200px;">
+    <h1>leeveloper</h1>
+    <p class="logname">${member.member_id} 님의 예약상품</p>
+    <div class="productdetail">
         <form>
-            <img class="productLeft" src="${goods.prd_img }">
-            <div class="productRight">
-                <table id="selected">
-                    <tbody>
-                    <tr>
-                        <th width="150" height=
-                        "50">상품명</th>
-                        <td>${goods.prd_name}</td>
-                    </tr>
-                    <tr>
-                        <th width="150" height:
-                        "50">가격</th>
-                        <td><fmt:formatNumber value="${goods.prd_price}" pattern="#,###"/>원</td>
-                    </tr>
-                    <tr>
-                        <th width="150" height:
-                        "50">상품코드</th>
-                        <td>${goods.prd_id}</td>
-                    </tr>
-                    <tr>
-                        <th width="150" height:
-                        "50">수량</th>
-                        <td><input type="number" id="basket_amount" min="0" maxlength="2" max="99" value="1"/></td>
-                    </tr>
-                    <tr>
-                        <th width="150" height:
-                        "50">총 가격</th>
-                        <td><input type="number" name="basket_sum" id="basket_sum" value="${goods.prd_price}" readonly/>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <br><br><br>
-                <input type="hidden" name="prd_img" id="prd_img" value="${goods.prd_img}"/>
-                <input type="hidden" name="member_id" id="member_id" value="${member.member_id}"/>
-                <input type="hidden" name="prd_id" id="prd_id" value="${goods.prd_id}"/>
-                <input type="hidden" name="prd_name" id="prd_name" value="${goods.prd_name}"/>
-<p align="left">
-    <input type="button" name="buy" id="buy" onclick="buyGoods()" value="구매하기"/>&nbsp;&nbsp;&nbsp;
-    <input type="button" name="cart" id="buy" onclick="insertCart()" value="장바구니"/>
-    <input type="hidden" name="hiddenbtn" id="hiddenbtn" value="prdpage"/>
-</p>
+            <img class="product-img" src="${goods.prd_img}">
+            <table>
+                <tr>
+                    <th>상품명</th>
+                    <td>${goods.prd_name}</td>
+                </tr>
+                <tr>
+                    <th>가격</th>
+                    <td><fmt:formatNumber value="${goods.prd_price}" pattern="#,###"/>원</td>
+                </tr>
+                <tr>
+                    <th>상품코드</th>
+                    <td>${goods.prd_id}</td>
+                </tr>
+                <tr>
+                    <th>수량</th>
+                    <td><input type="number" id="basket_amount" min="0" max="99" value="1"/></td>
+                </tr>
+                <tr>
+                    <th>총 가격</th>
+                    <td><input type="number" name="basket_sum" id="basket_sum" value="${goods.prd_price}" readonly/></td>
+                </tr>
+            </table>
+            <div class="btn-container">
+                <input type="button" class="btn-buy" onclick="buyGoods()" value="구매하기"/>
+                <input type="button" class="btn-cart" onclick="insertCart()" value="장바구니"/>
+            </div>
+            <input type="hidden" name="prd_img" id="prd_img" value="${goods.prd_img}"/>
+            <input type="hidden" name="member_id" id="member_id" value="${member.member_id}"/>
+            <input type="hidden" name="prd_id" id="prd_id" value="${goods.prd_id}"/>
+            <input type="hidden" name="prd_name" id="prd_name" value="${goods.prd_name}"/>
+            <input type="hidden" name="hiddenbtn" id="hiddenbtn" value="prdpage"/>
+        </form>
+    </div>
 </div>
-</form>
-</div>
-
 
 <script>
     //수량이 늘어날 때 마다 가격을 늘려준다.
@@ -162,6 +123,7 @@
         }
     }
 </script>
+
 <%@ include file="../include/footer.jsp" %>
 </body>
 </html>

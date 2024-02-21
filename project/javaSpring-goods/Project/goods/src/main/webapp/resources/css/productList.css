@@ -53,13 +53,13 @@ h2 {
     cursor: pointer;
     border: 0;
     border-radius: 4px;
-    background-color: rgb(31, 169, 255);
+    background-color: #15b400;
     color: #fff;
     transition: background-color 0.3s;
 }
 
 #searchBtn:hover {
-    background-color: #1a8cd8;
+    background-color: #45a049;
 }
 
 /* Table Styles */
