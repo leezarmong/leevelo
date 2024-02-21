@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Leeveloper</title>
+    <title>leeveloper</title>title>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <!-- jquery -->

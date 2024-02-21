@@ -73,18 +73,6 @@
 	</insert>
 
 	<!-- 상품 수정 -->
-	  <!-- <update id="modifyProduct">
-		
-		UPDATE PRODUCT_INFO
-		SET
-		CATE_ID = #{cate_id},
-		PRD_NAME = #{prd_name},
-		PRD_PRICE = #{prd_price},
-		PRD_EXPLAIN = #{prd_explain}
-		WHERE
-		PRD_ID = #{prd_id}
-		
-	</update>  -->
 	<update id="modifyProduct">
     UPDATE PRODUCT_INFO
     SET
@@ -97,12 +85,12 @@
 </update>
 	
 	<!-- 상품 삭제 -->
-	<!-- <delete id="deleteProduct">
+	 <delete id="deleteProduct">
 		<![CDATA[
 			DELETE FROM PRODUCT_INFO WHERE PRD_ID=#{prd_id}
 		]]>
 	</delete>
- -->
+
 	
 	<!-- 관리자 상품 목록 -->
 	 <select id="getAdminProductList" resultMap="productinfo">
