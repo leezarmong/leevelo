@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="resources/css/productList.css">
 	<!-- css -->
 	
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 <script>
 	function list(page) {
 		location.href="productList?curPage="+page;
