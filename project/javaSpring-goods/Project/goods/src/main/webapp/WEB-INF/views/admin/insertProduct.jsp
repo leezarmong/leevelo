@@ -156,7 +156,7 @@ h2 {
             <tr>
                 <th>모델 번호</th>
                 <td>
-                    <input type="text" name="prd_id" id="prd_id"/>
+                    <input type="text" name="prd_id" id="prd_id" onkeypress="onlyNumber()"/>
                     <input type="button" value="중복 확인" onclick="prdidChk()"><br/>
                 </td>
             </tr>
