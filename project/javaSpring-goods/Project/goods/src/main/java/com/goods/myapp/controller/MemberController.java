@@ -83,7 +83,8 @@ public class MemberController {
 
 	// 회원 주문내역 뷰 (페이징 처리)
 	@GetMapping(value = "/mypage")
-	public String getOrderList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model, HttpSession session) {
+	public String getOrderList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model,
+			HttpSession session) {
 		MemberVO member = (MemberVO) session.getAttribute("member");
 		String member_id = member.getMember_id();
 		vo.setMember_id(member_id);
@@ -98,6 +99,32 @@ public class MemberController {
 		map.put("count", count);
 		map.put("pager", pager);
 		model.addAttribute("map", map);
+		return "member/mypage";
+	}
+
+	// 마이페이지-비밀번호 view
+	@RequestMapping(value = "/mypage2", method = RequestMethod.GET)
+	public String mypageView2() {
+		return "member/mypage2";
+	}
+
+	// 마이페이지-비밀번호 확인 처리
+	@RequestMapping(value = "/mypage2", method = RequestMethod.POST)
+	public String mypage2(MemberVO vo) {
+		memberservice.checkMember(vo);
+		return "member/mypage3";
+	}
+
+	// 마이페이지-회원정보수정 view
+	@RequestMapping(value = "/mypage3", method = RequestMethod.GET)
+	public String mypageView3() {
+		return "member/mypage3";
+	}
+
+	// 마이페이지-회원정보수정 처리
+	@RequestMapping(value = "/mypage3", method = RequestMethod.POST)
+	public String mypage3(MemberVO vo) {
+		memberservice.updateMember(vo);
 		return "member/mypage";
 	}
 

@@ -71,6 +71,7 @@
             margin-top: 20px; /* Adjust as needed */
         }
     </style>
+    
 </head>
 <body>
 
@@ -145,7 +146,7 @@
         </ul>
     </div>
      <div class="update-btn">
-        <a href="updateMemberInfo" class="btn btn-primary">회원정보수정</a>
+        <a href="mypage2" class="btn btn-primary">회원정보수정</a>
     </div>
 </div>
 

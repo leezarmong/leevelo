@@ -52,4 +52,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.getCountOrder(vo);
 	}
 
+	// 회원정보 수정
+	@Override
+	public void updateMember(MemberVO vo) {
+		memberDAO.updateMember(vo);
+	}
+
 }

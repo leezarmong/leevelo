@@ -44,7 +44,6 @@
         ]]>
 	</select>
 
-
     <!-- 장바구니 상세보기 -->
     <select id="getbasketList" resultMap="basketResult">
 	<![CDATA[

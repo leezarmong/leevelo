@@ -49,5 +49,10 @@ public class MemberDAO {
 	public int getCountOrder(GoodsPaymentVO vo) {
 		return sqlsession.selectOne("MemberDAO.CountOrder", vo);
 	}
+	
+	// 회원정보 수정
+	public void updateMember(MemberVO vo) {
+		sqlsession.update("MemberDAO.updateMember", vo);
+	}
 
 }

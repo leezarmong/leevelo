@@ -19,9 +19,12 @@ public interface MemberService {
 	public MemberVO login(MemberVO vo);
 
 	// 구매 내역 조회
-	public  List<GoodsPaymentVO> getGoodsPaymentList(GoodsPaymentVO vo, int start, int end);
+	public List<GoodsPaymentVO> getGoodsPaymentList(GoodsPaymentVO vo, int start, int end);
 
 	// 구매 갯수
 	public int getCountOrder(GoodsPaymentVO vo);
+
+	// 회원정보 수정
+	public void updateMember(MemberVO vo);
 
 }
