@@ -106,12 +106,14 @@
 		WHERE
 		MEMBER_ID = #{member_id}
 	</select> -->
+	
+	
 
 	<!-- 굿즈 구매 갯수 -->
-	<!-- <select id="CountOrder" resultType="java.lang.Integer">
+	<select id="CountOrder" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM
 		GOODS_PAYMENT WHERE MEMBER_ID =#{member_id}
-	</select> -->
+	</select>
 
 
 

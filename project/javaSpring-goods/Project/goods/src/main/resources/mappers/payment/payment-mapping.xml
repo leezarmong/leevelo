@@ -24,7 +24,7 @@
 	]]>
 	</insert>
 
-	<!-- <select id="getGoodsList" resultType="GoodsPayment">
+	 <select id="getGoodsList" resultType="GoodsPayment">
 	<![CDATA[
 		SELECT * FROM (
 		    SELECT ROWNUM rn, A.* FROM (
@@ -32,5 +32,5 @@
 									   ) A WHERE ROWNUM <= #{end}
 						)WHERE rn >=#{start}
 	]]>
-	</select> -->
+	</select>
 </mapper>
