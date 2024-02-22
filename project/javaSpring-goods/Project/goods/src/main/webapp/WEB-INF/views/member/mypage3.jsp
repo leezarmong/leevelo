@@ -7,11 +7,12 @@
 	<head>
 		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <!-- jquery -->
+    
 		<script src="resources/js/mypage.js" charset="UTF-8"></script>
+		<!-- js -->
 		
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- swal -->
-		<!-- <link rel="stylesheet" type="text/css" href="resources/css/mypage.css?"> -->
 		
 	
  <title>leeveloper</title>
@@ -145,39 +146,53 @@
 					<tr>
 						<th>이메일(선택)</th>
 						<td>
-							<!-- email split해서 값 넣어주기 -->
-							<!-- c:set 셋팅 -->
-							<c:set var="m_email" value="${member.member_email}" />
-							<c:set var="memail" value="${fn:split(m_email, '@') }" />
-							<!-- 배열 인덱스로 불러옴 -->
-							<input type="text" size="13" id="email_id" class="input" value="${memail[0] }"> @ 
-							<input type="text" size="13" id="email_addr" class="input" value="${memail[1] }" disabled>
-							<select id="email_select">
-								<option value="" selected >::선택하세요::</option>
-								<option value="naver.com">naver.com</option>
-								<option value="gmail.com">gmail.com</option>
-								<option value="hanmail.net">hanmail.net</option>
-								<option value="nate.com">nate.com</option>
-								<option value="1">직접입력</option>
-							</select>
-						</td>
+                    <label for="email" class="label">현재 Email 주소 : </label>
+					 
+					 <label id="member_email" class="input">${member.member_email}</label>
+					 <label id="idchk"></label><br><br>
+					 
+                    <input type="text" style="width: 140px; height: 35px;" name="str_email01" id="str_email01"
+                           style="width: 110px;" required> @
+                    <input type="text" style="width: 140px; height: 35px;" name="str_email02" id="str_email02"
+                           style="width: 110px;" disabled value="naver.com" required>
+                    <select name="selectEmail" id="selectEmail" style="width: 140px; height: 35px;">
+                        <option value="" selected>::선택하세요::</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="gmail.com">gmail.com</option>
+                        <option value="hanmail.net">hanmail.net</option>
+                        <option value="nate.com">nate.com</option>
+                        <option value="1">직접입력</option>
+                    </select>
+                    <script type="text/javascript">
+                        $('#selectEmail').change(function () {
+                            $("#selectEmail option:selected").each(function () {
+                                if ($(this).val() == '1') {						//직접입력일 경우
+                                    $("#str_email02").val('');					//값 초기화
+                                    $("#str_email02").attr("disabled", false);	//활성화
+                                } else {											//직접입력이 아닐경우
+                                    $("#str_email02").val($(this).text());		//선택값 입력
+                                    $("#str_email02").attr("disabled", true);	//비활성화
+                                }
+                            });
+                        });
+                    </script>
+					<td>
+                
 					</tr>
 					<tr>
 						<th>연락처(선택)</th>
 						<td>
-							<!-- phone split해서 값 넣어주기 -->
-							<!-- c:set 셋팅 -->
-							<c:set var="m_phone" value="${member.member_phone}" />
-							<c:set var="mphone" value="${fn:split(m_phone, '-') }" />
-							<!-- 배열 인덱스로 불러옴 -->
-							<select id="NUMst" style="width: 100px">
-								<option value="${mphone[0]}" selected>${mphone[0]}</option>
-								<option value="010" selected>010</option>
-								<option value="011">011</option>
-								<option value="016">016</option>
-							</select> - 
-							<input type="text" id="NUMnd" name="member_phone" class="input" maxlength="4" size="13" value="${mphone[1]}" onkeypress="onlyNumber()" /> - 
-							<input type="text" id="NUMrd" name="member_phone" class="input" maxlength="4" size="13" value="${mphone[2]}" onkeypress="onlyNumber()" />
+						 <label for="phone" class="label">휴대폰 번호</label>
+
+                    <select id="NUMst" name="member_phone" style="width: 140px; height: 35px;" required>
+                        <option value="" size="50" selected>선택</option>
+                        <option value="010">010</option>
+                        <option value="011">011</option>
+                    </select> -
+                    <input type="text" style="width: 140px; height: 35px;" id="NUMnd" name="member_phone" maxlength="4"
+                           size="15" onkeypress="onlyNumber()"/> -
+                    <input type="text" style="width: 140px; height: 35px;" id="NUMrd" name="member_phone" maxlength="4"
+                           size="15" onkeypress="onlyNumber()"/>
 						</td>
 					</tr>
 					

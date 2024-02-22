@@ -75,7 +75,7 @@
 		SET
 		MEMBER_PWD = #{member_pwd},
 		MEMBER_PHONE = #{member_phone},
-		MEMBER_EMAIL = #{member_email},
+		MEMBER_EMAIL = #{member_email}
 		WHERE
 		MEMBER_ID = #{member_id}
 	</update>

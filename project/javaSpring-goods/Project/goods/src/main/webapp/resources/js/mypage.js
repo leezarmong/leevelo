@@ -85,121 +85,71 @@ function searchPost() {
 
 // 회원정보 수정
 
-function myinfoUp() {
 
+function myinfoUp() {
 	var member_id = $("#member_id").val();
-    var member_pwd = $("#member_password").val();
-    var member_email = $("#email_id").val() + "@" + $("#email_addr").val();
-    var member_phone = $("#NUMst").val() + "-" + $("#NUMnd").val() + "-"
-      + $("#NUMrd").val();
-    if ((member_pwd == "" || member_pwd == null) && ($("#chk_member_pwd").val() == "" || $("#chk_member_pwd").val() == null)) {
-      swal({
-        icon: "warning",
-        text: "정말 수정 하시겠습니까?",
-        closeOnClickOutside: false,
-        closeOnEsc: false,
-        buttons: ["돌아가기", "수정 완료!"],
-      }).then(function (isConfirm) {
-        if (isConfirm) {
-        	swal('수정 완료!', '회원정보 수정을 완료했습니다.^^', 'success').then(function(isConfirm) {
-          $.ajax({
-            type: "POST",
-            url: "mypage3",
-            data: {
-              "member_id": member_id,
-              "member_pwd": member_pwd,
-              "member_email": member_email,
-              "member_phone": member_phone
-            },
-            success: function (data) {
-              location.href = "mypage";
-            }
-          });
-        });
-        }
-      });
-    }
-  }
+	var member_pwd = $("#member_password").val();
+	var member_phone = $("#NUMst").val() + "-" + $("#NUMnd").val() + "-" + $("#NUMrd").val();
+	var member_email = $("#str_email01").val() + "@" + $("#str_email02").val();
+	if(!member_pwd || !member_phone|| !member_email){
+		alert("필수 항목이 비어 있습니다.");
+	}else{
+		$.ajax({
+			type : "POST",
+			url : "mypage3",
+			data : {
+				"member_id" : member_id,
+				"member_pwd" : member_pwd,
+				"member_phone" : member_phone,
+				"member_email" : member_email
+			},
+			success : function(data) {
+				alert("수정 완료");
+				window.location.href="mypage";
+			}
+		});
+	}
+}
+
+
+
+
 
 //function myinfoUp() {
-//	
-//	var member_pwd = $("#member_password").val();
-//	var member_email = $("#email_id").val() + "@" + $("#email_addr").val();
-//	var member_phone = $("#NUMst").val() + "-" + $("#NUMnd").val() + "-"
-//			+ $("#NUMrd").val();
-//	
-//	var myp = $("#myp").val();
-//	if ( (member_pwd == "" || member_pwd == null) && ($("#chk_member_pwd").val()  == "" || $("#chk_member_pwd").val() == null) ) {
-//		swal({
-//			icon : "warning",
-//			text : "정말 수정 하시겠습니까?",
-//			closeOnClickOutside : false,
-//			closeOnEsc : false,
-//			buttons : [ "돌아가기", "수정 완료!" ],
-//		}).then(function(isConfirm) {
-//			if (isConfirm) {
-//				swal('수정 완료!', '회원정보 수정을 완료했습니다.^^', 'success').then(function(isConfirm) {
-//					$.ajax({
-//						type : "POST",
-//						url : "mypage3b",
-//						data : {
-//							"member_id" : member_id,
-//							"member_pwd" : member_pwd,
-//							"member_email" : member_email,
-//							"member_phone" : member_phone,
-//							"myp" : myp
-//						},
-//						success : function(data) {
-//							console.log(member_id);
-//							console.log(myp);
-//							window.location.href = "mypage?member_id=" + member_id + "&myp=" + myp;
-//						},
-//						error : function(data) {
-//							console.log(member_id);
-//							console.log(myp);
-//						}
-//					});
-//				});
-//			}
-//		})
+//	  var member_id = $("#member_id").val();
+//	  var member_pwd = $("#member_password").val();
+//	  var member_email = $("#email_id").val() + "@" + $("#email_addr").val();
+//	  var member_phone = $("#NUMst").val() + "-" + $("#NUMnd").val() + "-" + $("#NUMBER").val();
+//
+//	  if ((member_pwd === "" || member_pwd === null) && ($("#chk_member_pwd").val() === "" || $("#chk_member_pwd").val() === null)) {
+//	    swal({
+//	      icon: "warning",
+//	      text: "무엇을 생각하십니까?",
+//	      closeOnClickOutside: false,
+//	      closeOnEsc: false,
+//	      buttons: ["돌아가기", "수정 완료!"],
+//	    }).then(function(isConfirm) {
+//	      if (isConfirm) {
+//	    	  swal('수정 완료!', '회원정보 수정을 완료했습니다.^^', 'success').then(function(isConfirm) {
+//	          $.ajax({
+//	            type: "POST",
+//	            url: "mypage3",
+//	            data: {
+//	              "member_id": member_id,
+//	              "member_pwd": member_pwd,
+//	              "member_email": member_email,
+//	              "member_phone": member_phone
+//	            },
+//	            success: function(data) {
+//	              location.href = "mypage";
+//	            }
+//	          });
+//	        });
+//	      }
+//	    });
+//	  }
 //	}
-//	else if (checkPWD == false) {
-//		swal("", "필수항목이 비어있습니다. 입력해주세요.", "warning");
-//	} else {
-//		swal({
-//			icon : "warning",
-//			text : "정말 수정 하시겠습니까?",
-//			closeOnClickOutside : false,
-//			closeOnEsc : false,
-//			buttons : [ "돌아가기", "수정 완료!" ],
-//		}).then(function(isConfirm) {
-//			if (isConfirm) {
-//				swal('수정 완료!', '회원정보 수정을 완료했습니다.^^', 'success').then(function(isConfirm) {
-//					$.ajax({
-//						type : "POST",
-//						url : "mypage3",
-//						data : {
-//							"member_id" : member_id,
-//							"member_pwd" : member_pwd,
-//							"member_email" : member_email,
-//							"member_phone" : member_phone,
-//							"myp" : myp
-//						},
-//						success : function(data) {
-//							console.log(member_id);
-//							console.log(myp);
-//							window.location.href = "mypage?member_id=" + member_id + "&myp=" + myp;
-//						},
-//						error : function(data) {
-//							console.log(member_id);
-//							console.log(myp);
-//						}
-//					});
-//				});
-//			}
-//		})
-//	}
-//}
+
 
 //회원 주문 취소
 function dely(v){
