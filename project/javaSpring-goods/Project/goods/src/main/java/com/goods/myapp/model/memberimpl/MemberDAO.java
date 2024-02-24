@@ -2,6 +2,7 @@ package com.goods.myapp.model.memberimpl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,20 @@ public class MemberDAO {
 	// 회원정보 수정
 	public void updateMember(MemberVO vo) {
 		sqlsession.update("MemberDAO.updateMember", vo);
+	}
+	
+	// 관리자 회원 목록
+	public List<MemberVO> getAdminMemberList(int start, int end, MemberVO vo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		map.put("product", vo);
+		return sqlsession.selectList("MemberDAO.getAdminMemberList", map);
+	}
+
+	// 관리자 회원 목록 카운트
+	public int getAdminCountMember(MemberVO vo) {
+		return sqlsession.selectOne("MemberDAO.getAdminCountMember", vo);
 	}
 
 }

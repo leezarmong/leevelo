@@ -1,6 +1,7 @@
 package com.goods.myapp.controller;
 
 import java.io.File;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -19,8 +20,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.goods.myapp.Pager;
+import com.goods.myapp.model.member.MemberService;
+import com.goods.myapp.model.member.MemberVO;
 import com.goods.myapp.model.product.ProductInfoVO;
 import com.goods.myapp.model.product.ProductService;
+
 
 
 
@@ -29,6 +33,9 @@ public class AdminController {
 
 	@Autowired
 	ProductService productService;
+	
+	@Autowired
+	MemberService memberService;
 
 	// 상품등록 페이지
 	@RequestMapping(value = "/insertProduct", method = RequestMethod.GET)
@@ -162,6 +169,24 @@ public class AdminController {
 			model.addAttribute("map", map);
 		
 			return "admin/search";
+		}
+		
+		// 관리자 용 회원 목록
+		@RequestMapping(value = "/memberList", method = RequestMethod.GET)
+		public String memberListView(@RequestParam(defaultValue = "1") int curPage, MemberVO vo, Model model) {
+			int count = memberService.getAdminCountMember(vo);
+			Pager pager = new Pager(count, curPage);
+			int start = pager.getPageBegin();
+			int end = pager.getPageEnd();
+
+			List<MemberVO> list = memberService.getAdminMemberList(start, end, vo);
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("list", list);
+			map.put("count", count);
+			map.put("pager", pager);
+			model.addAttribute("map", map);
+			System.out.println("1");
+			return "admin/memberList";
 		}
 
 

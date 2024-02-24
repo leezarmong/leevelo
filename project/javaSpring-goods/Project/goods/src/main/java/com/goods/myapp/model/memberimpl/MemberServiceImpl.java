@@ -1,6 +1,8 @@
 package com.goods.myapp.model.memberimpl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,6 +58,19 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void updateMember(MemberVO vo) {
 		memberDAO.updateMember(vo);
+	}
+	
+	
+	// 관리자 회원 목록
+	@Override
+	public List<MemberVO> getAdminMemberList(int start, int end, MemberVO vo) {
+		return memberDAO.getAdminMemberList(start, end, vo);
+	}
+
+	// 관리자 회원 목록 카운트
+	@Override
+	public int getAdminCountMember(MemberVO vo) {
+		return memberDAO.getAdminCountMember(vo);
 	}
 
 }

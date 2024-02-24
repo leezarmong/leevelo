@@ -1,6 +1,8 @@
 package com.goods.myapp.model.member;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.goods.myapp.model.payment.GoodsPaymentVO;
 
@@ -26,5 +28,11 @@ public interface MemberService {
 
 	// 회원정보 수정
 	public void updateMember(MemberVO vo);
+
+	// 관리자 회원 목록
+	public List<MemberVO> getAdminMemberList(int start, int end, MemberVO vo);
+
+	// 관리자 회원 목록 카운트
+	public int getAdminCountMember(MemberVO vo);
 
 }

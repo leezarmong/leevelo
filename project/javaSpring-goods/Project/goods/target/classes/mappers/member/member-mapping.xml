@@ -81,6 +81,31 @@
 	</update>
 	
 	
+	<!-- 관리자용 resultMap -->
+	<resultMap id="memberinfo" type="memberinfo">
+		<result property="member_id" column="MEMBER_ID" />
+		<result property="member_name" column="MEMBER_NAME" />
+		<result property="member_phone" column="MEMBER_PHONE" />
+	</resultMap>
+	
+	<!-- 관리자 회원 목록 -->
+	<select id="getAdminMemberList" resultMap="memberinfo">
+		<![CDATA[
+			SELECT 
+			MEMBER_ID,
+			MEMBER_NAME,
+			MEMBER_PHONE
+			FROM (SELECT ROWNUM AS RN, A.* FROM (SELECT * FROM MEMBER ORDER BY MEMBER_ID DESC)A) 
+			WHERE RN BETWEEN #{start} AND #{end}
+		]]>
+	</select>	
+	
+	<!-- 관리자 회원 수 체크 -->
+	<select id="getAdminCountMember" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT COUNT(*) FROM MEMBER
+		]]>
+	</select>
 
 
 	<!-- 회원탈퇴 -->

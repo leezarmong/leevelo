@@ -10,6 +10,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- Alias (vo)설정 -->
 	<typeAliases>
 		 <typeAlias alias="member" type="com.goods.myapp.model.member.MemberVO" />
+		 <typeAlias alias="memberinfo" type="com.goods.myapp.model.member.MemberVO" />
 		 <typeAlias alias="productinfo" type="com.goods.myapp.model.product.ProductInfoVO" />
 		 <typeAlias alias="goodspayment" type="com.goods.myapp.model.payment.GoodsPaymentVO" />
 		 <typeAlias alias="basket" type="com.goods.myapp.model.basket.BasketVO" />
