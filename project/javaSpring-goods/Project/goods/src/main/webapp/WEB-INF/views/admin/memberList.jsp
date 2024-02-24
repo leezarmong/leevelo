@@ -6,12 +6,15 @@
 <head>
 <title>leeveloper</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!-- bootstrap -->
+	
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="resources/js/product.js" charset="UTF-8"></script>
-	<script src="resources/js/member.js" charset="UTF-8"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<!-- jquery -->
+	
+	<!-- <script src="resources/js/product.js" charset="UTF-8"></script>
+	<script src="resources/js/member.js" charset="UTF-8"></script> -->
+	
 	
 	<script>
 	function list(page) {
