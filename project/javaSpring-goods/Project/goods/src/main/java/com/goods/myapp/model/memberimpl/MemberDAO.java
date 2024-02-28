@@ -69,5 +69,21 @@ public class MemberDAO {
 	public int getAdminCountMember(MemberVO vo) {
 		return sqlsession.selectOne("MemberDAO.getAdminCountMember", vo);
 	}
+	
+	
+	// 관리자 회원 상세 정보
+		public MemberVO memberDetail(MemberVO vo) {
+			return (MemberVO) sqlsession.selectOne("MemberDAO.memberDetail", vo);
+		}
+		
+//		// 회원 탈퇴, 삭제
+//		public void deleteMember(MemberVO vo) {
+//			mybatis.delete("MemberDAO.deleteMember", vo);
+//		}
+		
+		// 관리자 회원 정보 수정
+		public void modifyMember(MemberVO vo) {
+			sqlsession.update("MemberDAO.modifyMember", vo);
+		}
 
 }

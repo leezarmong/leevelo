@@ -1,10 +1,12 @@
 package com.goods.myapp.model.member;
 
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
 import com.goods.myapp.model.payment.GoodsPaymentVO;
+
 
 public interface MemberService {
 
@@ -34,5 +36,16 @@ public interface MemberService {
 
 	// 관리자 회원 목록 카운트
 	public int getAdminCountMember(MemberVO vo);
+
+	// 관리자 회원 상세 정보
+	public MemberVO memberDetail(MemberVO vo);
+
+	// 회원 탈퇴, 삭제
+//		public void deleteMember(MemberVO vo) {
+//			mybatis.delete("MemberDAO.deleteMember", vo);
+//		}
+
+	// 관리자 회원 정보 수정
+	public void modifyMember(MemberVO vo);
 
 }

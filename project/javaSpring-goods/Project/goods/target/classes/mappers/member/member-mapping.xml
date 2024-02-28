@@ -108,100 +108,33 @@
 	</select>
 
 
-	<!-- 회원탈퇴 -->
-	<!-- <delete id="dropMember">
-		DELETE FROM MEMBER
-		WHERE MEMBER_ID =#{member_id}
-	</delete>
-	<select id="forgotPWChkMember" resultType="java.lang.Integer">
-		SELECT COUNT(*) FROM
-		MEMBER WHERE MEMBER_ID=#{member_id} AND MEMBER_NAME=#{member_name}
-	</select> -->
-
-	<!-- <update id="forgotPWUpdate">
-		UPDATE MEMBER SET MEMBER_PWD=#{member_pwd} WHERE
-		MEMBER_ID=#{member_id} AND MEMBER_NAME=#{member_name}
-	</update> -->
-
-
-	<!-- 구매 내역 조회 -->
-	<!-- <select id="orderMember" resultType="goodspayment">
-		SELECT GOODS_NUM,ORDER_DATE,
-		MEMBER_ADDR, ORDER_PROCESS, ORDER_PAYMENT
-		FROM GOODS_PAYMENT
-		WHERE
-		MEMBER_ID = #{member_id}
-	</select> -->
-	
-
 	<!-- 굿즈 구매 갯수 -->
 	<select id="CountOrder" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM
 		GOODS_PAYMENT WHERE MEMBER_ID =#{member_id}
 	</select>
 
-
-
-	<!-- 멤버관리 -->
-	<!-- 멤버 리스트 (미사용) -->
-<!-- 	<select id="getMemberList" resultMap="member">
-		select * from member
-		order
-		by member_no
-	</select> -->
-	<!-- 어드민 회원탈 -->
-	<!-- <delete id="deleteMember">
-		DELETE FROM MEMBER WHERE
-		MEMBER_NO =
-		#{member_no}
-	</delete> -->
-	<!-- 어드민 회원 상세보기 -->
-	<!-- <select id="getMember" resultType="member">
-		select * from member
-		where member_no=#{member_no}
-	</select> -->
+	<!-- 관리자 회원 정보 수정 -->
+	<select id="memberDetail" resultMap="member">
+		<![CDATA[
+			SELECT * FROM MEMBER WHERE MEMBER_ID=#{member_id}
+		]]>
+	</select>
 	
-	<!-- 어드민 회원 목록 검색 -->
-	<!-- <sql id="searchCondition">
-		<choose>
-			<when test='option=="N"'>
-				and member_name like '%'||#{keyword}||'%'
-			</when>
-			<when test='option=="I"'>
-				and member_id like '%'||#{keyword}||'%'
-			</when>
-			<otherwise>
-				and member_name like '%'||#{keyword}||'%'
-				or member_id like
-				'%'||#{keyword}||'%'
-			</otherwise>
-		</choose>
-	</sql> -->
-	<!-- 어드민 회원 목록 페이징 -->
-	<!-- <select id="memberPage" parameterType="SearchCondition"
-		resultType="member">
-		select *
-		from (
-		select rownum as rn, A.*
-		from (
-		select *
-		from member
-		where
-		1=1
-		<include refid="searchCondition" />
-		ORDER BY member_no
-		) A
-		) where rn between ${offset} and
-		${pageSize}*#{page}
-		AND member_id!='admin'
-	</select> -->
+	<!-- 관리자 회원 정보 수정 -->
+	<update id="modifyMember">
+		UPDATE MEMBER
+		SET
+		MEMBER_ID = #{member_id}, 
+		MEMBER_NAME = #{member_name},
+		MEMBER_LICENSE = #{member_license},
+		MEMBER_PHONE = #{member_phone},
+		MEMBER_ZIPCODE = #{member_zipcode},
+		MEMBER_FADDR = #{member_faddr},
+		MEMBER_LADDR = #{member_laddr}		
+		WHERE
+		MEMBER_ID=#{member_id}
+	</update>
 
-	<!-- <select id="memberCount" parameterType="SearchCondition"
-		resultType="int">
-		select count(*)
-		from member
-		where 1=1
-		<include refid="searchCondition" />
-	</select> -->
-
+	
 </mapper>

@@ -59,8 +59,7 @@ public class MemberServiceImpl implements MemberService {
 	public void updateMember(MemberVO vo) {
 		memberDAO.updateMember(vo);
 	}
-	
-	
+
 	// 관리자 회원 목록
 	@Override
 	public List<MemberVO> getAdminMemberList(int start, int end, MemberVO vo) {
@@ -71,6 +70,23 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int getAdminCountMember(MemberVO vo) {
 		return memberDAO.getAdminCountMember(vo);
+	}
+
+	// 관리자 회원 상세 정보
+	@Override
+	public MemberVO memberDetail(MemberVO vo) {
+		return memberDAO.memberDetail(vo);
+	}
+
+	// 회원 탈퇴, 삭제
+//	public void deleteMember(MemberVO vo) {
+//		mybatis.delete("MemberDAO.deleteMember", vo);
+//	}
+
+	// 관리자 회원 정보 수정
+	@Override
+	public void modifyMember(MemberVO vo) {
+		memberDAO.modifyMember(vo);
 	}
 
 }

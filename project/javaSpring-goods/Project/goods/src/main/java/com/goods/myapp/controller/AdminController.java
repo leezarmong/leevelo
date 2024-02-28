@@ -2,6 +2,7 @@ package com.goods.myapp.controller;
 
 import java.io.File;
 
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -187,6 +188,22 @@ public class AdminController {
 			model.addAttribute("map", map);
 			System.out.println("1");
 			return "admin/memberList";
+		}
+		
+		// 관리자 회원 정보 수정 페이지
+		@RequestMapping("/modifyMember")
+		public String modifyMember(MemberVO vo, Model model) {
+			model.addAttribute("member2", memberService.memberDetail(vo));
+			return "admin/modifyMember";
+		}	
+		
+		// 관리자 회원 수정 처리
+		@ResponseBody
+		@RequestMapping(value = "/modifyMember2", method = RequestMethod.POST)
+		public int modifyMember2(MemberVO vo) {
+			memberService.modifyMember(vo);
+			int a = 1;
+			return a;	
 		}
 
 

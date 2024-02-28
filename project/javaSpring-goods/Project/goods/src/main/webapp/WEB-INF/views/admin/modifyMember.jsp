@@ -107,7 +107,7 @@
                             <input type="button" onclick="myinfoUp()" class="btn btn-primary btn-block" style="cursor: pointer" value="수정">
                         </div>
                         <div class="col-sm-6">
-                            <input type="button" onClick="location.href='mypage'" class="btn btn-secondary btn-block" style="cursor: pointer" value="취소">
+                            <input type="button" onClick="location.href='memberList'" class="btn btn-secondary btn-block" style="cursor: pointer" value="취소">
                         </div>
                     </div>
                 </form>

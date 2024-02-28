@@ -90,7 +90,7 @@ function myinfoUp() {
 	var member_id = $("#member_id").val();
 	var member_pwd = $("#member_password").val();
 	var member_phone = $("#NUMst").val() + "-" + $("#NUMnd").val() + "-" + $("#NUMrd").val();
-	var member_email = $("#str_email01").val() + "@" + $("#str_email02").val();
+	var member_email = $("#email_id").val() + "@" + $("#email_addr").val();
 	if(!member_pwd || !member_phone|| !member_email){
 		alert("필수 항목이 비어 있습니다.");
 	}else{
