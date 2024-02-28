@@ -205,6 +205,14 @@ public class AdminController {
 			int a = 1;
 			return a;	
 		}
-
+			
+		// 관리자 회원 삭제
+		@ResponseBody
+		@RequestMapping("/delMem")
+		public int deleteMember(MemberVO vo) {
+			memberService.deleteMember(vo);
+			int a = 1;
+			return a;
+		}
 
 }

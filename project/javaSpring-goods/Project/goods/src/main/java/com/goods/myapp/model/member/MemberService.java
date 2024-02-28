@@ -7,7 +7,6 @@ import java.util.Map;
 
 import com.goods.myapp.model.payment.GoodsPaymentVO;
 
-
 public interface MemberService {
 
 	// 회원 가입
@@ -41,9 +40,7 @@ public interface MemberService {
 	public MemberVO memberDetail(MemberVO vo);
 
 	// 회원 탈퇴, 삭제
-//		public void deleteMember(MemberVO vo) {
-//			mybatis.delete("MemberDAO.deleteMember", vo);
-//		}
+	public void deleteMember(MemberVO vo);
 
 	// 관리자 회원 정보 수정
 	public void modifyMember(MemberVO vo);

@@ -79,9 +79,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	// 회원 탈퇴, 삭제
-//	public void deleteMember(MemberVO vo) {
-//		mybatis.delete("MemberDAO.deleteMember", vo);
-//	}
+	public void deleteMember(MemberVO vo) {
+		memberDAO.deleteMember(vo);
+	}
 
 	// 관리자 회원 정보 수정
 	@Override

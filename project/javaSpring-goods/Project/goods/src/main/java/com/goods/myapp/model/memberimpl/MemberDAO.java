@@ -50,12 +50,12 @@ public class MemberDAO {
 	public int getCountOrder(GoodsPaymentVO vo) {
 		return sqlsession.selectOne("MemberDAO.CountOrder", vo);
 	}
-	
+
 	// 회원정보 수정
 	public void updateMember(MemberVO vo) {
 		sqlsession.update("MemberDAO.updateMember", vo);
 	}
-	
+
 	// 관리자 회원 목록
 	public List<MemberVO> getAdminMemberList(int start, int end, MemberVO vo) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -69,21 +69,20 @@ public class MemberDAO {
 	public int getAdminCountMember(MemberVO vo) {
 		return sqlsession.selectOne("MemberDAO.getAdminCountMember", vo);
 	}
-	
-	
+
 	// 관리자 회원 상세 정보
-		public MemberVO memberDetail(MemberVO vo) {
-			return (MemberVO) sqlsession.selectOne("MemberDAO.memberDetail", vo);
-		}
-		
-//		// 회원 탈퇴, 삭제
-//		public void deleteMember(MemberVO vo) {
-//			mybatis.delete("MemberDAO.deleteMember", vo);
-//		}
-		
-		// 관리자 회원 정보 수정
-		public void modifyMember(MemberVO vo) {
-			sqlsession.update("MemberDAO.modifyMember", vo);
-		}
+	public MemberVO memberDetail(MemberVO vo) {
+		return (MemberVO) sqlsession.selectOne("MemberDAO.memberDetail", vo);
+	}
+
+	// 회원 탈퇴, 삭제
+	public void deleteMember(MemberVO vo) {
+		sqlsession.delete("MemberDAO.deleteMember", vo);
+	}
+
+	// 관리자 회원 정보 수정
+	public void modifyMember(MemberVO vo) {
+		sqlsession.update("MemberDAO.modifyMember", vo);
+	}
 
 }

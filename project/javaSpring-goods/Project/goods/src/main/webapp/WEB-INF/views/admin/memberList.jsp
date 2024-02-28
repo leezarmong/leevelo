@@ -12,8 +12,11 @@
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<!-- jquery -->
 	
-	<!-- <script src="resources/js/product.js" charset="UTF-8"></script>
-	<script src="resources/js/member.js" charset="UTF-8"></script> -->
+	<script src="resources/js/adminMember.js" charset="UTF-8"></script>
+	<!-- js -->
+	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- swal -->
 	
 	
 	<script>
