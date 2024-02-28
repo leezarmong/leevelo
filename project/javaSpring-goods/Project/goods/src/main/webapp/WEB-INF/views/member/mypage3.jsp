@@ -66,7 +66,7 @@
 						<td>
 							<!-- email split해서 값 넣어주기 -->
 							<!-- c:set 셋팅 -->
-							<c:set var="m_email" value="${member2.member_email}" />
+							<c:set var="m_email" value="${member.member_email}" />
 							<c:set var="memail" value="${fn:split(m_email, '@') }" />
 							<!-- 배열 인덱스로 불러옴 -->
 							<input type="text" size="13" id="email_id" class="input" value="${memail[0] }"> @ 
