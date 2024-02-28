@@ -45,4 +45,10 @@ public interface MemberService {
 	// 관리자 회원 정보 수정
 	public void modifyMember(MemberVO vo);
 
+	// 검색된 회원 수 불러오기
+	public int countSearchMem(String sPrd);
+
+	// 관리자 회원 검색 검색
+	public List<MemberVO> listSearchMem(String sPrd, int start, int end);
+
 }

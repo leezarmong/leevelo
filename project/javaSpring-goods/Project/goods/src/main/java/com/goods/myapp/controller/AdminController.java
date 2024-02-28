@@ -214,5 +214,32 @@ public class AdminController {
 			int a = 1;
 			return a;
 		}
+		
+		// 관리자 회원 검색
+		@RequestMapping(value = "/searchMem", method = RequestMethod.GET)
+		public String listPage2(Model model, HttpSession session, MemberVO vo,
+				@RequestParam(defaultValue = "") String sPrd2, @RequestParam(defaultValue = "1") int curPage) {
+			// 회원 수 카운트	
+			int count = memberService.countSearchMem(sPrd2);
+		
+			// 페이지 관련 설정
+			Pager pager = new Pager(count, curPage);
+			int start = pager.getPageBegin();
+			int end = pager.getPageEnd();
+
+			session.setAttribute("sPrd2", sPrd2); // 회원 이름 검색
+			session.setAttribute("curPage", curPage);		
+
+			List<MemberVO> list = memberService.listSearchMem(sPrd2, start, end); // 회원 목록
+		
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("list", list); // map에 자료 저장
+			map.put("count", count);
+			map.put("pager", pager); // 페이지 네버게이션을 위한 변수
+			map.put("sPrd2", sPrd2);
+			model.addAttribute("map", map);
+			
+			return "admin/searchmem";
+		}	
 
 }

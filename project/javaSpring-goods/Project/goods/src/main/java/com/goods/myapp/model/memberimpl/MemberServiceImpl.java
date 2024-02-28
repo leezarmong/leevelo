@@ -79,6 +79,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	// 회원 탈퇴, 삭제
+	@Override
 	public void deleteMember(MemberVO vo) {
 		memberDAO.deleteMember(vo);
 	}
@@ -87,6 +88,18 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void modifyMember(MemberVO vo) {
 		memberDAO.modifyMember(vo);
+	}
+
+	// 검색된 회원 수 불러오기
+	@Override
+	public int countSearchMem(String sPrd) {
+		return memberDAO.countSearchMem(sPrd);
+		}
+
+	// 관리자 회원 검색 검색
+	@Override
+	public List<MemberVO> listSearchMem(String sPrd, int start, int end) {
+		return memberDAO.listSearchMem(sPrd, start, end);
 	}
 
 }

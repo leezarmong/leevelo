@@ -85,4 +85,20 @@ public class MemberDAO {
 		sqlsession.update("MemberDAO.modifyMember", vo);
 	}
 
+	// 검색된 회원 수 불러오기
+	public int countSearchMem(String sPrd) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("sPrd", sPrd);
+		return sqlsession.selectOne("MemberDAO.countSearchMem", map);
+	}
+
+	// 관리자 회원 검색 검색
+	public List<MemberVO> listSearchMem(String sPrd, int start, int end) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("sPrd", sPrd);
+		map.put("start", start);
+		map.put("end", end);
+		return sqlsession.selectList("MemberDAO.listSearchMem", map);
+	}
+
 }

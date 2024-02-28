@@ -143,5 +143,21 @@
 		]]>
 	</delete>
 
+	<!-- 회원 수 불러오기 -->
+	<select id="countSearchMem" resultType="java.lang.Integer">
+		SELECT COUNT(*) 
+		FROM MEMBER
+		WHERE UPPER(MEMBER_NAME) LIKE UPPER('%'||#{sPrd}||'%') 
+		OR LOWER(MEMBER_NAME) LIKE LOWER('%'||#{sPrd}||'%')
+	</select>
 	
+	<!-- 관리자 회원 검색 -->	
+	<select id="listSearchMem" resultMap="memberinfo">
+		SELECT * FROM (
+			SELECT ROWNUM AS RN, A.* FROM (
+				SELECT * FROM MEMBER
+				WHERE UPPER(MEMBER_NAME) LIKE UPPER('%'||#{sPrd}||'%') OR LOWER(MEMBER_NAME) LIKE LOWER('%'||#{sPrd}||'%')
+			) A
+		) WHERE RN BETWEEN #{start} AND #{end}
+	</select>
 </mapper>
