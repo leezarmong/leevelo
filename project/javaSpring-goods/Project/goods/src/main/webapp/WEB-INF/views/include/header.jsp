@@ -46,7 +46,8 @@
                 <a href="basketlist" title="장바구니"><i class="fa-solid fa-cart-shopping"></i></a>
                 <a href="mypage" title="개인정보"><i class="fa-solid fa-user"></i></a>
                 <a href="memberList" title="회원관리 페이지"><i class="fa-solid fa-users"></i></a>
-                <a href="insertProduct" title="굿즈관리"><i class="fa-brands fa-goodreads"></i></a>
+                <a href="paymentList" title="회원주문 정보"><i class="fa-solid fa-truck-fast"></i></a>
+                <a href="insertProduct" title="굿즈등록"><i class="fa-brands fa-goodreads"></i></a>
                 <a href="productList" title="굿즈리스트"><i class="fa-solid fa-list"></i></a>
                 <a href="logout" class="logout" title="로그아웃"><i class="fa-solid fa-right-from-bracket"></i></a>
             </c:if>

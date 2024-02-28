@@ -16,6 +16,33 @@
 	<result property="order_name" column="ORDER_NAME"/>
 	</resultMap>
 	
+	<!-- 회원 주문 내역 -->
+	<select id="paymentList" resultMap="goodspayment">
+    <![CDATA[
+			SELECT 
+			MEMBER_ID,
+			ORDER_DATE,
+			MEMBER_ADDR,
+			MEMBER_PHONE,
+			ORDER_PROCESS,
+			ORDER_PAYMENT,
+			ORDER_NAME
+			FROM (SELECT ROWNUM AS RN, A.* FROM (SELECT * FROM GOODS_PAYMENT ORDER BY MEMBER_ID DESC)A) 
+			WHERE RN BETWEEN #{start} AND #{end}
+		]]>
+</select>
+	
+	
+	
+	
+	
+	<!-- 회원 주문 내역 갯수 -->
+	 <select id="Countpayment" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT COUNT(*) FROM GOODS_PAYMENT
+		]]>
+	</select> 
+	
 	<!-- 주문내역 저장 -->
 	<insert id="insertGoodsPayment">
 	<![CDATA[

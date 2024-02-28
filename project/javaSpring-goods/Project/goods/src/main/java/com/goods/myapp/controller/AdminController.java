@@ -23,6 +23,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.goods.myapp.Pager;
 import com.goods.myapp.model.member.MemberService;
 import com.goods.myapp.model.member.MemberVO;
+import com.goods.myapp.model.payment.GoodsPaymentService;
+import com.goods.myapp.model.payment.GoodsPaymentVO;
 import com.goods.myapp.model.product.ProductInfoVO;
 import com.goods.myapp.model.product.ProductService;
 
@@ -37,6 +39,9 @@ public class AdminController {
 	
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	GoodsPaymentService goodspaymentService;
 
 	// 상품등록 페이지
 	@RequestMapping(value = "/insertProduct", method = RequestMethod.GET)
@@ -241,5 +246,23 @@ public class AdminController {
 			
 			return "admin/searchmem";
 		}	
+		
+		
+		// 회원 주문 내역
+	    @RequestMapping("/paymentList")
+	    public String getfbMirrorList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model) {
+	        int count = goodspaymentService.Countpayment(vo);
+	        Pager pager = new Pager(count, curPage);
+	        int start = pager.getPageBegin();
+	        int end = pager.getPageEnd();
+
+	        List<GoodsPaymentVO> list = goodspaymentService.paymentList(vo, start, end);
+	        HashMap<String, Object> map = new HashMap<String, Object>();
+	        map.put("list", list);
+	        map.put("count", count);
+	        map.put("pager", pager);
+	        model.addAttribute("map", map);
+	        return "admin/paymentList";
+	    }
 
 }
