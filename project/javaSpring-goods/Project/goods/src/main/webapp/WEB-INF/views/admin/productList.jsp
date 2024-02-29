@@ -18,11 +18,14 @@
 	<link rel="stylesheet" type="text/css" href="resources/css/productList.css">
 	<!-- css -->
 	
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 	
 <script>
-	function list(page) {
+	/* function list(page) {
 		location.href="productList?curPage="+page;
-	}
+	} */
 	function searchPrd2() {
 		var sea = $("#sPrd2").val();
 		self.location = "searchPrd2?sPrd2=" + sea;
@@ -101,9 +104,11 @@
         </table>
       </div>
     </div>
+    <br>
+    <br>
 
     <!-- pager -->
-    <div id="pager">
+   <%--  <div id="pager">
       <tr>
         <td colspan="7" align="center">
           <c:if test="${map.pager.curBlock > 1}">
@@ -130,7 +135,28 @@
           </c:if>
         </td>
       </tr>
+    </div> --%>
+    
+    	  <!-- pager -->
+    <div class="pagination justify-content-center">
+        <ul class="pagination">
+            <c:if test="${map.pager.curBlock > 1}">
+                <li class="page-item"><a class="page-link" href="productList">처음</a></li>
+                <li class="page-item"><a class="page-link" href="productList?curPage=${map.pager.prevPage}">이전</a></li>
+            </c:if>
+            <c:forEach var="num" begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
+                <li class="page-item <c:if test='${num == map.pager.curPage}'>active</c:if>'">
+                    <a class="page-link" href="productList?curPage=${num}">${num}</a>
+                </li>
+            </c:forEach>
+            <c:if test="${map.pager.curBlock < map.pager.totBlock}">
+                <li class="page-item"><a class="page-link" href="productList?curPage=${map.pager.nextPage}">다음</a></li>
+                <li class="page-item"><a class="page-link" href="productList?curPage=${map.pager.totPage}">끝</a></li>
+            </c:if>
+        </ul>
     </div>
+    
+    
 
   </section>
 	

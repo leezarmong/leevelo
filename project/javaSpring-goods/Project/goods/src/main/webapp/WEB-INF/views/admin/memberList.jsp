@@ -6,7 +6,8 @@
 <head>
 <title>leeveloper</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- bootstrap -->
 	
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -19,11 +20,11 @@
     <!-- swal -->
 	
 	
-	<script>
+	<!-- <script>
 	function list(page) {
 		location.href="memberList?curPage="+page;
 	}
-</script>
+</script> -->
 	
 </head>
 <body>
@@ -74,26 +75,25 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="pagination justify-content-center mt-3">
-			<c:if test="${map.pager.curBlock > 1}">
-				<a href="#" onclick="list('1')" class="mr-2">[처음]</a>
-				<a href="#" onclick="list('${map.pager.prevPage}')" class="mr-2">[이전]</a>
-			</c:if>
-			<c:forEach var="num" begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
-				<c:choose>
-					<c:when test="${num == map.pager.curPage}">
-						<span class="text-danger">${num}</span>
-					</c:when>
-					<c:otherwise>
-						<a href="#" onclick="list('${num}')" class="mr-2">${num}</a>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-			<c:if test="${map.pager.curBlock < map.pager.totBlock}">
-				<a href="#" onclick="list('${map.pager.nextPage}')" class="mr-2">[다음]</a>
-				<a href="#" onclick="list('${map.pager.totPage}')" class="mr-2">[끝]</a>
-			</c:if>
-		</div>
+		
+		  <!-- pager -->
+    <div class="pagination justify-content-center">
+        <ul class="pagination">
+            <c:if test="${map.pager.curBlock > 1}">
+                <li class="page-item"><a class="page-link" href="memberList">처음</a></li>
+                <li class="page-item"><a class="page-link" href="memberList?curPage=${map.pager.prevPage}">이전</a></li>
+            </c:if>
+            <c:forEach var="num" begin="${map.pager.blockBegin}" end="${map.pager.blockEnd}">
+                <li class="page-item <c:if test='${num == map.pager.curPage}'>active</c:if>'">
+                    <a class="page-link" href="memberList?curPage=${num}">${num}</a>
+                </li>
+            </c:forEach>
+            <c:if test="${map.pager.curBlock < map.pager.totBlock}">
+                <li class="page-item"><a class="page-link" href="memberList?curPage=${map.pager.nextPage}">다음</a></li>
+                <li class="page-item"><a class="page-link" href="memberList?curPage=${map.pager.totPage}">끝</a></li>
+            </c:if>
+        </ul>
+    </div>
 	</section>
 	<%@ include file="../include/footer.jsp" %>
 </body>
