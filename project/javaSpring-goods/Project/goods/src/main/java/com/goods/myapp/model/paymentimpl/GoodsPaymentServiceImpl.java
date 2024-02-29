@@ -2,6 +2,7 @@ package com.goods.myapp.model.paymentimpl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,10 @@ public class GoodsPaymentServiceImpl implements GoodsPaymentService {
 	public void insertGoodsPayment(GoodsPaymentVO vo) {
 		goodspaymentDAO.insertGoodsPayment(vo);
 	}
+	
+	
 
+	// 일반 pager
 	// 회원 주문 내역
 	@Override
 	public List<GoodsPaymentVO> paymentList(GoodsPaymentVO vo, int start, int end) {
@@ -31,6 +35,21 @@ public class GoodsPaymentServiceImpl implements GoodsPaymentService {
 	@Override
 	public int Countpayment(GoodsPaymentVO vo) {
 		return goodspaymentDAO.Countpayment(vo);
+	}
+	
+	
+
+	// 검색창 pager
+	// 검색된 회원 수 불러오기
+	@Override
+	public int CountSearchPayment(String sPrd) {
+		return goodspaymentDAO.CountSearchPayment(sPrd);
+	}
+
+	// 관리자 회원 검색 검색
+	@Override
+	public List<GoodsPaymentVO> SearchPaymentList(String sPrd, int start, int end) {
+		return goodspaymentDAO.SearchPaymentList(sPrd, start, end);
 	}
 
 }

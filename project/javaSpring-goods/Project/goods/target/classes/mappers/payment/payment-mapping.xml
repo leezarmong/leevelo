@@ -16,7 +16,8 @@
 	<result property="order_name" column="ORDER_NAME"/>
 	</resultMap>
 	
-	<!-- 회원 주문 내역 -->
+	<!-- 일반 pager -->
+<!-- 	회원 주문 내역 -->
 	<select id="paymentList" resultMap="goodspayment">
     <![CDATA[
 			SELECT 
@@ -33,15 +34,39 @@
 </select>
 	
 	
-	
-	
-	
 	<!-- 회원 주문 내역 갯수 -->
 	 <select id="Countpayment" resultType="java.lang.Integer">
 		<![CDATA[
 			SELECT COUNT(*) FROM GOODS_PAYMENT
 		]]>
 	</select> 
+	
+	
+	<!-- 검색창 pager -->
+	<!-- 회원 수 불러오기 -->
+	<select id="CountSearchPayment" resultType="java.lang.Integer">
+		SELECT COUNT(*) 
+		FROM GOODS_PAYMENT
+		WHERE UPPER(MEMBER_ID) LIKE UPPER('%'||#{sPrd}||'%') 
+		OR LOWER(MEMBER_ID) LIKE LOWER('%'||#{sPrd}||'%')
+	</select>
+	
+	<!-- 관리자 회원 검색 -->	
+	<select id="SearchPaymentList" resultMap="goodspayment">
+		SELECT * FROM (
+			SELECT ROWNUM AS RN, A.* FROM (
+				SELECT * FROM GOODS_PAYMENT
+				WHERE UPPER(MEMBER_ID) LIKE UPPER('%'||#{sPrd}||'%') OR LOWER(MEMBER_ID) LIKE LOWER('%'||#{sPrd}||'%')
+			) A
+		) WHERE RN BETWEEN #{start} AND #{end}
+	</select>
+	
+	
+	
+	
+	
+	
+	
 	
 	<!-- 주문내역 저장 -->
 	<insert id="insertGoodsPayment">

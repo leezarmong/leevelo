@@ -248,9 +248,9 @@ public class AdminController {
 		}	
 		
 		
-		// 회원 주문 내역
+		// 회원 주문 내역 (pager)
 	    @RequestMapping("/paymentList")
-	    public String getfbMirrorList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model) {
+	    public String paymentList(@RequestParam(defaultValue = "1") int curPage, GoodsPaymentVO vo, Model model) {
 	        int count = goodspaymentService.Countpayment(vo);
 	        Pager pager = new Pager(count, curPage);
 	        int start = pager.getPageBegin();
@@ -263,6 +263,31 @@ public class AdminController {
 	        map.put("pager", pager);
 	        model.addAttribute("map", map);
 	        return "admin/paymentList";
+	    }
+	    
+	    
+	 // 회원 주문 내역 (검색)
+	    @RequestMapping(value = "/searchID" , method = RequestMethod.GET)
+	    public String paymentList(Model model, HttpSession session, GoodsPaymentVO vo,
+				@RequestParam(defaultValue = "") String sPrd, @RequestParam(defaultValue = "1") int curPage) {
+	        int count = goodspaymentService.CountSearchPayment(sPrd);
+	       
+	        Pager pager = new Pager(count, curPage);
+	        int start = pager.getPageBegin();
+	        int end = pager.getPageEnd();
+	        
+	        session.setAttribute("sPrd",sPrd);	// 아이디 검색
+	        session.setAttribute("curPage", curPage);
+
+	        List<GoodsPaymentVO> list = goodspaymentService.SearchPaymentList(sPrd, start, end);
+	        HashMap<String, Object> map = new HashMap<String, Object>();
+	        map.put("list", list);
+	        map.put("count", count);
+	        map.put("pager", pager);
+	        map.put("sPrd", sPrd);
+	        model.addAttribute("map", map);
+	        
+	        return "admin/searchID";
 	    }
 
 }
