@@ -268,8 +268,7 @@ public class AdminController {
 	    
 	 // 회원 주문 내역 (검색)
 	    @RequestMapping(value = "/searchID" , method = RequestMethod.GET)
-	    public String paymentList(Model model, HttpSession session, GoodsPaymentVO vo,
-				@RequestParam(defaultValue = "") String sPrd, @RequestParam(defaultValue = "1") int curPage) {
+	    public String paymentList(Model model, HttpSession session, GoodsPaymentVO vo, String sPrd, @RequestParam(defaultValue = "1") int curPage) {
 	        int count = goodspaymentService.CountSearchPayment(sPrd);
 	       
 	        Pager pager = new Pager(count, curPage);

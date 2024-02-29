@@ -31,7 +31,7 @@
     <div class="row justify-content-center mt-3">
 			<div class="col-md-6">
 				<div class="input-group">
-					<input type="text" class="form-control" name="sPrd" id="sPrd" placeholder="회원 아이 검색" onkeypress="if(event.keyCode == 13) {searchMem(); return;}">
+					<input type="text" class="form-control" name="sPrd" id="sPrd" placeholder="회원 아이디 검색" onkeypress="if(event.keyCode == 13) {searchMem(); return;}">
 					<div class="input-group-append">
 						<button type="button" class="btn btn-primary" id="searchBtn" onclick="searchMem()">검색</button>
 					</div>
@@ -39,12 +39,12 @@
 			</div>
 		</div>
 		
-		<script type="text/javascript">      
+	<script type="text/javascript">      
 	function searchMem() {
 		var sea = $("#sPrd").val();
 		self.location = "searchID?sPrd=" + sea;
 	}
-</script>	
+	</script>	
     
     <div class="order mt-4">
         <div class="table-responsive">
