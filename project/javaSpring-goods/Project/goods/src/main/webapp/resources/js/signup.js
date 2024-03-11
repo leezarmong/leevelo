@@ -126,7 +126,7 @@ function doSignup() {
 			},
 			success : function(data) {
 				alert("가입 완료.");
-				window.location.href="main";
+				window.location.href="goodsmall";
 			}
 		});
 	}

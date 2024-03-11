@@ -55,6 +55,12 @@ public class MemberController {
 
 		return "goodsmall";
 	}
+	
+	// 회원가입 페이지
+		@RequestMapping(value = "/signup", method = RequestMethod.GET)
+		public String signup() {
+			return "member/signup";
+		}
 
 	// 회원가입
 	@RequestMapping(value = "/sign", method = RequestMethod.POST)
