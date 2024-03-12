@@ -126,10 +126,6 @@
                                 <input type="tel" class="form-control" id="member_name" placeholder="Name" required><br>
                             </div>
                             
-                             <!-- key -->
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="member_key" placeholder="주민번호  '-없이 입력'" required onkeypress="onlyNumber()"><br>
-                            </div>
 
                             <!-- phone -->
                             <div class="form-group row">

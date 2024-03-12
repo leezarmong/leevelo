@@ -13,7 +13,6 @@
 		<result property="member_age" column="MEMBER_AGE" />
 		<result property="member_email" column="MEMBER_EMAIL" />
 		<result property="member_addr" column="MEMBER_ADDR" />
-		<result property="member_key" column="MEMBER_KEY" />
 		<result property="member_date" column="MEMBER_DATE" />
 	</resultMap>
 
@@ -41,7 +40,6 @@
 			MEMBER_AGE, 
 			MEMBER_EMAIL,
 			MEMBER_ADDR,
-			MEMBER_KEY,
 			MEMBER_DATE
 			
 		) VALUES(
@@ -53,7 +51,6 @@
 			#{member_age},
 			#{member_email},
 			#{member_addr},
-			#{member_key},
 			sysdate
 			
 		)

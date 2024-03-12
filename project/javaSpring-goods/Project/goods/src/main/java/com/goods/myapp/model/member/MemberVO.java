@@ -12,7 +12,6 @@ public class MemberVO {
 		private int member_age;		// 나이
 		private String member_email;// 이메일
 		private String member_addr;	// 주소
-		private Long member_key;	// 주민번호
 		private Date member_date;	// 가입날짜
 		
 		private Integer getMember;
@@ -88,14 +87,6 @@ public class MemberVO {
 			this.member_addr = member_addr;
 		}
 
-		public Long getMember_key() {
-			return member_key;
-		}
-
-		public void setMember_key(Long member_key) {
-			this.member_key = member_key;
-		}
-
 		public Date getMember_date() {
 			return member_date;
 		}
@@ -123,7 +114,6 @@ public class MemberVO {
 					", member_age=" + member_age +
 					", member_email='" + member_email + '\'' +
 					", member_addr='" + member_addr + '\'' +
-					", member_key=" + member_key +
 					", member_date=" + member_date +
 					", getMember=" + getMember +
 					'}';

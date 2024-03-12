@@ -102,7 +102,6 @@ function doSignup() {
 	var member_age = $("#member_age").val();
 	var member_email = $("#str_email01").val() + "@" + $("#str_email02").val();
 	var member_addr = $("#member_addr").val()+$("#member_faddr").val()+$("#member_laddr").val();
-	var member_key = $("#member_key").val();
 	
 	if(!$("#member_id").val() || !$("#member_pwd").val() || !$("#member_name").val()
 			|| !$("#member_addr").val())
@@ -120,8 +119,7 @@ function doSignup() {
 				"member_phone" : member_phone,
 				"member_age" : member_age,
 				"member_email" : member_email,
-				"member_addr" : member_addr,
-				"member_key" : member_key
+				"member_addr" : member_addr
 				
 			},
 			success : function(data) {
