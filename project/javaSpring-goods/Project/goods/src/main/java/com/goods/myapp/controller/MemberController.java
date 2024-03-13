@@ -140,6 +140,32 @@ public class MemberController {
 		return "member/find_id";
 	}
 	
+	// 아이디 찾기 회원체크	
+	@ResponseBody
+	@RequestMapping(value = "/findId")
+	public int findId(MemberVO vo) {
+		int findId = memberservice.findId(vo);
+		return findId;
+	}
+	
+	// 아이디 찾기
+	@RequestMapping(value = "/findId2", method = RequestMethod.POST)
+	public String findId2(MemberVO vo, HttpSession session) {
+		MemberVO member = memberservice.findId2(vo);
+		if (member != null) {
+			session.setAttribute("member", member);
+			return "member/found_id";
+		} else {
+			return "member/find_id";
+		}
+	}
+	
+	// 찾은 아이디
+	@RequestMapping("/foundID")
+	public String foundIDView() {
+		return "member/found_id"; 
+		}
+	
 	//비밀번호 찾기
 	@RequestMapping(value = "find_pw", method = RequestMethod.GET)
 	public String find_pw() {

@@ -7,10 +7,17 @@
     <title>leevleoper</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="http://code.jquery.com/jquery-1.10.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <!-- jquery -->
+    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- bootstrap -->
+    
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript" src="resources/js/login.js?12" charset="UTF-8"></script>
+    <!-- swal -->
+    
+    <script type="text/javascript" src="resources/js/login.js" charset="UTF-8"></script>
+    <!-- js -->
+    
 </head>
 <body style="margin-top: 200px;">
     <%@ include file="../include/header.jsp" %>

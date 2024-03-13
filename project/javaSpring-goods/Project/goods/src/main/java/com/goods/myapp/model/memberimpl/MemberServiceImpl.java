@@ -101,5 +101,16 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> listSearchMem(String sPrd, int start, int end) {
 		return memberDAO.listSearchMem(sPrd, start, end);
 	}
+	
+	// 아이디 찾기
+	@Override
+	public int findId(MemberVO vo) {
+		return memberDAO.findId(vo);
+	}
+	
+	@Override
+	public MemberVO findId2(MemberVO vo) {
+		return memberDAO.findId2(vo);
+	}
 
 }

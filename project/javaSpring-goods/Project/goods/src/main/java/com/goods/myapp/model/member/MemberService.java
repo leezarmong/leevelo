@@ -1,11 +1,12 @@
 package com.goods.myapp.model.member;
 
-import java.util.HashMap;
+
 
 import java.util.List;
-import java.util.Map;
+
 
 import com.goods.myapp.model.payment.GoodsPaymentVO;
+
 
 public interface MemberService {
 
@@ -50,5 +51,9 @@ public interface MemberService {
 
 	// 관리자 회원 검색 검색
 	public List<MemberVO> listSearchMem(String sPrd, int start, int end);
+	
+	// 아이디 찾기
+	int findId(MemberVO vo);
+	MemberVO findId2(MemberVO vo);
 
 }

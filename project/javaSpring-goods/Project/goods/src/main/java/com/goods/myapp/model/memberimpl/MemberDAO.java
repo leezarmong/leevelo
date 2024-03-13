@@ -100,5 +100,16 @@ public class MemberDAO {
 		map.put("end", end);
 		return sqlsession.selectList("MemberDAO.listSearchMem", map);
 	}
+	
+	// 아이디 찾기
+		public int findId(MemberVO vo) {
+			System.out.println("이름체크3");
+			return sqlsession.selectOne("MemberDAO.findId", vo);
+		}
+		
+		public MemberVO findId2(MemberVO vo) {
+			System.out.println("회원체크3");
+			return (MemberVO) sqlsession.selectOne("MemberDAO.findId2", vo);
+		}
 
 }
