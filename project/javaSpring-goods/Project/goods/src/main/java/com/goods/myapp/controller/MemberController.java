@@ -133,5 +133,17 @@ public class MemberController {
 		memberservice.updateMember(vo);
 		return "member/mypage";
 	}
+	
+	//아이디 찾기
+	@RequestMapping(value = "find_id", method = RequestMethod.GET)
+	public String find_id() {
+		return "member/find_id";
+	}
+	
+	//비밀번호 찾기
+	@RequestMapping(value = "find_pw", method = RequestMethod.GET)
+	public String find_pw() {
+		return "member/find_pw";
+	}
 
 }

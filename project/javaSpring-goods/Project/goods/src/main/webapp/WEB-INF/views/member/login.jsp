@@ -53,10 +53,10 @@
                                 <!-- 부가 버튼 -->
                                 <div class="row justify-content-between mt-1">
                                     <div class="col-sm-4">
-                                     <a href="#"  class="btn btn-primary btn-block">아이디 찾기</a>
+                                     <a href="find_id"  class="btn btn-primary btn-block">아이디 찾기</a>
                                     </div>
                                     <div class="col-sm-4">
-                                     <a href="#"  class="btn btn-primary btn-block">비밀번호 찾기</a>
+                                     <a href="find_pw"  class="btn btn-primary btn-block">비밀번호 찾기</a>
                                     </div>
                                     <div class="col-sm-4">
                                         <a href="signup"  class="btn btn-primary btn-block">회원가입</a>

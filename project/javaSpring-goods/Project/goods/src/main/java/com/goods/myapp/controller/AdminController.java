@@ -193,6 +193,8 @@ public class AdminController {
 	@RequestMapping("/modifyMember")
 	public String modifyMember(MemberVO vo, Model model) {
 		model.addAttribute("member2", memberService.memberDetail(vo));
+		// member2 로 해주는 이유는 sesseion 에는 이미 member  로그인 되어있는 정보가 담겨있기 때문에
+		// member 로 해줄 경우 회원의 정보가 안뜨고 admin 의 정보가 뜨게 된다.
 		return "admin/modifyMember";
 	}
 
