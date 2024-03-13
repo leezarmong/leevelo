@@ -1,4 +1,9 @@
-
+//숫자입력
+function onlyNumber(){
+	if((event.keyCode<48)||(event.keyCode>57)) {
+		event.returnValue=false;
+	}
+}
 
 function checkFI() {
 	var member_name =$("#member_name").val();
@@ -49,7 +54,7 @@ function checkFP() {
 	} else {
 		$.ajax({
 			type : "POST",
-			url : "findPw",
+			url : "found_pw",
 			data : {
 				"member_id" : member_id,
 				"member_name" : member_name,
@@ -64,7 +69,7 @@ function checkFP() {
 							"member_name" : member_name,
 							"member_phone" : member_phone
 						}, success : function() {
-							window.open("foundPW", "비밀번호 찾기", "status = no, width = 400, height = 300, left = " + popupX + ", top = " + popupY);
+							window.open("found_pw", "비밀번호 찾기", "status = no, width = 400, height = 300, left = " + popupX + ", top = " + popupY);
 						}
 					});
 				} else {
@@ -81,11 +86,11 @@ function checkFP() {
 function changePw(){
 	var member_id = $("#member_id").val();
 	var member_name = $("#member_name").val();
-	var member_password=$("#member_password").val();
-	var member_repassword=$("#member_repassword").val();
-	if(!member_password || !member_repassword){
+	var member_pwd=$("#member_pwd").val();
+	var member_repassword_two=$("#member_repassword").val();
+	if(!member_pwd || !member_repassword){
 		swal("","비밀번호를 입력해 주세요.","warning");
-	}else if(member_password != member_repassword){
+	}else if(member_pwd != member_repassword){
 		swal("","비밀번호를 일치시켜 주세요.","warning");
 	}else{
 		$.ajax({
@@ -94,16 +99,17 @@ function changePw(){
 			data : {
 				"member_id" : member_id,
 				"member_name" : member_name,
-				"member_password" : member_password
+				"member_pwd" : member_pwd
 			},
 			success : function(data) {
 				swal("","비밀번호가 변경되었습니다","success")
 				.then(function(isConfirm){
 					$.ajax({
 						type : "GET",
-						url : "emptyss",
+						url : "logout",
 						success : function(data) {
 							self.close();
+							 //window.close(); // 팝업 창 닫기
 							opener.top.location = "login";	
 						}
 					});

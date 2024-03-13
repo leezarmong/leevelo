@@ -94,23 +94,42 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int countSearchMem(String sPrd) {
 		return memberDAO.countSearchMem(sPrd);
-		}
+	}
 
 	// 관리자 회원 검색 검색
 	@Override
 	public List<MemberVO> listSearchMem(String sPrd, int start, int end) {
 		return memberDAO.listSearchMem(sPrd, start, end);
 	}
-	
+
 	// 아이디 찾기
 	@Override
 	public int findId(MemberVO vo) {
 		return memberDAO.findId(vo);
 	}
 	
+	// 아이디 불러오기
 	@Override
 	public MemberVO findId2(MemberVO vo) {
 		return memberDAO.findId2(vo);
+	}
+
+	// 비밀번호 찾기
+	@Override
+	public int findPw(MemberVO vo) {
+		return memberDAO.findPw(vo);
+	}
+	
+	// 비밀번호 불러오기
+	@Override
+	public MemberVO findPw2(MemberVO vo) {
+		return memberDAO.findPw2(vo);
+	}
+
+	// 비밀번호 변경
+	@Override
+	public void cpwMember(MemberVO vo) {
+		memberDAO.cpwMember(vo);
 	}
 
 }

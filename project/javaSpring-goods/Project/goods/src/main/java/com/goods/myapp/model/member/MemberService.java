@@ -5,7 +5,9 @@ package com.goods.myapp.model.member;
 import java.util.List;
 
 
+
 import com.goods.myapp.model.payment.GoodsPaymentVO;
+
 
 
 public interface MemberService {
@@ -53,7 +55,14 @@ public interface MemberService {
 	public List<MemberVO> listSearchMem(String sPrd, int start, int end);
 	
 	// 아이디 찾기
-	int findId(MemberVO vo);
-	MemberVO findId2(MemberVO vo);
+	public int findId(MemberVO vo);
+	public MemberVO findId2(MemberVO vo);
+	
+	// 비밀번호 찾기
+	public int findPw(MemberVO vo);
+	public MemberVO findPw2(MemberVO vo);
+	
+	// 비밀번호 변경
+	public void cpwMember(MemberVO vo);
 
 }

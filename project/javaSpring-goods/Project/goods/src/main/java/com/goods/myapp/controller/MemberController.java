@@ -171,5 +171,43 @@ public class MemberController {
 	public String find_pw() {
 		return "member/find_pw";
 	}
+	
+	// 비밀번호 찾기 회원체크	
+	@ResponseBody
+	@RequestMapping(value = "/findPw")
+	public int findPw(MemberVO vo) {
+		int findPw = memberservice.findPw(vo);
+		return findPw;
+	}
+	
+	// 비밀번호 찾기 변경
+	@RequestMapping(value = "/findPw2", method = RequestMethod.GET)
+	public String findPw2(MemberVO vo, HttpSession session) {
+		MemberVO member = memberservice.findPw2(vo);
+		if (member != null) {
+			session.setAttribute("member", member);
+			return "member/found_pw";
+		} else {
+			return "member/find_pw";
+		}
+	}
+	
+	
+	
+	// 비밀번호 변경
+		@RequestMapping("/cpw")
+		public String cpwMember (MemberVO vo) {
+			
+			memberservice.cpwMember(vo);
+			
+			return "redirect:findPw2";
+		
+		}
+		
+	// 찾은 비밀번호
+	@RequestMapping("/found_pw")
+	public String foundPWView() {
+		return "member/found_pw"; 
+		}
 
 }
