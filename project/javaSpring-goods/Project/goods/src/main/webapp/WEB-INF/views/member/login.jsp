@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
+        <title>leevleoper</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <!-- bootstrap -->
 
@@ -41,11 +41,11 @@
                             <form id="loginForm" method="post">
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input id="user" type="text" class="form-control" name="member_id" placeholder="Enter username">
+                                    <input id="user" type="text" class="form-control" name="member_id" placeholder="ID">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input id="pass" type="password" class="form-control" name="member_pwd" placeholder="Enter password">
+                                    <input id="pass" type="password" class="form-control" name="member_pwd" placeholder="PASSWORD">
                                 </div><br>
         
                                 <input type="submit" class="btn btn-primary btn-block" id="loginBtn" value="Login"><br>

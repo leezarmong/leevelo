@@ -63,7 +63,8 @@
 				<tbody>
 					<c:forEach begin="0" end="${fn:length(map.list) - 1}" var="i">
 						<c:set var="member2" value="${map.list[i]}" />
-						<c:if test="${not empty member2}">
+						<c:if test="${not empty member2 and member2.member_id ne 'admin'}"> 
+						<!-- admin 입장에서 자신의 정보가 안뜨게. -->
 							<tr>
 								<td>${member2.member_id}</td>
 								<td><a href="modifyMember?member_id=${member2.member_id}" class="text-danger">${member2.member_name}</a></td>

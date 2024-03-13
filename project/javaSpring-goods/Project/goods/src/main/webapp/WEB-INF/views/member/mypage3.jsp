@@ -85,20 +85,28 @@
                             <th scope="col">연락처(선택)</th>
                             <td>
                                 <div class="input-group">
-                                    <select class="custom-select" id="NUMst" name="member_phone" required>
-                                        <option value="" selected>선택</option>
-                                        <option value="010">010</option>
-                                        <option value="011">011</option>
-                                    </select>
+                                
+                                <c:set var="m_phone" value="${member.member_phone}" />
+							<c:set var="mphone" value="${fn:split(m_phone, '-') }" />
+							<!-- 배열 인덱스로 불러옴 -->
+							<select id="NUMst" style="width: 100px">
+								<option value="${mphone[0]}" selected>${mphone[0]}</option>
+								<!-- 받아온 값의 배열로 selected 되게  -->
+								<option value="010" selected>010</option>
+								<option value="011">011</option>
+								<option value="016">016</option>
+							</select>
+									
+									<div class="input-group-prepend">
+                                        <span class="input-group-text">-</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="NUMnd" name="member_phone" maxlength="4" size="15" value="${mphone[1] }" onkeypress="onlyNumber()">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">-</span>
                                     </div>
-                                    <input type="text" class="form-control" id="NUMnd" name="member_phone" maxlength="4" size="15" onkeypress="onlyNumber()">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">-</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="NUMrd" name="member_phone" maxlength="4" size="15" onkeypress="onlyNumber()">
+                                    <input type="text" class="form-control" id="NUMrd" name="member_phone" maxlength="4" size="15" value="${mphone[2] }" onkeypress="onlyNumber()">
                                 </div>
+                                
                             </td>
                         </tr>
                     </table>
