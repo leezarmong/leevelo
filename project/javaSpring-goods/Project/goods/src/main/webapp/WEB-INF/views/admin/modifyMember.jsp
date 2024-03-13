@@ -71,7 +71,7 @@
 							<!-- 배열 인덱스로 불러옴 -->
 							<input type="text" size="13" id="email_id" class="input" value="${memail[0] }"> @ 
 							<input type="text" size="13" id="email_addr" class="input" value="${memail[1] }" disabled>
-							<select id="email_select">
+							<select id="email_select" style="height: 30px;">
 								<option value="" selected >::선택하세요::</option>
 								<option value="naver.com">naver.com</option>
 								<option value="gmail.com">gmail.com</option>
