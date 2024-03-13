@@ -31,8 +31,8 @@
                         <tr>
                             <th scope="col">아이디</th>
                             <td>
-                                <label class="form-control">${member.member_id}</label>
-                                <input type="hidden" id="member_id" value="${member.member_id}">
+                                <label class="form-control">${member2.member_id}</label>
+                                <input type="hidden" id="member_id" value="${member2.member_id}">
                                 <label id="idchk"></label>
                             </td>
                         </tr>
@@ -57,7 +57,7 @@
                         <tr>
                             <th scope="col">이름</th>
                             <td>
-                                <label id="member_name" class="form-control">${member.member_name}</label>
+                                <label id="member_name" class="form-control">${member2.member_name}</label>
                                 <label id="chkname"></label>
                             </td>
                         </tr>
@@ -86,7 +86,7 @@
                             <td>
                                   <div class="input-group">
                                 
-                                <c:set var="m_phone" value="${member.member_phone}" />
+                                <c:set var="m_phone" value="${member2.member_phone}" />
 							<c:set var="mphone" value="${fn:split(m_phone, '-') }" />
 							<!-- 배열 인덱스로 불러옴 -->
 							<select id="NUMst" style="width: 100px">
