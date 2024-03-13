@@ -55,7 +55,6 @@
 						      <input type="text" class="form-control" id="member_phone3" name="member_phone3" placeholder="5678" maxlength="4" onkeypress="onlyNumber()" required>
 						    </div>
 						</div>
-
                             <button id="lo" type="button" class="btn btn-primary" onclick="checkFI()">아이디 찾기</button>
                         </form>
                         <p>위 방법으로 아이디를 찾을 수 없는 경우 <a href="#" target="_blank">고객센터</a>에 문의해주세요.</p>
