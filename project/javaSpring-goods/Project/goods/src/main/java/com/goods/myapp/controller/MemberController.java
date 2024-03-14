@@ -3,6 +3,7 @@ package com.goods.myapp.controller;
 import java.util.HashMap;
 
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -201,10 +202,19 @@ public class MemberController {
 	
 	// 비밀번호 변경
 	@RequestMapping("/cpw")
-	public void cpwMember (MemberVO vo) {	
+	public void cpwMember (MemberVO vo) {
+		System.out.print("service 전 까지는 오냐???");
 		memberservice.cpwMember(vo);
+		System.out.print(" service통과는 하냐?");
 	}
-		
 	
-
+	// 세션 비우기
+	@RequestMapping(value = "/emptyss", method = RequestMethod.GET)
+	public String emptyss(HttpSession session) {
+		System.out.print("진입.");
+		session.invalidate();
+		System.out.print("진입.2");
+		
+		return "member/login";
+	}
 }

@@ -5,8 +5,8 @@ package com.goods.myapp.model.member;
 import java.util.List;
 
 
-
 import com.goods.myapp.model.payment.GoodsPaymentVO;
+import com.goods.myapp.model.member.MemberVO;
 
 
 
