@@ -135,11 +135,17 @@ public class MemberController {
 		return "member/mypage";
 	}
 	
-	//아이디 찾기
+	//아이디 찾기 페이지
 	@RequestMapping(value = "find_id", method = RequestMethod.GET)
 	public String find_id() {
 		return "member/find_id";
 	}
+	
+	// 찾은 아이디 페이지
+	@RequestMapping("/foundID")
+	public String foundIDView() {
+		return "member/found_id"; 
+		}
 	
 	// 아이디 찾기 회원체크	
 	@ResponseBody
@@ -161,17 +167,17 @@ public class MemberController {
 		}
 	}
 	
-	// 찾은 아이디
-	@RequestMapping("/foundID")
-	public String foundIDView() {
-		return "member/found_id"; 
-		}
-	
-	//비밀번호 찾기
+	//비밀번호 찾기 페이지
 	@RequestMapping(value = "find_pw", method = RequestMethod.GET)
 	public String find_pw() {
 		return "member/find_pw";
 	}
+	
+	// 찾은 비밀번호 페이지
+	@RequestMapping("/found_pw")
+	public String foundPWView() {
+		return "member/found_pw"; 
+		}
 	
 	// 비밀번호 찾기 회원체크	
 	@ResponseBody
@@ -193,22 +199,12 @@ public class MemberController {
 		}
 	}
 	
-	
-	
 	// 비밀번호 변경
-		@RequestMapping("/cpw")
-		public String cpwMember (MemberVO vo) {
-			
-			memberservice.cpwMember(vo);
-			
-			return "redirect:findPw2";
+	@RequestMapping("/cpw")
+	public void cpwMember (MemberVO vo) {	
+		memberservice.cpwMember(vo);
+	}
 		
-		}
-		
-	// 찾은 비밀번호
-	@RequestMapping("/found_pw")
-	public String foundPWView() {
-		return "member/found_pw"; 
-		}
+	
 
 }
