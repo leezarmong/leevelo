@@ -7,7 +7,7 @@
 	<resultMap type="member" id="member">
 		<id property="member_no" column="MEMBER_NO" />
 		<id property="member_id" column="MEMBER_ID" />
-		<result property=" " column="MEMBER_PWD" />
+		<result property="member_pwd" column="MEMBER_PWD" />
 		<result property="member_name" column="MEMBER_NAME" />
 		<result property="member_phone" column="MEMBER_PHONE" />
 		<result property="member_age" column="MEMBER_AGE" />
