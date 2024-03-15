@@ -202,7 +202,7 @@ public class MemberController {
 	}
 	
 	// 비밀번호 변경
-	@RequestMapping(value = "changePass", method = RequestMethod.GET)
+	@RequestMapping("/changePass")
 	public String changePass (MemberVO vo) {
 		memberservice.changePass(vo);
 		System.out.print("진입");
