@@ -61,8 +61,10 @@ public interface MemberService {
 	// 비밀번호 찾기 count
 	public int findPw(MemberVO vo);
 		
-	//  비밀번호 불러오기 select
+	// 비밀번호 불러오기 select
 	public MemberVO findPw2(MemberVO vo);
 
+	// 비밀번호 변경
+	public void changePass(MemberVO vo);
 	
 }

@@ -1,5 +1,6 @@
 package com.goods.myapp.controller;
 
+import java.lang.reflect.Member;
 import java.util.HashMap;
 
 
@@ -174,7 +175,7 @@ public class MemberController {
 		return "member/find_pw";
 	}
 	
-	// 비밀번호 찾기 회원체크	( 1 )
+	// 비밀번호 찾기 회원체크	count ( 1 )
 	@ResponseBody
 	@RequestMapping(value = "findPw")
 	public int findPw(MemberVO vo) {
@@ -182,7 +183,7 @@ public class MemberController {
 		return findPw;
 	}
 	
-	// 비밀번호 찾기 변경 ( 2 )
+	// 비밀번호 찾기 변경 select ( 2 )
 	@RequestMapping(value = "findPw2", method = RequestMethod.GET)
 	public String findPw2(MemberVO vo, HttpSession session) {
 		MemberVO member = memberservice.findPw2(vo);
@@ -196,23 +197,20 @@ public class MemberController {
 	
 	// 비밀번호 변경 페이지
 	@RequestMapping(value="found_pw", method = RequestMethod.GET)
-	public String found_pw () {
-		
+	public String found_pw () {	
 		return "member/found_pw";
 	}
 	
-	
-	
-	
-	
+	// 비밀번호 변경
+	@RequestMapping(value = "changePass", method = RequestMethod.GET)
+	public void changePass (MemberVO vo) {
+		memberservice.changePass(vo);
+		System.out.print("진입");
+	}
 	
 	// 세션 비우기
-	@RequestMapping(value = "/emptyss", method = RequestMethod.GET)
-	public String emptyss(HttpSession session) {
-		System.out.print("진입.");
+	@RequestMapping(value = "emptyss", method = RequestMethod.GET)
+	public void emptyss(HttpSession session) {
 		session.invalidate();
-		System.out.print("진입.2");
-		
-		return "member/login";
-	}
+	}	
 }

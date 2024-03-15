@@ -120,10 +120,15 @@ public class MemberDAO {
 		return sqlsession.selectOne("MemberDAO.findPw", vo);
 	}
 	
-	//  비밀번호 불러오기 select
+	// 비밀번호 불러오기 select
 	public MemberVO findPw2(MemberVO vo) {
 		System.out.println("회원체크3");
 		return (MemberVO) sqlsession.selectOne("MemberDAO.findPw2", vo);
+	}
+	
+	// 비밀번호 변경
+	public void changePass(MemberVO vo) {
+		sqlsession.update("MemberDAO.changePass",vo);
 	}
 		
 	

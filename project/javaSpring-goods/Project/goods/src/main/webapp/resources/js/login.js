@@ -34,7 +34,7 @@ $(document).ready(function() {
 
 
 
-
+// 아이디 찾기
 function checkFI() {
 	var member_name =$("#member_name").val();
 //	var member_phone = $("#member_phone").val();
@@ -72,6 +72,7 @@ function checkFI() {
 	}	
 }
 
+//해당 비밀번호 찾기 위한 id count or select
 function checkFP() {
 	member_id =$("#member_id").val();
 	member_name =$("#member_name").val();
@@ -113,6 +114,44 @@ function checkFP() {
 }
 
 // 비밀번호 변경
+function changePass() {
+
+    var member_id = $("#member_id").val();
+    var member_name = $("#member_name").val();
+    var member_pwd = $("#member_pwd").val();
+    var member_password_two = $("#member_password_two").val();
+
+    if (!member_pwd || !member_password_two) {
+        swal("", "비밀번호를 입력해 주세요.", "warning");
+    } else if (member_pwd != member_password_two) {
+        swal("", "비밀번호를 일치 시켜주세요.", "warning");
+    } else {
+
+        $.ajax({
+            type: "GET",
+            url: "changePass",
+            data: {
+                "member_id": member_id,
+                "member_name": member_name,
+                "member_pwd": member_pwd
+            },
+            success: function (data) {
+                swal("", "비밀번호가 변경되었습니다", "success")
+                    .then(function (isConfirm) {
+
+                        $.ajax({
+                            type: "GET",
+                            url: "emptyss",
+                            success: function (data) {
+                                self.close();
+                                opener.top.location = "login";
+                            }
+                        });
+                    });
+            }
+        });
+    }
+}
 
 
 

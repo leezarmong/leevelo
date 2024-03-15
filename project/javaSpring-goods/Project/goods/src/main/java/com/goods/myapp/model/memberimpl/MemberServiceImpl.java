@@ -122,10 +122,16 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.findPw(vo);
 	}
 	
-	//  비밀번호 불러오기 select
+	// 비밀번호 불러오기 select
 	@Override
 	public MemberVO findPw2(MemberVO vo) {
 		return memberDAO.findPw2(vo);
+	}
+	
+	// 비밀번호 변경
+	@Override
+	public void changePass(MemberVO vo) {
+		memberDAO.changePass(vo);
 	}
 
 
