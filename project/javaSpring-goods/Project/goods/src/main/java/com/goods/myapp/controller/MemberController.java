@@ -209,7 +209,7 @@ public class MemberController {
 	}
 	
 	// 세션 비우기
-	@RequestMapping(value = "emptyss", method = RequestMethod.GET)
+	@RequestMapping(value = "emptyss", method = RequestMethod.POST)
 	public void emptyss(HttpSession session) {
 		session.invalidate();
 	}	
