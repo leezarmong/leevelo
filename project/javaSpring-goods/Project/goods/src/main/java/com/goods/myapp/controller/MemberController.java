@@ -203,13 +203,14 @@ public class MemberController {
 	
 	// 비밀번호 변경
 	@RequestMapping(value = "changePass", method = RequestMethod.GET)
-	public void changePass (MemberVO vo) {
+	public String changePass (MemberVO vo) {
 		memberservice.changePass(vo);
 		System.out.print("진입");
+		return "redirect:login";
 	}
 	
 	// 세션 비우기
-	@RequestMapping(value = "emptyss", method = RequestMethod.POST)
+	@RequestMapping(value = "emptyss", method = RequestMethod.GET)
 	public void emptyss(HttpSession session) {
 		session.invalidate();
 	}	
