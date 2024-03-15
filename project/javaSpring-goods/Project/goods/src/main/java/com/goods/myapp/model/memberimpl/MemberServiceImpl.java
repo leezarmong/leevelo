@@ -114,23 +114,20 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO findId2(MemberVO vo) {
 		return memberDAO.findId2(vo);
 	}
-
-	// 비밀번호 찾기
+	
+	// 비밀번호 찾기 count
 	@Override
 	public int findPw(MemberVO vo) {
+		System.out.println("이름체크3");
 		return memberDAO.findPw(vo);
 	}
 	
-	// 비밀번호 불러오기
+	//  비밀번호 불러오기 select
 	@Override
 	public MemberVO findPw2(MemberVO vo) {
 		return memberDAO.findPw2(vo);
 	}
 
-	// 비밀번호 변경
-	@Override
-	public void cpwMember(MemberVO vo) {
-		memberDAO.cpwMember(vo);
-	}
+
 
 }

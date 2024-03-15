@@ -174,22 +174,16 @@ public class MemberController {
 		return "member/find_pw";
 	}
 	
-	// 찾은 비밀번호 페이지
-	@RequestMapping("/found_pw")
-	public String foundPWView() {
-		return "member/found_pw"; 
-		}
-	
-	// 비밀번호 찾기 회원체크	
+	// 비밀번호 찾기 회원체크	( 1 )
 	@ResponseBody
-	@RequestMapping(value = "/findPw")
+	@RequestMapping(value = "findPw")
 	public int findPw(MemberVO vo) {
 		int findPw = memberservice.findPw(vo);
 		return findPw;
 	}
 	
-	// 비밀번호 찾기 변경
-	@RequestMapping(value = "/findPw2", method = RequestMethod.GET)
+	// 비밀번호 찾기 변경 ( 2 )
+	@RequestMapping(value = "findPw2", method = RequestMethod.GET)
 	public String findPw2(MemberVO vo, HttpSession session) {
 		MemberVO member = memberservice.findPw2(vo);
 		if (member != null) {
@@ -200,13 +194,17 @@ public class MemberController {
 		}
 	}
 	
-	// 비밀번호 변경
-	@RequestMapping("/cpw")
-	public void cpwMember (MemberVO vo) {
-		System.out.print("service 전 까지는 오냐???");
-		memberservice.cpwMember(vo);
-		System.out.print(" service통과는 하냐?");
+	// 비밀번호 변경 페이지
+	@RequestMapping(value="found_pw", method = RequestMethod.GET)
+	public String found_pw () {
+		
+		return "member/found_pw";
 	}
+	
+	
+	
+	
+	
 	
 	// 세션 비우기
 	@RequestMapping(value = "/emptyss", method = RequestMethod.GET)

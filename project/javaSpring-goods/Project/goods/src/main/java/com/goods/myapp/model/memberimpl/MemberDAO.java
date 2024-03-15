@@ -113,22 +113,18 @@ public class MemberDAO {
 		System.out.println("회원체크3");
 		return (MemberVO) sqlsession.selectOne("MemberDAO.findId2", vo);
 	}
-		
-	// 비밀번호 찾기
+	
+	// 비밀번호 찾기 count
 	public int findPw(MemberVO vo) {
 		System.out.println("이름체크3");
 		return sqlsession.selectOne("MemberDAO.findPw", vo);
 	}
 	
-	// 비밀번호 불러오기
+	//  비밀번호 불러오기 select
 	public MemberVO findPw2(MemberVO vo) {
 		System.out.println("회원체크3");
 		return (MemberVO) sqlsession.selectOne("MemberDAO.findPw2", vo);
 	}
+		
 	
-	// 비밀번호 변경
-	public void cpwMember(MemberVO vo) {
-		sqlsession.update("MemberDAO.cpwMember", vo);
-	}
-
 }
