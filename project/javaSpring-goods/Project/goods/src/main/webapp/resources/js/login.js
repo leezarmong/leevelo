@@ -5,34 +5,6 @@ function onlyNumber(){
 	}
 }
 
-//비밀번호 체크
-$(document).ready(function() {
-	   
-
-	   $("#member_password_two").keyup(function() {
-		   //.keyup(function()) = 상황(조건)이 됐을때 이벤트를 바로 발생시켜주는것.
-	      var check_password = $("#check_password");
-	      
-	      if ($("#member_pwd").val() == "" || $("#member_password_two").val() == "") {
-	    	  check_password.css("color", "red");
-	    	  check_password.text("필수정보입니다.");
-	    	  
-	      } else if ($("#member_pwd").val() != $("#member_password_two").val()) {
-	    	  
-	         check_password.text("패스워드가 동일하지 않습니다.");
-	         check_password.css("color", "red");
-	         
-	      } else {    	
-	    	  
-	         check_password.text("패스워드가 동일합니다.");
-	         check_password.css("color", "green");
-	      }
-	   });
-	   
-	});
-
-
-
 
 // 아이디 찾기
 function checkFI() {
@@ -100,7 +72,7 @@ function checkFP() {
 							"member_name" : member_name,
 							"member_phone" : member_phone
 						}, success : function() {
-							window.open("found_pw", "비밀번호 찾기", "status = no, width = 400, height = 300, left = " + popupX + ", top = " + popupY);
+							window.open("found_pw", "비밀번호 찾기", "status = no, width = 400, height = 500, left = " + popupX + ", top = " + popupY);
 						}
 					});
 				} else {
@@ -151,46 +123,6 @@ function changePass() {
         });
    }
 }
-
-//function changePass() {
-//
-//    var member_id = $("#member_id").val();
-//    var member_name = $("#member_name").val();
-//    var member_pwd = $("#member_pwd").val();
-//    var member_password_two = $("#member_password_two").val();
-//
-//    if (!member_pwd || !member_password_two) {
-//        alert("비밀번호를 입력해 주세요.");
-//    } else if (member_pwd != member_password_two) {
-//        alert("비밀번호를 일치 시켜주세요.");
-//    } else {
-//
-//        $.ajax({
-//            type: "GET",
-//            url: "changePass",
-//            data: {
-//                "member_id": member_id,
-//                "member_name": member_name,
-//                "member_pwd": member_pwd
-//            },
-//            success: function (data) {
-//            	console.log(data);
-//                alert("비밀번호가 변경되었습니다.");
-//
-//                $.ajax({
-//                    type: "POST",
-//                    url: "emptyss",
-//                    success: function (data) {
-//                        self.close();
-//                        opener.top.location = "login";
-//                    }
-//                });
-//            }
-//        });
-//    }
-//}
-
-
 
 
 

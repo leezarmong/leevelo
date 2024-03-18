@@ -49,6 +49,37 @@
                                 </div><br>
         
                                 <input type="submit" class="btn btn-primary btn-block" id="loginBtn" value="Login"><br>
+                                <script type="text/javascript">
+                                
+                                
+                                $(document).ready(function(){
+                                	  
+                                	  //form 로그인 버튼
+                                	  $("#loginBtn").click(function(){
+                                		 $.ajax({
+                                			 type : 'post',
+                                			 url : 	'checkMember',
+                                			 data : $("#loginForm").serialize(),
+                                			 success : function(data){
+                                				 if(data == 0){
+                                					 alert("회원정보를 다시 입력해 주세요.");
+                                						location.href="login";
+                                				 }else{
+                                						$.ajax({
+                                							type : 'post',
+                                							url : 'login',
+                                							data : $('#loginForm').serialize(),
+                                							success : function(){
+                                								location.href = 'goodsmall';
+                                							}
+                                						});
+                                				 }
+                                			 }
+                                		 }); 
+                                	  });
+                                	  
+                                	});
+                                </script>
                                 
                                 <!-- 부가 버튼 -->
                                 <div class="row justify-content-between mt-1">

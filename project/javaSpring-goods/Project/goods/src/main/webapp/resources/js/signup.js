@@ -34,34 +34,34 @@ function checkID() {
 
 
 
-$(document).ready(function(){
-  
-  //form 로그인 버튼
-  $("#loginBtn").click(function(){
-	 $.ajax({
-		 type : 'post',
-		 url : 	'checkMember',
-		 data : $("#loginForm").serialize(),
-		 success : function(data){
-			 if(data == 0){
-				 swal("","회원 정보를 다시 입력해 주세요.","warning");
-					location.href="login";
-			 }else{
-					$.ajax({
-						type : 'post',
-						url : 'login',
-						data : $('#loginForm').serialize(),
-						success : function(){
-							swal("","로그인 완료!","success");
-							location.href = 'goodsmall';
-						}
-					});
-			 }
-		 }
-	 }); 
-  });
-  
-});
+//$(document).ready(function(){
+//  
+//  //form 로그인 버튼
+//  $("#loginBtn").click(function(){
+//	 $.ajax({
+//		 type : 'post',
+//		 url : 	'checkMember',
+//		 data : $("#loginForm").serialize(),
+//		 success : function(data){
+//			 if(data == 0){
+//				 swal("","회원 정보를 다시 입력해 주세요.","warning");
+//					location.href="login";
+//			 }else{
+//					$.ajax({
+//						type : 'post',
+//						url : 'login',
+//						data : $('#loginForm').serialize(),
+//						success : function(){
+//							swal("","로그인 완료!","success");
+//							location.href = 'goodsmall';
+//						}
+//					});
+//			 }
+//		 }
+//	 }); 
+//  });
+//  
+//});
 
 
 
