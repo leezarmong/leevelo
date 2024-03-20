@@ -66,7 +66,7 @@
                         <c:forEach var="row" items="${map.list}">
                             <tr>
                                 <td>${row.order_date}</td>
-                                <td>${row.member_id}</td>
+                                <td style="color: red;">${row.member_id}</td>
                                 <td>${row.member_addr}</td>
                                 <td>${row.member_phone}</td>
                                 <td>${row.order_process}</td>
