@@ -195,6 +195,7 @@ public class AdminController {
 		model.addAttribute("member2", memberService.memberDetail(vo));
 		// member2 로 해주는 이유는 sesseion 에는 이미 member  로그인 되어있는 정보가 담겨있기 때문에
 		// member 로 해줄 경우 회원의 정보가 안뜨고 admin 의 정보가 뜨게 된다.
+		// 어짜피 개인 회원정보 로 상세 정보를 보게 된다면 session 에 저장 되어있는 값을 불러오면 됨.
 		return "admin/modifyMember";
 	}
 

@@ -13,6 +13,12 @@
     
     <link rel="stylesheet" type="text/css" href="resources/css/goodsInfo.css">
 	<!-- css -->
+	
+	 <style>
+    .row {
+        min-height: 30vh; /* 스크롤 값 */
+    }
+</style>
      
 </head>
 <body>

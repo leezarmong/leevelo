@@ -15,9 +15,13 @@
     <!-- swal -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Bootstrap CSS -->
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <!-- 카카오 지도 라이브러리 -->
     <style>
-        /* Custom CSS styles can be retained here */
-    </style>
+    .row {
+        min-height: 20vh; /* 스크롤 값 */
+    }
+</style>
 </head>
 <body>
 <%@ include file="../include/header.jsp" %>
@@ -62,6 +66,28 @@
                             </td>
                         </tr>
                         <tr>
+                            <th scope="col">주소</th>
+                            <td>
+                               <%--  <label id="member_addr" class="form-control">${member.member_addr}</label>
+                                <input type="button" class="btn btn-primary btn-block" onclick="searchPost()"
+                                    style="cursor: pointer" value="우편번호 찾기"><br>
+                                <label id="member_faddr" class="form-control">${member.member_faddr}</label>
+                                <label id="member_laddr" class="form-control">${member.member_laddr}</label> --%>
+                                
+                                  <input type="text" class="form-control" name="member_addr" id="member_addr"
+                                    class="input" placeholder="Address" readonly size="10" value="${member2.member_addr}">
+                                <br>
+                                <input type="button" class="btn btn-primary btn-block" onclick="searchPost()"
+                                    style="cursor: pointer" value="우편번호 찾기"><br>
+                                <input type="text" class="form-control" name="member_faddr" id="member_faddr"
+                                    class="input" size="50" readonly value="${member2.member_faddr}"><br>
+                                <input type="text" class="form-control" name="member_laddr" id="member_laddr"
+                                    class="input" size="50" placeholder="상세 주소를 입력하세요." value="${member2.member_laddr}">
+                                
+                                
+                            </td>
+                        </tr>
+                        <tr>
 						<th>이메일(선택)</th>
 						<td>
 							<!-- email split해서 값 넣어주기 -->
@@ -84,14 +110,14 @@
                         <tr>
                             <th scope="col">연락처(선택)</th>
                             <td>
-                                  <div class="input-group">
+                                <div class="input-group">
                                 
                                 <c:set var="m_phone" value="${member2.member_phone}" />
 							<c:set var="mphone" value="${fn:split(m_phone, '-') }" />
 							<!-- 배열 인덱스로 불러옴 -->
 							<select id="NUMst" style="width: 100px">
 								<option value="${mphone[0]}" selected>${mphone[0]}</option>
-								<!-- 받아온 값의 배열로 selected 되게 -->
+								<!-- 받아온 값의 배열로 selected 되게  -->
 								<option value="010" selected>010</option>
 								<option value="011">011</option>
 								<option value="016">016</option>

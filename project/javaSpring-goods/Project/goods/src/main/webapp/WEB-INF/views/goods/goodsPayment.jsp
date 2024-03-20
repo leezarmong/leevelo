@@ -118,10 +118,10 @@
             <p align="left">연락처<input type="text" id="member_phone" value="${member.member_phone }"></p>
 
             <!-- 우편번호 찾기 라이브러리 -->
-            <input type="text" name="sn_member_zipcode" size="10" placeholder="우편번호" value="">
+            <input type="text" name="sn_member_zipcode" size="10" placeholder="우편번호" value="${member.member_addr}">
             <input type="button" name="nn_searchPost" onclick="searchPost()" value="우편번호 찾기"><br>
-            <input type="text" name="sn_member_faddr" size="60" placeholder="우편주소" value="">
-            <p align="left">상세주소<input type="text" name="sn_member_laddr"></p>
+            <input type="text" name="sn_member_faddr" size="60" placeholder="우편주소" value="${member.member_faddr}">
+            <p align="left">상세주소<input type="text" name="sn_member_laddr" value="${member.member_laddr}"></p>
 
             <!-- ajax에서 넘겨준다면 hidden은 필요 없습니다. -->
             <input type="hidden" name="member_id" id="member_id" value="${member.member_id}"/>
