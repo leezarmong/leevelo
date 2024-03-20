@@ -14,6 +14,8 @@
 		<result property="member_email" column="MEMBER_EMAIL" />
 		<result property="member_addr" column="MEMBER_ADDR" />
 		<result property="member_date" column="MEMBER_DATE" />
+		<result property="member_faddr" column="MEMBER_FADDR" />
+		<result property="member_laddr" column="MEMBER_LADDR" />
 	</resultMap>
 
 	<!-- 회원 가입 아이디 중복 체크 -->
@@ -40,7 +42,9 @@
 			MEMBER_AGE, 
 			MEMBER_EMAIL,
 			MEMBER_ADDR,
-			MEMBER_DATE
+			MEMBER_DATE,
+			MEMBER_FADDR,
+			MEMBER_LADDR
 			
 		) VALUES(
 			MEMBER_SEQ.NEXTVAL, 
@@ -51,7 +55,9 @@
 			#{member_age},
 			#{member_email},
 			#{member_addr},
-			sysdate
+			sysdate,
+			#{member_faddr},
+			#{member_laddr}
 			
 		)
 		]]>
@@ -72,7 +78,10 @@
 		SET
 		MEMBER_PWD = #{member_pwd},
 		MEMBER_PHONE = #{member_phone},
-		MEMBER_EMAIL = #{member_email}
+		MEMBER_EMAIL = #{member_email},
+		MEMBER_ADDR = #{member_addr},
+		MEMBER_FADDR = #{member_faddr},
+		MEMBER_LADDR = #{member_laddr}
 		WHERE
 		MEMBER_ID = #{member_id}
 	</update>
@@ -124,9 +133,8 @@
 		SET
 		MEMBER_ID = #{member_id}, 
 		MEMBER_NAME = #{member_name},
-		MEMBER_LICENSE = #{member_license},
 		MEMBER_PHONE = #{member_phone},
-		MEMBER_ZIPCODE = #{member_zipcode},
+		MEMBER_ADDR = #{member_addr},
 		MEMBER_FADDR = #{member_faddr},
 		MEMBER_LADDR = #{member_laddr}		
 		WHERE

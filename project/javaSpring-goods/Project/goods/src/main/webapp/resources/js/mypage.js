@@ -76,7 +76,7 @@ function searchPost() {
 				}
 				fullAddr += (extraAddr !== '' ? '(' + extraAddr + ')' : '');
 			}
-			document.getElementById('member_zipcode').value = data.zonecode;
+			document.getElementById('member_addr').value = data.zonecode;
 			document.getElementById('member_faddr').value = fullAddr;
 			document.getElementById('member_laddr').value = '';
 		}
@@ -91,7 +91,10 @@ function myinfoUp() {
 	var member_pwd = $("#member_password").val();
 	var member_phone = $("#NUMst").val() + "-" + $("#NUMnd").val() + "-" + $("#NUMrd").val();
 	var member_email = $("#email_id").val() + "@" + $("#email_addr").val();
-	if(!member_pwd || !member_phone|| !member_email){
+	var member_addr = $("#member_addr").val();
+	var member_faddr = $("#member_faddr").val();
+	var member_laddr = $("#member_laddr").val();
+	if(!member_pwd || !member_phone || !member_email || !member_addr || !member_faddr || !member_laddr){
 		alert("필수 항목이 비어 있습니다.");
 	}else{
 		$.ajax({
@@ -101,7 +104,10 @@ function myinfoUp() {
 				"member_id" : member_id,
 				"member_pwd" : member_pwd,
 				"member_phone" : member_phone,
-				"member_email" : member_email
+				"member_email" : member_email,
+				"member_addr" : member_addr,
+				"member_faddr" : member_faddr,
+				"member_laddr" : member_laddr
 			},
 			success : function(data) {
 				alert("수정 완료");

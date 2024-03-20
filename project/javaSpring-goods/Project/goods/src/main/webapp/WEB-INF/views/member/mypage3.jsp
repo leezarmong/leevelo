@@ -15,9 +15,13 @@
     <!-- swal -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Bootstrap CSS -->
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <!-- 카카오 지도 라이브러리 -->
     <style>
-        /* Custom CSS styles can be retained here */
-    </style>
+    .row {
+        min-height: 20vh; /* 스크롤 값 */
+    }
+</style>
 </head>
 <body>
 <%@ include file="../include/header.jsp" %>
@@ -59,6 +63,28 @@
                             <td>
                                 <label id="member_name" class="form-control">${member.member_name}</label>
                                 <label id="chkname"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="col">주소</th>
+                            <td>
+                               <%--  <label id="member_addr" class="form-control">${member.member_addr}</label>
+                                <input type="button" class="btn btn-primary btn-block" onclick="searchPost()"
+                                    style="cursor: pointer" value="우편번호 찾기"><br>
+                                <label id="member_faddr" class="form-control">${member.member_faddr}</label>
+                                <label id="member_laddr" class="form-control">${member.member_laddr}</label> --%>
+                                
+                                  <input type="text" class="form-control" name="member_addr" id="member_addr"
+                                    class="input" placeholder="Address" readonly size="10" value="${member.member_addr}">
+                                <br>
+                                <input type="button" class="btn btn-primary btn-block" onclick="searchPost()"
+                                    style="cursor: pointer" value="우편번호 찾기"><br>
+                                <input type="text" class="form-control" name="member_faddr" id="member_faddr"
+                                    class="input" size="50" readonly value="${member.member_faddr}"><br>
+                                <input type="text" class="form-control" name="member_laddr" id="member_laddr"
+                                    class="input" size="50" placeholder="상세 주소를 입력하세요." value="${member.member_laddr}">
+                                
+                                
                             </td>
                         </tr>
                         <tr>

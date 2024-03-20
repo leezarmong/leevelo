@@ -13,6 +13,22 @@ public class MemberVO {
 		private String member_email;// 이메일
 		private String member_addr;	// 주소
 		private Date member_date;	// 가입날짜
+		private String member_faddr;	// 주소
+		
+		
+		public String getMember_faddr() {
+			return member_faddr;
+		}
+		public void setMember_faddr(String member_faddr) {
+			this.member_faddr = member_faddr;
+		}
+		public String getMember_laddr() {
+			return member_laddr;
+		}
+		public void setMember_laddr(String member_laddr) {
+			this.member_laddr = member_laddr;
+		}
+		private String member_laddr;	// 상세 주소
 		
 		
 		public int getMember_no() {
@@ -75,12 +91,14 @@ public class MemberVO {
 			return "MemberVO [member_no=" + member_no + ", member_id=" + member_id + ", member_pwd=" + member_pwd
 					+ ", member_name=" + member_name + ", member_phone=" + member_phone + ", member_age=" + member_age
 					+ ", member_email=" + member_email + ", member_addr=" + member_addr + ", member_date=" + member_date
-					+ ", getMember_no()=" + getMember_no() + ", getMember_id()=" + getMember_id() + ", getMember_pwd()="
-					+ getMember_pwd() + ", getMember_name()=" + getMember_name() + ", getMember_phone()="
-					+ getMember_phone() + ", getMember_age()=" + getMember_age() + ", getMember_email()="
-					+ getMember_email() + ", getMember_addr()=" + getMember_addr() + ", getMember_date()="
-					+ getMember_date() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-					+ super.toString() + "]";
+					+ ", member_faddr=" + member_faddr + ", member_laddr=" + member_laddr + ", getMember_faddr()="
+					+ getMember_faddr() + ", getMember_laddr()=" + getMember_laddr() + ", getMember_no()="
+					+ getMember_no() + ", getMember_id()=" + getMember_id() + ", getMember_pwd()=" + getMember_pwd()
+					+ ", getMember_name()=" + getMember_name() + ", getMember_phone()=" + getMember_phone()
+					+ ", getMember_age()=" + getMember_age() + ", getMember_email()=" + getMember_email()
+					+ ", getMember_addr()=" + getMember_addr() + ", getMember_date()=" + getMember_date()
+					+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+					+ "]";
 		}
 	
 

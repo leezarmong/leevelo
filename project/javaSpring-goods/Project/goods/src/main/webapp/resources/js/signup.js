@@ -67,30 +67,30 @@ function checkID() {
 
 
 //비밀번호 체크
-$(document).ready(function() {
-	   
-
-	   $("#member_pwdTwo").keyup(function() {
-		   //.keyup(function()) = 상황(조건)이 됐을때 이벤트를 바로 발생시켜주는것.
-	      var check_password = $("#check_password");
-	      
-	      if ($("#member_pwd").val() == "" || $("#member_pwdTwo").val() == "") {
-	    	  check_password.css("color", "red");
-	    	  check_password.text("필수정보입니다.");
-	    	  
-	      } else if ($("#member_pwd").val() != $("#member_pwdTwo").val()) {
-	    	  
-	         check_password.text("패스워드가 동일하지 않습니다.");
-	         check_password.css("color", "red");
-	         
-	      } else {    	
-	    	  
-	         check_password.text("패스워드가 동일합니다.");
-	         check_password.css("color", "green");
-	      }
-	   });
-	   
-	});
+//$(document).ready(function() {
+//	   
+//
+//	   $("#member_pwdTwo").keyup(function() {
+//		   //.keyup(function()) = 상황(조건)이 됐을때 이벤트를 바로 발생시켜주는것.
+//	      var check_password = $("#check_password");
+//	      
+//	      if ($("#member_pwd").val() == "" || $("#member_pwdTwo").val() == "") {
+//	    	  check_password.css("color", "red");
+//	    	  check_password.text("필수정보입니다.");
+//	    	  
+//	      } else if ($("#member_pwd").val() != $("#member_pwdTwo").val()) {
+//	    	  
+//	         check_password.text("패스워드가 동일하지 않습니다.");
+//	         check_password.css("color", "red");
+//	         
+//	      } else {    	
+//	    	  
+//	         check_password.text("패스워드가 동일합니다.");
+//	         check_password.css("color", "green");
+//	      }
+//	   });
+//	   
+//	});
 
 
 //회원 가입
@@ -101,7 +101,9 @@ function doSignup() {
 	var member_phone = $("#NUMst").val() + "-" + $("#NUMnd").val() + "-" + $("#NUMrd").val();
 	var member_age = $("#member_age").val();
 	var member_email = $("#str_email01").val() + "@" + $("#str_email02").val();
-	var member_addr = $("#member_addr").val()+$("#member_faddr").val()+$("#member_laddr").val();
+	var member_addr = $("#member_addr").val();
+	var member_faddr = $("#member_faddr").val();
+	var member_laddr = $("#member_laddr").val();
 	
 	if(!$("#member_id").val() || !$("#member_pwd").val() || !$("#member_name").val()
 			|| !$("#member_addr").val())
@@ -119,7 +121,9 @@ function doSignup() {
 				"member_phone" : member_phone,
 				"member_age" : member_age,
 				"member_email" : member_email,
-				"member_addr" : member_addr
+				"member_addr" : member_addr,
+				"member_faddr" : member_faddr,
+				"member_laddr" : member_laddr
 				
 			},
 			success : function(data) {
