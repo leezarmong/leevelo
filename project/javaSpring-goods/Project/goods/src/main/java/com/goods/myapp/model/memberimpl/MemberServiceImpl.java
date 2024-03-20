@@ -1,10 +1,10 @@
 package com.goods.myapp.model.memberimpl;
 
-import java.util.HashMap;
 
 import java.util.List;
-import java.util.Map;
 
+import org.bouncycastle.jcajce.provider.digest.SHA3;
+import org.bouncycastle.util.encoders.Hex;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,28 +17,54 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	MemberDAO memberDAO;
+	
+	// 패스워드 암호화
+		public void securityPWD(MemberVO vo) {
+			SHA3.DigestSHA3 digestSHA3 = new SHA3.DigestSHA3(512);
+			byte[] digest = digestSHA3.digest(vo.getMember_pwd().getBytes());
+			String securitypwd = Hex.toHexString(digest);
+			vo.setMember_pwd(securitypwd);
+		}
+		
+		public void imsiPW(MemberVO vo) {
+			char[] charSet = new char[] { 
+					'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 
+					'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
+					'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 
+					'U', 'V', 'W', 'X', 'Y', 'Z' };
+			int idx = 0;
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < 10; i++) {
+				idx = (int) (charSet.length * Math.random());
+				sb.append(charSet[idx]);
+			}
+			String imPW = sb.toString();
+		}
 
 	// 회원 가입
 	@Override
 	public void insertMember(MemberVO vo) {
+		securityPWD(vo);
 		memberDAO.insertMember(vo);
 	}
 
 	// 회원 가입 아이디 중복 체크
 	@Override
-	public int checkID(String member_id) {
-		return memberDAO.checkID(member_id);
+	public int checkID(MemberVO vo) {
+		return memberDAO.checkID(vo);
 	}
 
 	// 로그인 시 오타 확인 맴버체크
 	@Override
 	public int checkMember(MemberVO vo) {
+		securityPWD(vo);
 		return memberDAO.checkMember(vo);
 	}
 
 	// 로그인
 	@Override
 	public MemberVO login(MemberVO vo) {
+		securityPWD(vo);
 		return memberDAO.login(vo);
 	}
 
@@ -58,6 +84,7 @@ public class MemberServiceImpl implements MemberService {
 	// 회원정보 수정
 	@Override
 	public void updateMember(MemberVO vo) {
+		securityPWD(vo);
 		memberDAO.updateMember(vo);
 	}
 
@@ -131,6 +158,7 @@ public class MemberServiceImpl implements MemberService {
 	// 비밀번호 변경
 	@Override
 	public void changePass(MemberVO vo) {
+		securityPWD(vo);
 		memberDAO.changePass(vo);
 	}
 

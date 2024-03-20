@@ -1,6 +1,6 @@
 package com.goods.myapp.controller;
 
-import java.lang.reflect.Member;
+
 import java.util.HashMap;
 
 
@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -76,9 +74,9 @@ public class MemberController {
 	// 회원 가입 아이디 중복 체크
 	@ResponseBody
 	@RequestMapping(value = "/checkID")
-	public int checkID(String member_id) {
-		System.out.print(member_id);
-		int result = memberservice.checkID(member_id);
+	public int checkID(MemberVO vo) {
+		System.out.print(vo);
+		int result = memberservice.checkID(vo);
 		return result;
 	}
 

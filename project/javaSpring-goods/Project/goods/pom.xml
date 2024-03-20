@@ -160,6 +160,13 @@
 			<version>1.3.2</version>
 		</dependency>   
 		
+		<!-- SHA3 -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.60</version>
+		</dependency>
+		
 		<!-- FileUpload -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
