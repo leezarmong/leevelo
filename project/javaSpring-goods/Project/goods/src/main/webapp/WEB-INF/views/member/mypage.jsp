@@ -100,6 +100,7 @@
                     <th>주소</th>
                     <th>배송상태</th>
                     <th>결제방법</th>
+                    <th>상품명</th>
                     <th>가격</th>
                 </tr>
                 </thead>
@@ -113,6 +114,7 @@
                                 <td>${row.member_addr}</td>
                                 <td>${row.order_process}</td>
                                 <td>${row.order_payment}</td>
+                                <td>${row.order_name}</td>
                                 <td>${row.order_sum}</td>
                             </tr>
                         </c:forEach>
