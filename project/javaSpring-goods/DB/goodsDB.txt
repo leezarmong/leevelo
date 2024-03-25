@@ -137,11 +137,6 @@ Insert into GOODS.PRODUCT (CATE_ID,CATE_NAME) values ('DA20220926','대형');
 Insert into GOODS.PRODUCT (CATE_ID,CATE_NAME) values ('SU20220629','SUV/RV');
 REM INSERTING into GOODS.PRODUCT_INFO
 SET DEFINE OFF;
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','오멘_인기','003',14000,'resources/img/product/IN20220926/1611866318오멘.webp','오멘_인기');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','레이나_인기','001',12000,'resources/img/product/IN20220926/1217894704레이나.webp','레이나_인기');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','사이퍼_인기','004',13500,'resources/img/product/IN20220926/1158825182사이퍼.webp','사이퍼_인기');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','체임버_인기','005',15200,'resources/img/product/IN20220926/1123173131체임버.webp','체임버_인기');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','제트_인기','002',12000,'resources/img/product/IN20220926/990970330제트.webp','제트_인기');
 Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','네온','03',12000,'resources/img/product/SO20220926/972129754네온.webp','네온');
 Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','레이나','01',12000,'resources/img/product/SO20220926/752710236레이나.webp','레이나');
 Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','레이즈','02',12000,'resources/img/product/SO20220926/66940845레이즈.webp','레이즈');
@@ -165,6 +160,11 @@ Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EX
 Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','세이지','33',12500,'resources/img/product/SU20220629/2110678003세이지.webp','세이지');
 Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','체임버','34',15200,'resources/img/product/SU20220629/597516641체임버.webp','체임버');
 Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','킬조이','35',12500,'resources/img/product/SU20220629/162003837킬조이.webp','킬조이');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','제트-인기','003',12000,'resources/img/product/IN20220926/1638132221제트.webp','제트-인기');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','사이퍼-인기','004',13500,'resources/img/product/IN20220926/438606089사이퍼.webp','사이퍼-인기');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','체임버-인기','005',15200,'resources/img/product/IN20220926/1797626942체임버.webp','체임버-인기');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','레이나-인기','0001',12000,'resources/img/product/IN20220926/604345694레이나.webp','레이나-인기');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','레이즈-인기','002',12000,'resources/img/product/IN20220926/741224961레이즈.webp','레이즈-인기');
 --------------------------------------------------------
 --  DDL for Index PRODUCT_INFO_PK
 --------------------------------------------------------
