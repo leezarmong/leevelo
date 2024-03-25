@@ -23,7 +23,7 @@
     }
 </style>
 </head>
-<body>
+<body style="margin-top: 150px;">
 <%@ include file="../include/header.jsp" %>
 <section>
     <div class="container">
