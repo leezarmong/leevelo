@@ -156,39 +156,39 @@ img {
 							<option value="" selected>선택</option>
 					<c:choose>							
 						<c:when test="${product.cate_id eq 'IN20220926'}">
-							<option value="IN20220926" selected>인기차량</option>
-							<option value="SO20220926">소/준중형</option>
-							<option value="JO20220926">중형</option>
-							<option value="DA20220926">대형</option>
-							<option value="SU20220629">SUV/RV</option>
+							<option value="IN20220926" selected>인기요원</option>
+							<option value="SO20220926">타격대</option>
+							<option value="JO20220926">전략가</option>
+							<option value="DA20220926">척후대</option>
+							<option value="SU20220629">감시자 </option>
 						</c:when>
 						<c:when test="${product.cate_id eq 'SO20220926'}">
-							<option value="IN20220926">인기차량</option>
-							<option value="SO20220926" selected>소/준중형</option>
-							<option value="JO20220926">중형</option>
-							<option value="DA20220926">대형</option>
-							<option value="SU20220629">SUV/RV</option>
+								<option value="IN20220926">인기요원</option>
+							<option value="SO20220926" selected>타격대</option>
+							<option value="JO20220926">전략가</option>
+							<option value="DA20220926">척후대</option>
+							<option value="SU20220629">감시자</option>
 						</c:when>
 						<c:when test="${product.cate_id eq 'JO20220926'}">
-							<option value="IN20220926">인기차량</option>
-							<option value="SO20220926">소/준중형</option>
-							<option value="JO20220926" selected>중형</option>
-							<option value="DA20220926">대형</option>
-							<option value="SU20220629">SUV/RV</option>
+							<option value="IN20220926">인기요원</option>
+							<option value="SO20220926">타격대</option>
+							<option value="JO20220926" selected>전략가</option>
+							<option value="DA20220926">척후대</option>
+							<option value="SU20220629">감시자 </option>
 						</c:when>
 						<c:when test="${product.cate_id eq 'DA20220926'}">
-							<option value="IN20220926">인기차량</option>
-							<option value="SO20220926">소/준중형</option>
-							<option value="JO20220926">중형</option>
-							<option value="DA20220926" selected>대형</option>
-							<option value="SU20220629">SUV/RV</option>
+							<option value="IN20220926">인기요원</option>
+							<option value="SO20220926">타격대</option>
+							<option value="JO20220926">전략가</option>
+							<option value="DA20220926" selected>척후대</option>
+							<option value="SU20220629">감시자 </option>
 						</c:when>
 						<c:otherwise>
-							<option value="IN20220926">인기차량</option>
-							<option value="SO20220926">소/준중형</option>
-							<option value="JO20220926">중형</option>
-							<option value="DA20220926">대형</option>
-							<option value="SU20220629" selected>SUV/RV</option>
+							<option value="IN20220926">인기요원</option>
+							<option value="SO20220926">타격대</option>
+							<option value="JO20220926">전략가</option>
+							<option value="DA20220926">척후대</option>
+							<option value="SU20220629" selected>감시자 </option>
 						</c:otherwise>
 					</c:choose>
 						</select>

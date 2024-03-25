@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  파일이 생성됨 - 수요일-3월-20-2024   
+--  파일이 생성됨 - 월요일-3월-25-2024   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence BOARD_NUM_SEQ
@@ -121,8 +121,6 @@ REM INSERTING into GOODS.BASKET
 SET DEFINE OFF;
 REM INSERTING into GOODS.GOODS_PAYMENT
 SET DEFINE OFF;
-Insert into GOODS.GOODS_PAYMENT (MEMBER_ID,GOODS_NUM,ORDER_DATE,MEMBER_ADDR,MEMBER_PHONE,ORDER_PROCESS,ORDER_PAYMENT,ORDER_SUM,ORDER_AMOUNT,ORDER_NAME) values ('a',1,to_date('24/03/20','RR/MM/DD'),'42260대구 수성구 고모로 31(가천동)aa','010-1111-1111','배송중','카카오페이',130000,2,'아반떼 CN7외 1개');
-Insert into GOODS.GOODS_PAYMENT (MEMBER_ID,GOODS_NUM,ORDER_DATE,MEMBER_ADDR,MEMBER_PHONE,ORDER_PROCESS,ORDER_PAYMENT,ORDER_SUM,ORDER_AMOUNT,ORDER_NAME) values ('b',11,to_date('24/03/20','RR/MM/DD'),'44632울산 남구 울산고속도로 15(무거동)b','010-2222-2222','배송중','카카오페이',70000,1,'쏘나타 18년형');
 REM INSERTING into GOODS.MEMBER
 SET DEFINE OFF;
 Insert into GOODS.MEMBER (MEMBER_NO,MEMBER_ID,MEMBER_PWD,MEMBER_NAME,MEMBER_PHONE,MEMBER_AGE,MEMBER_EMAIL,MEMBER_ADDR,MEMBER_DATE,MEMBER_FADDR,MEMBER_LADDR) values (27,'b','ca2c70bc13298c5109ee0cb342d014906e6365249005fd4beee6f01aee44edb531231e98b50bf6810de6cf687882b09320fdd5f6375d1f2debd966fbf8d03efa','b','010-2222-2222',22,'b@naver.com','44632',to_date('24/03/20','RR/MM/DD'),'울산 남구 울산고속도로 15(무거동)','b');
@@ -137,24 +135,35 @@ Insert into GOODS.PRODUCT (CATE_ID,CATE_NAME) values ('DA20220926','대형');
 Insert into GOODS.PRODUCT (CATE_ID,CATE_NAME) values ('SU20220629','SUV/RV');
 REM INSERTING into GOODS.PRODUCT_INFO
 SET DEFINE OFF;
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','k3','3010',47000,'resources/img/product/SO20220926/2112811101k3.png','휘발유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','아반떼 CN7','1',60000,'resources/img/product/IN20220926/아반떼22.png','휘발유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('JO20220926','K5','24',81000,'resources/img/product/JO20220926/1892795836k522.png','휘발유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','레이','2',40000,'resources/img/product/IN20220926/레이21.png','휘발유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('DA20220926','G80','80',130000,'resources/img/product/DA20220926/173008274g80.png','3휘발유 / 블루투스 / 후방감지 카메fksdsdㅅㄷㅅㄷ');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','아반떼 CN7','77',60000,'resources/img/product/SO20220926/아반떼22.png','휘발유 / 블루투스 / 후방감지 카메라wewew');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('JO20220926','쏘나타 22년형','10',80000,'resources/img/product/JO20220926/쏘나타22.png','휘발유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('JO20220926','쏘나타 18년형','11',70000,'resources/img/product/JO20220926/쏘나타18.png','LPG / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('JO20220926','스팅어','12',90000,'resources/img/product/JO20220926/스팅어.png','휘발유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('DA20220926','K7','13',100000,'resources/img/product/DA20220926/k7.png','휘발유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('DA20220926','K8','14',110000,'resources/img/product/DA20220926/k8.png','휘발유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','GV80','18',140000,'resources/img/product/SU20220629/gv80.png','경유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','쏘렌토','19',144000,'resources/img/product/SU20220629/쏘렌토.png','경유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','팰리세이드','20',1460000,'resources/img/product/SU20220629/팰리세이드.png','경유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','카니발 20년형','21',160000,'resources/img/product/SU20220629/카니발20.png','경유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','스타리아','23',165000,'resources/img/product/SU20220629/스타렉스.png','LPG / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','카니발 20년형','25',160000,'resources/img/product/SU20220629/카니발20.png','경유 / 블루투스 / 후방감지 카메라');
-Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','이재원','1994',1,'resources/img/product/IN20220926/852677881증명사진_이재원.png','1ㄴㅍㄴㅇㄴㄴ');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','네온','03',12000,'resources/img/product/SO20220926/972129754네온.webp','네온');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','레이나','01',12000,'resources/img/product/SO20220926/752710236레이나.webp','레이나');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','레이즈','02',12000,'resources/img/product/SO20220926/66940845레이즈.webp','레이즈');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','아이소','04',12000,'resources/img/product/SO20220926/595157379아이소.webp','아이소');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','요루','05',12000,'resources/img/product/SO20220926/369597235요루.webp','요루');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','제트','06',12000,'resources/img/product/SO20220926/182031022제트.webp','제트');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SO20220926','피닉스','07',12000,'resources/img/product/SO20220926/690022558피닉스.webp','피닉스');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('JO20220926','바이퍼','11',11000,'resources/img/product/JO20220926/1640821019바이퍼.webp','바이퍼');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('JO20220926','브림스톤','12',11000,'resources/img/product/JO20220926/521154779브림스톤.webp','브림스톤');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('JO20220926','아스트라','13',11000,'resources/img/product/JO20220926/573454774아스트라.webp','아스트라');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('JO20220926','오멘','14',14000,'resources/img/product/JO20220926/2073757479오멘.webp','오멘');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('JO20220926','하버','15',11000,'resources/img/product/JO20220926/601730364하버.webp','하버');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('DA20220926','게코','21',11500,'resources/img/product/DA20220926/1278541898게코.webp','게코');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('DA20220926','브리치','22',11500,'resources/img/product/DA20220926/185824886브리치.webp','브리치');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('DA20220926','소바','23',12500,'resources/img/product/DA20220926/1447799790소바.webp','소바');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('DA20220926','스카이','24',11500,'resources/img/product/DA20220926/758493620스카이.webp','스카이');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('DA20220926','케이/오','25',12100,'resources/img/product/DA20220926/112758035케이:오.webp','케이/오');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('DA20220926','페이드','26',11800,'resources/img/product/DA20220926/708886295페이드.webp','페이드');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','데드록','31',13000,'resources/img/product/SU20220629/1264449772데드록.webp','데드록');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','사이퍼','32',13500,'resources/img/product/SU20220629/1814414094사이퍼.webp','사이퍼');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','세이지','33',12500,'resources/img/product/SU20220629/2110678003세이지.webp','세이지');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','체임버','34',15200,'resources/img/product/SU20220629/597516641체임버.webp','체임버');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('SU20220629','킬조이','35',12500,'resources/img/product/SU20220629/162003837킬조이.webp','킬조이');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','레이나 (인기)','001',12000,'resources/img/product/IN20220926/1450576762레이나.webp','레이나 (인기)');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','제트 (인기)','002',12000,'resources/img/product/IN20220926/826095608제트.webp','제트 (인기)');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','레이즈 (인기)','003',12000,'resources/img/product/IN20220926/348168209레이즈.webp','레이즈 (인기)');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','오멘 (인기)','004',14000,'resources/img/product/IN20220926/1678072845오멘.webp','오멘 (인기)');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','사이퍼 (인기)','005',12500,'resources/img/product/IN20220926/312858589사이퍼.webp','사이퍼 (인기)');
+Insert into GOODS.PRODUCT_INFO (CATE_ID,PRD_NAME,PRD_ID,PRD_PRICE,PRD_IMG,PRD_EXPLAIN) values ('IN20220926','체임버 (인기)','006',15200,'resources/img/product/IN20220926/1803797658체임버.webp','체임버 (인기)');
 --------------------------------------------------------
 --  DDL for Index PRODUCT_INFO_PK
 --------------------------------------------------------

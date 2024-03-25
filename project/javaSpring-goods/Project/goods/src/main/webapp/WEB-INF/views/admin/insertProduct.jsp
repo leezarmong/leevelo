@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
-    <title>leeveloper</title>t</title>
+    <title>leeveloper</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <!-- jquery -->
@@ -139,11 +139,11 @@ h2 {
                 <td>
                     <select name="cate_id" id="cate_id">
                         <option value="" selected>선택</option>
-                        <option value="IN20220926">인기차량</option>
-                        <option value="SO20220926">소/준중형</option>
-                        <option value="JO20220926">중형</option>
-                        <option value="DA20220926">대형</option>
-                        <option value="SU20220629">SUV/RV</option>
+                        <option value="IN20220926">인기요원</option>
+                        <option value="SO20220926">타격대</option>
+                        <option value="JO20220926">전략가</option>
+                        <option value="DA20220926">척후대</option>
+                        <option value="SU20220629">감시자</option>
                     </select>
                 </td>
             </tr>
@@ -183,7 +183,7 @@ h2 {
         <div align="center">
             <tr>
                 <td colspan="2" align="center">
-                    <input type="button" value="차량 등록" onclick="doInsertProduct()" style="margin-bottom: 40px;"/>
+                    <input type="button" value="요원 등록" onclick="doInsertProduct()" style="margin-bottom: 40px;"/>
                 </td>
             </tr>
         </div>

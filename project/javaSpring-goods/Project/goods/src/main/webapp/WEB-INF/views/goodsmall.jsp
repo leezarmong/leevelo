@@ -185,11 +185,11 @@
         <!-- 상품의 갯수, -1은 배열은 0부터 시작하기때문 -->
         <!-- 이중 for문 x축 -->
       <div id="category">
-            <li onclick="location.href='category?cate_id=IN20220926'" class="list" data-filter="category1">인기차량</li>
-            <li onclick="location.href='category?cate_id=SO20220926'" class="list" data-filter="category2">소/준중형</li>
-            <li onclick="location.href='category?cate_id=JO20220926'" class="list" data-filter="category3">중형</li>
-            <li onclick="location.href='category?cate_id=DA20220926'" class="list" data-filter="category4">대형</li>
-            <li onclick="location.href='category?cate_id=SU20220629'" class="list" data-filter="category5">SUV/RV</li>
+            <li onclick="location.href='category?cate_id=IN20220926'" class="list" data-filter="category1">인기요원</li>
+            <li onclick="location.href='category?cate_id=SO20220926'" class="list" data-filter="category2">타격대</li>
+            <li onclick="location.href='category?cate_id=JO20220926'" class="list" data-filter="category3">전략가</li>
+            <li onclick="location.href='category?cate_id=DA20220926'" class="list" data-filter="category4">척후대</li>
+            <li onclick="location.href='category?cate_id=SU20220629'" class="list" data-filter="category5">감시자</li>
       </div>
         <!-- Product 의 cate_id PK 를  -->
         <!-- Product_Info 에서 cate_id FK 로 설정 하여 카테고리 경로에 따른 list 가 출력 되도록 설정. -->
