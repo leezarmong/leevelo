@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Today419 {
 
     public int[] maxmin(int[] array) {
@@ -19,13 +22,25 @@ public class Today419 {
     }
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
 
-        Today419 to4 = new Today419();
+        System.out.println("배열의 크기를 정해주세요.");
+        int n = scan.nextInt();
 
-        int[] k = {1,2,3,4,5};
-        int[] result = to4.maxmin(k);
+        int[] b = new int[n];
 
-        System.out.println(result[0]+" "+result[1]);
+        System.out.println("배열에"+n+"만큼 수를 입력해주세요."+"\n");
+        for(int i=0; i<b.length; i++){
+            System.out.print(i+1+"번째 :");
+            b[i] = scan.nextInt();
+        }
+        Arrays.sort(b);
+
+        System.out.println("배열에 담긴 수는");
+        for(int i=0; i<b.length; i++){
+            System.out.print(b[i]+" ");
+        }
+
 
     }
 }
