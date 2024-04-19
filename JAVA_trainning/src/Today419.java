@@ -21,6 +21,20 @@ public class Today419 {
         return result;
     }
 
+
+    // length 의 길이를 알아보자.
+    public int strLength(String k){
+
+        int count = 0 ;
+        for(int i=0; i<k.length(); i++){
+
+            char c = k.charAt(i);
+            count++;
+        }
+
+        return count;
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -41,6 +55,9 @@ public class Today419 {
             System.out.print(b[i]+" ");
         }
 
-
+        Today419 td = new Today419();
+        String k = "show33333";
+        int i =td.strLength(k);
+        System.out.print(i);
     }
 }
