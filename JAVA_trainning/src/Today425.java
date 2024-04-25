@@ -89,10 +89,32 @@ public class Today425 {
         return ans;
     }
 
+    //입력한 수 배열
+    public int[]kkk (int kk){
+        String str = String.valueOf(kk);
+        int[] ans = new int[str.length()];
+       char c ;
+
+        for(int i=0; i<ans.length; i++){
+            c = str.charAt(i);
+
+            ans[i] = Integer.parseInt(String.valueOf(c));
+
+        }
+        return ans;
+    }
+
+
     public static void main(String[] args) {
         Today425 td = new Today425();
 
-        int[] k = {1,2,3,4};
+        int k= 1234;
+
+        System.out.println(td.kkk(k));
+
+
+
+
 
         System.out.println(Arrays.toString(td.k2("1234")));
     }
