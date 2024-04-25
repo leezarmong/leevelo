@@ -22,4 +22,9 @@ public class Move {
         System.out.println();
     }
 
+    //좌석 지정 하기
+    public void set(String name , int num){
+        grade[num-1] = name;
+    }
+
 }
