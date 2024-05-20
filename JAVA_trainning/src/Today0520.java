@@ -6,7 +6,7 @@ public class Today0520 {
 
     public void array() {
         Scanner scan = new Scanner(System.in);
-        String[][] arr = new String[6][6];
+        String[][] arr = new String[5][6];
 
         int rowNum; //행
         int colNum; //열
