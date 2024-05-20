@@ -148,7 +148,7 @@ public class Today0518 {
     public static void main(String[] args) {
 
         Today0518 td = new Today0518();
-        int[] arra = {1, 2, 3, 4};
+//        int[] arra = {1, 2, 3, 4};
 //        int k = 642324;
 
         String result = "123456";
