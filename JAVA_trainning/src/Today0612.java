@@ -84,6 +84,25 @@ public class Today0612 {
         return  result;
     }
 
+    //comma
+    public String comma (String nums){
+
+        StringBuilder sb = new StringBuilder();
+        int count = 0 ;
+
+
+        for(int i= nums.length()-1 ; i>=0; i--){
+            count++;
+            sb.insert(0,nums.charAt(i));
+            if(count%3==0){
+                sb.insert(0,",");
+            }
+        }
+        String result = sb.toString();
+
+        return result;
+    }
+
 
 
     public static void main(String[] args) {
@@ -91,9 +110,8 @@ public class Today0612 {
 
         Today0612 td = new Today0612();
 
-        String test = "abcd";
+       String k = "12345678";
 
-        String result = td.str(test);
-        System.out.println(result);
+       System.out.println(td.comma(k));
     }
 }
