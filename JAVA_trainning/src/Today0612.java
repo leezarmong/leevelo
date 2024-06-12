@@ -195,7 +195,7 @@ public class Today0612 {
             }
         }
 
-        arr[rowNum][colNum] = " ";
+        arr[rowNum][colNum] = "";
         System.out.println("  0 1 2 3 4");
 
         for (int row = 0; row < arr.length; row++) {
@@ -214,14 +214,51 @@ public class Today0612 {
     }
 
 
+    public int[]miara (int[]arra){
+
+        for(int i=0; i<arra.length; i++){
+
+            if(arra[i] >=10){
+                int[] result = {-1};
+
+                return result;
+            }
+        }
+
+
+        int[] result = new int[arra.length-1];
+        int min = arra[0];
+        int index = 0 ;
+
+        for(int i=0; i<arra.length; i++){
+
+            min = Math.min(arra[i],min);
+        }
+
+        for(int i=0; i<arra.length; i++){
+            if(arra[i] == min){
+                continue;
+            }
+            result[index++]= arra[i];
+        }
+
+        return  result;
+    }
+
+
 
     public static void main(String[] args) {
 
 
         Today0612 td = new Today0612();
 
-        td.arra();
+        int[] k = {1,2,3,4,5};
 
+        int[] result =td.miara(k);
+
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + " ");
+        }
 
 
 
