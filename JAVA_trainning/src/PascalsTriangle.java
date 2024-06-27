@@ -7,7 +7,7 @@ public class PascalsTriangle {
 
         int[][] triangle = new int[7][7];
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < triangle.length; i++) {
             for (int j = 0; j <= i; j++) {
                 if (j == 0 || j == i) { //첫번 째 행 과 마지막
 
@@ -34,7 +34,13 @@ public class PascalsTriangle {
             }
         }
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < triangle.length; i++) {
+            // 삼각형 모형 교정
+            for (int k = triangle.length; k>=i; k--){
+                System.out.print(" ");
+            }
+
+
             for (int j = 0; j <= i; j++) {
                 System.out.print(triangle[i][j] + " ");
             }
