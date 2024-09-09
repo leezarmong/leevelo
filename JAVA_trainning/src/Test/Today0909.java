@@ -70,4 +70,40 @@ public class Today0909 {
 
         return answer;
     }
+
+
+    //수 -> 배열
+    public int[] ar (int nums){
+        String k = String.valueOf(nums);
+        int[] answer = new int[k.length()];
+
+        char c ;
+
+//        for(int i=0; i<answer.length; i++){
+//            c = k.charAt(i);
+//            answer[i] = Integer.parseInt(String.valueOf(c));
+//        }
+
+        for(int i=0; i<answer.length; i++){
+
+            answer[i] = k.charAt(i) -'0';
+        }
+
+        return  answer;
+    }
+
+    public int[] ar2 (int nums){
+        String k = String.valueOf(nums);
+        int[] answer = new int[k.length()];
+
+        char c ;
+
+        for(int i=0; i<k.length();i++){
+            c = k.charAt(i);
+            answer[i] = Integer.parseInt(String.valueOf(c));
+        }
+
+
+        return  answer;
+    }
 }
