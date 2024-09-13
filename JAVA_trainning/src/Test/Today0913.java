@@ -3,6 +3,20 @@ package Test;
 public class Today0913 {
 
 
+    //문자열 역순
+    protected String str (String k){
+
+        String answer = "";
+
+        for(int i= k.length(); i>=0; i--){
+            answer+= k.substring(i,i+1);
+
+        }
+
+
+        return "";
+    }
+
     //배열 -> 배열 역순
     protected int[] arra1 (int[] arr){
 
@@ -54,7 +68,7 @@ public class Today0913 {
 
         for(int i=0; i<answer.length; i++){
 
-            answer[i] = Integer.parseInt(knum.substring(knum.length()-1,knum.length()-i));
+            answer[i] = Integer.parseInt(knum.substring(knum.length()-1-i,knum.length()-i));
         }
 
         return answer;
