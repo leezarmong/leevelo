@@ -39,4 +39,84 @@ public class Today0916 {
 
         return result ;
     }
+
+
+
+    //hol zzac arr
+    public int[][]zharr (int[]nums){
+
+        int zzacount = 0 ;
+        int holcount = 0 ;
+
+        for(int i=0; i<nums.length; i++){
+
+            if(nums[i] % 2 ==0){
+                zzacount++;
+            }
+            else{
+                holcount++;
+            }
+        }
+        int[]zzacarr = new int[zzacount];
+        int[]holarr = new int[holcount];
+
+        int zzacindex = 0;
+        int holindex = 0;
+
+        for(int i=0; i<nums.length; i++){
+            if(nums[i] % 2 ==0){
+                zzacarr[zzacindex++] = nums[i];
+            }
+            else{
+                holarr[holindex++] = nums[i];
+            }
+        }
+
+        int[][]result = new int[2][];
+
+        result[0] = zzacarr;
+        result[1] = holarr;
+        return result;
+    }
+
+    public int[][] hzarr2 (int num){
+
+        String str = String.valueOf(num);
+        int[] numsarr = new int[str.length()];
+
+
+        for(int i=0; i<numsarr.length; i++){
+
+
+            numsarr[i] = Integer.parseInt(String.valueOf(str.charAt(i)));
+        }
+
+
+
+
+
+
+        int[][] result = new int[2][];
+        return result;
+    }
+
+
+    public static void main(String[] args) {
+        Today0916 td = new Today0916();
+
+        int[] arrnums = {1,2,3,4,5,6};
+
+        int[][] arr = td.zharr(arrnums);
+
+        System.out.print("짝수 :");
+        for(int n : arr[0]){
+            System.out.print(" "+n);
+        }
+
+        System.out.println();
+        System.out.print("홀수 :");
+        for(int n : arr[1]){
+            System.out.print(" "+n);
+        }
+    }
 }
