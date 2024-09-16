@@ -87,4 +87,12 @@ public class Today0913 {
 
         return answer;
     }
+
+
+    protected int[][] arr (int[] nums){
+        int[][] result = new int[2][];
+
+
+        return result;
+    }
 }
