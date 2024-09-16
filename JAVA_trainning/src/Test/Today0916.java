@@ -101,6 +101,33 @@ public class Today0916 {
     }
 
 
+    public String comma (int nums){
+
+        String str = String.valueOf(nums);
+
+        int len = str.length();
+        StringBuilder sb = new StringBuilder();
+
+        int count = 0 ;
+        for(int i = len-1; i>=0; i--){
+            sb.insert(0,str.charAt(i));
+            count ++;
+
+            if(count % 3 ==0 && i >0){
+                sb.insert(0,",");
+            }
+        }
+
+
+        String result = "";
+
+        result = sb.toString();
+
+
+        return  result;
+    }
+
+
     public static void main(String[] args) {
         Today0916 td = new Today0916();
 
