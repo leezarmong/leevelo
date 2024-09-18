@@ -124,17 +124,44 @@ public class Today0918 {
             }
             answer[index++] = arr[i];
         }
-
         return answer;
     }
 
     public static void main(String[] args) {
-        Today0918 td = new Today0918();
-        int[] k = {2,3,4,11};
-        int[] resutl = td.test2(k);
 
-        for(int i=0; i<resutl.length; i++){
-            System.out.print(resutl[i]+" ");
+        String[][] test = new String[5][5];
+
+        for(int i=0; i<test.length; i++){
+
+            if(i%2==0) {
+                for (int j = 0; j < test[i].length; j++) {
+                    if(j%2==0) {
+                        test[i][j] = "X";
+                    }
+                    else{
+                        test[i][j] = "O";
+                    }
+                }
+            }else{
+                for (int j = 0; j < test[i].length; j++) {
+                    if(j%2==0) {
+                        test[i][j] = "O";
+                    }
+                    else{
+                        test[i][j] = "X";
+                    }
+
+                }
+            }
         }
+
+        for(int i=0; i<test.length; i++){
+            for(int j=0; j<test[i].length; j++){
+                System.out.print(test[i][j]+" ");
+            }
+            System.out.println();
+        }
+
+
     }
 }
