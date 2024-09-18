@@ -127,41 +127,78 @@ public class Today0918 {
         return answer;
     }
 
-    public static void main(String[] args) {
 
-        String[][] test = new String[5][5];
 
-        for(int i=0; i<test.length; i++){
+    public void lotto() {
+        int[][] lo = new int[5][6];
 
-            if(i%2==0) {
-                for (int j = 0; j < test[i].length; j++) {
-                    if(j%2==0) {
-                        test[i][j] = "X";
-                    }
-                    else{
-                        test[i][j] = "O";
-                    }
-                }
-            }else{
-                for (int j = 0; j < test[i].length; j++) {
-                    if(j%2==0) {
-                        test[i][j] = "O";
-                    }
-                    else{
-                        test[i][j] = "X";
-                    }
+        for (int h = 0; h < lo.length; h++) {
+            for (int i = 0; i < lo[h].length; i++) {
+                lo[h][i] = (int) (Math.random() * 45) + 1;
 
+                // Check for duplicates in the current row
+                for (int j = 0; j < i; j++) {
+                    if (lo[h][i] == lo[h][j]) {
+                        i--; // 중복이 있으면 다시 번호 생성
+                        break;
+                    }
                 }
             }
+            // Sort each row of numbers
+            Arrays.sort(lo[h]);
         }
-
-        for(int i=0; i<test.length; i++){
-            for(int j=0; j<test[i].length; j++){
-                System.out.print(test[i][j]+" ");
+        // Print the numbers
+        System.out.println("즐거운 추석 ㅋㅅㅋ");
+        for (int h = 0; h < lo.length; h++) {
+            System.out.print((h + 1) + "번째 행운의 번호: ");
+            for (int i = 0; i < lo[h].length; i++) {
+                System.out.print(lo[h][i] + " ");
             }
             System.out.println();
         }
+    }
 
+
+
+    public static void main(String[] args) {
+
+//        String[][] test = new String[5][5];
+//
+//        for(int i=0; i<test.length; i++){
+//
+//            if(i%2==0) {
+//                for (int j = 0; j < test[i].length; j++) {
+//                    if(j%2==0) {
+//                        test[i][j] = "X";
+//                    }
+//                    else{
+//                        test[i][j] = "O";
+//                    }
+//                }
+//            }else{
+//                for (int j = 0; j < test[i].length; j++) {
+//                    if(j%2==0) {
+//                        test[i][j] = "O";
+//                    }
+//                    else{
+//                        test[i][j] = "X";
+//                    }
+//
+//                }
+//            }
+//        }
+//
+//        for(int i=0; i<test.length; i++){
+//            for(int j=0; j<test[i].length; j++){
+//                System.out.print(test[i][j]+" ");
+//            }
+//            System.out.println();
+//        }
+
+
+        Today0918 td = new Today0918();
+        td.lotto();
 
     }
 }
+
