@@ -1,5 +1,7 @@
 package Test;
 
+import java.util.Scanner;
+
 public class Today0916 {
 
 
@@ -128,22 +130,33 @@ public class Today0916 {
     }
 
 
+
+
+
     public static void main(String[] args) {
-        Today0916 td = new Today0916();
+    Scanner scan = new Scanner(System.in);
 
-        int[] arrnums = {1,2,3,4,5,6};
+    System.out.print(": ");
+    String result = scan.next();
+    StringBuilder sb = new StringBuilder();
 
-        int[][] arr = td.zharr(arrnums);
+    for(int i=0; i<result.length(); i++){
+        char c = result.charAt(i);
 
-        System.out.print("짝수 :");
-        for(int n : arr[0]){
-            System.out.print(" "+n);
+        if(Character.isUpperCase(c)){
+            sb.append(Character.toLowerCase(c));
         }
-
-        System.out.println();
-        System.out.print("홀수 :");
-        for(int n : arr[1]){
-            System.out.print(" "+n);
+        else{
+            sb.append(Character.toUpperCase(c));
         }
     }
+
+    String k = sb.toString();
+    System.out.print(k);
+
+
+    }
+
+
+
 }
