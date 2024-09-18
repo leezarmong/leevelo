@@ -34,7 +34,6 @@ public class Today0918 {
         return answer;
     }
 
-
     public int[] arr(int[] nums) {
 
         int[] answer = new int[2];
@@ -53,7 +52,6 @@ public class Today0918 {
 
         return answer;
     }
-
 
     //최대가 되는 수 3개 곱하기
     public int test(int nums) {
@@ -89,5 +87,54 @@ public class Today0918 {
         int answer = max1 * max2 * max3;
 
         return answer;
+    }
+
+    public int[] test2 (int[] arr){
+
+        int length = arr.length;
+
+        // 길이가 5 를 넘어갈 경우 -1 를 반환 .
+        if(length >=6){
+
+            int[] answer = {-1};
+            return answer;
+        }
+
+        // arr 의 원소가 10 을 넘어갈 경우 -1 를 반환
+        for(int i=0; i<arr.length; i++) {
+            if (arr[i] >= 10) {
+                int[] answer = {-1};
+                return answer;
+            }
+        }
+
+        int[] answer = new int[arr.length-1];
+        int min;
+        int index = 0 ;
+
+        min = arr[0];
+        for(int i=0; i<arr.length; i++){
+            min = Math.min(min, arr[i]);
+        }
+
+        for(int i=0; i<arr.length; i++){
+
+            if(arr[i] == min){
+                continue;
+            }
+            answer[index++] = arr[i];
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Today0918 td = new Today0918();
+        int[] k = {2,3,4,11};
+        int[] resutl = td.test2(k);
+
+        for(int i=0; i<resutl.length; i++){
+            System.out.print(resutl[i]+" ");
+        }
     }
 }
