@@ -119,4 +119,8 @@ else 0
 end as 등급
 from emp;
 
+select max(sal), min(sal) from emp;
+
+
+
 
