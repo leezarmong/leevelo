@@ -76,7 +76,7 @@ select*from student where stu_class in
 
 
 select * from student;
-
+-- case test 
 select stu_name,
 case
 when stu_height >= 180 then 'A'
@@ -94,9 +94,29 @@ case job
 when 'MANAGER' then sal*1.2
 when 'ANALYST' then sal*1.1
 else sal
-end as 인상
+end as 인
 from emp;
 
 
+select empno,ename,sal,
+ case when sal between 1 and 1000 then 'LEVEL 1'
+     when sal between 1001 and 2000 then 'LEVEL 2'
+     when sal between 2001 and 3000 then 'LEVEL 3'
+     when sal between 3001 and 4000 then 'LEVEL 4'
+     else 'LV5'
+end as LV
+from emp
+order by sal desc;
+
+
+
+select empno , ename , sal,
+case 
+when sal >= 5000 then 1
+when sal >= 3000 then 2
+when sal >= 1000 then 3
+else 0
+end as 등급
+from emp;
 
 
