@@ -71,3 +71,32 @@ select * from student where stu_class in ( select distinct stu_class from studen
 --'컴퓨터정보'과 학생과 같은 반을 가진 학생의 정보 검색
 select*from student where stu_class in
 (select distinct stu_class from student where stu_dept='컴퓨터정보') and stu_dept <> '컴퓨터정보';
+
+
+
+
+select * from student;
+
+select stu_name,
+case
+when stu_height >= 180 then 'A'
+when stu_height >= 170 then 'B'
+when stu_height >= 160 then 'C'
+else 'F'
+END as tall
+from student;
+
+
+select * from emp;
+
+select ename,job,sal,
+case job
+when 'MANAGER' then sal*1.2
+when 'ANALYST' then sal*1.1
+else sal
+end as 인상
+from emp;
+
+
+
+
