@@ -87,6 +87,16 @@ END as tall
 from student;
 
 
+select stu_name,stu_height,
+case
+when stu_height >=180 then 'A'
+when stu_height >=170 then 'B'
+when stu_height >=160 then 'C'
+else 'D'
+end as grade
+from student;
+
+
 select * from emp;
 
 select ename,job,sal,
@@ -121,6 +131,30 @@ from emp;
 
 select max(sal), min(sal) from emp;
 
+
+-- ddl create test
+   create table test (
+   memberNO number generated as identity ( start with 1 ) primary key,
+   memberADD varchar2(20),
+   memberNAME varchar2(20),
+   CONSTRAINT fk_memberName foreign key(cateCode) references vam_bcate(cateCode)
+   
+   );
+
+
+
+
+
+
+create table member (
+memberNO number generated as identity ( start with 1 ) primary key,
+memberNAME varchar2(20),
+memberADD varchar2(20),
+constraint fk_name foreign key(memberNAME) references memberB(memberNAME)
+);
+
+
+select * from student;
 
 
 
