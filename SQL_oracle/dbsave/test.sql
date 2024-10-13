@@ -156,5 +156,63 @@ constraint fk_name foreign key(memberNAME) references memberB(memberNAME)
 
 select * from student;
 
+select empno,ename,sal,
+ case when sal between 1 and 1000 then 'LEVEL 1'
+     when sal between 1001 and 2000 then 'LEVEL 2'
+     when sal between 2001 and 3000 then 'LEVEL 3'
+     when sal between 3001 and 4000 then 'LEVEL 4'
+     when sal > 4001 then 'LEVEL 5'
+end as "level"
+from emp
+order by sal desc;
+
+select count(*)as학생,sum(stu_height)as 신장합,
+count(stu_height) as 해당학생수,avg(stu_height) as 평균신장
+from student;
+
+select stu_dept,avg(stu_weight)from student group by stu_dept;
+
+select stu_dept, avg(stu_weight) from student group by stu_dept;
 
 
+select rownum as RN, A.* from(
+select * from member m
+join station s
+on m.member_name = s.member_name
+where member_no is not null
+order by m.member_no
+) A;
+
+select stu_dept, avg(stu_height) from student group by stu_dept where stu_height is not null;
+
+select stu_dept, avg(stu_height) from student where stu_height is not null group by stu_dept;
+
+select stu_dept, ROUND(avg(stu_height),3) from student;
+select stu_dept, ROUND(avg(stu_height),3) from student where stu_height is not null group by stu_dept;
+
+
+--급여 연습
+select * from emp;
+
+SELECT SUM(salColumn) AS 총급여
+FROM emptable
+WHERE nameColumn = 'Hong Gil-dong'  
+  AND EXTRACT(MONTH FROM datecolumn) BETWEEN 1 AND 6  
+  AND EXTRACT(YEAR FROM datecolumn) = 2023;
+  
+select sum(sal) as 총급여
+from emp
+where ename ='KING'
+ and extract(month from hiredate) between 1 and 6;
+ 
+
+select * from emp;
+
+desc emp;
+
+select round(avg(sal),3) as 연도평균 from emp
+where hiredate between TO_DATE('1981-01-01') and to_date('1982-12-31');
+
+SELECT ENAME, SAL 
+FROM emp
+WHERE HIREDATE BETWEEN TO_DATE('1981-01-01') AND TO_DATE('1982-12-31');
