@@ -1,5 +1,6 @@
 package Test;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Cordinate {
@@ -35,9 +36,39 @@ public class Cordinate {
         }
     }
 
-    public static void main(String[] args) {
-        Cordinate sd = new Cordinate();
 
-        sd.ready();
+    public int num ( int num){
+
+        String[] str = String.valueOf(num).split("");
+        Arrays.sort(str);
+
+
+
+        String index = "";
+        for(String k : str){
+            index += k;
+        }
+
+        StringBuilder sb = new StringBuilder(index.toString());
+        sb.reverse();
+
+
+        int result = Integer.parseInt(sb.toString());
+
+
+        return 0 ;
     }
+
+public int rever ( int num){
+        int result = 0 ;
+
+        while(num != 0 ){
+            int digit = result% 10;
+            result = result*10 + digit;
+            num /= 10;
+
+        }
+
+        return result;
+}
 }
