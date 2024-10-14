@@ -4,6 +4,7 @@ import com.sun.tools.jdeprscan.scan.Scan;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Today1014 {
 
@@ -204,10 +205,107 @@ public class Today1014 {
     }
 
 
+    public String comma (int num){
+            String k = String.valueOf(num);
+            int len = k.length();
+            int count = 0;
+
+            StringBuilder sb = new StringBuilder();
+            for(int i= len-1; i>=0; i--){
+
+                sb.insert(0,k.charAt(i));
+                count++;
+
+                if(count % 3 ==0 && i>0){
+                    sb.insert(0,",");
+                }
+            }
+
+            String result = sb.toString();
+
+        return result;
+    }
+
+
+
+    public String email (String user){
+        String[] parts = user.split("@");
+
+        if (parts.length == 2) {
+            String id = parts[0];        // Before '@' (ID part)
+            String domain = parts[1];    // After '@' (domain part)
+
+            // Store ID and domain in an array
+            String[] emailParts = new String[2];
+            emailParts[0] = id;
+            emailParts[1] = domain;
+
+            // Print the result
+            System.out.println("ID: " + emailParts[0]);
+            System.out.println("Domain: " + emailParts[1]);
+        }
+
+        return "";
+    }
+
+    public String[][] email2(String user){
+        Scanner scan = new Scanner(System.in);
+     int countUser = 5 ;
+     String[][] userEmail = new String[countUser][2];
+
+     for(int i=0; i<countUser; i++){
+
+         System.out.print("이메일 입력"+(i+1));
+         String insert = scan.next();
+
+         String[] parts = insert.split("@");
+         if(parts.length ==2){
+
+             userEmail[i][0]= parts[0];
+             userEmail[i][1]= parts[1];
+         }
+         else{
+             System.out.print("잘못된 입력입니다. ");
+             i--;
+         }
+     }
+
+     return userEmail;
+    }
+
+
+   public int dolution (String str){
+        char[] chaa = str.toCharArray();
+        Stack<Character> stack = new Stack<>();
+
+
+        for(int i=0; i<chaa.length; i++){
+            char c = chaa[i];
+
+            if(stack.isEmpty()){
+                stack.push(c);
+            }
+            else{
+                if(stack.peek()==c){
+                    stack.pop();
+                }
+                else{
+                    stack.push(c);
+                }
+            }
+        }
+        return stack.isEmpty() ? 1 :0 ;
+   }
+
+
+
+
 
 
 
 }
+
+
 
 class Phone{
     private String phone;
