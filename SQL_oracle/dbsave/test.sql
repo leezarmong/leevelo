@@ -203,12 +203,23 @@ WHERE nameColumn = 'Hong Gil-dong'
 select sum(sal) as 총급여
 from emp
 where ename ='KING'
- and extract(month from hiredate) between 1 and 6;
+ and extract(month from hiredate) BETWEEN 1 AND 12  ;
  
+--
+select avg(sal) from emp
+where ename='ss'
+and extract(month from date) between  1 and 12
+and extract(year from ydate)=2023;
+
+
+
 
 select * from emp;
 
+
 desc emp;
+
+
 
 select round(avg(sal),3) as 연도평균 from emp
 where hiredate between TO_DATE('1981-01-01') and to_date('1982-12-31');
