@@ -67,4 +67,24 @@ public class Today1015 {
         return result;
     }
 
+
+    //list 문자열 제거
+    public String[] strk2 (String k){
+        String[] b = k.split(" ");
+        ArrayList<String>list = new ArrayList<>();
+
+       for(int i=0; i<b.length; i++){
+           if(!list.contains(b[i])){
+               list.add(b[i]);
+           }
+       }
+
+       String[] result = new String[list.size()];
+       for(int i=0;i<result.length; i++){
+           result[i] = list.get(i);
+       }
+
+       return result;
+    }
+
 }
