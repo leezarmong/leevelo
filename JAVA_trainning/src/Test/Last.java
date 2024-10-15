@@ -1,5 +1,7 @@
 package Test;
 
+import java.util.Stack;
+
 public class Last {
 
 
@@ -82,4 +84,89 @@ public class Last {
 
         return result;
     }
+
+
+    public int[] arr ( int num){
+        String k = String.valueOf(num);
+        int[] answer = new int[k.length()];
+        char c ;
+
+        for(int i=0; i< k.length(); i++){
+            c = k.charAt(i);
+            answer[i] = Integer.parseInt(String.valueOf(c));
+
+        }
+        int max , min ;
+
+        max = min = answer[0];
+
+        for(int i=0; i<answer.length; i++){
+            max = Math.max(answer[i],max);
+            min = Math.min(answer[i],min);
+        }
+
+
+        int[] result = new int[2];
+        result[0] = max;
+        result[1] = min;
+
+        return result;
+    }
+
+    public String[] email (String k){
+
+        String[] str = k.split("@");
+
+        String id = "";
+        String email = "";
+        if(str.length== 2){
+            id = str[0];
+            email = str[1];
+        }
+
+        String[] answer = new String[2];
+
+        answer[0] = id;
+        answer[1] = email;
+
+
+        return answer;
+    }
+
+
+   public int stac( String k ) {
+        Stack<Character>list = new Stack<>();
+        char[] c = k.toCharArray();
+
+        for(int i=0; i<c.length; i++){
+            char carr = c[i];
+            if(list.isEmpty()){
+                list.push(carr);
+            }
+            else{
+                if(list.peek() == carr){
+                    list.pop();
+                }
+                else{
+                    list.push(carr);
+                }
+            }
+        }
+
+        return list.isEmpty() ? 1 :0;
+   }
+
+  public int num ( int nums){
+        int result = 0 ;
+
+        while (nums != 0){
+            int digit = result % 10;
+
+            result = result * 10 + digit;
+            nums /= 10;
+
+        }
+        return result;
+  }
+
 }
