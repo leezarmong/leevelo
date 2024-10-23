@@ -2,101 +2,139 @@ package Test;
 
 
 import java.util.HashSet;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //플레이어 class
-class Player{
-
-    //player class Scanner
+class Player {
+    // Scanner (공용 스캐너 사용)
     static Scanner scan = new Scanner(System.in);
 
-    //전역변수
-    String name; //참가자
-    String word; //단어
+    // 전역변수 (플레이어의 이름과 단어)
+    private String name;
+    private String word;
 
-    //SetName
-    public void setUserNmae(){
-
-        System.out.print("user name :");
-        name = scan.next();
-
-        this.name = name;
+    // 이름 설정
+    public void setUserName() {
+        System.out.print("user name: ");
+        this.name = scan.next(); // this 사용 명확히
     }
 
-    //GetName
-    public String getName(){
+    // 이름 반환
+    public String getName() {
         return name;
     }
 
-    //SetWord
-    public void setWord(){
-        System.out.print(name+">>");
-        word = scan.next();
-
-        this.word = word;
+    // 단어 입력
+    public void setWord() {
+        System.out.print(name + " >> ");
+        this.word = scan.next();
     }
 
-    //첫글자 마지막 글자 유효성
-   public boolean checkSuccess (String lastWord){
+    // 입력된 단어 반환
+    public String getWord() {
+        return word;
+    }
 
-        int lastIndex = lastWord.length()-1; // 마지막 인덱스
+    // 마지막 글자와 첫 글자 유효성 검사
+    public boolean checkSuccess(String lastWord) {
+        int lastIndex = lastWord.length() - 1;  // 마지막 인덱스
         char lastChar = lastWord.charAt(lastIndex); // 마지막 글자
-        char firstChar = word.charAt(0); // 첫번째 글자
+        char firstChar = word.charAt(0); // 첫 번째 글자
 
-        if(lastChar == firstChar){
-            return true;
-        }
-       else return false;
+        return lastChar == firstChar; // 일치 여부 반환
     }
-
 }
 
-//끝말잇기 class
+// 끝말잇기 클래스
 public class Remarks {
+    // Scanner (공용 스캐너 사용)
+    static Scanner scan = new Scanner(System.in);
 
-    static Scanner scan = new Scanner(System.in); //Remarks class Scanner
-    static HashSet<String> miss = new HashSet<>(); //중복검사
+    // 중복 단어 검사용 HashSet
+    static HashSet<String> usedWords = new HashSet<>();
 
-    //실행
-    public static void run(){
+    // 게임 실행 메서드
+    public static void run() {
+        System.out.print("참가 인원: ");
+        int num = scan.nextInt(); // 참가자 수 입력
 
-        System.out.print("참가 인원 :");
-        int num = scan.nextInt();
+        Player[] players = new Player[num]; // 참가자 배열 생성
 
-        Player[] player = new Player[num]; // 참가자 인스턴스
-
-        //참가자 인원만큼 setUserName();
-        for(int i=0; i<num; i++){
-            player[i] = new Player();
-            player[i].setUserNmae();
+        // 참가자 수만큼 이름 설정
+        for (int i = 0; i < num; i++) {
+            players[i] = new Player();
+            players[i].setUserName();
         }
 
-        System.out.print("시작 단어는 '아버지' 입니다.");
+        // 시작 단어 설정
+        System.out.println("시작 단어는 '아버지'입니다.");
         String lastWord = "아버지";
 
+        int i = 0; // 참가자 순서 변수 초기화
 
-        int i = 0 ;//참가자 인원
+        // 게임 루프 시작
+        while (true) {
+            players[i].setWord(); // 참가자 단어 입력
 
-        //시작 -> 중복과 틀린단어 말했을 시 탈락.
-        while(true){
-            player[i].setWord();
-
-            if(miss.contains(player[i].word)){
-                System.out.print("중복된 단어를 사용 하여 "+player[i].getName()+" 가 졌습니다.");
-                break;
+            // 입력 단어 중복 검사
+            if (usedWords.contains(players[i].getWord())) {
+                System.out.println("중복된 단어를 사용하여 " + players[i].getName() + "가 졌습니다.");
+                break; // 게임 종료
             }
-            else if(!player[i].checkSuccess(lastWord)){
-                System.out.print(player[i].getName()+"가 졌습니다.");
-                break;
+
+            // 첫 글자와 마지막 글자 유효성 검사
+            if (!players[i].checkSuccess(lastWord)) {
+                System.out.println(players[i].getName() + "가 졌습니다.");
+                break; // 게임 종료
+            }
+
+            // 단어를 중복 검사 Set에 추가
+            usedWords.add(players[i].getWord());
+
+            // 마지막 단어 갱신
+            lastWord = players[i].getWord();
+
+            // 다음 참가자 순서로 이동
+            i++;
+
+            // 모든 참가자가 단어를 입력한 경우 순서 초기화
+            if (i == num) {
+                i = 0;
             }
         }
+    }
 
-        miss.add(player[i].word); //단어 입력
-        lastWord = player[i].word; //마지막 글자와 같으면 변경 아버지 -> 지렁이 = 지렁
+    public static void main(String[] args) {
+        System.out.println("끝말잇기 게임을 시작합니다...");
 
-        i++; //다음턴
-        if(i == num){
-            i=0; //턴 이 참가수 와같으면 다시 마이턴 !
+        while(true) {
+            try {
+                run(); // 게임 진행
+
+                while(true) { // 게임을 계속하는 지 판별
+                    System.out.print("게임을 다시 하시겠습니까(네/아니오)>>");
+                    String restart = scan.next();
+
+                    if(restart.equals("네")) {
+                        System.out.println("끝말잇기 게임을 시작합니다...");
+                        break; // 안쪽 while문을 빠져나가 바깥쪽 while문 진행
+                    }
+                    else if(restart.equals("아니오")) {
+                        System.out.println("끝말잇기 게임을 종료합니다...");
+                        System.exit(0); // 시스템 종료
+                    }
+                    else {
+                        System.out.println("잘못된 입력입니다.");
+                        continue; // 안쪽 while문 진행
+                    }
+                }
+            }
+            catch(InputMismatchException e) { // 참가 인원 입력값이 숫자가 아닐 경우
+                System.out.println("잘못된 입력입니다.");
+                scan.nextLine(); // 입력값 clear
+                continue; // 바깥쪽 while문 진행
+            }
         }
     }
 }
